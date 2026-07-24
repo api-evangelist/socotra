@@ -1,0 +1,1082 @@
+openapi: 3.0.1
+info:
+  title: Socotra Insurance Suite OpenAPI Definition Business Stats API
+  description: Socotra Insurance Suite API
+  termsOfService: https://www.socotra.com
+  version: v0
+servers:
+- url: /
+  description: Generated server url
+tags:
+- name: Business Stats
+paths:
+  /business-stats/metrics/renewedPolicies:
+    post:
+      operationId: getRenewedPolicies
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: backfillZeroes
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricResponse'
+                deprecated: false
+      x-securityGroup: metrics
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+  /business-stats/metrics/renewedPolicies/download:
+    post:
+      operationId: downloadRenewedPolicies
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: backfillZeroes
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: metrics
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+  /business-stats/metrics/renewalRate:
+    post:
+      operationId: getRenewalRate
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: backfillZeroes
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricResponse'
+                deprecated: false
+      x-securityGroup: metrics
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+  /business-stats/metrics/renewalRate/download:
+    post:
+      operationId: downloadRenewalRate
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: backfillZeroes
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: metrics
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+  /business-stats/metrics/quotes:
+    post:
+      operationId: getPricedQuotes
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: backfillZeroes
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricResponse'
+                deprecated: false
+      x-securityGroup: metrics
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+  /business-stats/metrics/quotes/download:
+    post:
+      operationId: downloadPricedQuotes
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: backfillZeroes
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: metrics
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+  /business-stats/metrics/issued:
+    post:
+      operationId: getIssuedPolicies
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: backfillZeroes
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricResponse'
+                deprecated: false
+      x-securityGroup: metrics
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+  /business-stats/metrics/issued/download:
+    post:
+      operationId: downloadIssuedPolicies
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: backfillZeroes
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: metrics
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+  /business-stats/metrics/gwp:
+    post:
+      operationId: getGWP
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: backfillZeroes
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricResponse'
+                deprecated: false
+      x-securityGroup: metrics
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+  /business-stats/metrics/gwp/download:
+    post:
+      operationId: downloadGWP
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: backfillZeroes
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: metrics
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+  /business-stats/metrics/expiredPolicies:
+    post:
+      operationId: getExpiredPolicies
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: backfillZeroes
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricResponse'
+                deprecated: false
+      x-securityGroup: metrics
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+  /business-stats/metrics/expiredPolicies/download:
+    post:
+      operationId: downloadExpiredPolicies
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: backfillZeroes
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: metrics
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+  /business-stats/metrics/conversionRate:
+    post:
+      operationId: getConversionRate
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: backfillZeroes
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricResponse'
+                deprecated: false
+      x-securityGroup: metrics
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+  /business-stats/metrics/conversionRate/download:
+    post:
+      operationId: downloadConversionRate
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: backfillZeroes
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: metrics
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+  /business-stats/delta-files/list:
+    post:
+      operationId: fetchDeltaFiles
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeltaFilesGetRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeltaFilesGetResponse'
+                deprecated: false
+      x-securityGroup: delta-files
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+  /business-stats/delta-files/download:
+    post:
+      operationId: fetchDeltaFile
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeltaFileDownloadRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            text/sql:
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: delta-files
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Business Stats
+components:
+  schemas:
+    DeltaFilesGetResponse:
+      type: object
+      required:
+      - createTableFile
+      - dataProcessedThroughTime
+      - dropTableFile
+      - s3Bucket
+      - version
+      - deltaFiles
+      properties:
+        version:
+          type: integer
+          format: int32
+          description: Target a specific schema version; defaults to latest if omitted
+          deprecated: false
+        createTableFile:
+          type: string
+          description: Path & name of file with necessary sql statement to create the table in the destination schema
+          deprecated: false
+        dropTableFile:
+          type: string
+          description: Path & name of file with necessary sql statement to drop the existing version of the table in the destination schema
+          deprecated: false
+        s3Bucket:
+          type: string
+          description: The source S3 bucket required for the <ApiLink name='DeltaFileDownloadRequest' />
+          deprecated: false
+        dataProcessedThroughTime:
+          type: integer
+          format: int64
+          description: The time of the latest operational change that will be reflected in the data. Format is UNIX timestamp in UTC seconds (e.g. 1451606100)
+          deprecated: false
+        deltaFiles:
+          type: array
+          description: The index of individual delta files
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DeltaFile'
+            deprecated: false
+      deprecated: false
+    MetricRequest:
+      type: object
+      required:
+      - startTime
+      - endTime
+      - localEndDateAdjusted
+      - localStartDateAdjusted
+      properties:
+        groupByProduct:
+          type: boolean
+          deprecated: false
+        groupByTenant:
+          type: boolean
+          deprecated: false
+        tenantLocators:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: uuid
+            deprecated: false
+        products:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        tenantType:
+          type: string
+          enum:
+          - test
+          - production
+          - retired
+          - deleted
+          deprecated: false
+        startTime:
+          type: string
+          format: date-time
+          deprecated: false
+        endTime:
+          type: string
+          format: date-time
+          deprecated: false
+        periodic:
+          type: string
+          enum:
+          - none
+          - day
+          - week
+          - month
+          - quarter
+          - year
+          deprecated: false
+        currencies:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        localStartDateAdjusted:
+          type: string
+          format: date
+          deprecated: false
+        localEndDateAdjusted:
+          type: string
+          format: date
+          deprecated: false
+      deprecated: false
+    StreamingResponseBody:
+      type: object
+      deprecated: false
+    DeltaFilesGetRequest:
+      type: object
+      required:
+      - tenantLocator
+      - transformationTable
+      properties:
+        tenantLocator:
+          type: string
+          format: uuid
+          description: Locator of the tenant corresponding to the data
+          deprecated: false
+        transformationTable:
+          type: string
+          description: Name of the desired Data Lake table
+          enum:
+          - DataLakeAccountDataExtensions
+          - DataLakeAccounts
+          - DataLakeAffectedTransactions
+          - DataLakeAuxData
+          - DataLakeBillingHolds
+          - DataLakeClaimDataExtensions
+          - DataLakeClaims
+          - DataLakeCreditDistributions
+          - DataLakeCreditItems
+          - DataLakeDelinquencies
+          - DataLakeDelinquencyReferences
+          - DataLakeDiaries
+          - DataLakeDisbursementDataExtensions
+          - DataLakeDisbursements
+          - DataLakeFaTransactionAccountLines
+          - DataLakeFaTransactions
+          - DataLakeFnolDataExtensions
+          - DataLakeFnols
+          - DataLakeInstallmentItems
+          - DataLakeInstallments
+          - DataLakeInstallmentSettings
+          - DataLakeInvoiceItems
+          - DataLakeInvoices
+          - DataLakeLedgerAccountLineItems
+          - DataLakeLedgerAccounts
+          - DataLakeMoratoriumElections
+          - DataLakeMoratoriums
+          - DataLakeMoratoriumStatuses
+          - DataLakePaymentDataExtensions
+          - DataLakePayments
+          - DataLakePolicies
+          - DataLakePolicyAutoRenewals
+          - DataLakePolicyCoverageTerms
+          - DataLakePolicyDataExtensions
+          - DataLakePolicyElementCharges
+          - DataLakePolicyElements
+          - DataLakePolicyElementTree
+          - DataLakePolicyElementUnderwritingFlags
+          - DataLakePolicyPreferences
+          - DataLakePolicySegments
+          - DataLakePolicyStatuses
+          - DataLakePolicyTerms
+          - DataLakePolicyTransactionChangeInstructions
+          - DataLakePolicyTransactions
+          - DataLakeProducerCodeDataExtensions
+          - DataLakeProducerCodes
+          - DataLakeProducerDataExtensions
+          - DataLakeProducerHierarchy
+          - DataLakeProducers
+          - DataLakeQuoteCoverageTerms
+          - DataLakeQuoteDataExtensions
+          - DataLakeQuoteElementCharges
+          - DataLakeQuoteElements
+          - DataLakeQuoteElementTree
+          - DataLakeQuoteElementUnderwritingFlags
+          - DataLakeQuotes
+          - DataLakeTaskReferences
+          - DataLakeTasks
+          - DataLakeUserAssociations
+          - DataLakeUserQualifications
+          - DataLakeWriteOffs
+          deprecated: false
+        deltaFileType:
+          type: string
+          description: The format of the delta files to be returned. Defaults to `sql` if omitted
+          enum:
+          - sql
+          - csv
+          deprecated: false
+        version:
+          type: integer
+          format: int32
+          description: Target a specific schema version; defaults to latest if omitted
+          deprecated: false
+        startTime:
+          type: integer
+          format: int64
+          description: Files in returned index will all have a `generationTime` later than `startTime`. Format is UNIX timestamp in UTC milliseconds (e.g. 1741713134934)
+          deprecated: false
+        lastFile:
+          type: string
+          description: Only files after this file in the index will be returned. Must provide full `fileName`
+          deprecated: false
+        dataProcessedThroughTime:
+          type: integer
+          format: int64
+          description: Only files with a `dataProcessedThroughTime` prior to or equal to this time will be returned. Format is UNIX timestamp in UTC seconds (e.g. 1451606100)
+          deprecated: false
+      deprecated: false
+    DeltaFile:
+      type: object
+      required:
+      - fileName
+      - deltaFileType
+      - generationTime
+      - jobEndTime
+      - jobStartTime
+      properties:
+        deltaFileType:
+          type: string
+          description: The format of the delta file
+          enum:
+          - sql
+          - csv
+          deprecated: false
+        fileName:
+          type: string
+          description: The name of the delta file
+          deprecated: false
+        jobStartTime:
+          type: integer
+          format: int64
+          description: The that the job to generate the file began. Format is UNIX timestamp in UTC seconds (e.g. 1451606100)
+          deprecated: false
+        jobEndTime:
+          type: integer
+          format: int64
+          description: The that the job to generate the file ended. Format is UNIX timestamp in UTC seconds (e.g. 1451606100)
+          deprecated: false
+        generationTime:
+          type: integer
+          format: int64
+          description: The time that the file was generated. Format is UNIX timestamp in UTC milliseconds (e.g. 1741713134934)
+          deprecated: false
+        recordCount:
+          type: integer
+          format: int32
+          description: For files with `deltaFileType` = `csv`, the number of rows in the file, excluding headers
+          deprecated: false
+        md5HashSum:
+          type: string
+          description: For files with `deltaFileType` = `csv`, the MD5 format hashsum for the file contents, including headers
+          deprecated: false
+      deprecated: false
+    DeltaFileDownloadRequest:
+      type: object
+      required:
+      - tenantLocator
+      - fileName
+      properties:
+        tenantLocator:
+          type: string
+          format: uuid
+          description: Locator of the tenant corresponding to the data
+          deprecated: false
+        s3Bucket:
+          type: string
+          description: The name of the S3 bucket as returned by the <ApiLink name='DeltaFilesGetResponse' />. Only required if requesting `createTableFile` or `dropTableFile`, and `deltaFileType` is `csv`
+          deprecated: false
+        fileName:
+          type: string
+          description: The name of the file to be requested. Value may be `fileName`, `createTableFile`, or `dropTableFile`
+          deprecated: false
+      deprecated: false
+    MetricResponse:
+      type: object
+      required:
+      - count
+      - endDate
+      - offset
+      - periodic
+      - startDate
+      - results
+      properties:
+        offset:
+          type: integer
+          format: int32
+          deprecated: false
+        count:
+          type: integer
+          format: int32
+          deprecated: false
+        startDate:
+          type: string
+          format: date
+          deprecated: false
+        endDate:
+          type: string
+          format: date
+          deprecated: false
+        periodic:
+          type: string
+          enum:
+          - none
+          - day
+          - week
+          - month
+          - quarter
+          - year
+          deprecated: false
+        results:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DataPoint'
+            deprecated: false
+      deprecated: false
+    DataPoint:
+      type: object
+      required:
+      - tenantLocator
+      - productName
+      - currency
+      - dataPointStartDate
+      - value
+      properties:
+        productName:
+          type: string
+          deprecated: false
+        tenantLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        currency:
+          type: string
+          deprecated: false
+        dataPointStartDate:
+          type: string
+          format: date
+          deprecated: false
+        value:
+          type: number
+          deprecated: false
+      deprecated: false

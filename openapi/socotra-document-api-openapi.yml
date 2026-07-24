@@ -1,0 +1,1811 @@
+openapi: 3.0.1
+info:
+  title: Socotra Insurance Suite OpenAPI Definition Document API
+  description: Socotra Insurance Suite API
+  termsOfService: https://www.socotra.com
+  version: v0
+servers:
+- url: /
+  description: Generated server url
+tags:
+- name: Document
+paths:
+  /document/{tenantLocator}/documents/transaction/{locator}/trigger:
+    post:
+      operationId: triggerTimedOutDocumentsJobForTransaction
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/DocumentsJobSummary'
+                  deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - trigger
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/transaction/{locator}/jobs/{jobLocator}/trigger:
+    post:
+      operationId: triggerFailedDocumentJobForTransaction
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: jobLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DocumentsJobSummary'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - trigger
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/segment/{locator}/trigger:
+    post:
+      operationId: triggerTimedOutDocumentsJobForSegment
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/DocumentsJobSummary'
+                  deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - trigger
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/segment/{locator}/jobs/{jobLocator}/trigger:
+    post:
+      operationId: triggerFailedDocumentJobForSegment
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: jobLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DocumentsJobSummary'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - trigger
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/render:
+    post:
+      operationId: renderDocument
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: referenceType
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - quote
+          - policy
+          - invoice
+          - transaction
+          - segment
+          - term
+          deprecated: false
+      - name: referenceLocator
+        in: query
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: productName
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: templateFormat
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - liquid
+          - velocity
+          deprecated: false
+      - name: documentConfig
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: staticName
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: templateName
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - render-external
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/quote/{locator}/trigger:
+    post:
+      operationId: triggerTimedOutDocumentsJobForQuote
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/DocumentsJobSummary'
+                  deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - trigger
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/quote/{locator}/jobs/{jobLocator}/trigger:
+    post:
+      operationId: triggerFailedDocumentJobForQuote
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: jobLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DocumentsJobSummary'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - trigger
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/quote/{locator}/copyOnIssue:
+    post:
+      operationId: copyDocumentsOnIssue
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: deleteAllDocuments
+        in: query
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: documents
+      x-securityPermission:
+      - trigger
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/invoices/{locator}/trigger:
+    post:
+      operationId: triggerTimedOutJob
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/DocumentsJobSummary'
+                  deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - trigger
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/invoices/{locator}/jobs/{jobLocator}/trigger:
+    post:
+      operationId: triggerFailedDocumentJobForInvoice
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: jobLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DocumentsJobSummary'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - trigger
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/attach:
+    post:
+      operationId: attachDocument
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: referenceLocator
+        in: query
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: referenceType
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - quote
+          - policy
+          - invoice
+          - transaction
+          - segment
+          - term
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: staticName
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: documentFormat
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - csv
+          - doc
+          - docx
+          - eml
+          - html
+          - jpeg
+          - jpg
+          - msg
+          - pdf
+          - text
+          - txt
+          - xls
+          - xlsx
+          - zip
+          deprecated: false
+      - name: metadata
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: transactionLocator
+        in: query
+        required: false
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: segmentLocator
+        in: query
+        required: false
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: category
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 255
+          minLength: 0
+      - name: copyOnIssuance
+        in: query
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - document
+              properties:
+                document:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DocumentInstanceResponse'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - upload-external
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/{locator}:
+    get:
+      operationId: fetchDocument
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DocumentInstanceResponse'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+    patch:
+      operationId: replaceDocument
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: metadata
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: category
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 255
+          minLength: 0
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                document:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DocumentInstanceResponse'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - replace-external
+      deprecated: false
+      tags:
+      - Document
+    delete:
+      operationId: deleteDocument
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: documents
+      x-securityPermission:
+      - delete-external
+      deprecated: false
+      tags:
+      - Document
+  /document/events:
+    get:
+      operationId: fetchDocumentEventDefinitions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentServiceEventTypeDefinitions'
+                deprecated: false
+      x-securityGroup: public
+      x-securityPermission:
+      - public
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/{locator}/source:
+    get:
+      operationId: fetchSourceForDocument
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/{locator}/document:
+    get:
+      operationId: fetchDocumentResource
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/transaction/{locator}/list:
+    get:
+      operationId: fetchDocumentsForTransaction
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        description: When false, returns a bare array.
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      - name: suppressRenderingData
+        in: query
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                deprecated: false
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentListResponse'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/transaction/{locator}/jobs/{jobLocator}:
+    get:
+      operationId: fetchDocumentsJobForTransaction
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: jobLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DocumentsJob'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/transaction/{locator}/jobs/list:
+    get:
+      operationId: fetchMultipleDocumentsJobsForTransaction
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        description: When false, returns a bare array.
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                deprecated: false
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentJobListResponse'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/segment/{locator}/list:
+    get:
+      operationId: fetchDocumentsForSegment
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        description: When false, returns a bare array.
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      - name: suppressRenderingData
+        in: query
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                deprecated: false
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentListResponse'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/segment/{locator}/jobs/{jobLocator}:
+    get:
+      operationId: fetchDocumentsJobForSegment
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: jobLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DocumentsJob'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/segment/{locator}/jobs/list:
+    get:
+      operationId: fetchMultipleDocumentsJobsForSegment
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        description: When false, returns a bare array.
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                deprecated: false
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentJobListResponse'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/quote/{locator}/list:
+    get:
+      operationId: fetchDocumentsForQuote
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        description: When false, returns a bare array.
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      - name: suppressRenderingData
+        in: query
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                deprecated: false
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentListResponse'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/quote/{locator}/jobs/{jobLocator}:
+    get:
+      operationId: fetchDocumentsJobForQuote
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: jobLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DocumentsJob'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/quote/{locator}/jobs/list:
+    get:
+      operationId: fetchMultipleDocumentsJobsForQuote
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        description: When false, returns a bare array.
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                deprecated: false
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentJobListResponse'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/policy/{policyLocator}/term/{termLocator}/summary:
+    get:
+      operationId: fetchDocumentsForTerm
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: policyLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: termLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: suppressRenderingData
+        in: query
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseDocumentInstance'
+                deprecated: false
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentListResponse'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/invoices/{locator}:
+    get:
+      operationId: fetchInvoiceDocument
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DocumentInstanceResponse'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/invoices/{locator}/jobs:
+    get:
+      operationId: getDocumentJob
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DocumentsJobSummary'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+  /document/{tenantLocator}/documents/invoices/{locator}/jobs/{jobLocator}:
+    get:
+      operationId: fetchDocumentJob
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: jobLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DocumentsJob'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Document
+components:
+  schemas:
+    DocumentServiceEventTypeDefinitions:
+      type: object
+      required:
+      - documentEvents
+      properties:
+        documentEvents:
+          $ref: '#/components/schemas/DocumentEvents'
+          deprecated: false
+      deprecated: false
+    DocumentListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DocumentInstanceResponse'
+            deprecated: false
+      deprecated: false
+    DocumentEvents:
+      type: object
+      properties:
+        document.ready:
+          $ref: '#/components/schemas/DocumentEventData'
+          deprecated: false
+        document.failed:
+          $ref: '#/components/schemas/DocumentEventData'
+          deprecated: false
+      deprecated: false
+    DocumentEventData:
+      type: object
+      required:
+      - documentLocator
+      - referenceLocator
+      - referenceType
+      properties:
+        documentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - quote
+          - policy
+          - invoice
+          - transaction
+          - segment
+          - term
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    StreamingResponseBody:
+      type: object
+      deprecated: false
+    DocumentInstanceResponse:
+      type: object
+      required:
+      - locator
+      - referenceLocator
+      - documentInstanceState
+      - documentFormat
+      - external
+      - referenceType
+      - createdAt
+      - consolidatedFrom
+      - consolidatedTo
+      - metadata
+      - renderingData
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - quote
+          - policy
+          - invoice
+          - transaction
+          - segment
+          - term
+          deprecated: false
+        referenceDocumentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        transactionLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        segmentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        termLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        name:
+          type: string
+          deprecated: false
+        staticName:
+          type: string
+          deprecated: false
+        documentInstanceState:
+          type: string
+          enum:
+          - draft
+          - dataReady
+          - ready
+          - dataError
+          - renderError
+          - conversionError
+          - rendered
+          deprecated: false
+        documentFormat:
+          type: string
+          enum:
+          - csv
+          - doc
+          - docx
+          - html
+          - jpeg
+          - jpg
+          - pdf
+          - text
+          - txt
+          - xls
+          - xlsx
+          - zip
+          deprecated: false
+        metadata:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        readyAt:
+          type: string
+          format: date-time
+          deprecated: false
+        renderingData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        processingErrors:
+          type: string
+          deprecated: false
+        external:
+          type: boolean
+          deprecated: false
+        category:
+          type: string
+          deprecated: false
+        consolidatedFrom:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        consolidatedTo:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        copyOnIssuance:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    DocumentJobListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DocumentsJobSummary'
+            deprecated: false
+      deprecated: false
+    DocumentsJobSummary:
+      type: object
+      required:
+      - locator
+      - referenceType
+      - status
+      - createdAt
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - quote
+          - policy
+          - invoice
+          - transaction
+          - segment
+          - term
+          deprecated: false
+        status:
+          type: string
+          enum:
+          - running
+          - finished
+          - failed
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    TemplateResponse:
+      type: object
+      properties:
+        file:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+              deprecated: false
+          deprecated: false
+        template:
+          type: string
+          deprecated: false
+      deprecated: false
+    ListPageResponseDocumentInstance:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DocumentInstanceResponse'
+            deprecated: false
+      deprecated: false
+    DocumentsJob:
+      type: object
+      required:
+      - locator
+      - transactionLocator
+      - segmentLocator
+      - referenceLocator
+      - completedAt
+      - documentTrigger
+      - isConsolidation
+      - processingErrors
+      - referenceType
+      - status
+      - createdAt
+      - createdBy
+      - childrenJobs
+      - documents
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - quote
+          - policy
+          - invoice
+          - transaction
+          - segment
+          - term
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        documentTrigger:
+          type: string
+          enum:
+          - validated
+          - priced
+          - accepted
+          - underwritten
+          - issued
+          - generated
+          - declined
+          - rejected
+          - refused
+          deprecated: false
+        status:
+          type: string
+          enum:
+          - running
+          - finished
+          - failed
+          deprecated: false
+        childrenJobs:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        documents:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DocumentJobInfo'
+            deprecated: false
+        processingErrors:
+          type: string
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        completedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        transactionLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        segmentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        isConsolidation:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    DocumentJobInfo:
+      type: object
+      required:
+      - locator
+      - staticName
+      - name
+      - documentInstanceState
+      - processingErrors
+      - state
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        staticName:
+          type: string
+          deprecated: false
+        name:
+          type: string
+          deprecated: false
+        documentInstanceState:
+          type: string
+          deprecated: false
+        processingErrors:
+          type: string
+          deprecated: false
+        state:
+          type: string
+          deprecated: true
+      deprecated: false

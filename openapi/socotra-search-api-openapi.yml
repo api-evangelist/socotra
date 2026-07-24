@@ -1,0 +1,468 @@
+openapi: 3.0.1
+info:
+  title: Socotra Insurance Suite OpenAPI Definition Search API
+  description: Socotra Insurance Suite API
+  termsOfService: https://www.socotra.com
+  version: v0
+servers:
+- url: /
+  description: Generated server url
+tags:
+- name: Search
+paths:
+  /search/{tenantLocator}/search:
+    get:
+      operationId: fetchAdditionalSearchResultsByToken
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: searchToken
+        in: query
+        description: The token returned from the initial search
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchServiceResponse'
+                deprecated: false
+      x-securityGroup: search
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Search
+    post:
+      operationId: fetchSearchResults
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchServiceResponse'
+                deprecated: false
+      x-securityGroup: search
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Search
+  /search/{tenantLocator}/search/searchStats:
+    post:
+      operationId: fetchSearchStats
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchStatsResponse'
+                deprecated: false
+      x-securityGroup: search
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Search
+  /search/{tenantLocator}/search/ignoredFields:
+    get:
+      operationId: fetchIgnoredFields
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: request
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/FieldsRequest'
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/FieldsMappingResponse'
+                  deprecated: false
+      x-securityGroup: search
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Search
+  /search/{tenantLocator}/search/fieldsMapping:
+    get:
+      operationId: fetchFieldsMapping
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: request
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/FieldsRequest'
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/FieldsMappingResponse'
+                  deprecated: false
+      x-securityGroup: search
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Search
+components:
+  schemas:
+    SearchServiceResponse:
+      type: object
+      required:
+      - count
+      - offset
+      - searchToken
+      - results
+      properties:
+        searchToken:
+          type: string
+          deprecated: false
+        offset:
+          type: integer
+          format: int32
+          deprecated: false
+        count:
+          type: integer
+          format: int32
+          deprecated: false
+        results:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/SearchResultResponse'
+            deprecated: false
+      deprecated: false
+    SearchStatsResponse:
+      type: object
+      required:
+      - searchToken
+      - results
+      properties:
+        searchToken:
+          type: string
+          deprecated: false
+        results:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/SearchStatsResult'
+            deprecated: false
+      deprecated: false
+    SearchStatsResult:
+      type: object
+      required:
+      - recordCount
+      - searchEntityType
+      properties:
+        searchEntityType:
+          type: string
+          enum:
+          - unspecified
+          - account
+          - quote
+          - policy
+          - fnol
+          - contact
+          - diary
+          - payment
+          - task
+          - userAssociation
+          deprecated: false
+        recordCount:
+          type: integer
+          format: int64
+          deprecated: false
+      deprecated: false
+    SearchResultResponse:
+      type: object
+      required:
+      - accountLocator
+      - configVersionLocator
+      - searchEntityLocator
+      - productName
+      - score
+      - searchEntityType
+      - highlights
+      - searchSummary
+      properties:
+        score:
+          type: number
+          format: double
+          deprecated: false
+        searchEntityType:
+          type: string
+          enum:
+          - unspecified
+          - account
+          - quote
+          - policy
+          - fnol
+          - contact
+          - diary
+          - payment
+          - task
+          - userAssociation
+          deprecated: false
+        searchEntityLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        productName:
+          type: string
+          deprecated: false
+        accountLocator:
+          type: string
+          deprecated: false
+        configVersionLocator:
+          type: string
+          deprecated: false
+        searchSummary:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        highlights:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    SearchRequest:
+      type: object
+      required:
+      - searchEntityType
+      - searchString
+      - sortOrder
+      - fields
+      - searchTerms
+      properties:
+        searchString:
+          type: string
+          deprecated: false
+        searchEntityType:
+          type: string
+          enum:
+          - unspecified
+          - account
+          - quote
+          - policy
+          - fnol
+          - contact
+          - diary
+          - payment
+          - task
+          - userAssociation
+          deprecated: false
+        searchTerms:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/SearchTermRequest'
+            deprecated: false
+        startCreationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        endCreationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        sortField:
+          type: string
+          deprecated: false
+        sortOrder:
+          type: string
+          enum:
+          - Asc
+          - Desc
+          deprecated: false
+        fields:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    FieldsMappingResponse:
+      type: object
+      required:
+      - index
+      - fields
+      properties:
+        index:
+          type: string
+          deprecated: false
+        fields:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/Field'
+            deprecated: false
+      deprecated: false
+    Field:
+      type: object
+      required:
+      - name
+      - type
+      properties:
+        name:
+          type: string
+          deprecated: false
+        type:
+          type: string
+          enum:
+          - TEXT
+          - DATE
+          - OTHER
+          deprecated: false
+      deprecated: false
+    SearchTermRequest:
+      type: object
+      required:
+      - fieldName
+      - absolute
+      - match
+      - searchTerm
+      properties:
+        searchTerm:
+          type: string
+          deprecated: false
+        fieldName:
+          type: string
+          deprecated: false
+        match:
+          type: string
+          enum:
+          - fuzzy
+          - exact
+          - startsWith
+          - lessThan
+          - greaterThan
+          deprecated: false
+        absolute:
+          type: string
+          enum:
+          - none
+          - required
+          - excluded
+          deprecated: false
+      deprecated: false
+    FieldsRequest:
+      type: object
+      required:
+      - searchEntityType
+      properties:
+        searchEntityType:
+          type: string
+          enum:
+          - unspecified
+          - account
+          - quote
+          - policy
+          - fnol
+          - contact
+          - diary
+          - payment
+          - task
+          - userAssociation
+          deprecated: false
+      deprecated: false

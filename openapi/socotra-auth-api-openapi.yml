@@ -1,0 +1,2512 @@
+openapi: 3.0.1
+info:
+  title: Socotra Insurance Suite OpenAPI Definition Auth API
+  description: Socotra Insurance Suite API
+  termsOfService: https://www.socotra.com
+  version: v0
+servers:
+- url: /
+  description: Generated server url
+tags:
+- name: Auth
+paths:
+  /auth/identity/passwordPolicy:
+    get:
+      operationId: fetchPasswordPolicy
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordPolicyResponse'
+                deprecated: false
+      x-securityGroup: identity
+      x-securityPermission:
+      - read
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+    put:
+      operationId: updatePasswordPolicy
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordPolicyUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: identity
+      x-securityPermission:
+      - add
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users:
+    post:
+      operationId: createUser
+      parameters:
+      - name: enableUser
+        in: query
+        description: When true, user will be active (enabled) even if password is not set. Useful for SSO since user cannot use any other credentials to log in
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - add
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{locator}/tokens:
+    get:
+      operationId: fetchAuthTokensForUser
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/AuthTokenResponse'
+                  deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - read
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+    post:
+      operationId: createServiceAccountAuthToken
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthTokenCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{locator}/revoke:
+    post:
+      operationId: revokeUserOauthTokens
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: users
+      x-securityPermission:
+      - write
+      - custom
+      - revoke
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/tokens:
+    get:
+      operationId: fetchAuthTokens
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/AuthTokenResponse'
+                  deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - read
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+    post:
+      operationId: createAuthToken
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthTokenCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - write
+      - token
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/tokens/permissions:
+    post:
+      operationId: getGroupedTokenPermissions
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                deprecated: false
+                additionalProperties:
+                  type: array
+                  deprecated: false
+                  items:
+                    type: string
+                    deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - read
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+  /auth/roles:
+    post:
+      operationId: createRole
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleResponse'
+                deprecated: false
+      x-securityGroup: roles
+      x-securityPermission:
+      - add
+      deprecated: false
+      tags:
+      - Auth
+  /auth/roles/tenant/{tenantLocator}/{roleLocator}:
+    get:
+      operationId: getTenantRole
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: roleLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleResponse'
+                deprecated: false
+      x-securityGroup: roles
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Auth
+    post:
+      operationId: createTenantRole
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: roleLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTenantRoleReq'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleResponse'
+                deprecated: false
+      x-securityGroup: roles
+      x-securityPermission:
+      - add
+      deprecated: false
+      tags:
+      - Auth
+    patch:
+      operationId: updateTenantRole
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: roleLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchTenantRoleReq'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleResponse'
+                deprecated: false
+      x-securityGroup: roles
+      x-securityPermission:
+      - update
+      deprecated: false
+      tags:
+      - Auth
+    delete:
+      operationId: deleteTenantRole
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: roleLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: roles
+      x-securityPermission:
+      - delete
+      deprecated: false
+      tags:
+      - Auth
+  /auth/identity:
+    post:
+      operationId: createIdentityProvider
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SAMLIdentityProviderCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityProviderResponse'
+                deprecated: false
+      x-securityGroup: identity
+      x-securityPermission:
+      - add
+      - custom
+      deprecated: true
+      tags:
+      - Auth
+  /auth/identity/saml:
+    post:
+      operationId: addSAMLIdentityProvider
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SAMLIdentityProviderCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityProviderResponse'
+                deprecated: false
+      x-securityGroup: identity
+      x-securityPermission:
+      - add
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+  /auth/identity/oidc:
+    post:
+      operationId: addOIDCIdentityProvider
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCIdentityProviderCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityProviderResponse'
+                deprecated: false
+      x-securityGroup: identity
+      x-securityPermission:
+      - add
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{locator}:
+    get:
+      operationId: fetchUserByLocator
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - custom
+      - read
+      deprecated: false
+      tags:
+      - Auth
+    patch:
+      operationId: updateUser
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - update
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+    delete:
+      operationId: deleteUser
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: users
+      x-securityPermission:
+      - delete
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{locator}/tenants:
+    patch:
+      operationId: updateUserTenantAssignments
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserTenantsAssignmentsUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - update-tenants
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{locator}/roles:
+    patch:
+      operationId: updateUserRoles
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRolesUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - update-roles
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{locator}/passwordreset:
+    patch:
+      operationId: resetUserPassword
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: users
+      x-securityPermission:
+      - password-reset
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{locator}/enable:
+    patch:
+      operationId: enableUser
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - enable
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{locator}/dataaccess/{tenantLocator}:
+    get:
+      operationId: fetchUserDataAccessForTenant
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDataAccessResponse'
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Auth
+    patch:
+      operationId: addUserDataAccess
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDataAccessRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDataAccessResponse'
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Auth
+    delete:
+      operationId: deleteUserDataAccess
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: users
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{locator}/accessmask:
+    get:
+      operationId: fetchUserMasks
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/UserDataAccessControlMaskResponse'
+                  deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - read
+      deprecated: true
+      tags:
+      - Auth
+    patch:
+      operationId: addDataSecurityMask
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDataSecurityMaskRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDataAccessControlMaskResponse'
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - write
+      deprecated: true
+      tags:
+      - Auth
+  /auth/tenants/{locator}:
+    get:
+      operationId: fetchTenant
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantResponse'
+                deprecated: false
+      x-securityGroup: tenants
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Auth
+    patch:
+      operationId: updateTenant
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantResponse'
+                deprecated: false
+      x-securityGroup: tenants
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Auth
+  /auth/tenants/{locator}/retire:
+    patch:
+      operationId: retireTenant
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantResponse'
+                deprecated: false
+      x-securityGroup: tenants
+      x-securityPermission:
+      - retire
+      deprecated: false
+      tags:
+      - Auth
+  /auth/roles/{locator}:
+    get:
+      operationId: getRole
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleResponse'
+                deprecated: false
+      x-securityGroup: roles
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Auth
+    patch:
+      operationId: updateRole
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleResponse'
+                deprecated: false
+      x-securityGroup: roles
+      x-securityPermission:
+      - update
+      deprecated: false
+      tags:
+      - Auth
+    delete:
+      operationId: deleteRole
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: roles
+      x-securityPermission:
+      - delete
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{userLocator}/tenant/{tenantLocator}/permissions:
+    get:
+      operationId: fetchUserTenantPermissions
+      parameters:
+      - name: userLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  type: string
+                  deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - read
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{locator}/permissions:
+    get:
+      operationId: fetchUserPermissions
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  type: string
+                  deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - read
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{locator}/dataaccess:
+    get:
+      operationId: fetchUserDataAccess
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/UserDataAccessResponse'
+                  deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{locator}/credentialStatus:
+    get:
+      operationId: fetchCredentialStatus
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialResponse'
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - read
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{locator}/accessmask/{tenantLocator}:
+    get:
+      operationId: fetchUserMasksForTenant
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/UserDataAccessControlMaskResponse'
+                  deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - read
+      deprecated: true
+      tags:
+      - Auth
+    delete:
+      operationId: deleteUserMasks
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: users
+      x-securityPermission:
+      - write
+      deprecated: true
+      tags:
+      - Auth
+  /auth/users/{locator}/accessmask/{tenantLocator}/{type}:
+    get:
+      operationId: fetchUserMask
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: type
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - account
+          - policy
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDataAccessControlMaskResponse'
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - read
+      deprecated: true
+      tags:
+      - Auth
+  /auth/users/whoami:
+    get:
+      operationId: fetchMyUserDetails
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/username/{username}:
+    get:
+      operationId: fetchUserByName
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/UserResponse'
+                  deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/list:
+    get:
+      operationId: fetchMultipleUsers
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        description: When false, returns a bare array.
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserListResponse'
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/basic/list:
+    get:
+      operationId: fetchMultipleBasicUsers
+      description: This endpoint returns a simplified response and therefore has a higher count limit compared to 'fetchMultipleUsers'.
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicUserResponse'
+                deprecated: false
+      x-securityGroup: users
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Auth
+  /auth/tenants/mytenants/list:
+    get:
+      operationId: fetchMyTenants
+      description: Returns a list of tenants you have access to.
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        description: When false, returns a bare array.
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantListResponse'
+                deprecated: false
+      x-securityGroup: tenants
+      x-securityPermission:
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+  /auth/tenants/list:
+    get:
+      operationId: fetchTenants
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: type
+        in: query
+        required: false
+        schema:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      - name: extended
+        in: query
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/TenantResponse'
+                  deprecated: false
+      x-securityGroup: tenants
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Auth
+  /auth/roles/tenant/{tenantLocator}/list:
+    get:
+      operationId: listTenantRoles
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPageResponseRoleDetails'
+                deprecated: false
+      x-securityGroup: roles
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Auth
+  /auth/roles/permissions:
+    get:
+      operationId: fetchAvailablePermissions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  type: string
+                  deprecated: false
+      x-securityGroup: roles
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Auth
+  /auth/roles/list:
+    get:
+      operationId: fetchMultipleRoles
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        description: When false, returns a bare array.
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleListResponse'
+                deprecated: false
+      x-securityGroup: roles
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Auth
+  /auth/identity/instances:
+    get:
+      operationId: fetchIdentityProviders
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/IdentityProviderResponse'
+                  deprecated: false
+      x-securityGroup: identity
+      x-securityPermission:
+      - read
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+  /auth/identity/instances/{name}:
+    get:
+      operationId: fetchIdentityProviderByName
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityProviderResponse'
+                deprecated: false
+      x-securityGroup: identity
+      x-securityPermission:
+      - read
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+    delete:
+      operationId: deleteIdentityServerInstance
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: identity
+      x-securityPermission:
+      - delete
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{locator}/tokens/{tokenOrName}:
+    delete:
+      operationId: deleteAuthTokenForUser
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: tokenOrName
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: users
+      x-securityPermission:
+      - write
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/{locator}/credentials:
+    delete:
+      operationId: removeCredentials
+      parameters:
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: users
+      x-securityPermission:
+      - write
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+  /auth/users/tokens/{tokenOrName}:
+    delete:
+      operationId: deleteAuthToken
+      parameters:
+      - name: tokenOrName
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: users
+      x-securityPermission:
+      - write
+      - custom
+      deprecated: false
+      tags:
+      - Auth
+components:
+  schemas:
+    UserRolesUpdateRequest:
+      type: object
+      required:
+      - addRoles
+      - removeRoles
+      properties:
+        addRoles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        removeRoles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    RoleResponse:
+      type: object
+      required:
+      - locator
+      - name
+      - description
+      - version
+      - createdAt
+      - createdBy
+      - permissions
+      properties:
+        name:
+          type: string
+          deprecated: false
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        permissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        version:
+          type: integer
+          format: int32
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        description:
+          type: string
+          deprecated: false
+      deprecated: false
+    RoleListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/RoleResponse'
+            deprecated: false
+      deprecated: false
+    OIDCIdentityProviderCreateRequest:
+      type: object
+      required:
+      - displayName
+      - clientId
+      - clientSecret
+      - id
+      - importConfigUrl
+      properties:
+        id:
+          type: string
+          deprecated: false
+        displayName:
+          type: string
+          deprecated: false
+        importConfigUrl:
+          type: string
+          deprecated: false
+        clientId:
+          type: string
+          deprecated: false
+        clientSecret:
+          type: string
+          deprecated: false
+      deprecated: false
+    BasicUserResponse:
+      type: object
+      required:
+      - locator
+      - userName
+      properties:
+        firstName:
+          type: string
+          deprecated: false
+        lastName:
+          type: string
+          deprecated: false
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        userName:
+          type: string
+          deprecated: false
+      deprecated: false
+    RoleCreateRequest:
+      type: object
+      required:
+      - name
+      - description
+      - permissions
+      properties:
+        name:
+          type: string
+          deprecated: false
+        permissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        description:
+          type: string
+          deprecated: false
+      deprecated: false
+    PatchTenantRoleReq:
+      type: object
+      required:
+      - version
+      - addPermissions
+      - removePermissions
+      properties:
+        version:
+          type: integer
+          format: int32
+          deprecated: false
+        addPermissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        removePermissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        description:
+          type: string
+          deprecated: false
+      deprecated: false
+    TenantResponse:
+      type: object
+      required:
+      - locator
+      - name
+      - businessAccount
+      - type
+      - updatedAt
+      - createdAt
+      - createdBy
+      properties:
+        locator:
+          type: string
+          format: uuid
+          deprecated: false
+        name:
+          type: string
+          deprecated: false
+        type:
+          type: string
+          enum:
+          - test
+          - production
+          - retired
+          - deleted
+          deprecated: false
+        description:
+          type: string
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        businessAccount:
+          type: string
+          deprecated: false
+      deprecated: false
+    PasswordPolicyUpdateRequest:
+      type: object
+      required:
+      - passwordPolicies
+      properties:
+        passwordPolicies:
+          $ref: '#/components/schemas/PasswordPoliciesUpdateRequest'
+          deprecated: false
+      deprecated: false
+    TenantListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/TenantResponse'
+            deprecated: false
+      deprecated: false
+    PasswordPoliciesUpdateRequest:
+      type: object
+      properties:
+        digits:
+          type: integer
+          format: int32
+          description: The minimum number of numeric digits required in the password string.
+          default: 1
+          deprecated: false
+        forceExpiredPasswordChange:
+          type: integer
+          format: int32
+          description: The number of days the password is valid before a new password is required.
+          default: 90
+          deprecated: false
+        length:
+          type: integer
+          format: int32
+          description: The minimum number of characters allowed in the password.
+          default: 16
+          deprecated: false
+        lowercase:
+          type: integer
+          format: int32
+          description: The minimum number of uppercase characters required in the password string.
+          default: 1
+          deprecated: false
+        maxLength:
+          type: integer
+          format: int32
+          description: The maximum number of characters allowed in the password.
+          default: 64
+          deprecated: false
+        passwordHistory:
+          type: integer
+          format: int32
+          description: The minimum age of a password in days to allow its reuse.
+          default: 4
+          deprecated: false
+        specialChars:
+          type: integer
+          format: int32
+          description: The minimum number of special characters required in the password string.
+          default: 1
+          deprecated: false
+        uppercase:
+          type: integer
+          format: int32
+          description: The minimum number of uppercase characters required in the password string.
+          default: 1
+          deprecated: false
+      deprecated: false
+    CredentialResponse:
+      type: object
+      required:
+      - lastSessionLastAccessAt
+      - lastSessionStartAt
+      - passwordEnabled
+      - temporaryPassword
+      - createdAt
+      properties:
+        passwordEnabled:
+          type: boolean
+          deprecated: false
+        temporaryPassword:
+          type: boolean
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        lastSessionStartAt:
+          type: string
+          format: date-time
+          deprecated: false
+        lastSessionLastAccessAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    AuthTokenCreateRequest:
+      type: object
+      required:
+      - name
+      - expiresAt
+      - permissions
+      - tenants
+      properties:
+        name:
+          type: string
+          deprecated: false
+        tenants:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        permissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        expiresAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    UserCreateRequest:
+      type: object
+      required:
+      - firstName
+      - lastName
+      - userName
+      properties:
+        userName:
+          type: string
+          description: A user name in email format
+          deprecated: false
+        firstName:
+          type: string
+          deprecated: false
+        lastName:
+          type: string
+          deprecated: false
+        password:
+          type: string
+          deprecated: false
+        temporaryPassword:
+          type: boolean
+          deprecated: false
+        serviceAccount:
+          type: boolean
+          deprecated: false
+        email:
+          type: string
+          deprecated: false
+        tenants:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        roles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    UserDataAccessControlMaskResponse:
+      type: object
+      required:
+      - tenantLocator
+      - userLocator
+      - maskType
+      - fields
+      properties:
+        userLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        tenantLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        maskType:
+          type: string
+          enum:
+          - account
+          - policy
+          deprecated: false
+        fields:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: array
+            deprecated: false
+            items:
+              type: string
+              deprecated: false
+      deprecated: false
+    PasswordPolicies:
+      type: object
+      required:
+      - digits
+      - forceExpiredPasswordChange
+      - length
+      - lowercase
+      - maxLength
+      - passwordHistory
+      - specialChars
+      - uppercase
+      properties:
+        digits:
+          type: integer
+          format: int32
+          description: The minimum number of numeric digits required in the password string.
+          default: 1
+          deprecated: false
+        forceExpiredPasswordChange:
+          type: integer
+          format: int32
+          description: The number of days the password is valid before a new password is required.
+          default: 90
+          deprecated: false
+        length:
+          type: integer
+          format: int32
+          description: The minimum number of characters allowed in the password.
+          default: 16
+          deprecated: false
+        lowercase:
+          type: integer
+          format: int32
+          description: The minimum number of uppercase characters required in the password string.
+          default: 1
+          deprecated: false
+        maxLength:
+          type: integer
+          format: int32
+          description: The maximum number of characters allowed in the password.
+          default: 64
+          deprecated: false
+        passwordHistory:
+          type: integer
+          format: int32
+          description: The count of previous passwords that are not allowed to be reused, starting with the most recent.
+          default: 4
+          deprecated: false
+        specialChars:
+          type: integer
+          format: int32
+          description: The minimum number of special characters required in the password string.
+          default: 1
+          deprecated: false
+        uppercase:
+          type: integer
+          format: int32
+          description: The minimum number of uppercase characters required in the password string.
+          default: 1
+          deprecated: false
+      deprecated: false
+    SAMLIdentityProviderCreateRequest:
+      type: object
+      required:
+      - displayName
+      - id
+      - singleSignOnServiceUrl
+      properties:
+        id:
+          type: string
+          deprecated: false
+        displayName:
+          type: string
+          deprecated: false
+        singleSignOnServiceUrl:
+          type: string
+          deprecated: false
+      deprecated: false
+    RoleUpdateRequest:
+      type: object
+      required:
+      - name
+      - description
+      - version
+      - addPermissions
+      - removePermissions
+      properties:
+        version:
+          type: integer
+          format: int32
+          deprecated: false
+        name:
+          type: string
+          deprecated: false
+        addPermissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        removePermissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        description:
+          type: string
+          deprecated: false
+      deprecated: false
+    TenantUpdateRequest:
+      type: object
+      required:
+      - name
+      - description
+      properties:
+        name:
+          type: string
+          deprecated: false
+        description:
+          type: string
+          deprecated: false
+      deprecated: false
+    UserUpdateRequest:
+      type: object
+      required:
+      - firstName
+      - lastName
+      - tenants
+      properties:
+        firstName:
+          type: string
+          deprecated: false
+        lastName:
+          type: string
+          deprecated: false
+        email:
+          type: string
+          deprecated: false
+        roles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        tenants:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        permissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    UserResponse:
+      type: object
+      required:
+      - locator
+      - firstName
+      - lastName
+      - userName
+      - serviceAccount
+      - tenants
+      properties:
+        locator:
+          type: string
+          format: uuid
+          deprecated: false
+        userName:
+          type: string
+          deprecated: false
+        firstName:
+          type: string
+          deprecated: false
+        lastName:
+          type: string
+          deprecated: false
+        email:
+          type: string
+          deprecated: false
+        serviceAccount:
+          type: boolean
+          deprecated: false
+        roles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        tenants:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        permissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    UserTenantsAssignmentsUpdateRequest:
+      type: object
+      required:
+      - addTenants
+      - removeTenants
+      properties:
+        addTenants:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        removeTenants:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    UserDataSecurityMaskRequest:
+      type: object
+      required:
+      - tenantLocator
+      - type
+      - fields
+      properties:
+        tenantLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        type:
+          type: string
+          enum:
+          - account
+          - policy
+          deprecated: false
+        fields:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: array
+            deprecated: false
+            items:
+              type: string
+              deprecated: false
+      deprecated: false
+    UserDataAccessResponse:
+      type: object
+      required:
+      - tenantLocator
+      - userLocator
+      - maskingLevel
+      - accessControlFields
+      properties:
+        userLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        tenantLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        maskingLevel:
+          type: string
+          enum:
+          - none
+          - level1
+          - level2
+          deprecated: false
+        accessControlFields:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+            additionalProperties:
+              type: array
+              deprecated: false
+              items:
+                type: string
+                deprecated: false
+      deprecated: false
+    ListPageResponseRoleDetails:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/RoleResponse'
+            deprecated: false
+      deprecated: false
+    PasswordPolicyResponse:
+      type: object
+      required:
+      - passwordPolicies
+      properties:
+        passwordPolicies:
+          $ref: '#/components/schemas/PasswordPolicies'
+          deprecated: false
+      deprecated: false
+    UserListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/UserResponse'
+            deprecated: false
+      deprecated: false
+    UserDataAccessRequest:
+      type: object
+      required:
+      - maskingLevel
+      - accessControlFields
+      properties:
+        maskingLevel:
+          type: string
+          enum:
+          - none
+          - level1
+          - level2
+          deprecated: false
+        accessControlFields:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+            additionalProperties:
+              type: array
+              deprecated: false
+              items:
+                type: string
+                deprecated: false
+      deprecated: false
+    CreateTenantRoleReq:
+      type: object
+      required:
+      - permissions
+      properties:
+        permissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        description:
+          type: string
+          deprecated: false
+      deprecated: false
+    AuthTokenResponse:
+      type: object
+      required:
+      - name
+      - expiresAt
+      - createdAt
+      properties:
+        name:
+          type: string
+          deprecated: false
+        tenants:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        permissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        expiresAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    IdentityProviderResponse:
+      type: object
+      required:
+      - displayName
+      - acsUrl
+      - callbackUrl
+      - entityId
+      - id
+      - singleSignOnServiceUrl
+      - type
+      properties:
+        id:
+          type: string
+          deprecated: false
+        displayName:
+          type: string
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        acsUrl:
+          type: string
+          deprecated: false
+        callbackUrl:
+          type: string
+          deprecated: false
+        entityId:
+          type: string
+          deprecated: false
+        singleSignOnServiceUrl:
+          type: string
+          deprecated: false
+      deprecated: false

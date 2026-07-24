@@ -1,0 +1,2569 @@
+openapi: 3.0.1
+info:
+  title: Socotra Insurance Suite OpenAPI Definition Work Management API
+  description: Socotra Insurance Suite API
+  termsOfService: https://www.socotra.com
+  version: v0
+servers:
+- url: /
+  description: Generated server url
+tags:
+- name: Work Management
+paths:
+  /work-management/{tenantLocator}/workplans:
+    post:
+      operationId: createWorkplan
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkplanCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Workplan'
+                deprecated: false
+      x-securityGroup: workplans
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/workgroups:
+    post:
+      operationId: createWorkgroup
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkgroupCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/WorkgroupResponse'
+                deprecated: false
+      x-securityGroup: workgroups
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/userAssociations:
+    post:
+      operationId: makeUserAssociation
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAssociationCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserAssociation'
+                deprecated: false
+      x-securityGroup: user-associations
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/tasks:
+    post:
+      operationId: addTask
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Task'
+                deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/tasks/{locator}/number/set:
+    post:
+      operationId: setTaskNumber
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: taskNumber
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Task'
+                deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/tasks/{locator}/number/generate:
+    post:
+      operationId: generateTaskNumber
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Task'
+                deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/assignments:
+    post:
+      operationId: autoAssign
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutoAssignmentCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AutoAssignmentResponse'
+                deprecated: false
+      x-securityGroup: assignments
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/workplans/{locator}:
+    get:
+      operationId: getWorkplan
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Workplan'
+                deprecated: false
+      x-securityGroup: workplans
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+    patch:
+      operationId: patchWorkplan
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkplanPatchRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Workplan'
+                deprecated: false
+      x-securityGroup: workplans
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/workplans/{locator}/discard:
+    patch:
+      operationId: discardWorkplan
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Workplan'
+                deprecated: false
+      x-securityGroup: workplans
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/workgroups/{workgroupLocator}:
+    get:
+      operationId: getWorkgroup
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: workgroupLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/WorkgroupResponse'
+                deprecated: false
+      x-securityGroup: workgroups
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+    patch:
+      operationId: patchWorkgroup
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: workgroupLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkgroupPatchRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/WorkgroupResponse'
+                deprecated: false
+      x-securityGroup: workgroups
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/workgroups/{workgroupLocator}/discard:
+    patch:
+      operationId: discardWorkgroup
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: workgroupLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/WorkgroupResponse'
+                deprecated: false
+      x-securityGroup: workgroups
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/userAssociations/{userAssociationLocator}/uncomplete:
+    patch:
+      operationId: uncompleteUserAssociation
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: userAssociationLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserAssociation'
+                deprecated: false
+      x-securityGroup: user-associations
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/userAssociations/{userAssociationLocator}/disassociate:
+    patch:
+      operationId: disassociateUserAssociation
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: userAssociationLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserAssociation'
+                deprecated: false
+      x-securityGroup: user-associations
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/userAssociations/{userAssociationLocator}/complete:
+    patch:
+      operationId: completeUserAssociation
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: userAssociationLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserAssociation'
+                deprecated: false
+      x-securityGroup: user-associations
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/tasks/{locator}:
+    get:
+      operationId: getTask
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Task'
+                deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+    patch:
+      operationId: updateTask
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Task'
+                deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/tasks/{locator}/unassign:
+    patch:
+      operationId: unassignTask
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Task'
+                deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/tasks/{locator}/complete:
+    patch:
+      operationId: completeTask
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Task'
+                deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/tasks/{locator}/cancel:
+    patch:
+      operationId: cancelTask
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Task'
+                deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/tasks/{locator}/assign/{userLocator}:
+    patch:
+      operationId: assignTask
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: userLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Task'
+                deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/tasks/{locator}/activate:
+    patch:
+      operationId: activateTask
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Task'
+                deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/qualifications/{userLocator}:
+    get:
+      operationId: getUserQualifications
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: userLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: qualifications
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+    patch:
+      operationId: updateUserQualifications
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: userLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QualificationsUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: qualifications
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/workplans/list:
+    get:
+      operationId: listWorkplans
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseWorkplan'
+                deprecated: false
+      x-securityGroup: workplans
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/workgroups/list:
+    get:
+      operationId: listWorkgroups
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: user
+        in: query
+        required: false
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseWorkgroupResponse'
+                deprecated: false
+      x-securityGroup: workgroups
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/userAssociations/{referenceType}/{referenceLocator}/{userAssociationState}/list:
+    get:
+      operationId: listAssignedUsers
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: referenceType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          deprecated: false
+      - name: referenceLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: userAssociationState
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - active
+          - completed
+          - disassociated
+          - discarded
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseUserAssociation'
+                deprecated: false
+      x-securityGroup: user-associations
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/userAssociations/{referenceType}/{referenceLocator}/history/list:
+    get:
+      operationId: listReferenceUserAssociationsHistory
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: referenceType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          deprecated: false
+      - name: referenceLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseUserAssociation'
+                deprecated: false
+      x-securityGroup: user-associations
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/userAssociations/{locator}:
+    get:
+      operationId: getUserAssociation
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserAssociation'
+                deprecated: false
+      x-securityGroup: user-associations
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/userAssociations/{locator}/history/list:
+    get:
+      operationId: listUserAssociationHistory
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseUserAssociation'
+                deprecated: false
+      x-securityGroup: user-associations
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/userAssociations/user/{userLocator}/{userAssociationState}/list:
+    get:
+      operationId: listUserUserAssociations
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: userLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: userAssociationState
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - active
+          - completed
+          - disassociated
+          - discarded
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseUserAssociation'
+                deprecated: false
+      x-securityGroup: user-associations
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/userAssociations/user/{userLocator}/qualifiedRoles/list:
+    get:
+      operationId: listUserQualifiedRoles
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: userLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: referenceType
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserQualifiedRolesResponse'
+                deprecated: false
+      x-securityGroup: user-associations
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/userAssociations/user/{userLocator}/history/list:
+    get:
+      operationId: listUserUserAssociationsHistory
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: userLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseUserAssociation'
+                deprecated: false
+      x-securityGroup: user-associations
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/tasks/{referenceType}/{referenceLocator}/list:
+    get:
+      operationId: searchTasks
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: referenceType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          deprecated: false
+      - name: referenceLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseTask'
+                deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/tasks/{locator}/history/list:
+    get:
+      operationId: listTaskHistory
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseTask'
+                deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/tasks/user/{userLocator}/list:
+    get:
+      operationId: listAssignedTasks
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: userLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseTask'
+                deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/tasks/numbers/{taskNumber}:
+    get:
+      operationId: fetchTasksWithNumber
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: taskNumber
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/Task'
+                  deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/tasks/list:
+    get:
+      operationId: listTasks
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseTask'
+                deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/tasks/all/list:
+    get:
+      operationId: listAllTasks
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseTask'
+                deprecated: false
+      x-securityGroup: tasks
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/qualifications:
+    get:
+      operationId: getQualifications
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                deprecated: false
+                additionalProperties:
+                  type: array
+                  deprecated: false
+                  items:
+                    type: string
+                    deprecated: false
+      x-securityGroup: qualifications
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/{tenantLocator}/qualifications/{category}/{level}:
+    get:
+      operationId: fetchUsersQualifications
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: category
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: level
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/UserQualification'
+                  deprecated: false
+      x-securityGroup: qualifications
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Work Management
+  /work-management/events:
+    get:
+      operationId: fetchWorkManagementEventDefinitions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkManagementServiceEventTypeDefinitions'
+                deprecated: false
+      x-securityGroup: public
+      x-securityPermission:
+      - public
+      deprecated: false
+      tags:
+      - Work Management
+components:
+  schemas:
+    WorkplanItem:
+      type: object
+      required:
+      - locator
+      - referenceLocator
+      - assignToGroup
+      - referenceType
+      - traversal
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        associationRole:
+          type: string
+          deprecated: false
+        task:
+          $ref: '#/components/schemas/TaskCreateRequest'
+          deprecated: false
+        defaultGroup:
+          type: string
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        traversal:
+          type: string
+          enum:
+          - depthFirst
+          - breadthFirst
+          - none
+          deprecated: false
+        assignToGroup:
+          type: string
+          enum:
+          - never
+          - ifNotAssigned
+          - always
+          deprecated: false
+      deprecated: false
+    WorkManagementServiceEventTypeDefinitions:
+      type: object
+      required:
+      - userAssociationEvents
+      properties:
+        userAssociationEvents:
+          $ref: '#/components/schemas/UserAssociationEvents'
+          deprecated: false
+      deprecated: false
+    AutoAssignmentResponse:
+      type: object
+      required:
+      - assignedUserLocator
+      - assignedWorkgroupLocator
+      - associationLocator
+      - taskLocator
+      properties:
+        taskLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        assignedUserLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        assignedWorkgroupLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        associationLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    UserQualification:
+      type: object
+      required:
+      - userLocator
+      - category
+      - level
+      properties:
+        userLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        category:
+          type: string
+          deprecated: false
+        level:
+          type: string
+          deprecated: false
+      deprecated: false
+    ListPageResponseTask:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/Task'
+            deprecated: false
+      deprecated: false
+    WorkgroupResponse:
+      type: object
+      required:
+      - locator
+      - name
+      - workgroupState
+      - createdAt
+      - createdBy
+      - entities
+      - subgroups
+      - tasks
+      - users
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        name:
+          type: string
+          deprecated: false
+        workgroupState:
+          type: string
+          enum:
+          - active
+          - discarded
+          deprecated: false
+        subgroups:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/WorkgroupResponse'
+            deprecated: false
+        users:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: uuid
+            deprecated: false
+        entities:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        tasks:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        parent:
+          type: string
+          format: ulid
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    UserAssociation:
+      type: object
+      required:
+      - locator
+      - referenceLocator
+      - userLocator
+      - userAssociationState
+      - referenceType
+      - userAssociationRole
+      - createdAt
+      - createdBy
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        userLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        userAssociationRole:
+          type: string
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        userAssociationState:
+          type: string
+          enum:
+          - active
+          - completed
+          - disassociated
+          - discarded
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        updatedBy:
+          type: string
+          format: uuid
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    WorkgroupPatchRequest:
+      type: object
+      required:
+      - empty
+      - removeSubgroups
+      - removeUsers
+      - setSubgroups
+      - setUsers
+      properties:
+        name:
+          type: string
+          deprecated: false
+        setSubgroups:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        removeSubgroups:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        setUsers:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: uuid
+            deprecated: false
+        removeUsers:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: uuid
+            deprecated: false
+        parentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+        empty:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    Task:
+      type: object
+      required:
+      - locator
+      - taskState
+      - category
+      - type
+      - createdAt
+      - createdBy
+      - references
+      - underwritingFlagLocators
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        category:
+          type: string
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        taskState:
+          type: string
+          enum:
+          - active
+          - pastDeadline
+          - completed
+          - cancelled
+          deprecated: false
+        references:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/TaskReference'
+            deprecated: false
+        underwritingFlagLocators:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        deadlineTime:
+          type: string
+          format: date-time
+          deprecated: false
+        assignedTo:
+          type: string
+          format: uuid
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        updatedBy:
+          type: string
+          format: uuid
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        description:
+          type: string
+          deprecated: false
+        taskNumber:
+          type: string
+          deprecated: false
+        completedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        completedBy:
+          type: string
+          format: uuid
+          deprecated: false
+        source:
+          type: string
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+      deprecated: false
+    WorkgroupCreateRequest:
+      type: object
+      required:
+      - name
+      - subgroups
+      - users
+      properties:
+        name:
+          type: string
+          deprecated: false
+        subgroups:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        users:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: uuid
+            deprecated: false
+        parentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+      deprecated: false
+    AutoAssignmentCreateRequest:
+      type: object
+      required:
+      - referenceLocator
+      - referenceType
+      properties:
+        taskLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        task:
+          $ref: '#/components/schemas/TaskCreateRequest'
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        associationRole:
+          type: string
+          deprecated: false
+        workgroupLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        traversal:
+          type: string
+          enum:
+          - depthFirst
+          - breadthFirst
+          - none
+          deprecated: false
+        assignToGroup:
+          type: string
+          enum:
+          - never
+          - ifNotAssigned
+          - always
+          deprecated: false
+      deprecated: false
+    TaskReference:
+      type: object
+      required:
+      - referenceLocator
+      - referenceType
+      properties:
+        referenceType:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    UserAssociationEvents:
+      type: object
+      properties:
+        userAssociation.disassociated:
+          $ref: '#/components/schemas/UserAssociationEventData'
+          deprecated: false
+        userAssociation.uncompleted:
+          $ref: '#/components/schemas/UserAssociationEventData'
+          deprecated: false
+        userAssociation.associated:
+          $ref: '#/components/schemas/UserAssociationEventData'
+          deprecated: false
+        userAssociation.completed:
+          $ref: '#/components/schemas/UserAssociationEventData'
+          deprecated: false
+      deprecated: false
+    ListPageResponseWorkplan:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/Workplan'
+            deprecated: false
+      deprecated: false
+    QualificationsUpdateRequest:
+      type: object
+      required:
+      - addQualifications
+      - removeQualifications
+      properties:
+        removeQualifications:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: string
+            deprecated: false
+        addQualifications:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: string
+            deprecated: false
+      deprecated: false
+    TaskCreateRequest:
+      type: object
+      required:
+      - type
+      - references
+      - underwritingFlagLocators
+      properties:
+        type:
+          type: string
+          deprecated: false
+        deadlineTime:
+          type: string
+          format: date-time
+          deprecated: false
+        references:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/TaskReference'
+            deprecated: false
+        underwritingFlagLocators:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        assignedTo:
+          type: string
+          format: uuid
+          deprecated: false
+        description:
+          type: string
+          deprecated: false
+        source:
+          type: string
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+      deprecated: false
+    Workplan:
+      type: object
+      required:
+      - locator
+      - name
+      - workplanState
+      - createdAt
+      - createdBy
+      - items
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        name:
+          type: string
+          deprecated: false
+        workplanState:
+          type: string
+          enum:
+          - active
+          - discarded
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/WorkplanItem'
+            deprecated: false
+        defaultGroup:
+          type: string
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    UserAssociationCreateRequest:
+      type: object
+      required:
+      - referenceLocator
+      - userLocator
+      - referenceType
+      - userAssociationRole
+      properties:
+        userLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        userAssociationRole:
+          type: string
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    WorkplanCreateRequest:
+      type: object
+      required:
+      - name
+      - items
+      properties:
+        name:
+          type: string
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/WorkplanItemRequest'
+            deprecated: false
+        defaultGroup:
+          type: string
+          deprecated: false
+      deprecated: false
+    ListPageResponseUserAssociation:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/UserAssociation'
+            deprecated: false
+      deprecated: false
+    TaskUpdateRequest:
+      type: object
+      required:
+      - addReferences
+      - addUnderwritingFlags
+      - removeReferences
+      - removeUnderwritingFlags
+      properties:
+        deadlineTime:
+          type: string
+          format: date-time
+          deprecated: false
+        addReferences:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/TaskReference'
+            deprecated: false
+        removeReferences:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/TaskReference'
+            deprecated: false
+        addUnderwritingFlags:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        removeUnderwritingFlags:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        description:
+          type: string
+          deprecated: false
+        source:
+          type: string
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+      deprecated: false
+    UserAssociationEventData:
+      type: object
+      required:
+      - referenceLocator
+      - userAssociationLocator
+      - referenceType
+      properties:
+        userAssociationLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    WorkplanItemRequest:
+      type: object
+      required:
+      - referenceLocator
+      - assignToGroup
+      - associationRole
+      - defaultGroup
+      - referenceType
+      - traversal
+      properties:
+        associationRole:
+          type: string
+          deprecated: false
+        task:
+          $ref: '#/components/schemas/TaskCreateRequest'
+          deprecated: false
+        defaultGroup:
+          type: string
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        traversal:
+          type: string
+          enum:
+          - depthFirst
+          - breadthFirst
+          - none
+          deprecated: false
+        assignToGroup:
+          type: string
+          enum:
+          - never
+          - ifNotAssigned
+          - always
+          deprecated: false
+      deprecated: false
+    WorkplanPatchRequest:
+      type: object
+      required:
+      - addItems
+      - removeItems
+      properties:
+        name:
+          type: string
+          deprecated: false
+        addItems:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/WorkplanItemRequest'
+            deprecated: false
+        removeItems:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        defaultGroup:
+          type: string
+          deprecated: false
+      deprecated: false
+    UserQualifiedRolesResponse:
+      type: object
+      required:
+      - qualifiedUserAssociationRoles
+      properties:
+        qualifiedUserAssociationRoles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    ListPageResponseWorkgroupResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/WorkgroupResponse'
+            deprecated: false
+      deprecated: false

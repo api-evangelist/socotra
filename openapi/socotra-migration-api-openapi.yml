@@ -1,0 +1,1541 @@
+openapi: 3.0.1
+info:
+  title: Socotra Insurance Suite OpenAPI Definition Migration API
+  description: Socotra Insurance Suite API
+  termsOfService: https://www.socotra.com
+  version: v0
+servers:
+- url: /
+  description: Generated server url
+tags:
+- name: Migration
+paths:
+  /migration/{tenantLocator}/migrations:
+    post:
+      operationId: startMigration
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: X-Idempotency-Key
+        in: header
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              deprecated: false
+              items:
+                $ref: '#/components/schemas/AccountMigrationRequest'
+                deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MigrationResponse'
+                deprecated: false
+      x-securityGroup: migration
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Migration
+  /migration/{tenantLocator}/migrations/accounts/{accountLocator}:
+    post:
+      operationId: startMigrationForAccount
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: accountLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: X-Idempotency-Key
+        in: header
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MigrationRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MigrationResponse'
+                deprecated: false
+      x-securityGroup: migration
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Migration
+  /migration/{tenantLocator}/migrations/{migrationLocator}:
+    get:
+      operationId: getMigrationSummary
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: migrationLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MigrationResponse'
+                deprecated: false
+      x-securityGroup: migration
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Migration
+    patch:
+      operationId: patchMigration
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: migrationLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchAccountMigrationRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MigrationFailuresResponse'
+                deprecated: false
+      x-securityGroup: migration
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Migration
+  /migration/{tenantLocator}/migrations/{migrationLocator}/resume:
+    patch:
+      operationId: resumeMigration
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: migrationLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: migration
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Migration
+  /migration/{tenantLocator}/migrations/{migrationLocator}/recover:
+    patch:
+      operationId: recoverMigration
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: migrationLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: migration
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Migration
+  /migration/{tenantLocator}/migrations/{migrationLocator}/pause:
+    patch:
+      operationId: pauseMigration
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: migrationLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: migration
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Migration
+  /migration/{tenantLocator}/migrations/{migrationLocator}/mappings/list:
+    get:
+      operationId: getMigrationMappings
+      description: Returns per-account mappings of system locators to original IDs
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: migrationLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseAccountMigrationIdMappings'
+                deprecated: false
+      x-securityGroup: migration
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Migration
+  /migration/{tenantLocator}/migrations/{migrationLocator}/failures/list:
+    get:
+      operationId: getMigrationFailures
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: migrationLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseMigrationFailuresResponse'
+                deprecated: false
+      x-securityGroup: migration
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Migration
+  /migration/{tenantLocator}/migrations/{migrationLocator}/accounts/{accountLocator}:
+    get:
+      operationId: getAccountMigrations
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: migrationLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: accountLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AccountMigrationResponse'
+                deprecated: false
+      x-securityGroup: migration
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Migration
+  /migration/{tenantLocator}/migrations/{migrationLocator}/accounts/{accountLocator}/mappings:
+    get:
+      operationId: getMigrationMappingsForAccount
+      description: Fetches mappings of original IDs to system locators for an account
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: migrationLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: accountLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AccountMigrationIdMappingsResponse'
+                deprecated: false
+      x-securityGroup: migration
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Migration
+  /migration/{tenantLocator}/migrations/{migrationLocator}/accounts/list:
+    get:
+      operationId: listAccountMigrations
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: migrationLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseAccountMigrationResponse'
+                deprecated: false
+      x-securityGroup: migration
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Migration
+  /migration/events:
+    get:
+      operationId: fetchMigrationEventDefinitions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MigrationServiceEventTypeDefinitions'
+                deprecated: false
+      x-securityGroup: public
+      x-securityPermission:
+      - public
+      deprecated: false
+      tags:
+      - Migration
+components:
+  schemas:
+    MigrationResponse:
+      type: object
+      required:
+      - locator
+      - migrationState
+      - processedAccounts
+      - totalAccounts
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        migrationState:
+          type: string
+          enum:
+          - submitted
+          - processing
+          - paused
+          - finished
+          - failed
+          - error
+          deprecated: false
+        processedAccounts:
+          type: integer
+          format: int32
+          deprecated: false
+        totalAccounts:
+          type: integer
+          format: int32
+          deprecated: false
+      deprecated: false
+    PaymentMigrationRequest:
+      type: object
+      required:
+      - id
+      - paymentTime
+      - paymentType
+      - data
+      - paymentItems
+      properties:
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        id:
+          type: string
+          deprecated: false
+        paymentTime:
+          type: string
+          format: date-time
+          deprecated: false
+        paymentItems:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PaymentItemMigrationRequest'
+            deprecated: false
+        paymentType:
+          type: string
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        currency:
+          type: string
+          deprecated: false
+      deprecated: false
+    InstallmentMigrationRequest:
+      type: object
+      required:
+      - startTime
+      - dueTime
+      - generateTime
+      - id
+      - invoiceId
+      properties:
+        id:
+          type: string
+          deprecated: false
+        invoiceId:
+          type: string
+          deprecated: false
+        startTime:
+          type: string
+          format: date-time
+          deprecated: false
+        generateTime:
+          type: string
+          format: date-time
+          deprecated: false
+        dueTime:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    TransactionMigrationRequest:
+      type: object
+      required:
+      - issuedTime
+      - transactionType
+      - createdAt
+      - createdBy
+      - installments
+      properties:
+        transactionType:
+          type: string
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        issuedTime:
+          type: string
+          format: date-time
+          deprecated: false
+        segment:
+          $ref: '#/components/schemas/SegmentMigrationRequest'
+          deprecated: false
+        installments:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/InstallmentMigrationRequest'
+            deprecated: false
+        preferences:
+          $ref: '#/components/schemas/MigrationPreferences'
+          deprecated: false
+      deprecated: false
+    MigrationServiceEventTypeDefinitions:
+      type: object
+      required:
+      - migrationEvents
+      properties:
+        migrationEvents:
+          $ref: '#/components/schemas/MigrationEvents'
+          deprecated: false
+      deprecated: false
+    PatchAccountMigrationRequest:
+      type: object
+      required:
+      - accountLocator
+      - defaultCreatedBy
+      - disbursements
+      - invoices
+      - payments
+      - policies
+      properties:
+        defaultCreatedBy:
+          type: string
+          format: uuid
+          deprecated: false
+        accountLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        accountData:
+          $ref: '#/components/schemas/AccountMigrationData'
+          deprecated: false
+        policies:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/PolicyMigrationRequest'
+            deprecated: false
+        invoices:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/InvoiceMigrationRequest'
+            deprecated: false
+        payments:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/PaymentMigrationRequest'
+            deprecated: false
+        disbursements:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/DisbursementMigrationRequest'
+            deprecated: false
+      deprecated: false
+    PolicyMigrationRequest:
+      type: object
+      required:
+      - productName
+      - durationBasis
+      - id
+      - createdAt
+      - createdBy
+      - staticData
+      - terms
+      properties:
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        id:
+          type: string
+          deprecated: false
+        productName:
+          type: string
+          deprecated: false
+        timezone:
+          type: string
+          deprecated: false
+        currency:
+          type: string
+          deprecated: false
+        durationBasis:
+          type: string
+          enum:
+          - years
+          - months
+          - weeks
+          - days
+          - hours
+          deprecated: false
+        staticData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        terms:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/TermMigrationRequest'
+            deprecated: false
+        delinquencyPlanName:
+          type: string
+          deprecated: false
+        autoRenewalPlanName:
+          type: string
+          deprecated: false
+        preferences:
+          $ref: '#/components/schemas/MigrationPreferences'
+          deprecated: true
+        billingLevel:
+          type: string
+          enum:
+          - account
+          - inherit
+          - policy
+          deprecated: false
+        auxData:
+          $ref: '#/components/schemas/AuxDataMigrationRequest'
+          deprecated: false
+      deprecated: false
+    ErrorDetailsResponse:
+      type: object
+      required:
+      - errors
+      - originalId
+      properties:
+        originalId:
+          type: string
+          deprecated: false
+        errors:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+      deprecated: false
+    CreditItemMigrationRequest:
+      type: object
+      required:
+      - amount
+      properties:
+        amount:
+          type: number
+          deprecated: false
+      deprecated: false
+    ListPageResponseAccountMigrationResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/AccountMigrationResponse'
+            deprecated: false
+      deprecated: false
+    ValidationResult:
+      type: object
+      required:
+      - success
+      properties:
+        validationItems:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ValidationItemResponse'
+            deprecated: false
+        success:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    ChargeMigrationRequest:
+      type: object
+      required:
+      - chargeType
+      - rate
+      - referenceRate
+      - tag
+      - installmentItems
+      properties:
+        rate:
+          type: number
+          deprecated: false
+        referenceRate:
+          type: number
+          deprecated: false
+        chargeType:
+          type: string
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+        installmentItems:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/InstallmentItemMigrationRequest'
+            deprecated: false
+      deprecated: false
+    MigrationFailuresResponse:
+      type: object
+      required:
+      - accountLocator
+      - accountOriginalId
+      - disbursements
+      - invoices
+      - payments
+      - policies
+      properties:
+        accountLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        accountOriginalId:
+          type: string
+          deprecated: false
+        accountError:
+          $ref: '#/components/schemas/ErrorDetailsResponse'
+          deprecated: false
+        policies:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/ErrorDetailsResponse'
+            deprecated: false
+        invoices:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/ErrorDetailsResponse'
+            deprecated: false
+        payments:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/ErrorDetailsResponse'
+            deprecated: false
+        disbursements:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/ErrorDetailsResponse'
+            deprecated: false
+      deprecated: false
+    ListPageResponseAccountMigrationIdMappings:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/AccountMigrationIdMappingsResponse'
+            deprecated: false
+      deprecated: false
+    InstallmentItemMigrationRequest:
+      type: object
+      required:
+      - amount
+      - id
+      - installmentNumber
+      properties:
+        id:
+          type: string
+          deprecated: false
+        amount:
+          type: number
+          deprecated: false
+        installmentNumber:
+          type: integer
+          format: int32
+          deprecated: false
+      deprecated: false
+    MappingObject:
+      type: object
+      required:
+      - migratedAt
+      - originalId
+      - childrenMappings
+      properties:
+        originalId:
+          type: string
+          deprecated: false
+        childrenMappings:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        migratedAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    SegmentMigrationRequest:
+      type: object
+      required:
+      - startTime
+      - rootElement
+      - segmentType
+      properties:
+        startTime:
+          type: string
+          format: date-time
+          deprecated: false
+        rootElement:
+          $ref: '#/components/schemas/ElementMigrationRequest'
+          deprecated: false
+        segmentType:
+          type: string
+          enum:
+          - coverage
+          - gap
+          deprecated: false
+      deprecated: false
+    ElementMigrationRequest:
+      type: object
+      required:
+      - elementType
+      - id
+      - data
+      - charges
+      - coverageTerms
+      - elements
+      properties:
+        id:
+          type: string
+          deprecated: false
+        elementType:
+          type: string
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        coverageTerms:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        elements:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ElementMigrationRequest'
+            deprecated: false
+        charges:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ChargeMigrationRequest'
+            deprecated: false
+      deprecated: false
+    AccountMigrationData:
+      type: object
+      required:
+      - accountType
+      - id
+      - data
+      - createdAt
+      properties:
+        id:
+          type: string
+          deprecated: false
+        accountType:
+          type: string
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        delinquencyPlanName:
+          type: string
+          deprecated: false
+        autoRenewalPlanName:
+          type: string
+          deprecated: false
+        excessCreditPlanName:
+          type: string
+          deprecated: false
+        shortfallTolerancePlanName:
+          type: string
+          deprecated: false
+        preferences:
+          $ref: '#/components/schemas/MigrationPreferences'
+          deprecated: false
+        billingLevel:
+          type: string
+          enum:
+          - account
+          - inherit
+          - policy
+          deprecated: false
+      deprecated: false
+    ValidationItemResponse:
+      type: object
+      required:
+      - locator
+      - elementType
+      - errors
+      properties:
+        elementType:
+          type: string
+          deprecated: false
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        errors:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    AuxDataMigrationRequest:
+      type: object
+      required:
+      - settingsName
+      - entries
+      properties:
+        entries:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/AuxDataEntryMigrationRequest'
+            deprecated: false
+        settingsName:
+          type: string
+          deprecated: false
+      deprecated: false
+    MigrationInstallmentPreferences:
+      type: object
+      required:
+      - installmentWeights
+      properties:
+        cadence:
+          type: string
+          enum:
+          - none
+          - fullPay
+          - weekly
+          - everyOtherWeek
+          - monthly
+          - quarterly
+          - semiannually
+          - annually
+          - thirtyDays
+          - everyNDays
+          deprecated: false
+        anchorMode:
+          type: string
+          enum:
+          - generateDay
+          - termStartDay
+          - dueDay
+          deprecated: false
+        generateLeadDays:
+          type: integer
+          format: int32
+          deprecated: false
+        dueLeadDays:
+          type: integer
+          format: int32
+          deprecated: false
+        installmentWeights:
+          type: array
+          deprecated: false
+          items:
+            type: number
+            deprecated: false
+        maxInstallmentsPerTerm:
+          type: integer
+          format: int32
+          deprecated: false
+        installmentPlanName:
+          type: string
+          deprecated: false
+        anchorType:
+          type: string
+          enum:
+          - none
+          - dayOfMonth
+          - anchorTime
+          - dayOfWeek
+          - weekOfMonth
+          deprecated: false
+        dayOfMonth:
+          type: integer
+          format: int32
+          deprecated: false
+        dayOfWeek:
+          type: string
+          enum:
+          - monday
+          - tuesday
+          - wednesday
+          - thursday
+          - friday
+          - saturday
+          - sunday
+          deprecated: false
+        weekOfMonth:
+          type: string
+          enum:
+          - none
+          - first
+          - second
+          - third
+          - fourth
+          - fifth
+          deprecated: false
+        anchorTime:
+          type: string
+          format: date-time
+          deprecated: false
+        autopayLeadDays:
+          type: number
+          deprecated: false
+      deprecated: false
+    DisbursementMigrationRequest:
+      type: object
+      required:
+      - disbursementTime
+      - disbursementType
+      - id
+      - data
+      - sources
+      properties:
+        id:
+          type: string
+          deprecated: false
+        disbursementType:
+          type: string
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        disbursementTime:
+          type: string
+          format: date-time
+          deprecated: false
+        sources:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/CreditItemMigrationRequest'
+            deprecated: false
+        currency:
+          type: string
+          deprecated: false
+      deprecated: false
+    AccountingMigrationRequest:
+      type: object
+      required:
+      - originalAccountBalances
+      properties:
+        originalAccountBalances:
+          type: object
+          description: Key is a currency code (e.g. USD)
+          deprecated: false
+          additionalProperties:
+            type: number
+            deprecated: false
+      deprecated: false
+    AccountMigrationResponse:
+      type: object
+      required:
+      - accountMigrationState
+      - errorItems
+      - lastUpdated
+      - processedItems
+      - totalItems
+      properties:
+        accountLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        accountMigrationState:
+          type: string
+          enum:
+          - pending
+          - processing
+          - error
+          - failed
+          - completed
+          deprecated: false
+        processedItems:
+          type: integer
+          format: int32
+          deprecated: false
+        errorItems:
+          type: integer
+          format: int32
+          deprecated: false
+        totalItems:
+          type: integer
+          format: int32
+          deprecated: false
+        lastUpdated:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    TermMigrationRequest:
+      type: object
+      required:
+      - startTime
+      - endTime
+      - transactions
+      properties:
+        startTime:
+          type: string
+          format: date-time
+          deprecated: false
+        endTime:
+          type: string
+          format: date-time
+          deprecated: false
+        transactions:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/TransactionMigrationRequest'
+            deprecated: false
+      deprecated: false
+    AccountMigrationRequest:
+      type: object
+      required:
+      - accountData
+      - accounting
+      - defaultCreatedBy
+      - disbursements
+      - invoices
+      - payments
+      - policies
+      properties:
+        defaultCreatedBy:
+          type: string
+          format: uuid
+          deprecated: false
+        accountData:
+          $ref: '#/components/schemas/AccountMigrationData'
+          deprecated: false
+        policies:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PolicyMigrationRequest'
+            deprecated: false
+        invoices:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/InvoiceMigrationRequest'
+            deprecated: false
+        payments:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PaymentMigrationRequest'
+            deprecated: false
+        disbursements:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DisbursementMigrationRequest'
+            deprecated: false
+        accounting:
+          $ref: '#/components/schemas/AccountingMigrationRequest'
+          deprecated: false
+      deprecated: false
+    AccountMigrationIdMappingsResponse:
+      type: object
+      required:
+      - accountLocator
+      - migrationLocator
+      - originalAccountId
+      - disbursements
+      - invoices
+      - payments
+      - policies
+      properties:
+        migrationLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        accountLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        originalAccountId:
+          type: string
+          deprecated: false
+        policies:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/MappingObject'
+            deprecated: false
+        invoices:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/MappingObject'
+            deprecated: false
+        payments:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/MappingObject'
+            deprecated: false
+        disbursements:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/MappingObject'
+            deprecated: false
+      deprecated: false
+    AuxDataEntryMigrationRequest:
+      type: object
+      required:
+      - key
+      - value
+      properties:
+        key:
+          type: string
+          deprecated: false
+        value:
+          type: string
+          deprecated: false
+      deprecated: false
+    MigrationEvents:
+      type: object
+      properties:
+        migration.start:
+          $ref: '#/components/schemas/MigrationEventData'
+          deprecated: false
+        migration.error:
+          $ref: '#/components/schemas/MigrationEventData'
+          deprecated: false
+        migration.resume:
+          $ref: '#/components/schemas/MigrationEventData'
+          deprecated: false
+        migration.recover:
+          $ref: '#/components/schemas/MigrationEventData'
+          deprecated: false
+        migration.patch:
+          $ref: '#/components/schemas/MigrationEventData'
+          deprecated: false
+        migration.finish:
+          $ref: '#/components/schemas/MigrationEventData'
+          deprecated: false
+        migration.pause:
+          $ref: '#/components/schemas/MigrationEventData'
+          deprecated: false
+        migration.fail:
+          $ref: '#/components/schemas/MigrationEventData'
+          deprecated: false
+      deprecated: false
+    MigrationPreferences:
+      type: object
+      properties:
+        installmentPreferences:
+          $ref: '#/components/schemas/MigrationInstallmentPreferences'
+          deprecated: false
+      deprecated: false
+    MigrationEventData:
+      type: object
+      required:
+      - migrationLocator
+      properties:
+        migrationLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    PaymentItemMigrationRequest:
+      type: object
+      required:
+      - amount
+      - invoiceId
+      properties:
+        amount:
+          type: number
+          deprecated: false
+        invoiceId:
+          type: string
+          deprecated: false
+      deprecated: false
+    InvoiceMigrationRequest:
+      type: object
+      required:
+      - startTime
+      - endTime
+      - dueTime
+      - generateTime
+      - id
+      properties:
+        id:
+          type: string
+          deprecated: false
+        startTime:
+          type: string
+          format: date-time
+          deprecated: false
+        endTime:
+          type: string
+          format: date-time
+          deprecated: false
+        generateTime:
+          type: string
+          format: date-time
+          deprecated: false
+        dueTime:
+          type: string
+          format: date-time
+          deprecated: false
+        currency:
+          type: string
+          deprecated: false
+        timezone:
+          type: string
+          deprecated: false
+        invoiceState:
+          type: string
+          enum:
+          - open
+          - settled
+          - discarded
+          deprecated: false
+      deprecated: false
+    MigrationRequest:
+      type: object
+      required:
+      - defaultCreatedBy
+      - disbursements
+      - invoices
+      - payments
+      - policies
+      properties:
+        defaultCreatedBy:
+          type: string
+          format: uuid
+          deprecated: false
+        policies:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PolicyMigrationRequest'
+            deprecated: false
+        invoices:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/InvoiceMigrationRequest'
+            deprecated: false
+        payments:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PaymentMigrationRequest'
+            deprecated: false
+        disbursements:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DisbursementMigrationRequest'
+            deprecated: false
+      deprecated: false
+    ListPageResponseMigrationFailuresResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/MigrationFailuresResponse'
+            deprecated: false
+      deprecated: false

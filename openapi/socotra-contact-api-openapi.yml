@@ -1,0 +1,511 @@
+openapi: 3.0.1
+info:
+  title: Socotra Insurance Suite OpenAPI Definition Contact API
+  description: Socotra Insurance Suite API
+  termsOfService: https://www.socotra.com
+  version: v0
+servers:
+- url: /
+  description: Generated server url
+tags:
+- name: Contact
+paths:
+  /contact/{tenantLocator}/contacts:
+    post:
+      operationId: addContact
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Contact'
+                deprecated: false
+      x-securityGroup: contacts
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Contact
+  /contact/{tenantLocator}/contacts/{locator}:
+    get:
+      operationId: getContact
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Contact'
+                deprecated: false
+      x-securityGroup: contacts
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Contact
+    patch:
+      operationId: updateContact
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Contact'
+                deprecated: false
+      x-securityGroup: contacts
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Contact
+  /contact/{tenantLocator}/contacts/{locator}/validate:
+    patch:
+      operationId: validateContact
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Contact'
+                deprecated: false
+      x-securityGroup: contacts
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Contact
+  /contact/{tenantLocator}/contacts/merge:
+    patch:
+      operationId: mergeContacts
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactsMergeRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Contact'
+                deprecated: false
+      x-securityGroup: contacts
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Contact
+  /contact/events:
+    get:
+      operationId: fetchContactEventDefinitions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactServiceEventTypeDefinitions'
+                deprecated: false
+      x-securityGroup: public
+      x-securityPermission:
+      - public
+      deprecated: false
+      tags:
+      - Contact
+  /contact/{tenantLocator}/contacts/{staticLocator}/list:
+    get:
+      operationId: listContacts
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: staticLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseContact'
+                deprecated: false
+      x-securityGroup: contacts
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Contact
+  /contact/{tenantLocator}/contacts/lookup/{locator}:
+    get:
+      operationId: lookupContact
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Contact'
+                deprecated: false
+      x-securityGroup: contacts
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Contact
+components:
+  schemas:
+    ValidationItemResponse:
+      type: object
+      required:
+      - locator
+      - elementType
+      - errors
+      properties:
+        elementType:
+          type: string
+          deprecated: false
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        errors:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    ContactUpdateRequest:
+      type: object
+      required:
+      - removeData
+      - setData
+      properties:
+        type:
+          type: string
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        setData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ContactCreateRequest:
+      type: object
+      required:
+      - autoValidate
+      - type
+      - data
+      properties:
+        type:
+          type: string
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        autoValidate:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    ValidationResult:
+      type: object
+      required:
+      - success
+      properties:
+        validationItems:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ValidationItemResponse'
+            deprecated: false
+        success:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    ListPageResponseContact:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/Contact'
+            deprecated: false
+      deprecated: false
+    ContactServiceEventTypeDefinitions:
+      type: object
+      required:
+      - contactEvents
+      properties:
+        contactEvents:
+          $ref: '#/components/schemas/ContactEvents'
+          deprecated: false
+      deprecated: false
+    ContactMergeEventData:
+      type: object
+      required:
+      - newStaticLocator
+      - oldStaticLocator
+      properties:
+        oldStaticLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        newStaticLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    ContactEventData:
+      type: object
+      required:
+      - locator
+      - staticLocator
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        staticLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    ContactsMergeRequest:
+      type: object
+      required:
+      - mergeToContact
+      - contactLocators
+      properties:
+        contactLocators:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        mergeToContact:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    ContactEvents:
+      type: object
+      properties:
+        contact.anonymized:
+          $ref: '#/components/schemas/ContactEventData'
+          deprecated: false
+        contact.merged:
+          $ref: '#/components/schemas/ContactMergeEventData'
+          deprecated: false
+        contact.validated:
+          $ref: '#/components/schemas/ContactEventData'
+          deprecated: false
+        contact.created:
+          $ref: '#/components/schemas/ContactEventData'
+          deprecated: false
+      deprecated: false
+    Contact:
+      type: object
+      required:
+      - locator
+      - staticLocator
+      - contactState
+      - type
+      - data
+      - createdAt
+      - createdBy
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        staticLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        contactState:
+          type: string
+          enum:
+          - draft
+          - validated
+          - discarded
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        region:
+          type: string
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        updatedBy:
+          type: string
+          format: uuid
+          deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+        anonymizedAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false

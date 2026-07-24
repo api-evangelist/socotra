@@ -1,0 +1,1278 @@
+openapi: 3.0.1
+info:
+  title: Socotra Insurance Suite OpenAPI Definition Auxdata API
+  description: Socotra Insurance Suite API
+  termsOfService: https://www.socotra.com
+  version: v0
+servers:
+- url: /
+  description: Generated server url
+tags:
+- name: Auxdata
+paths:
+  /auxdata/{tenantLocator}/auxdata/{locator}:
+    get:
+      operationId: getAuxDataKeys
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuxDataKeySetResponse'
+                deprecated: false
+      x-securityGroup: auxdata
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Auxdata
+    put:
+      operationId: putAuxData
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuxDataSetCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: auxdata
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Auxdata
+  /auxdata/{tenantLocator}/mediadata:
+    post:
+      operationId: createMediaData
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: filename
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: mimeType
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: title
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: tag
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: references
+        in: query
+        required: true
+        schema:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/MediaDataEntryReference'
+            deprecated: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MediaDataEntry'
+                deprecated: false
+      x-securityGroup: mediadata
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Auxdata
+  /auxdata/{tenantLocator}/diary/{referenceType}/{referenceLocator}:
+    get:
+      operationId: fetchLatestDiaryEntriesByReference
+      description: Fetches all of the latest revisions for a given entity
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: referenceType
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: referenceLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: includeDiscarded
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/DiaryEntryResponse'
+                  deprecated: false
+      x-securityGroup: diary
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Auxdata
+    post:
+      operationId: createDiary
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: referenceType
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: referenceLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiaryEntryCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiaryEntryResponse'
+                deprecated: false
+      x-securityGroup: diary
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Auxdata
+  /auxdata/{tenantLocator}/diary/segments/{segmentLocator}/element/{staticElementLocator}:
+    post:
+      operationId: createDiaryForSegmentElement
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: segmentLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: staticElementLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiaryEntryCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiaryEntryResponse'
+                deprecated: false
+      x-securityGroup: diary
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Auxdata
+  /auxdata/{tenantLocator}/diary/quotes/{quoteLocator}/element/{staticElementLocator}:
+    post:
+      operationId: createDiaryForQuoteElement
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: quoteLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: staticElementLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiaryEntryCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiaryEntryResponse'
+                deprecated: false
+      x-securityGroup: diary
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Auxdata
+  /auxdata/{tenantLocator}/mediadata/{locator}:
+    get:
+      operationId: fetchLatestMediaData
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MediaDataEntry'
+                deprecated: false
+      x-securityGroup: mediadata
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Auxdata
+    patch:
+      operationId: updateMediaData
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: filename
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: mimeType
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: title
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: tag
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: referencesToAdd
+        in: query
+        required: false
+        schema:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/MediaDataEntryReference'
+            deprecated: false
+      - name: referencesToRemove
+        in: query
+        required: false
+        schema:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/MediaDataEntryReference'
+            deprecated: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MediaDataEntry'
+                deprecated: false
+      x-securityGroup: mediadata
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Auxdata
+    delete:
+      operationId: deleteMediaData
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: mediadata
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Auxdata
+  /auxdata/{tenantLocator}/diary/{locator}:
+    get:
+      operationId: fetchAllDiaryEntriesByLocator
+      description: Fetches all revisions of a single diary entry
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/DiaryEntryResponse'
+                  deprecated: false
+      x-securityGroup: diary
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Auxdata
+    patch:
+      operationId: updateDiary
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiaryEntryUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiaryEntryResponse'
+                deprecated: false
+      x-securityGroup: diary
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Auxdata
+  /auxdata/{tenantLocator}/diary/{locator}/discard:
+    patch:
+      operationId: discardDiary
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiaryEntryResponse'
+                deprecated: false
+      x-securityGroup: diary
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Auxdata
+  /auxdata/{tenantLocator}/mediadata/{locator}/versions/{versionLocator}:
+    get:
+      operationId: fetchMediaData
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: versionLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MediaDataEntry'
+                deprecated: false
+      x-securityGroup: mediadata
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Auxdata
+  /auxdata/{tenantLocator}/mediadata/{locator}/versions/{versionLocator}/file:
+    get:
+      operationId: fetchFile
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: versionLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: mediadata
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Auxdata
+  /auxdata/{tenantLocator}/mediadata/{locator}/list:
+    get:
+      operationId: fetchAllMediaDataByLocator
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                deprecated: false
+      x-securityGroup: mediadata
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Auxdata
+  /auxdata/{tenantLocator}/mediadata/{locator}/file:
+    get:
+      operationId: fetchLatestFile
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: mediadata
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Auxdata
+  /auxdata/{tenantLocator}/mediadata/search/{referenceType}/{referenceLocator}/list:
+    get:
+      operationId: fetchLatestMediaDataByReference
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: referenceLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: referenceType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - diary
+          - fnol
+          - inquiry
+          - policy
+          - producer
+          - producerAppointment
+          - producerCode
+          - producerLicense
+          - quote
+          - task
+          - transaction
+          - userAssociation
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                deprecated: false
+      x-securityGroup: mediadata
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Auxdata
+  /auxdata/{tenantLocator}/diary/{locator}/latest:
+    get:
+      operationId: fetchLatestDiaryEntryByLocator
+      description: Fetches the latest revision of a single diary entry
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiaryEntryResponse'
+                deprecated: false
+      x-securityGroup: diary
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Auxdata
+  /auxdata/{tenantLocator}/auxdata/{locator}/{key}:
+    get:
+      operationId: getAuxData
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuxDataResponse'
+                deprecated: false
+      x-securityGroup: auxdata
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Auxdata
+    delete:
+      operationId: deleteAuxData
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: auxdata
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Auxdata
+  /auxdata/{tenantLocator}/auxdata/size:
+    get:
+      operationId: getAuxDataSize
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuxDataSizeResponse'
+                deprecated: false
+      x-securityGroup: auxdata
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Auxdata
+components:
+  schemas:
+    AuxDataResponse:
+      type: object
+      required:
+      - locator
+      - key
+      - modificationTimestamp
+      - uiType
+      - value
+      properties:
+        locator:
+          type: string
+          deprecated: false
+        key:
+          type: string
+          deprecated: false
+        uiType:
+          type: string
+          enum:
+          - normal
+          - hidden
+          - readonly
+          deprecated: false
+        value:
+          type: string
+          deprecated: false
+        modificationTimestamp:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTimestamp:
+          type: string
+          format: date-time
+          deprecated: false
+        auxDataSettingsName:
+          type: string
+          deprecated: false
+      deprecated: false
+    DiaryEntryResponse:
+      type: object
+      required:
+      - locator
+      - referenceLocator
+      - diaryState
+      - contents
+      - referenceType
+      - updatedAt
+      - updatedBy
+      - createdAt
+      - createdBy
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - quote
+          - policy
+          - transaction
+          - task
+          - fnol
+          - invoice
+          - account
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          - element
+          deprecated: false
+        category:
+          type: string
+          deprecated: false
+        contents:
+          type: string
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        updatedBy:
+          type: string
+          format: uuid
+          deprecated: false
+        diaryState:
+          type: string
+          enum:
+          - active
+          - discarded
+          deprecated: false
+      deprecated: false
+    StreamingResponseBody:
+      type: object
+      deprecated: false
+    AuxDataKey:
+      type: object
+      required:
+      - key
+      - uiType
+      properties:
+        key:
+          type: string
+          deprecated: false
+        uiType:
+          type: string
+          enum:
+          - normal
+          - hidden
+          - readonly
+          deprecated: false
+        auxDataSettingsName:
+          type: string
+          deprecated: false
+      deprecated: false
+    AuxDataKeySetResponse:
+      type: object
+      required:
+      - count
+      - offset
+      - keys
+      properties:
+        offset:
+          type: integer
+          format: int32
+          deprecated: false
+        count:
+          type: integer
+          format: int32
+          deprecated: false
+        keys:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/AuxDataKey'
+            deprecated: false
+      deprecated: false
+    AuxDataSet:
+      type: object
+      required:
+      - key
+      - uiType
+      - value
+      properties:
+        uiType:
+          type: string
+          enum:
+          - normal
+          - hidden
+          - readonly
+          deprecated: false
+        key:
+          type: string
+          deprecated: false
+        value:
+          type: string
+          deprecated: false
+      deprecated: false
+    DiaryEntryCreateRequest:
+      type: object
+      required:
+      - contents
+      properties:
+        category:
+          type: string
+          deprecated: false
+        contents:
+          type: string
+          deprecated: false
+      deprecated: false
+    DiaryEntryUpdateRequest:
+      type: object
+      required:
+      - contents
+      properties:
+        category:
+          type: string
+          deprecated: false
+        contents:
+          type: string
+          deprecated: false
+      deprecated: false
+    AuxDataSetCreateRequest:
+      type: object
+      required:
+      - auxData
+      properties:
+        auxDataSettingsName:
+          type: string
+          deprecated: false
+        auxData:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/AuxDataSet'
+            deprecated: false
+      deprecated: false
+    MediaDataEntry:
+      type: object
+      required:
+      - locator
+      - filename
+      - updatedAt
+      - updatedBy
+      - createdAt
+      - createdBy
+      - references
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        versionLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        filename:
+          type: string
+          deprecated: false
+        title:
+          type: string
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+        references:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/MediaDataEntryReference'
+            deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        updatedBy:
+          type: string
+          format: uuid
+          deprecated: false
+      deprecated: false
+    MediaDataEntryReference:
+      type: object
+      required:
+      - locator
+      - type
+      properties:
+        type:
+          type: string
+          enum:
+          - diary
+          - fnol
+          - inquiry
+          - policy
+          - producer
+          - producerAppointment
+          - producerCode
+          - producerLicense
+          - quote
+          - task
+          - transaction
+          - userAssociation
+          deprecated: false
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    AuxDataSizeResponse:
+      type: object
+      required:
+      - dataSizeKb
+      properties:
+        dataSizeKb:
+          type: integer
+          format: int32
+          deprecated: false
+      deprecated: false

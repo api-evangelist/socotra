@@ -1,0 +1,474 @@
+openapi: 3.0.1
+info:
+  title: Socotra Insurance Suite OpenAPI Definition Payment Execution API
+  description: Socotra Insurance Suite API
+  termsOfService: https://www.socotra.com
+  version: v0
+servers:
+- url: /
+  description: Generated server url
+tags:
+- name: Payment Execution
+paths:
+  /payment-execution/{tenantLocator}/paymentProviders:
+    post:
+      operationId: addPaymentProviderConfiguration
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - $ref: '#/components/schemas/BraintreeConfigurationRequest'
+                deprecated: false
+              - $ref: '#/components/schemas/StripeConfigurationRequest'
+                deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PaymentProvider'
+                deprecated: false
+      x-securityGroup: payment-providers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Payment Execution
+  /payment-execution/{tenantLocator}/financialInstruments/{financialInstrumentLocator}:
+    get:
+      operationId: fetchPaymentExecutionConfigurationForFinancialInstrument
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: financialInstrumentLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FinancialInstrumentConfigurationResponse'
+                deprecated: false
+      x-securityGroup: financial-instruments
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Payment Execution
+    post:
+      operationId: addPaymentExecutionConfigurationForFinancialInstrument
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: financialInstrumentLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FinancialInstrumentConfigurationRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FinancialInstrumentConfigurationResponse'
+                deprecated: false
+      x-securityGroup: financial-instruments
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Payment Execution
+    patch:
+      operationId: updatePaymentExecutionConfigurationForFinancialInstrument
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: financialInstrumentLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FinancialInstrumentConfigurationRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FinancialInstrumentConfigurationResponse'
+                deprecated: false
+      x-securityGroup: financial-instruments
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Payment Execution
+  /payment-execution/{tenantLocator}/paymentProviders/{locator}:
+    get:
+      operationId: fetchPaymentProviderConfiguration
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PaymentProvider'
+                deprecated: false
+      x-securityGroup: payment-providers
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Payment Execution
+    patch:
+      operationId: updatePaymentProviderConfiguration
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - $ref: '#/components/schemas/BraintreeConfigurationRequest'
+                deprecated: false
+              - $ref: '#/components/schemas/StripeConfigurationRequest'
+                deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PaymentProvider'
+                deprecated: false
+      x-securityGroup: payment-providers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Payment Execution
+  /payment-execution/{tenantLocator}/paymentProviders/{locator}/inactivate:
+    patch:
+      operationId: inactivatePaymentProviderConfiguration
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PaymentProvider'
+                deprecated: false
+      x-securityGroup: payment-providers
+      x-securityPermission:
+      - write
+      deprecated: true
+      tags:
+      - Payment Execution
+  /payment-execution/{tenantLocator}/paymentProviders/list:
+    get:
+      operationId: fetchPaymentProviderConfigurations
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: paymentServiceProvider
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - braintree
+          - braintreeSandbox
+          - stripe
+          - stripeTest
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponsePaymentProvider'
+                deprecated: false
+      x-securityGroup: payment-providers
+      x-securityPermission:
+      - list
+      deprecated: false
+      tags:
+      - Payment Execution
+components:
+  schemas:
+    StripeConfigurationRequest:
+      type: object
+      required:
+      - paymentProviderState
+      - paymentServiceProvider
+      - secretKey
+      allOf:
+      - $ref: '#/components/schemas/PaymentProviderConfigurationRequestPaymentProviderConfiguration'
+        deprecated: false
+      - type: object
+        properties:
+          paymentServiceProvider:
+            type: string
+            enum:
+            - braintree
+            - braintreeSandbox
+            - stripe
+            - stripeTest
+            deprecated: false
+          paymentProviderState:
+            type: string
+            enum:
+            - active
+            - inactive
+            deprecated: false
+          secretKey:
+            type: string
+            deprecated: false
+            writeOnly: true
+        deprecated: false
+      deprecated: false
+    FinancialInstrumentConfigurationResponse:
+      type: object
+      required:
+      - paymentInstrumentLocator
+      - paymentProviderLocator
+      properties:
+        paymentInstrumentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        paymentProviderLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        externalAccountNumber:
+          type: string
+          deprecated: false
+      deprecated: false
+    PaymentProviderConfigurationRequestPaymentProviderConfiguration:
+      type: object
+      required:
+      - paymentServiceProvider
+      properties:
+        paymentServiceProvider:
+          type: string
+          deprecated: false
+      discriminator:
+        propertyName: paymentServiceProvider
+      deprecated: false
+    PaymentProvider:
+      type: object
+      required:
+      - locator
+      - paymentProviderState
+      - paymentServiceProvider
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        paymentServiceProvider:
+          type: string
+          enum:
+          - braintree
+          - braintreeSandbox
+          - stripe
+          - stripeTest
+          deprecated: false
+        paymentProviderState:
+          type: string
+          enum:
+          - active
+          - inactive
+          deprecated: false
+      deprecated: false
+    FinancialInstrumentConfigurationRequest:
+      type: object
+      required:
+      - paymentProviderLocator
+      - offlinePaymentToken
+      properties:
+        paymentProviderLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        offlinePaymentToken:
+          type: string
+          deprecated: false
+        externalAccountNumber:
+          type: string
+          deprecated: false
+      deprecated: false
+    BraintreeConfigurationRequest:
+      type: object
+      required:
+      - paymentProviderState
+      - merchantId
+      - paymentServiceProvider
+      - privateKey
+      - publicKey
+      allOf:
+      - $ref: '#/components/schemas/PaymentProviderConfigurationRequestPaymentProviderConfiguration'
+        deprecated: false
+      - type: object
+        properties:
+          paymentServiceProvider:
+            type: string
+            enum:
+            - braintree
+            - braintreeSandbox
+            - stripe
+            - stripeTest
+            deprecated: false
+          paymentProviderState:
+            type: string
+            enum:
+            - active
+            - inactive
+            deprecated: false
+          merchantId:
+            type: string
+            deprecated: false
+            writeOnly: true
+          publicKey:
+            type: string
+            deprecated: false
+            writeOnly: true
+          privateKey:
+            type: string
+            deprecated: false
+            writeOnly: true
+        deprecated: false
+      deprecated: false
+    ListPageResponsePaymentProvider:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PaymentProvider'
+            deprecated: false
+      deprecated: false

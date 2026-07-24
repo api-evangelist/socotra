@@ -1,0 +1,2535 @@
+openapi: 3.0.1
+info:
+  title: Socotra Insurance Suite OpenAPI Definition Producers API
+  description: Socotra Insurance Suite API
+  termsOfService: https://www.socotra.com
+  version: v0
+servers:
+- url: /
+  description: Generated server url
+tags:
+- name: Producers
+paths:
+  /producers/{tenantLocator}/producers/{producerLocator}:
+    get:
+      operationId: fetchProducer
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Producers
+    put:
+      operationId: replaceProducer
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProducerCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+    patch:
+      operationId: updateProducer
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProducerUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/licenses/{producerLicenseLocator}:
+    get:
+      operationId: fetchProducerLicense
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerLicenseLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerLicenseResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Producers
+    put:
+      operationId: replaceProducerLicense
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerLicenseLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProducerLicenseReplaceRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerLicenseResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+    patch:
+      operationId: updateProducerLicense
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerLicenseLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProducerLicenseUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerLicenseResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}:
+    get:
+      operationId: fetchProducerCode
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerCodeLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerCodeResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Producers
+    put:
+      operationId: replaceProducerCode
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerCodeLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProducerCodeReplaceRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerCodeResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+    patch:
+      operationId: updateProducerCode
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerCodeLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProducerCodeUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerCodeResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/appointments/{producerAppointmentLocator}:
+    get:
+      operationId: fetchProducerAppointment
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerAppointmentLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerAppointmentResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Producers
+    put:
+      operationId: replaceProducerAppointment
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerAppointmentLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProducerAppointmentReplaceRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerAppointmentResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+    patch:
+      operationId: updateProducerAppointment
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerAppointmentLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProducerAppointmentUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerAppointmentResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers:
+    post:
+      operationId: createProducer
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProducerCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/licenses:
+    post:
+      operationId: createProducerLicense
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProducerLicenseCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerLicenseResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/codes:
+    post:
+      operationId: createProducerCode
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProducerCodeCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerCodeResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/number/set:
+    post:
+      operationId: setCodeByNumber
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerCodeLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: code
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerCodeResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/number/generate:
+    post:
+      operationId: generateCodeByNumber
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerCodeLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerCodeResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/appointments:
+    post:
+      operationId: createProducerAppointment
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProducerAppointmentCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerAppointmentResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/validate:
+    patch:
+      operationId: validateProducer
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/unsuspend:
+    patch:
+      operationId: unsuspendProducer
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/suspend:
+    patch:
+      operationId: suspendProducer
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/retire:
+    patch:
+      operationId: retireProducer
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/licenses/{producerLicenseLocator}/validate:
+    patch:
+      operationId: validateProducerLicense
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerLicenseLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerLicenseResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/licenses/{producerLicenseLocator}/discard:
+    patch:
+      operationId: discardProducerLicense
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerLicenseLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerLicenseResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/discard:
+    patch:
+      operationId: discardProducer
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/validate:
+    patch:
+      operationId: validateProducerCode
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerCodeLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerCodeResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/unsuspend:
+    patch:
+      operationId: unsuspendProducerCode
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerCodeLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerCodeResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/suspend:
+    patch:
+      operationId: suspendProducerCode
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerCodeLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerCodeResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/retire:
+    patch:
+      operationId: retireProducerCode
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerCodeLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerCodeResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/discard:
+    patch:
+      operationId: discardProducerCode
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerCodeLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerCodeResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/appointments/{producerAppointmentLocator}/validate:
+    patch:
+      operationId: validateProducerAppointment
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerAppointmentLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerAppointmentResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/appointments/{producerAppointmentLocator}/discard:
+    patch:
+      operationId: discardProducerAppointment
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: producerAppointmentLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerAppointmentResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/producerHierarchy:
+    get:
+      operationId: fetchProducerHierarchy
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerHierarchyResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/licenses/list:
+    get:
+      operationId: fetchProducerLicenses
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPageResponseProducerLicenseResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/codes/list:
+    get:
+      operationId: fetchProducerCodes
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPageResponseProducerCodeResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/{producerLocator}/appointments/list:
+    get:
+      operationId: fetchProducerAppointments
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: producerLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPageResponseProducerAppointmentResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/list:
+    get:
+      operationId: fetchProducers
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPageResponseProducerResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Producers
+  /producers/{tenantLocator}/producers/codes/{code}:
+    get:
+      operationId: fetchProducerCodeByCode
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: code
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducerCodeResponse'
+                deprecated: false
+      x-securityGroup: producers
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Producers
+  /producers/events:
+    get:
+      operationId: fetchProducersEventDefinitions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProducersEventTypeDefinitions'
+                deprecated: false
+      x-securityGroup: public
+      x-securityPermission:
+      - public
+      deprecated: false
+      tags:
+      - Producers
+components:
+  schemas:
+    ProducerLicenseUpdateRequest:
+      type: object
+      required:
+      - removeData
+      - setData
+      properties:
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        licenseNumber:
+          type: string
+          deprecated: false
+          maxLength: 128
+        producerCodes:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        products:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        effectiveTime:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        setData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerAppointmentEvents:
+      type: object
+      properties:
+        producers.producerappointment.update:
+          $ref: '#/components/schemas/ProducerAppointmentEventData'
+          deprecated: false
+        producers.producerappointment.validate:
+          $ref: '#/components/schemas/ProducerAppointmentEventData'
+          deprecated: false
+        producers.producerappointment.create:
+          $ref: '#/components/schemas/ProducerAppointmentEventData'
+          deprecated: false
+        producers.producerappointment.discard:
+          $ref: '#/components/schemas/ProducerAppointmentEventData'
+          deprecated: false
+      deprecated: false
+    ProducerAppointmentUpdateRequest:
+      type: object
+      required:
+      - removeData
+      - setData
+      properties:
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        appointmentNumber:
+          type: string
+          deprecated: false
+          maxLength: 128
+        producerCodes:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        products:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        licenses:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        effectiveTime:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        setData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerLicenseCreateRequest:
+      type: object
+      required:
+      - type
+      - jurisdictions
+      - producerCodes
+      - products
+      properties:
+        type:
+          type: string
+          deprecated: false
+        licenseNumber:
+          type: string
+          deprecated: false
+          maxLength: 128
+        producerCodes:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        products:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        effectiveTime:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerCodeEventData:
+      type: object
+      required:
+      - producerCodeLocator
+      properties:
+        producerCodeLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        code:
+          type: string
+          deprecated: false
+      deprecated: false
+    ProducerLicenseResponse:
+      type: object
+      required:
+      - locator
+      - producerLocator
+      - producerLicenseState
+      - type
+      - createdAt
+      - createdBy
+      - jurisdictions
+      - producerCodes
+      - products
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        producerLicenseState:
+          type: string
+          enum:
+          - draft
+          - validated
+          - discarded
+          deprecated: false
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        licenseNumber:
+          type: string
+          deprecated: false
+        producerCodes:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        products:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        effectiveTime:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+      deprecated: false
+    ValidationResult:
+      type: object
+      required:
+      - success
+      properties:
+        validationItems:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ValidationItemResponse'
+            deprecated: false
+        success:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    ProducerCodeResponse:
+      type: object
+      required:
+      - locator
+      - producerLocator
+      - producerCodeState
+      - type
+      - createdAt
+      - createdBy
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        producerCodeState:
+          type: string
+          enum:
+          - draft
+          - validated
+          - suspended
+          - discarded
+          - retired
+          deprecated: false
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        code:
+          type: string
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+      deprecated: false
+    ProducersEventTypeDefinitions:
+      type: object
+      required:
+      - producerAppointmentEvents
+      - producerCodeEvents
+      - producerEvents
+      - producerLicenseEvents
+      properties:
+        producerEvents:
+          $ref: '#/components/schemas/ProducerEvents'
+          deprecated: false
+        producerCodeEvents:
+          $ref: '#/components/schemas/ProducerCodeEvents'
+          deprecated: false
+        producerAppointmentEvents:
+          $ref: '#/components/schemas/ProducerAppointmentEvents'
+          deprecated: false
+        producerLicenseEvents:
+          $ref: '#/components/schemas/ProducerLicenseEvents'
+          deprecated: false
+      deprecated: false
+    ProducerCodeEvents:
+      type: object
+      properties:
+        producers.producercode.retire:
+          $ref: '#/components/schemas/ProducerCodeEventData'
+          deprecated: false
+        producers.producercode.numberAssignmentFailed:
+          $ref: '#/components/schemas/ProducerCodeEventData'
+          deprecated: false
+        producers.producercode.validate:
+          $ref: '#/components/schemas/ProducerCodeEventData'
+          deprecated: false
+        producers.producercode.create:
+          $ref: '#/components/schemas/ProducerCodeEventData'
+          deprecated: false
+        producers.producercode.update:
+          $ref: '#/components/schemas/ProducerCodeEventData'
+          deprecated: false
+        producers.producercode.unsuspend:
+          $ref: '#/components/schemas/ProducerCodeEventData'
+          deprecated: false
+        producers.producercode.discard:
+          $ref: '#/components/schemas/ProducerCodeEventData'
+          deprecated: false
+        producers.producercode.suspend:
+          $ref: '#/components/schemas/ProducerCodeEventData'
+          deprecated: false
+      deprecated: false
+    ListPageResponseProducerResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ProducerResponse'
+            deprecated: false
+      deprecated: false
+    ValidationItemResponse:
+      type: object
+      required:
+      - locator
+      - elementType
+      - errors
+      properties:
+        elementType:
+          type: string
+          deprecated: false
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        errors:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    ProducerAppointmentCreateRequest:
+      type: object
+      required:
+      - type
+      - jurisdictions
+      - licenses
+      - producerCodes
+      - products
+      properties:
+        type:
+          type: string
+          deprecated: false
+        appointmentNumber:
+          type: string
+          deprecated: false
+          maxLength: 128
+        producerCodes:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        products:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        licenses:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        effectiveTime:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerCodeCreateRequest:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+          deprecated: false
+        code:
+          type: string
+          deprecated: false
+          maxLength: 128
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerEventData:
+      type: object
+      required:
+      - producerLocator
+      properties:
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    ProducerAppointmentReplaceRequest:
+      type: object
+      required:
+      - producerLocator
+      - type
+      - jurisdictions
+      - licenses
+      - producerCodes
+      - products
+      properties:
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        appointmentNumber:
+          type: string
+          deprecated: false
+          maxLength: 128
+        producerCodes:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        products:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        licenses:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        effectiveTime:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerAppointmentResponse:
+      type: object
+      required:
+      - locator
+      - producerLocator
+      - producerAppointmentState
+      - type
+      - createdAt
+      - createdBy
+      - jurisdictions
+      - licenses
+      - producerCodes
+      - products
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        producerAppointmentState:
+          type: string
+          enum:
+          - draft
+          - validated
+          - discarded
+          deprecated: false
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        appointmentNumber:
+          type: string
+          deprecated: false
+        producerCodes:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        products:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        licenses:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        effectiveTime:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+      deprecated: false
+    ProducerCodeReplaceRequest:
+      type: object
+      required:
+      - producerLocator
+      - type
+      properties:
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        code:
+          type: string
+          deprecated: false
+          maxLength: 128
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerResponse:
+      type: object
+      required:
+      - locator
+      - producerState
+      - type
+      - createdAt
+      - createdBy
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        producerState:
+          type: string
+          enum:
+          - draft
+          - validated
+          - suspended
+          - discarded
+          - retired
+          deprecated: false
+        parentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+      deprecated: false
+    ListPageResponseProducerLicenseResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ProducerLicenseResponse'
+            deprecated: false
+      deprecated: false
+    ProducerUpdateRequest:
+      type: object
+      required:
+      - removeData
+      - setData
+      properties:
+        type:
+          type: string
+          deprecated: false
+        parentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        setData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerLicenseEvents:
+      type: object
+      properties:
+        producers.producerlicense.discard:
+          $ref: '#/components/schemas/ProducerLicenseEventData'
+          deprecated: false
+        producers.producerlicense.update:
+          $ref: '#/components/schemas/ProducerLicenseEventData'
+          deprecated: false
+        producers.producerlicense.create:
+          $ref: '#/components/schemas/ProducerLicenseEventData'
+          deprecated: false
+        producers.producerlicense.validate:
+          $ref: '#/components/schemas/ProducerLicenseEventData'
+          deprecated: false
+      deprecated: false
+    ProducerLicenseReplaceRequest:
+      type: object
+      required:
+      - producerLocator
+      - type
+      - jurisdictions
+      - producerCodes
+      - products
+      properties:
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        licenseNumber:
+          type: string
+          deprecated: false
+          maxLength: 128
+        producerCodes:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        products:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        effectiveTime:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerCodeUpdateRequest:
+      type: object
+      required:
+      - removeData
+      - setData
+      properties:
+        type:
+          type: string
+          deprecated: false
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        code:
+          type: string
+          deprecated: false
+          maxLength: 128
+        setData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerHierarchyResponse:
+      type: object
+      required:
+      - locator
+      - producerState
+      - type
+      - createdAt
+      - createdBy
+      - childProducers
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        producerState:
+          type: string
+          enum:
+          - draft
+          - validated
+          - suspended
+          - discarded
+          - retired
+          deprecated: false
+        parentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+        childProducers:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ProducerHierarchyResponse'
+            deprecated: false
+      deprecated: false
+    ProducerEvents:
+      type: object
+      properties:
+        producers.producer.unsuspend:
+          $ref: '#/components/schemas/ProducerEventData'
+          deprecated: false
+        producers.producer.update:
+          $ref: '#/components/schemas/ProducerEventData'
+          deprecated: false
+        producers.producer.retire:
+          $ref: '#/components/schemas/ProducerEventData'
+          deprecated: false
+        producers.producer.discard:
+          $ref: '#/components/schemas/ProducerEventData'
+          deprecated: false
+        producers.producer.validate:
+          $ref: '#/components/schemas/ProducerEventData'
+          deprecated: false
+        producers.producer.suspend:
+          $ref: '#/components/schemas/ProducerEventData'
+          deprecated: false
+        producers.producer.create:
+          $ref: '#/components/schemas/ProducerEventData'
+          deprecated: false
+      deprecated: false
+    ProducerAppointmentEventData:
+      type: object
+      required:
+      - producerAppointmentLocator
+      properties:
+        producerAppointmentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    ListPageResponseProducerCodeResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ProducerCodeResponse'
+            deprecated: false
+      deprecated: false
+    ProducerCreateRequest:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+          deprecated: false
+        parentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ListPageResponseProducerAppointmentResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ProducerAppointmentResponse'
+            deprecated: false
+      deprecated: false
+    ProducerLicenseEventData:
+      type: object
+      required:
+      - producerLicenseLocator
+      properties:
+        producerLicenseLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false

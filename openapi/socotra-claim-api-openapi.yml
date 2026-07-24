@@ -1,0 +1,1412 @@
+openapi: 3.0.1
+info:
+  title: Socotra Insurance Suite OpenAPI Definition Claim API
+  description: Socotra Insurance Suite API
+  termsOfService: https://www.socotra.com
+  version: v0
+servers:
+- url: /
+  description: Generated server url
+tags:
+- name: Claim
+paths:
+  /claim/{tenantLocator}/fnols/{locator}/losses:
+    put:
+      operationId: addLosses
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              deprecated: false
+              items:
+                $ref: '#/components/schemas/FnolLoss'
+                deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+    delete:
+      operationId: deleteLosses
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              deprecated: false
+              items:
+                type: string
+                format: ulid
+                deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols:
+    post:
+      operationId: addFnol
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FnolCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{locator}/number/set:
+    post:
+      operationId: setFnolNumber
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: fnolNumber
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{locator}/number/generate:
+    post:
+      operationId: generateFnolNumber
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{fnolLocator}/contacts:
+    post:
+      operationId: addFnolContact
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: fnolLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRoles'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{locator}:
+    get:
+      operationId: getFnol
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Claim
+    patch:
+      operationId: patchFnol
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FnolPatchRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{locator}/validate:
+    patch:
+      operationId: validate
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{locator}/reject:
+    patch:
+      operationId: reject
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{locator}/losses/coverageCheck:
+    patch:
+      operationId: checkLosses
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{locator}/discard:
+    patch:
+      operationId: discard
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{locator}/createClaim:
+    patch:
+      operationId: createClaim
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: markAsComplete
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{locator}/complete:
+    patch:
+      operationId: complete
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{fnolLocator}/losses/{lossLocator}:
+    patch:
+      operationId: updateLoss
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: fnolLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: lossLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FnolLossPatchRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolLoss'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{fnolLocator}/losses/{lossLocator}/reset:
+    patch:
+      operationId: resetLoss
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: fnolLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: lossLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolLoss'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{fnolLocator}/losses/{lossLocator}/include:
+    patch:
+      operationId: includeLoss
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: fnolLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: lossLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolLoss'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{fnolLocator}/losses/{lossLocator}/exclude:
+    patch:
+      operationId: excludeLoss
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: fnolLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: lossLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolLoss'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{fnolLocator}/contacts/{contactLocator}:
+    patch:
+      operationId: updateFnolContact
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: fnolLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: contactLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactAssociationUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+    delete:
+      operationId: deleteFnolContact
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: fnolLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: contactLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{locator}/history/list:
+    get:
+      operationId: listFnolHistory
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseFnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/{locator}/claims:
+    get:
+      operationId: getFnolClaimLocators
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  type: string
+                  format: ulid
+                  deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/policy/{policyLocator}/list:
+    get:
+      operationId: listFnolsByPolicyLocator
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: policyLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseFnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/number/{number}:
+    get:
+      operationId: getFnolByNumber
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: number
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Claim
+  /claim/{tenantLocator}/fnols/list:
+    get:
+      operationId: listFnol
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListPageResponseFnolResponse'
+                deprecated: false
+      x-securityGroup: fnols
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Claim
+  /claim/events:
+    get:
+      operationId: fetchClaimEvents
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClaimServiceEventTypeDefinitions'
+                deprecated: false
+      x-securityGroup: public
+      x-securityPermission:
+      - public
+      deprecated: false
+      tags:
+      - Claim
+components:
+  schemas:
+    ValidationItemResponse:
+      type: object
+      required:
+      - locator
+      - elementType
+      - errors
+      properties:
+        elementType:
+          type: string
+          deprecated: false
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        errors:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    FnolLossPatchRequest:
+      type: object
+      required:
+      - removeData
+      - setData
+      properties:
+        type:
+          type: string
+          deprecated: false
+        fnolLossState:
+          type: string
+          enum:
+          - pending
+          - valid
+          - excluded
+          deprecated: false
+        exposureElementLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        coverageElementLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        setData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    FnolClaimData:
+      type: object
+      required:
+      - claimLocator
+      - fnolLocator
+      properties:
+        fnolLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        claimLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    FnolEventData:
+      type: object
+      required:
+      - locator
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    ValidationResult:
+      type: object
+      required:
+      - success
+      properties:
+        validationItems:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ValidationItemResponse'
+            deprecated: false
+        success:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    FnolCreateRequest:
+      type: object
+      required:
+      - autoValidate
+      - type
+      - data
+      - contacts
+      - losses
+      properties:
+        type:
+          type: string
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        losses:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/FnolLoss'
+            deprecated: false
+        accountLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        incidentTime:
+          type: string
+          format: date-time
+          deprecated: false
+        incidentTimezone:
+          type: string
+          deprecated: false
+        incidentSummary:
+          type: string
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        contacts:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ContactRoles'
+            deprecated: false
+        autoValidate:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    FnolResponse:
+      type: object
+      required:
+      - locator
+      - fnolState
+      - type
+      - data
+      - createdAt
+      - createdBy
+      - claims
+      - contacts
+      - losses
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        fnolState:
+          type: string
+          enum:
+          - draft
+          - validated
+          - onClaim
+          - completed
+          - rejected
+          - discarded
+          deprecated: false
+        losses:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/FnolLoss'
+            deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        accountLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        segmentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        incidentTime:
+          type: string
+          format: date-time
+          deprecated: false
+        incidentTimezone:
+          type: string
+          deprecated: false
+        incidentSummary:
+          type: string
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        fnolNumber:
+          type: string
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        updatedBy:
+          type: string
+          format: uuid
+          deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+        claims:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        contacts:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ContactRoles'
+            deprecated: false
+        anonymizedAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    FnolEvents:
+      type: object
+      properties:
+        claim.fnol.update:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        claim.fnol.complete:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        claim.fnol.validate:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        claim.fnol.create:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        claim.fnol.anonymize:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        fnol.numberAssignmentFailed:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        claim.fnol.reject:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        claim.fnol.discard:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        claim.fnol.onclaim:
+          $ref: '#/components/schemas/FnolClaimData'
+          deprecated: false
+      deprecated: false
+    ContactRoles:
+      type: object
+      required:
+      - contactLocator
+      - roles
+      properties:
+        contactLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        roles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    FnolPatchRequest:
+      type: object
+      required:
+      - removeData
+      - setData
+      properties:
+        setData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        incidentTime:
+          type: string
+          format: date-time
+          deprecated: false
+        incidentTimezone:
+          type: string
+          deprecated: false
+        incidentSummary:
+          type: string
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        accountLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    ContactAssociationUpdateRequest:
+      type: object
+      required:
+      - addRoles
+      - removeRoles
+      properties:
+        addRoles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        removeRoles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    FnolLoss:
+      type: object
+      required:
+      - locator
+      - fnolLossState
+      - category
+      - type
+      - data
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        category:
+          type: string
+          deprecated: false
+        fnolLossState:
+          type: string
+          enum:
+          - pending
+          - valid
+          - excluded
+          deprecated: false
+        exposureElementLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        coverageElementLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+        anonymizedAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    ListPageResponseFnolResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/FnolResponse'
+            deprecated: false
+      deprecated: false
+    ClaimServiceEventTypeDefinitions:
+      type: object
+      required:
+      - fnolEvents
+      properties:
+        fnolEvents:
+          $ref: '#/components/schemas/FnolEvents'
+          deprecated: false
+      deprecated: false

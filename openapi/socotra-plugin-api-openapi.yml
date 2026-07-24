@@ -1,0 +1,423 @@
+openapi: 3.0.1
+info:
+  title: Socotra Insurance Suite OpenAPI Definition Plugin API
+  description: Socotra Insurance Suite API
+  termsOfService: https://www.socotra.com
+  version: v0
+servers:
+- url: /
+  description: Generated server url
+tags:
+- name: Plugin
+paths:
+  /plugin/{tenantLocator}/automation/{pluginName}/{action}:
+    get:
+      operationId: fetchFromAutomationPlugin
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: pluginName
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: action
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              deprecated: false
+              additionalProperties:
+                type: object
+                deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                deprecated: false
+                additionalProperties:
+                  type: object
+                  deprecated: false
+      x-securityGroup: automation
+      x-securityPermission:
+      - write
+      - execute
+      deprecated: false
+      tags:
+      - Plugin
+    post:
+      operationId: executeAutomationPlugin
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: pluginName
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: action
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              deprecated: false
+              additionalProperties:
+                type: object
+                deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                deprecated: false
+                additionalProperties:
+                  type: object
+                  deprecated: false
+      x-securityGroup: automation
+      x-securityPermission:
+      - write
+      - execute
+      deprecated: false
+      tags:
+      - Plugin
+  /plugin/{tenantLocator}/ratingregistries/{category}/{locator}/{elementLocator}:
+    get:
+      operationId: getRatingRegistry
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: Accept-Encoding
+        in: header
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: category
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - quote
+          - transaction
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: elementLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: ratingregistries
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Plugin
+  /plugin/{tenantLocator}/ratingregistries/{category}/{locator}/list:
+    get:
+      operationId: listRatingRegistries
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: category
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - quote
+          - transaction
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  type: string
+                  format: ulid
+                  deprecated: false
+      x-securityGroup: ratingregistries
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Plugin
+  /plugin/{tenantLocator}/logs/{locator}:
+    get:
+      operationId: fetchLogs
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: Accept-Encoding
+        in: header
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: logs
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Plugin
+  /plugin/{tenantLocator}/logs/list:
+    get:
+      operationId: fetchLogsList
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: requestId
+        in: query
+        required: false
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: objectLocator
+        in: query
+        required: false
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      - name: createdAtMin
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+          deprecated: false
+      - name: createdAtMax
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        description: When false, returns a bare array.
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                deprecated: false
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PluginLogsListResponse'
+                deprecated: false
+      x-securityGroup: logs
+      x-securityPermission:
+      - read
+      - list
+      deprecated: false
+      tags:
+      - Plugin
+components:
+  schemas:
+    ObjectReference:
+      type: object
+      required:
+      - locator
+      - type
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+      deprecated: false
+    PluginLogsMetadata:
+      type: object
+      required:
+      - locator
+      - pluginType
+      - requestId
+      - createdAt
+      - objectReferences
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        pluginType:
+          type: string
+          enum:
+          - delinquencyEvent
+          - documentDataSnapshot
+          - documentSelection
+          - preCommit
+          - rating
+          - renewal
+          - underwriting
+          - validation
+          deprecated: false
+        requestId:
+          type: string
+          format: ulid
+          deprecated: false
+        objectReferences:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ObjectReference'
+            deprecated: false
+      deprecated: false
+    PluginLogsListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PluginLogsMetadata'
+            deprecated: false
+      deprecated: false
+    StreamingResponseBody:
+      type: object
+      deprecated: false

@@ -1,0 +1,2780 @@
+openapi: 3.0.1
+info:
+  title: Socotra Insurance Suite OpenAPI Definition Resource API
+  description: Socotra Insurance Suite API
+  termsOfService: https://www.socotra.com
+  version: v0
+servers:
+- url: /
+  description: Generated server url
+tags:
+- name: Resource
+paths:
+  /resource/{tenantLocator}/uiConfigs:
+    post:
+      operationId: createUiConfig
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      - name: staticName
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: uiConfigs
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/templates/velocity:
+    post:
+      operationId: createVelocityDocumentTemplate
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      - name: staticName
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: templates
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+    patch:
+      operationId: updateVelocityDocumentTemplate
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: templates
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/templates/liquid:
+    post:
+      operationId: createLiquidDocumentTemplate
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      - name: staticName
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: templates
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+    patch:
+      operationId: updateLiquidDocumentTemplate
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: templates
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/templateSnippets/velocity:
+    post:
+      operationId: uploadVelocity
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      - name: staticName
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: templates
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+    patch:
+      operationId: updateVelocity
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: templates
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/templateSnippets/liquid:
+    post:
+      operationId: uploadLiquid
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      - name: staticName
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: templates
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+    patch:
+      operationId: updateLiquid
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TemplateResponse'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: templates
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/tables:
+    post:
+      operationId: createLookupTable
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      - name: staticName
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: tables
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/secrets:
+    post:
+      operationId: createSecret
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecretCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecretResponse'
+                deprecated: false
+      x-securityGroup: secrets
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/riskAssessmentCriteria:
+    post:
+      operationId: createRiskAssessmentCriteria
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      - name: staticName
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: riskAssessmentCriteria
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/rangeTables:
+    post:
+      operationId: createRangeTable
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      - name: staticName
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: tables
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/groups:
+    post:
+      operationId: createResourceGroup
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceGroupCreateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceGroupResponse'
+                deprecated: false
+      x-securityGroup: resource-groups
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/fonts:
+    post:
+      operationId: addFont
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      - name: staticName
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 120
+          minLength: 0
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: fonts
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/documents:
+    post:
+      operationId: createDocumentResource
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      - name: staticName
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/constraints:
+    post:
+      operationId: createConstraintTable
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      - name: staticName
+        in: query
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: constraints
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/uiConfigs/{name}:
+    get:
+      operationId: fetchUiConfigByName
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: byStaticName
+        in: query
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: uiConfigs
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Resource
+    patch:
+      operationId: updateUiConfig
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: uiConfigs
+      x-securityPermission:
+      - update
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/tables/{name}:
+    get:
+      operationId: fetchLookupTableInZipFormat
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: ZipFile
+                  deprecated: false
+      x-securityGroup: tables
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Resource
+    patch:
+      operationId: replaceLookupTable
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: tables
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/secrets/{name}:
+    get:
+      operationId: fetchSecret
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: byStaticName
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecretResponse'
+                deprecated: false
+      x-securityGroup: secrets
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Resource
+    patch:
+      operationId: updateSecret
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              deprecated: false
+              additionalProperties:
+                type: object
+                deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecretResponse'
+                deprecated: false
+      x-securityGroup: secrets
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Resource
+    delete:
+      operationId: deleteSecret
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+      x-securityGroup: secrets
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/riskAssessmentCriteria/{name}:
+    get:
+      operationId: fetchRiskAssessmentCriteriaResourceByName
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: byStaticName
+        in: query
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: riskAssessmentCriteria
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Resource
+    patch:
+      operationId: updateRiskAssessmentCriteria
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: riskAssessmentCriteria
+      x-securityPermission:
+      - update
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/rangeTables/{name}:
+    get:
+      operationId: fetchRangeTableInZipFormat
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: ZipFile
+                  deprecated: false
+      x-securityGroup: tables
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Resource
+    patch:
+      operationId: replaceRangeTable
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: tables
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/groups/{locator}:
+    get:
+      operationId: fetchResourceGroup
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceGroupResponse'
+                deprecated: false
+      x-securityGroup: resource-groups
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Resource
+    patch:
+      operationId: updateResourceGroup
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceGroupUpdateRequest'
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceGroupResponse'
+                deprecated: false
+      x-securityGroup: resource-groups
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/groups/{locator}/retire:
+    patch:
+      operationId: retire
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: locator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: ulid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResourceGroupResponse'
+                deprecated: false
+      x-securityGroup: resource-groups
+      x-securityPermission:
+      - write
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/fonts/{name}:
+    get:
+      operationId: fetchFont
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: byStaticName
+        in: query
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: fonts
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Resource
+    patch:
+      operationId: updateFont
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: fonts
+      x-securityPermission:
+      - update
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/documents/{name}:
+    get:
+      operationId: fetchDocumentResourceByName
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: byStaticName
+        in: query
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Resource
+    patch:
+      operationId: updateDocument
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: documents
+      x-securityPermission:
+      - update
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/constraints/{name}:
+    get:
+      operationId: zipConstraintTable
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: ZipFile
+                  deprecated: false
+      x-securityGroup: constraints
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Resource
+    patch:
+      operationId: replaceConstraintTable
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 0
+          pattern: ^_?[a-zA-Z$][a-zA-Z\d_$]*$
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  deprecated: false
+              deprecated: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResourceResponse'
+                deprecated: false
+      x-securityGroup: constraints
+      x-securityPermission:
+      - upload
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/templates/{name}:
+    get:
+      operationId: fetchDocumentTemplate
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: byStaticName
+        in: query
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: templates
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/templateSnippets/{name}:
+    get:
+      operationId: fetchTemplate
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: byStaticName
+        in: query
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StreamingResponseBody'
+                deprecated: false
+                additionalProperties:
+                  type: string
+                  deprecated: false
+      x-securityGroup: templates
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/tables/{name}/record:
+    get:
+      operationId: fetchTableRecord
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: byStaticName
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+          deprecated: false
+      - name: key
+        in: query
+        required: true
+        schema:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableLookupResponse'
+                deprecated: false
+      x-securityGroup: tables
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/resources/{name}:
+    get:
+      operationId: fetchResource
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: byStaticName
+        in: query
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceResponse'
+                deprecated: false
+      x-securityGroup: resources
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/resources/type/{type}/list:
+    get:
+      operationId: fetchMultipleResourcesByType
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: type
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        description: When false, returns a bare array.
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceListResponse'
+                deprecated: false
+      x-securityGroup: resources
+      x-securityPermission:
+      - list
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/resources/list:
+    get:
+      operationId: fetchMultipleResources
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        description: When false, returns a bare array.
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceListResponse'
+                deprecated: false
+      x-securityGroup: resources
+      x-securityPermission:
+      - list
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/resources/bootstrap:
+    get:
+      operationId: getBootstrapStatus
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                deprecated: false
+                items:
+                  $ref: '#/components/schemas/BootstrapResource'
+                  deprecated: false
+      x-securityGroup: resources
+      x-securityPermission:
+      - list
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/rangeTables/{name}/record:
+    get:
+      operationId: fetchRangeTableRecord
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: byStaticName
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+          deprecated: false
+      - name: key
+        in: query
+        required: true
+        schema:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      - name: boundValue
+        in: query
+        required: true
+        schema:
+          type: number
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableLookupResponse'
+                deprecated: false
+      x-securityGroup: tables
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/groups/list:
+    get:
+      operationId: fetchResourceGroups
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          deprecated: false
+      - name: extended
+        in: query
+        description: When false, returns a bare array.
+        required: false
+        schema:
+          type: boolean
+          deprecated: false
+      - name: excludeRetired
+        in: query
+        description: Default value true.
+        required: false
+        schema:
+          type: boolean
+          default: true
+          deprecated: false
+      - name: excludeActive
+        in: query
+        description: Default value false.
+        required: false
+        schema:
+          type: boolean
+          default: false
+          deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceGroupListResponse'
+                deprecated: false
+      x-securityGroup: resource-groups
+      x-securityPermission:
+      - list
+      deprecated: false
+      tags:
+      - Resource
+  /resource/{tenantLocator}/constraints/{name}/record:
+    get:
+      operationId: fetchConstraints
+      parameters:
+      - name: tenantLocator
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          deprecated: false
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          deprecated: false
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+          deprecated: false
+      - name: jurisdiction
+        in: query
+        required: false
+        schema:
+          type: string
+          deprecated: false
+      - name: byStaticName
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+          deprecated: false
+      - name: key
+        in: query
+        required: false
+        schema:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                deprecated: false
+                additionalProperties:
+                  type: array
+                  deprecated: false
+                  items:
+                    type: object
+                    deprecated: false
+      x-securityGroup: constraints
+      x-securityPermission:
+      - read
+      deprecated: false
+      tags:
+      - Resource
+components:
+  schemas:
+    SecretCreateRequest:
+      type: object
+      required:
+      - staticName
+      - name
+      - jurisdictions
+      - secret
+      properties:
+        name:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 1
+        staticName:
+          type: string
+          deprecated: false
+          minLength: 1
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        secret:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    StreamingResponseBody:
+      type: object
+      deprecated: false
+    ResourceResponse:
+      type: object
+      required:
+      - name
+      - resourceType
+      - createdAt
+      - createdBy
+      - jurisdictions
+      properties:
+        name:
+          type: string
+          deprecated: false
+        staticName:
+          type: string
+          deprecated: false
+        resourceType:
+          type: string
+          enum:
+          - constraintTable
+          - customFont
+          - documentTemplate
+          - documentTemplateSnippet
+          - rangeTable
+          - secret
+          - staticDocument
+          - table
+          deprecated: false
+        lookupTableLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        template:
+          type: string
+          deprecated: false
+        staticDocumentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        templateFormat:
+          type: string
+          enum:
+          - liquid
+          - velocity
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        scope:
+          type: string
+          enum:
+          - transaction
+          - policy
+          - term
+          - segment
+          - invoice
+          deprecated: false
+        trigger:
+          type: string
+          enum:
+          - validated
+          - priced
+          - accepted
+          - underwritten
+          - issued
+          - generated
+          - declined
+          - rejected
+          - refused
+          deprecated: false
+        format:
+          type: string
+          enum:
+          - text
+          - html
+          - pdf
+          - jpg
+          - jpeg
+          - doc
+          - docx
+          - xls
+          - xlsx
+          - csv
+          - txt
+          - zip
+          deprecated: false
+        rendering:
+          type: string
+          enum:
+          - dynamic
+          - prerendered
+          deprecated: false
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    ResourceGroupCreateRequest:
+      type: object
+      required:
+      - name
+      - selectionStartTime
+      - resourceNames
+      properties:
+        name:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 1
+        selectionStartTime:
+          type: string
+          format: date-time
+          deprecated: false
+        resourceNames:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    ResourceGroupUpdateRequest:
+      type: object
+      required:
+      - name
+      - selectionStartTime
+      - addResources
+      - removeResources
+      properties:
+        name:
+          type: string
+          deprecated: false
+        selectionStartTime:
+          type: string
+          format: date-time
+          deprecated: false
+        removeResources:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        addResources:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    TemplateResponse:
+      type: object
+      properties:
+        file:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+              deprecated: false
+          deprecated: false
+        template:
+          type: string
+          deprecated: false
+      deprecated: false
+    ResourceGroupListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ResourceGroupResponse'
+            deprecated: false
+      deprecated: false
+    ResourceListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ResourceResponse'
+            deprecated: false
+      deprecated: false
+    BootstrapResource:
+      type: object
+      required:
+      - name
+      - resourceType
+      - status
+      - updatedAt
+      properties:
+        name:
+          type: string
+          deprecated: false
+        resourceType:
+          type: string
+          enum:
+          - constraintTable
+          - customFont
+          - documentTemplate
+          - documentTemplateSnippet
+          - rangeTable
+          - secret
+          - staticDocument
+          - table
+          deprecated: false
+        status:
+          type: string
+          enum:
+          - queued
+          - created
+          - failed
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        error:
+          type: string
+          deprecated: false
+      deprecated: false
+    SecretResponse:
+      type: object
+      required:
+      - resource
+      - secret
+      properties:
+        resource:
+          $ref: '#/components/schemas/BasicResourceResponse'
+          deprecated: false
+        secret:
+          type: object
+          deprecated: false
+      deprecated: false
+    ResourceGroupResponse:
+      type: object
+      required:
+      - locator
+      - name
+      - selectionStartTime
+      - createdAt
+      - createdBy
+      - retired
+      - resourceNames
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        name:
+          type: string
+          deprecated: false
+        retired:
+          type: boolean
+          deprecated: false
+        selectionStartTime:
+          type: string
+          format: date-time
+          deprecated: false
+        resourceNames:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    BasicResourceResponse:
+      type: object
+      required:
+      - name
+      - resourceType
+      - createdAt
+      - createdBy
+      - jurisdictions
+      properties:
+        name:
+          type: string
+          deprecated: false
+        staticName:
+          type: string
+          deprecated: false
+        resourceType:
+          type: string
+          enum:
+          - constraintTable
+          - customFont
+          - documentTemplate
+          - documentTemplateSnippet
+          - rangeTable
+          - secret
+          - staticDocument
+          - table
+          deprecated: false
+        lookupTableLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        rangeTableLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        constraintTableLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        template:
+          type: string
+          deprecated: false
+        staticDocumentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        fontLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        riskAssessmentCriteriaLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        uiConfigLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        templateFormat:
+          type: string
+          enum:
+          - liquid
+          - velocity
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    TableLookupResponse:
+      type: object
+      required:
+      - value
+      properties:
+        value:
+          type: object
+          deprecated: false
+      deprecated: false
