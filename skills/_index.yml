@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/socotra-openapi-original.json
+skills:
+- file: socotra-quote-to-bind.md
+  name: Socotra quote-to-bind
+  api: openapi/socotra-openapi-original.json
+  operations: [createAuthToken, createAccount, createQuote, underwriteQuote, acceptQuote, issueQuote]
+- file: socotra-webhook-subscription.md
+  name: Socotra webhook subscription
+  api: openapi/socotra-openapi-original.json
+  operations: [createAuthToken, createWebhook, fetchWebhooks, fetchWebhook, updateWebhook, unsuspendWebhook, resendDivertedEvent]

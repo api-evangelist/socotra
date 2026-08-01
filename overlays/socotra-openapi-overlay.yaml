@@ -1,0 +1,24 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Socotra Insurance Suite API
+  version: 1.0.0
+extends: openapi/socotra-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: socotra
+    x-apievangelist-category: insurtech
+    x-apievangelist-notes: >-
+      The published definition declares no components.securitySchemes, no server URL
+      (servers[0].url is "/"), no tags, and only 200/204 responses. Authentication
+      (bearer token via /auth/users/tokens), the production/sandbox hosts, tags, and
+      error responses are documented in the developer docs but not encoded in the
+      spec. See authentication/, conventions/, and lifecycle/ artifacts.
+- target: $.servers
+  update:
+    x-apievangelist-sandbox: https://api.sandbox.socotra.com
+- target: $.info
+  update:
+    x-apievangelist-idempotency: X-Idempotency-Key (migration operations)
+    x-apievangelist-webhooks: /event/{tenantLocator}/webhooks
+    x-apievangelist-mcp: https://mcp-sandbox.socotra.com/mcp

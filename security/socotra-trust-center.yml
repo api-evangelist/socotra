@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: searched
+probe: true
+source: https://trust.socotra.com/
+url: https://trust.socotra.com/
+platform: SafeBase by Drata
+certifications:
+- ISO/IEC 27001
+- ISO/IEC 27001 Statement of Applicability
+- SOC 1
+- HIPAA
+- GDPR
+- CCPA
+- CPRA
+- AWS Qualified Software
+evidence:
+- source: https://trust.socotra.com/
+  keywords:
+  - iso/iec 27001
+  - soc 1
+  - hipaa
+  - gdpr
+  - ccpa
+  - cpra
+  - trust center
+  - aws qualified software

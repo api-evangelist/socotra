@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.socotra.com/getting-started/introduction-to-socotra
+description: >-
+  Socotra provides a hosted sandbox environment for building and testing against the
+  Insurance Suite. Developers deploy a tenant configuration to a sandbox tenant and
+  exercise the full quote-to-bind, billing, and claims lifecycle before promoting to
+  production. No published magic test cards; test scenarios run against sandbox
+  tenants seeded from configuration.
+environments:
+- name: sandbox
+  api_base: https://api.sandbox.socotra.com
+  console: https://ui-ec-sandbox.socotra.com/en/login
+  mcp: https://mcp-sandbox.socotra.com/mcp
+  reachable: true
+test_flow:
+  steps:
+  - Create a sandbox tenant (createTenant / deploy a tenant configuration file).
+  - Create a user and authenticate (createAuthToken) with business-account credentials.
+  - Create an account and run a quick-quote / quote to bind.
+  - Trigger billing, pay invoices, and file claims (FNOL).
+tooling:
+- "@socotra/deploy-cli deploys tenant configurations to sandbox tenants."
+- "@socotra/cli and the Config SDK manage sandbox tenant configuration."
+- Sample Postman collection + environment provided for exercising the sandbox API.
+notes:
+- No public self-service signup; sandbox access is provisioned per customer/tenant.
+- No published static test card numbers or hosted test tokens were found.

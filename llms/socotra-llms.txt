@@ -1,0 +1,35 @@
+# Socotra
+
+> Socotra is a cloud-native insurance core platform (Connected Core / Insurance Suite) that lets carriers, MGAs, and program administrators configure, launch, and operate insurance products across any line, geography, or distribution channel. It exposes a broad tenant-scoped REST API (722 operations) plus first-party SDKs, CLIs, a schema-driven React UI SDK, and a hosted MCP server for AI agents. Backed by 8VC and Insight Partners.
+
+## APIs
+- [Socotra Insurance Suite API reference](https://docs.socotra.com/docs/api): 722 operations across policy, billing, claims, quotes, accounts, contacts, producers, work management, documents, accounting, configuration, events/webhooks, and search.
+- [OpenAPI definition](https://docs.socotra.com/openapi/socotra-openapi.json): OpenAPI 3.0.1, 629 component schemas.
+
+## Specs
+- [OpenAPI (local copy)](openapi/socotra-openapi-original.json)
+- [OpenAPI Overlay (AE enhancements)](overlays/socotra-openapi-overlay.yaml)
+- [Webhook / event catalog](asyncapi/socotra-webhooks.yml)
+- [Data model](data-model/socotra-data-model.yml)
+
+## Authentication
+- [Authentication profile](authentication/socotra-authentication.yml): bearer access token from POST /auth/users/tokens using business-account credentials; OAuth 2.1 for interactive/agent access; SAML/OIDC SSO.
+- [API conventions](conventions/socotra-conventions.yml): tenant-scoping via {tenantLocator}, locator ids, offset/count pagination with ListPageResponse, X-Idempotency-Key on migration ops.
+
+## Agents
+- [MCP server](mcp/socotra-mcp.yml): hosted at https://mcp-sandbox.socotra.com/mcp (OAuth 2.1), 26 tools for quotes, policies, transactions, tasks, search, and tenant config.
+- [Agent skills](skills/_index.yml)
+- [Agentic access contracts](agentic-access/socotra-agentic-access.yml)
+
+## SDKs and tooling
+- [Packages](packages/socotra-packages.yml): npm @socotra/api, @socotra/auth, @socotra/common, UI SDK (@socotra/ec-react-components).
+- [CLI](cli/socotra-cli.yml): @socotra/cli, @socotra/deploy-cli, @socotra/events-cli and more.
+- [UI components](components/socotra-components.yml): schema-driven React component library.
+
+## Docs
+- [Developer docs](https://docs.socotra.com/)
+- [Getting started](https://docs.socotra.com/getting-started/introduction-to-socotra)
+- [Release notes](https://docs.socotra.com/other-resources/release-notes)
+- [Deprecations](https://docs.socotra.com/other-resources/deprecations)
+- [Trust center](https://trust.socotra.com/): ISO/IEC 27001, SOC 1, HIPAA, GDPR, CCPA/CPRA.
+- [Blog](https://www.socotra.com/blog/)

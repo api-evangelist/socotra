@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.socotra.com/ui-sdk
+description: >-
+  The Socotra UI SDK is a schema-driven React framework for building enterprise
+  insurance applications on top of the Insurance Suite API. Rather than hardcoding
+  forms, it generates dynamic UI directly from the tenant's data model, adapting as
+  products evolve. Built with React, TypeScript, Shadcn UI, and Tailwind CSS.
+loaders:
+- registry: npm
+  name: "@socotra/ec-react-components"
+  version: 2.34.0
+  description: Main React component library (the UI SDK).
+- registry: npm
+  name: "@socotra/ec-react-schemas"
+  version: 2.34.0
+  description: TypeScript interfaces and zod schemas that drive the components.
+- registry: npm
+  name: "@socotra/ec-react-utils"
+  version: 2.34.0
+  description: Helper utilities for the components.
+component_families:
+- name: Quotes
+  description: Schema-driven forms and views for creating and editing quotes.
+- name: Policies
+  description: Components for viewing and managing issued policies.
+- name: Accounts
+  description: Account creation and management surfaces.
+- name: Transactions
+  description: >-
+    Components for policy transactions including endorsements, payments,
+    disbursements, and renewals.
+docs:
+- https://docs.socotra.com/ui-sdk
+- https://docs.socotra.com/ui-sdk/schemas
+- https://docs.socotra.com/ui-sdk/utils

@@ -1,0 +1,41 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.npmjs.com/search?q=%40socotra
+description: >-
+  Socotra ships a first-party command-line surface distributed as npm packages under
+  the @socotra scope. The commands manage tenant configuration deployment, event
+  streaming, auxiliary data, scripts/logs, profiles, and marketplace apps.
+install:
+- npm install -g @socotra/cli
+- npm install -g @socotra/deploy-cli
+- npm install -g @socotra/events-cli
+- npm install -g @socotra/aux-cli
+- npm install -g @socotra/scripts-cli
+- npm install -g @socotra/profile-cli
+- npm install -g @socotra/app-cli
+commands:
+- group: cli
+  package: "@socotra/cli"
+  purpose: Top-level Socotra CLI tools entry point.
+- group: deploy
+  package: "@socotra/deploy-cli"
+  purpose: Deploy and redeploy Socotra tenant configurations from the command line.
+- group: events
+  package: "@socotra/events-cli"
+  purpose: Query and stream events from the Socotra Event Stream.
+- group: aux
+  package: "@socotra/aux-cli"
+  purpose: Manage Socotra auxiliary data (aux data) from the command line.
+- group: scripts
+  package: "@socotra/scripts-cli"
+  purpose: Deploy scripts and query logs.
+- group: profile
+  package: "@socotra/profile-cli"
+  purpose: Manage Socotra profiles (credentials/environments) for CLI use.
+- group: app
+  package: "@socotra/app-cli"
+  purpose: Publish Socotra Marketplace Apps.
+key_flows:
+- Deploy a tenant configuration file to a sandbox or production tenant.
+- Stream and query platform events for debugging and integration.
+- Manage auxiliary reference data outside the configuration lifecycle.

@@ -1,0 +1,76 @@
+generated: '2026-07-21'
+method: searched
+status: published
+source: https://docs.socotra.com/docs/ai-guide/mcp-server/overview
+server:
+  name: Socotra
+  transport: http
+  url: https://mcp-sandbox.socotra.com/mcp
+  auth: OAuth 2.1 (browser redirect to business-account login)
+  npm_package: socotra-connected-core-mcp-server
+clients:
+  cursor:
+    mcpServers:
+      SocotraSandbox:
+        url: https://mcp-sandbox.socotra.com/mcp
+  claude_desktop_pro: Settings > Connectors > add custom connector "Socotra" with the URL above.
+  claude_desktop_free:
+    mcpServers:
+      Socotra:
+        command: npx
+        args: ["-y", "mcp-remote", "https://mcp-sandbox.socotra.com/mcp"]
+tools:
+- name: Get Policy Summary
+  description: Retrieve a policy's summary information for a tenant.
+- name: Get Accounts for Tenant
+  description: Fetch a list of accounts associated with a given tenant.
+- name: Get Policies by Account
+  description: Retrieve all policies linked to a specific account.
+- name: Get Quote Summary
+  description: Obtain a quote's summary details for a tenant.
+- name: Create Quote
+  description: Generate a new quote for an account.
+- name: Add Quote Elements
+  description: Insert elements into a draft quote.
+- name: Update Quote
+  description: Modify existing quote elements and validate or price it.
+- name: Underwrite Quote
+  description: Process underwriting on a priced quote.
+- name: Issue Quote
+  description: Finalize an underwritten or accepted quote.
+- name: Create Transaction
+  description: Initiate a new transaction for a policy.
+- name: Update Transaction
+  description: Modify elements within an existing transaction.
+- name: Get Assigned Tasks
+  description: Retrieve tasks assigned to the current user.
+- name: Create Task
+  description: Generate a new task for a tenant.
+- name: Update Task
+  description: Modify task details and information.
+- name: Get Task
+  description: Fetch a specific task including its diary entries.
+- name: Create Association
+  description: Link a user association with a specific reference.
+- name: Manage User Qualifications
+  description: Access or modify user qualifications.
+- name: Append Diary Entry
+  description: Add a new diary entry to a task.
+- name: Who Am I
+  description: Retrieve current user information.
+- name: Get Tenant Users
+  description: List all users assigned to a specific tenant.
+- name: Get Assigned Tenants
+  description: Retrieve all tenants assigned to the current user.
+- name: Search
+  description: Query for accounts, policies, and other system entities.
+- name: Create Tenant
+  description: Deploy a configuration to establish a new tenant.
+- name: Validate Config
+  description: Check a configuration without deploying it.
+- name: Redeploy Config Tenant
+  description: Apply updated configuration to an existing tenant.
+- name: Format Config
+  description: Standardize a config to Socotra's specifications.
+- name: Get Config Difference
+  description: Compare proposed and deployed tenant configurations.

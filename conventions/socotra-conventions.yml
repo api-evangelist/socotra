@@ -1,0 +1,53 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.socotra.com/docs/api
+derived_from: openapi/socotra-openapi-original.json
+description: >-
+  Cross-cutting request/response semantics for the Socotra Insurance Suite API,
+  derived from the published OpenAPI (722 operations) and the developer docs.
+authentication:
+  style: Bearer access token in the Authorization header.
+  token_source: POST /auth/users/tokens (createAuthToken) from business-account credentials.
+  see: authentication/socotra-authentication.yml
+tenancy:
+  model: Almost every operation is tenant-scoped via a {tenantLocator} path parameter.
+  identifier: >-
+    Resources are addressed by opaque "locator" strings (policyLocator,
+    accountLocator, quoteLocator, contactLocator, producerLocator, webhookLocator,
+    etc.), passed as the {locator} path parameter.
+pagination:
+  style: offset-limit
+  params:
+    limit: count
+    offset: offset
+  response_wrapper: ListPageResponse<T>
+  note: >-
+    List endpoints return a paged ListPageResponse envelope. A legacy `extended`
+    query parameter is being removed (Aug 2026) so ListPageResponse becomes the
+    default list response across 57 endpoints.
+idempotency:
+  supported: true
+  header: X-Idempotency-Key
+  scope: >-
+    Documented on the long-running migration operations (startMigration,
+    startMigrationForAccount) as an optional request header to make migration
+    submission safe to retry.
+  required: false
+versioning:
+  scheme: date-based monthly releases (see changelog/socotra-changelog.yml)
+  spec_version: v0
+error_envelope:
+  note: >-
+    The published OpenAPI documents only 200/204 responses and no
+    application/problem+json media type; a structured API-level error catalog is not
+    published in the spec. HTTP status codes convey failure.
+events:
+  model: >-
+    A tenant event system exposes per-domain event definitions and a webhook
+    subscription surface (see asyncapi/socotra-webhooks.yml) plus a pull-based event
+    stream (@socotra/events-cli).
+cross_links:
+  authentication: authentication/socotra-authentication.yml
+  lifecycle: lifecycle/socotra-lifecycle.yml
+  webhooks: asyncapi/socotra-webhooks.yml
+  data_model: data-model/socotra-data-model.yml

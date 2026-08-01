@@ -1,0 +1,129 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.npmjs.com/search?q=%40socotra
+note: >-
+  All packages published under the first-party npm @socotra scope. Versions are the
+  npm dist-tags latest as observed 2026-07-21.
+packages:
+- language: javascript
+  registry: npm
+  name: "@socotra/api"
+  version: 6.8.0
+  url: https://www.npmjs.com/package/@socotra/api
+  install: npm install @socotra/api
+  description: Socotra API Library (typed client for the Insurance Suite REST API).
+  official: true
+- language: javascript
+  registry: npm
+  name: "@socotra/auth"
+  version: 3.8.0
+  url: https://www.npmjs.com/package/@socotra/auth
+  install: npm install @socotra/auth
+  description: Socotra Authentication Library (token minting / session handling).
+  official: true
+- language: javascript
+  registry: npm
+  name: "@socotra/common"
+  version: 3.8.0
+  url: https://www.npmjs.com/package/@socotra/common
+  install: npm install @socotra/common
+  description: Socotra Common Library (shared types and helpers).
+  official: true
+- language: javascript
+  registry: npm
+  name: "@socotra/plugins"
+  url: https://www.npmjs.com/package/@socotra/plugins
+  install: npm install @socotra/plugins
+  description: Socotra Plugins Library (server-side automation/integration plugins).
+  official: true
+- language: javascript
+  registry: npm
+  name: "@socotra/ec-react-components"
+  version: 2.34.0
+  url: https://www.npmjs.com/package/@socotra/ec-react-components
+  install: npm install @socotra/ec-react-components
+  description: Schema-driven React UI component library (the Socotra UI SDK).
+  official: true
+- language: javascript
+  registry: npm
+  name: "@socotra/ec-react-schemas"
+  version: 2.34.0
+  url: https://www.npmjs.com/package/@socotra/ec-react-schemas
+  install: npm install @socotra/ec-react-schemas
+  description: TypeScript interfaces and zod schemas for the UI SDK.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@socotra/ec-react-utils"
+  version: 2.34.0
+  url: https://www.npmjs.com/package/@socotra/ec-react-utils
+  install: npm install @socotra/ec-react-utils
+  description: Helper utilities for the Socotra UI SDK.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@socotra/cli"
+  version: 2.10.0
+  url: https://www.npmjs.com/package/@socotra/cli
+  install: npm install -g @socotra/cli
+  description: Socotra CLI Tools (top-level command surface).
+  official: true
+- language: javascript
+  registry: npm
+  name: "@socotra/deploy-cli"
+  version: 3.8.0
+  url: https://www.npmjs.com/package/@socotra/deploy-cli
+  install: npm install -g @socotra/deploy-cli
+  description: Deploy Socotra tenant configurations from the command line.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@socotra/events-cli"
+  version: 2.8.0
+  url: https://www.npmjs.com/package/@socotra/events-cli
+  install: npm install -g @socotra/events-cli
+  description: Query and stream events from the Socotra Event Stream.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@socotra/aux-cli"
+  url: https://www.npmjs.com/package/@socotra/aux-cli
+  install: npm install -g @socotra/aux-cli
+  description: Manage Socotra auxiliary data from the command line.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@socotra/scripts-cli"
+  url: https://www.npmjs.com/package/@socotra/scripts-cli
+  install: npm install -g @socotra/scripts-cli
+  description: Deploy scripts and query logs from the command line.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@socotra/profile-cli"
+  url: https://www.npmjs.com/package/@socotra/profile-cli
+  install: npm install -g @socotra/profile-cli
+  description: Manage Socotra profiles for CLI use.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@socotra/app-cli"
+  url: https://www.npmjs.com/package/@socotra/app-cli
+  install: npm install -g @socotra/app-cli
+  description: Publish Socotra Marketplace Apps.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@socotra/create"
+  url: https://www.npmjs.com/package/@socotra/create
+  install: npm init @socotra
+  description: Project initializer (npm init @socotra).
+  official: true
+- language: javascript
+  registry: npm
+  name: socotra-connected-core-mcp-server
+  version: 0.2.1
+  url: https://www.npmjs.com/package/socotra-connected-core-mcp-server
+  install: npx socotra-connected-core-mcp-server
+  description: MCP Server for Socotra Connected Core.
+  official: true

@@ -1,0 +1,75 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/socotra-openapi-original.json
+spec_type: Webhooks
+note: >-
+  Socotra does not publish an AsyncAPI document, but the Insurance Suite API exposes
+  a full tenant webhook subscription surface plus per-domain event definitions and a
+  pull-based event stream. This catalog is derived from the OpenAPI event operations.
+delivery:
+  model: HTTP webhooks (push) with per-subscription diversion + resend for failures.
+  management_base: /event/{tenantLocator}/webhooks
+webhook_operations:
+- operationId: createWebhook
+  method: POST
+  path: /event/{tenantLocator}/webhooks
+  summary: Register a webhook subscription for a tenant.
+- operationId: fetchWebhooks
+  method: GET
+  path: /event/{tenantLocator}/webhooks/list
+  summary: List webhook subscriptions.
+- operationId: fetchWebhook
+  method: GET
+  path: /event/{tenantLocator}/webhooks/{webhookLocator}
+  summary: Fetch a single webhook subscription.
+- operationId: updateWebhook
+  method: PATCH
+  path: /event/{tenantLocator}/webhooks/{webhookLocator}
+  summary: Update a webhook subscription.
+- operationId: deleteWebhook
+  method: DELETE
+  path: /event/{tenantLocator}/webhooks/{webhookLocator}
+  summary: Delete a webhook subscription.
+- operationId: unsuspendWebhook
+  method: PATCH
+  path: /event/{tenantLocator}/webhooks/{webhookLocator}/unsuspend
+  summary: Re-enable a suspended webhook.
+- operationId: fetchMultipleDivertedEvents
+  method: GET
+  path: /event/{tenantLocator}/webhooks/{webhookLocator}/diverted
+  summary: List events diverted (undeliverable) for a webhook.
+- operationId: resendDivertedEvent
+  method: POST
+  path: /event/{tenantLocator}/webhooks/{webhookLocator}/diverted/{eventLocator}/resend
+  summary: Re-deliver a previously diverted event.
+event_definition_catalogs:
+- domain: policy
+  operationId: fetchPolicyEventDefinitions
+  path: /policy/events
+- domain: billing
+  operationId: fetchBillingEventDefinitions
+  path: /billing/events
+- domain: claim
+  operationId: fetchClaimEvents
+  path: /claim/events
+- domain: contact
+  operationId: fetchContactEventDefinitions
+  path: /contact/events
+- domain: document
+  operationId: fetchDocumentEventDefinitions
+  path: /document/events
+- domain: work-management
+  operationId: fetchWorkManagementEventDefinitions
+  path: /work-management/events
+- domain: producers
+  operationId: fetchProducersEventDefinitions
+  path: /producers/events
+- domain: migration
+  operationId: fetchMigrationEventDefinitions
+  path: /migration/events
+- domain: config
+  operationId: fetchConfigEvents
+  path: /config/events
+event_stream:
+  cli: "@socotra/events-cli"
+  description: Pull-based event stream querying via the Socotra Event Stream CLI.

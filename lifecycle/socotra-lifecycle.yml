@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.socotra.com/other-resources/deprecations
+versioning:
+  scheme: date-based monthly releases
+  current: v0
+  docs: https://docs.socotra.com/other-resources/release-notes
+deprecation:
+  policy_url: https://docs.socotra.com/other-resources/deprecations
+  sunset_header: false
+  note: >-
+    Socotra publishes a Deprecations page listing deprecated endpoints and schema
+    properties that "will be removed in future releases." It enumerates ~11
+    deprecated endpoints (primarily auth/identity and access-mask operations, plus
+    snapshot list endpoints) and ~11 deprecated schema properties. No RFC 8594
+    Sunset/Deprecation HTTP headers or fixed removal dates are documented; a concrete
+    example is the Aug 12, 2026 removal of the `extended` list query parameter,
+    announced via release notes.
+sla:
+  url: null
+  note: SLA/uptime commitments are handled via enterprise contract; no public SLA page found.
+status_page: null
+status_page_note: No public status page found (status.socotra.com did not resolve on probe).
+release_notes: https://docs.socotra.com/other-resources/release-notes

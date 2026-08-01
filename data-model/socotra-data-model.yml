@@ -1,0 +1,94 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/socotra-openapi-original.json
+note: >-
+  Entity-relationship graph derived from the Socotra OpenAPI path structure and the
+  locator reference parameters (accountLocator, policyLocator, quoteLocator,
+  contactLocator, producerLocator, fnolLocator, webhookLocator, etc.). Resources are
+  addressed by opaque "locator" ids and scoped to a tenant.
+root: Tenant
+entities:
+- name: Tenant
+  locator: tenantLocator
+  description: Top-level configuration + data isolation boundary; every resource is tenant-scoped.
+- name: Account
+  locator: accountLocator
+  description: A customer/account record holding contacts, policies, and billing.
+- name: Contact
+  locator: contactLocator
+  description: A person or organization linked to accounts, policies, and roles.
+- name: Quote
+  locator: quoteLocator
+  description: A priced, underwritable offer that can be issued into a policy.
+- name: Policy
+  locator: policyLocator
+  description: An issued insurance policy with transactions, segments, and coverages.
+- name: Transaction
+  description: A change applied to a policy (issuance, endorsement, renewal, cancellation).
+- name: Invoice
+  description: A billing invoice generated for a policy/account, with installments.
+- name: Payment
+  description: A payment applied against invoices in the billing ledger.
+- name: Claim
+  locator: fnolLocator
+  description: A first-notice-of-loss / claim raised against a policy.
+- name: Producer
+  locator: producerLocator
+  description: A distribution producer with codes, licenses, and appointments.
+- name: Task
+  locator: locator
+  description: A work-management task with diary entries and assignments.
+- name: Document
+  description: A generated or attached document tied to policies/accounts.
+- name: Webhook
+  locator: webhookLocator
+  description: A tenant event subscription that delivers platform events.
+relationships:
+- from: Account
+  to: Tenant
+  type: belongs_to
+  via: tenantLocator
+- from: Contact
+  to: Account
+  type: belongs_to
+  via: accountLocator
+- from: Account
+  to: Policy
+  type: has_many
+  via: accountLocator
+- from: Quote
+  to: Account
+  type: belongs_to
+  via: accountLocator
+- from: Policy
+  to: Quote
+  type: has_one
+  via: quoteLocator
+- from: Policy
+  to: Transaction
+  type: has_many
+  via: policyLocator
+- from: Invoice
+  to: Policy
+  type: belongs_to
+  via: policyLocator
+- from: Payment
+  to: Invoice
+  type: has_many
+  via: invoiceLocator
+- from: Claim
+  to: Policy
+  type: belongs_to
+  via: policyLocator
+- from: Policy
+  to: Producer
+  type: has_one
+  via: producerLocator
+- from: Task
+  to: Tenant
+  type: belongs_to
+  via: tenantLocator
+- from: Webhook
+  to: Tenant
+  type: belongs_to
+  via: tenantLocator

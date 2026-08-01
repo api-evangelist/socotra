@@ -1,8 +1,22 @@
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 21
+  pass: local-v1
 aid: socotra
 name: Socotra
-description: 'Socotra is a company surfaced as a portfolio company of 8vc, insight-partners and added
-  to the API Evangelist network as a stub for enrichment. Sector: insurtech. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Socotra is a cloud-native insurance core platform that lets carriers, MGAs, and
+  program administrators configure, launch, and operate insurance products across
+  any line, geography, or distribution channel. Its Connected Core / Insurance Suite
+  exposes a broad REST API covering business accounts, accounts and contacts, quotes
+  and quick quotes, policy management and transactions, billing, invoicing and
+  payments, claims (FNOL), producer management, work management, documents,
+  accounting, reporting, search, moratoriums, configuration, and an event/webhook
+  system. The platform ships first-party npm SDKs and CLIs, a schema-driven React UI
+  SDK, a hosted Model Context Protocol (MCP) server for AI agents, and per-tenant
+  configuration deployment. Backed by 8VC and Insight Partners. This profile was
+  enriched by the API Evangelist pipeline from Socotra's public developer surface.
 url: https://raw.githubusercontent.com/api-evangelist/socotra/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,18 +25,281 @@ x-backed-by:
 - insight-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Insurtech
-apis: []
+- Insurance
+- Core Platform
+- Policy Administration
+- Billing
+- Claims
+- Underwriting
+- API
+- MCP
+image: https://www.socotra.com/favicon.ico
+apis:
+- aid: socotra:socotra-auth-api
+  name: Socotra Auth API
+  description: The Auth API from Socotra — 41 operation(s) for auth.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-auth-api-openapi.yml
+- aid: socotra:socotra-auxdata-api
+  name: Socotra Auxdata API
+  description: The Auxdata API from Socotra — 16 operation(s) for auxdata.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Auxdata
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-auxdata-api-openapi.yml
+- aid: socotra:socotra-billing-api
+  name: Socotra Billing API
+  description: The Billing API from Socotra — 124 operation(s) for billing.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Billing
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-billing-api-openapi.yml
+- aid: socotra:socotra-business-stats-api
+  name: Socotra Business Stats API
+  description: The Business Stats API from Socotra — 16 operation(s) for business stats.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Business Stats
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-business-stats-api-openapi.yml
+- aid: socotra:socotra-claim-api
+  name: Socotra Claim API
+  description: The Claim API from Socotra — 23 operation(s) for claim.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Claim
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-claim-api-openapi.yml
+- aid: socotra:socotra-compliance-api
+  name: Socotra Compliance API
+  description: The Compliance API from Socotra — 4 operation(s) for compliance.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Compliance
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-compliance-api-openapi.yml
+- aid: socotra:socotra-config-api
+  name: Socotra Config API
+  description: The Config API from Socotra — 19 operation(s) for config.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Config
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-config-api-openapi.yml
+- aid: socotra:socotra-contact-api
+  name: Socotra Contact API
+  description: The Contact API from Socotra — 7 operation(s) for contact.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Contact
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-contact-api-openapi.yml
+- aid: socotra:socotra-document-api
+  name: Socotra Document API
+  description: The Document API from Socotra — 28 operation(s) for document.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Document
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-document-api-openapi.yml
+- aid: socotra:socotra-event-api
+  name: Socotra Event API
+  description: The Event API from Socotra — 18 operation(s) for event.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Event
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-event-api-openapi.yml
+- aid: socotra:socotra-migration-api
+  name: Socotra Migration API
+  description: The Migration API from Socotra — 12 operation(s) for migration.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Migration
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-migration-api-openapi.yml
+- aid: socotra:socotra-payment-execution-api
+  name: Socotra Payment Execution API
+  description: The Payment Execution API from Socotra — 5 operation(s) for payment execution.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Payment Execution
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-payment-execution-api-openapi.yml
+- aid: socotra:socotra-plugin-api
+  name: Socotra Plugin API
+  description: The Plugin API from Socotra — 5 operation(s) for plugin.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Plugin
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-plugin-api-openapi.yml
+- aid: socotra:socotra-policy-api
+  name: Socotra Policy API
+  description: The Policy API from Socotra — 180 operation(s) for policy.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Policy
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-policy-api-openapi.yml
+- aid: socotra:socotra-producers-api
+  name: Socotra Producers API
+  description: The Producers API from Socotra — 31 operation(s) for producers.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Producers
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-producers-api-openapi.yml
+- aid: socotra:socotra-resource-api
+  name: Socotra Resource API
+  description: The Resource API from Socotra — 33 operation(s) for resource.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Resource
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-resource-api-openapi.yml
+- aid: socotra:socotra-search-api
+  name: Socotra Search API
+  description: The Search API from Socotra — 4 operation(s) for search.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-search-api-openapi.yml
+- aid: socotra:socotra-work-management-api
+  name: Socotra Work Management API
+  description: The Work Management API from Socotra — 39 operation(s) for work management.
+  humanURL: https://docs.socotra.com/docs/api
+  baseURL: https://api.sandbox.socotra.com
+  tags:
+  - Work Management
+  properties:
+  - type: OpenAPI
+    url: openapi/socotra-work-management-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: TrustCenter
+  url: security/socotra-trust-center.yml
+- type: DomainSecurity
+  url: security/socotra-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/socotra-agentic-access.yml
 - type: Website
   url: https://socotra.com
+- type: DeveloperPortal
+  url: https://docs.socotra.com/
+- type: Documentation
+  url: https://docs.socotra.com/
+- type: APIReference
+  url: https://docs.socotra.com/docs/api
+- type: GettingStarted
+  url: https://docs.socotra.com/getting-started/introduction-to-socotra
+- type: Blog
+  url: https://www.socotra.com/blog/
+- type: Support
+  url: https://www.socotra.com/contact-us/
+- type: TermsOfService
+  url: https://www.socotra.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.socotra.com/privacy-policy/
+- type: ChangeLog
+  url: https://docs.socotra.com/other-resources/release-notes
+- type: Deprecation
+  url: https://docs.socotra.com/other-resources/deprecations
+- type: Compliance
+  url: https://trust.socotra.com/
+- type: Authentication
+  url: authentication/socotra-authentication.yml
+- type: Packages
+  url: packages/socotra-packages.yml
+- type: SDKs
+  url: packages/socotra-packages.yml
+- type: MCPServer
+  url: mcp/socotra-mcp.yml
+- type: LLMsTxt
+  url: llms/socotra-llms.txt
+- type: Overlay
+  url: overlays/socotra-openapi-overlay.yaml
+- type: Conventions
+  url: conventions/socotra-conventions.yml
+- type: Idempotency
+  url: conventions/socotra-conventions.yml
+- type: Lifecycle
+  url: lifecycle/socotra-lifecycle.yml
+- type: Conformance
+  url: conformance/socotra-conformance.yml
+- type: CLI
+  url: cli/socotra-cli.yml
+- type: Components
+  url: components/socotra-components.yml
+- type: DataModel
+  url: data-model/socotra-data-model.yml
+- type: Webhooks
+  url: asyncapi/socotra-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Sandbox
+  url: sandbox/socotra-sandbox.yml
+- type: ChangeLog
+  url: changelog/socotra-changelog.yml

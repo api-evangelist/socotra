@@ -1,0 +1,42 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.socotra.com/
+docs: https://docs.socotra.com/getting-started/log-into-socotra
+summary:
+  types: [http, oauth2, openIdConnect, saml]
+  api_key_in: []
+  http_schemes: [bearer]
+  oauth2_flows: [authorizationCode]
+  note: >-
+    The published OpenAPI definition does not declare components.securitySchemes;
+    this profile is derived from the Socotra documentation and the @socotra/auth
+    library rather than the spec.
+schemes:
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  description: >-
+    Socotra Insurance Suite API calls are authenticated with a bearer access token
+    sent in the Authorization header. Tokens are minted from the auth service
+    (POST /auth/users/tokens - createAuthToken) using business-account credentials
+    (business_account_name + username + password), and revoked via
+    revokeUserOauthTokens. Service accounts obtain non-interactive tokens via
+    createServiceAccountAuthToken.
+  sources: [documentation, 'npm:@socotra/auth']
+- name: OAuth2
+  type: oauth2
+  description: >-
+    OAuth 2.1 authorization-code flow is used for interactive agent/UI access
+    (e.g. the hosted MCP server at https://mcp-sandbox.socotra.com/mcp redirects to
+    a browser login with business-account credentials).
+  flows:
+    authorizationCode: {}
+  sources: [documentation]
+- name: EnterpriseSSO
+  type: openIdConnect
+  description: >-
+    Tenants can federate identity through SAML 2.0 and OIDC identity providers
+    (addSAMLIdentityProvider, addOIDCIdentityProvider) for workforce SSO into the
+    platform. A role/permission model (roles, token permissions, data-access masks)
+    governs authorization.
+  sources: [documentation, 'openapi/socotra-openapi-original.json']

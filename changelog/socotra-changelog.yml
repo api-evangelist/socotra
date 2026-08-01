@@ -1,0 +1,56 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.socotra.com/other-resources/release-notes
+scheme: date-based monthly releases (no semantic versioning)
+current: '2026-08-12'
+entries:
+- date: '2026-08-12'
+  title: Removal of Deprecated List Query Parameter
+  breaking: true
+  highlights:
+  - The `extended` query parameter is phased out from /list endpoints.
+  - ListPageResponse becomes the default response format across 57 endpoints.
+- date: '2026-07-15'
+  breaking: false
+  highlights:
+  - Socotra Assistant configuration support.
+  - Integrations Plugin launch.
+  - New login page.
+  - Policy transaction extension-data capability.
+  - Documentation improvements.
+- date: '2026-07-08'
+  breaking: false
+  highlights:
+  - Installment Grouping feature for controlling invoice generation logic.
+  - Data Lake tables enhanced with new fields.
+  - Updated plugin documentation.
+- date: '2026-07-01'
+  breaking: false
+  highlights:
+  - New task dashboard beta with enhanced filtering.
+  - New `object` data type for extension data.
+  - Document trigger states expanded.
+  - Credential status API endpoint added.
+- date: '2026-06-24'
+  breaking: false
+  highlights:
+  - Documentation enhancements (Data Lake Table Index, Delta Files, Automation Plugin guide).
+  - Search capabilities expanded.
+- date: '2026-06-17'
+  breaking: false
+  highlights:
+  - New documentation experience launched as default.
+  - Preferred Quotes feature for quote-group optimization.
+  - Data Lake regenerated for improved no-op handling.
+- date: '2026-06-10'
+  breaking: false
+  highlights:
+  - Producer Management enhancements supporting licenses and appointments.
+  - Products can require valid producer credentials.
+  - Bug fixes for transaction preferences and autopay timing.
+- date: '2026-06-03'
+  breaking: false
+  highlights:
+  - External Numbering Support for external quote/policy numbering.
+  - Diary entry associations expanded.
+  - Installment update capabilities and invoice consolidation configurability.
