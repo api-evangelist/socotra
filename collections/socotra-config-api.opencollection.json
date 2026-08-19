@@ -1,0 +1,440 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Config API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Config",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "validateConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/config/validateConfig",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "scheduleTenantEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/config/:tenantLocator/tenantEvents",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMoratoriums",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/config/:tenantLocator/moratoriums",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deployMoratoriums",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/config/:tenantLocator/moratoriums",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "formatConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/config/formatConfig",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Converts a configuration's property casing to match requirements"
+        },
+        {
+          "info": {
+            "name": "buildBundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/config/:tenantLocator/developer/build",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "validateConfigZip",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/config/:tenantLocator/deployments/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deployConfigZip",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/config/:tenantLocator/deployments/deploy",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "overwrite",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "cloneConfigToTest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/config/:tenantLocator/deployments/cloneTest",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tenantName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tenantDescription",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "cloneConfigToProduction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/config/:tenantLocator/deployments/cloneProduction",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tenantName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tenantDescription",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createTenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/config/createTenant",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "retireConfigVersion",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/config/:tenantLocator/deployments/versions/:staticVersionLocator/retire",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticVersionLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchConfigEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/config/events"
+          }
+        },
+        {
+          "info": {
+            "name": "downloadBundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/config/:tenantLocator/developer/download",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getDeployedConfigMetadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/config/:tenantLocator/deployments",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "downloadCurrentConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/config/:tenantLocator/deployments/download",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "downloadConfigurationVersion",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/config/:tenantLocator/deployments/download/:version",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "byStaticLocator",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getPartialDeployDifference",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/config/:tenantLocator/deployments/diff",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "config",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchConfigDefinition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/config/:tenantLocator/deployments/datamodel",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "resolve",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchConfigDefinitionForAVersion",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/config/:tenantLocator/deployments/datamodel/:version",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "resolve",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "byStaticLocator",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

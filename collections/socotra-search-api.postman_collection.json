@@ -1,0 +1,589 @@
+{
+  "item": [
+    {
+      "id": "e5dfeda2-27ae-4637-9dbe-1eeef9d6e97f",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c67f392a-bb86-47fe-80c3-9abc758d8326",
+          "name": "fetch Additional Search Results By Token",
+          "request": {
+            "name": "fetch Additional Search Results By Token",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                ":tenantLocator",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchToken",
+                  "value": "<string>",
+                  "description": "(Required) The token returned from the initial search"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79b32c39-f6c0-491a-b40e-758d088bcf1b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":tenantLocator",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1869,\n  \"offset\": 457,\n  \"searchToken\": \"string\",\n  \"results\": [\n    {\n      \"accountLocator\": \"string\",\n      \"configVersionLocator\": \"string\",\n      \"searchEntityLocator\": \"string\",\n      \"productName\": \"string\",\n      \"score\": 2342.3839316383123,\n      \"searchEntityType\": \"payment\",\n      \"highlights\": [\n        \"string\",\n        \"string\"\n      ],\n      \"searchSummary\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    },\n    {\n      \"accountLocator\": \"string\",\n      \"configVersionLocator\": \"string\",\n      \"searchEntityLocator\": \"string\",\n      \"productName\": \"string\",\n      \"score\": 8328.274222550066,\n      \"searchEntityType\": \"policy\",\n      \"highlights\": [\n        \"string\",\n        \"string\"\n      ],\n      \"searchSummary\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "818852e1-014b-4155-a8c1-11e5d4e06727",
+          "name": "fetch Search Results",
+          "request": {
+            "name": "fetch Search Results",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                ":tenantLocator",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"searchEntityType\": \"<string>\",\n  \"searchString\": \"<string>\",\n  \"sortOrder\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"searchTerms\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"absolute\": \"<string>\",\n      \"match\": \"<string>\",\n      \"searchTerm\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"absolute\": \"<string>\",\n      \"match\": \"<string>\",\n      \"searchTerm\": \"<string>\"\n    }\n  ],\n  \"startCreationTime\": \"<dateTime>\",\n  \"endCreationTime\": \"<dateTime>\",\n  \"sortField\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a7571cb-90dd-4947-a3ac-4454fd00027f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":tenantLocator",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"searchEntityType\": \"<string>\",\n  \"searchString\": \"<string>\",\n  \"sortOrder\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"searchTerms\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"absolute\": \"<string>\",\n      \"match\": \"<string>\",\n      \"searchTerm\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"absolute\": \"<string>\",\n      \"match\": \"<string>\",\n      \"searchTerm\": \"<string>\"\n    }\n  ],\n  \"startCreationTime\": \"<dateTime>\",\n  \"endCreationTime\": \"<dateTime>\",\n  \"sortField\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7370,\n  \"offset\": 4173,\n  \"searchToken\": \"string\",\n  \"results\": [\n    {\n      \"accountLocator\": \"string\",\n      \"configVersionLocator\": \"string\",\n      \"searchEntityLocator\": \"string\",\n      \"productName\": \"string\",\n      \"score\": 546.3153018565448,\n      \"searchEntityType\": \"diary\",\n      \"highlights\": [\n        \"string\",\n        \"string\"\n      ],\n      \"searchSummary\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    },\n    {\n      \"accountLocator\": \"string\",\n      \"configVersionLocator\": \"string\",\n      \"searchEntityLocator\": \"string\",\n      \"productName\": \"string\",\n      \"score\": 2247.5917107067357,\n      \"searchEntityType\": \"contact\",\n      \"highlights\": [\n        \"string\",\n        \"string\"\n      ],\n      \"searchSummary\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {},\n        \"key_3\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5157fef4-88b8-4db2-89a1-587d0f8cede2",
+          "name": "fetch Search Stats",
+          "request": {
+            "name": "fetch Search Stats",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                ":tenantLocator",
+                "search",
+                "searchStats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"searchEntityType\": \"<string>\",\n  \"searchString\": \"<string>\",\n  \"sortOrder\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"searchTerms\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"absolute\": \"<string>\",\n      \"match\": \"<string>\",\n      \"searchTerm\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"absolute\": \"<string>\",\n      \"match\": \"<string>\",\n      \"searchTerm\": \"<string>\"\n    }\n  ],\n  \"startCreationTime\": \"<dateTime>\",\n  \"endCreationTime\": \"<dateTime>\",\n  \"sortField\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a201effb-61d9-4c96-af11-78e059a6aa00",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":tenantLocator",
+                    "search",
+                    "searchStats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"searchEntityType\": \"<string>\",\n  \"searchString\": \"<string>\",\n  \"sortOrder\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"searchTerms\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"absolute\": \"<string>\",\n      \"match\": \"<string>\",\n      \"searchTerm\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"absolute\": \"<string>\",\n      \"match\": \"<string>\",\n      \"searchTerm\": \"<string>\"\n    }\n  ],\n  \"startCreationTime\": \"<dateTime>\",\n  \"endCreationTime\": \"<dateTime>\",\n  \"sortField\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"searchToken\": \"string\",\n  \"results\": [\n    {\n      \"recordCount\": 1275,\n      \"searchEntityType\": \"unspecified\"\n    },\n    {\n      \"recordCount\": 2755,\n      \"searchEntityType\": \"userAssociation\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02748d99-daed-49bb-afdf-8be924deabf9",
+          "name": "fetch Ignored Fields",
+          "request": {
+            "name": "fetch Ignored Fields",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                ":tenantLocator",
+                "search",
+                "ignoredFields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "searchEntityType",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "85e7b8e9-c9e9-48e1-88dd-0b9dc83bfdb3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":tenantLocator",
+                    "search",
+                    "ignoredFields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchEntityType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"index\": \"string\",\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"OTHER\"\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"DATE\"\n      }\n    ]\n  },\n  {\n    \"index\": \"string\",\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"OTHER\"\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"TEXT\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3019fd4-c740-4f0d-9a6b-e27892653d0d",
+          "name": "fetch Fields Mapping",
+          "request": {
+            "name": "fetch Fields Mapping",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                ":tenantLocator",
+                "search",
+                "fieldsMapping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "searchEntityType",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1a95b75-4f33-4692-8b24-e789877249c5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":tenantLocator",
+                    "search",
+                    "fieldsMapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchEntityType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"index\": \"string\",\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"OTHER\"\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"DATE\"\n      }\n    ]\n  },\n  {\n    \"index\": \"string\",\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"TEXT\"\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"OTHER\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "08bb572c-0534-44ab-9b3e-6ac94ff4dee4",
+    "name": "Socotra Insurance Suite OpenAPI Definition Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Socotra Insurance Suite API",
+      "type": "text/plain"
+    }
+  }
+}

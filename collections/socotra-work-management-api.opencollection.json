@@ -1,0 +1,1108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Work Management API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Work Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "createWorkplan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/work-management/:tenantLocator/workplans",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createWorkgroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/work-management/:tenantLocator/workgroups",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "makeUserAssociation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/work-management/:tenantLocator/userAssociations",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addTask",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/work-management/:tenantLocator/tasks",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "setTaskNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/work-management/:tenantLocator/tasks/:locator/number/set",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "taskNumber",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "generateTaskNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/work-management/:tenantLocator/tasks/:locator/number/generate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "autoAssign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/work-management/:tenantLocator/assignments",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getWorkplan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/workplans/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "patchWorkplan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/work-management/:tenantLocator/workplans/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "discardWorkplan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/work-management/:tenantLocator/workplans/:locator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getWorkgroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/workgroups/:workgroupLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "workgroupLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "patchWorkgroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/work-management/:tenantLocator/workgroups/:workgroupLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "workgroupLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "discardWorkgroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/work-management/:tenantLocator/workgroups/:workgroupLocator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "workgroupLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "uncompleteUserAssociation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/work-management/:tenantLocator/userAssociations/:userAssociationLocator/uncomplete",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userAssociationLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "disassociateUserAssociation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/work-management/:tenantLocator/userAssociations/:userAssociationLocator/disassociate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userAssociationLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "completeUserAssociation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/work-management/:tenantLocator/userAssociations/:userAssociationLocator/complete",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userAssociationLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getTask",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/tasks/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateTask",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/work-management/:tenantLocator/tasks/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "unassignTask",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/work-management/:tenantLocator/tasks/:locator/unassign",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "completeTask",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/work-management/:tenantLocator/tasks/:locator/complete",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "cancelTask",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/work-management/:tenantLocator/tasks/:locator/cancel",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "assignTask",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/work-management/:tenantLocator/tasks/:locator/assign/:userLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "activateTask",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/work-management/:tenantLocator/tasks/:locator/activate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getUserQualifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/qualifications/:userLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateUserQualifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/work-management/:tenantLocator/qualifications/:userLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "listWorkplans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/workplans/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listWorkgroups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/workgroups/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listAssignedUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/userAssociations/:referenceType/:referenceLocator/:userAssociationState/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "referenceType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "referenceLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userAssociationState",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listReferenceUserAssociationsHistory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/userAssociations/:referenceType/:referenceLocator/history/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "referenceType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "referenceLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getUserAssociation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/userAssociations/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listUserAssociationHistory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/userAssociations/:locator/history/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listUserUserAssociations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/userAssociations/user/:userLocator/:userAssociationState/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userAssociationState",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listUserQualifiedRoles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/userAssociations/user/:userLocator/qualifiedRoles/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "referenceType",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listUserUserAssociationsHistory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/userAssociations/user/:userLocator/history/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "searchTasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/tasks/:referenceType/:referenceLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "referenceType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "referenceLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listTaskHistory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/tasks/:locator/history/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listAssignedTasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/tasks/user/:userLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchTasksWithNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/tasks/numbers/:taskNumber",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "taskNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listTasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/tasks/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listAllTasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/tasks/all/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getQualifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/qualifications",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchUsersQualifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/:tenantLocator/qualifications/:category/:level",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "level",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchWorkManagementEventDefinitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/work-management/events"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

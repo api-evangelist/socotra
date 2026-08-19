@@ -1,0 +1,194 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Contact API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contact",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "addContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/contact/:tenantLocator/contacts",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/contact/:tenantLocator/contacts/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/contact/:tenantLocator/contacts/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "validateContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/contact/:tenantLocator/contacts/:locator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "mergeContacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/contact/:tenantLocator/contacts/merge",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchContactEventDefinitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/contact/events"
+          }
+        },
+        {
+          "info": {
+            "name": "listContacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/contact/:tenantLocator/contacts/:staticLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "lookupContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/contact/:tenantLocator/contacts/lookup/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

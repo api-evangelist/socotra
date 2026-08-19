@@ -1,0 +1,1496 @@
+{
+  "item": [
+    {
+      "id": "05e979af-2023-4426-8c84-a456085dea96",
+      "name": "Migration",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f3bfc215-9426-4fba-ba63-05bcbe786281",
+          "name": "start Migration",
+          "request": {
+            "name": "start Migration",
+            "description": {},
+            "url": {
+              "path": [
+                "migration",
+                ":tenantLocator",
+                "migrations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Idempotency-Key",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"accountData\": {\n      \"accountType\": \"<string>\",\n      \"id\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\",\n        \"key_2\": \"<object>\",\n        \"key_3\": \"<object>\"\n      },\n      \"createdAt\": \"<dateTime>\",\n      \"createdBy\": \"<uuid>\",\n      \"delinquencyPlanName\": \"<string>\",\n      \"autoRenewalPlanName\": \"<string>\",\n      \"excessCreditPlanName\": \"<string>\",\n      \"shortfallTolerancePlanName\": \"<string>\",\n      \"preferences\": {\n        \"installmentPreferences\": {\n          \"installmentWeights\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"cadence\": \"<string>\",\n          \"anchorMode\": \"<string>\",\n          \"generateLeadDays\": \"<integer>\",\n          \"dueLeadDays\": \"<integer>\",\n          \"maxInstallmentsPerTerm\": \"<integer>\",\n          \"installmentPlanName\": \"<string>\",\n          \"anchorType\": \"<string>\",\n          \"dayOfMonth\": \"<integer>\",\n          \"dayOfWeek\": \"<string>\",\n          \"weekOfMonth\": \"<string>\",\n          \"anchorTime\": \"<dateTime>\",\n          \"autopayLeadDays\": \"<number>\"\n        }\n      },\n      \"billingLevel\": \"<string>\"\n    },\n    \"accounting\": {\n      \"originalAccountBalances\": {\n        \"key_0\": \"<number>\"\n      }\n    },\n    \"defaultCreatedBy\": \"<uuid>\",\n    \"disbursements\": [\n      {\n        \"disbursementTime\": \"<dateTime>\",\n        \"disbursementType\": \"<string>\",\n        \"id\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\",\n          \"key_1\": \"<object>\",\n          \"key_2\": \"<object>\",\n          \"key_3\": \"<object>\",\n          \"key_4\": \"<object>\"\n        },\n        \"sources\": [\n          {\n            \"amount\": \"<number>\"\n          },\n          {\n            \"amount\": \"<number>\"\n          }\n        ],\n        \"currency\": \"<string>\"\n      },\n      {\n        \"disbursementTime\": \"<dateTime>\",\n        \"disbursementType\": \"<string>\",\n        \"id\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\"\n        },\n        \"sources\": [\n          {\n            \"amount\": \"<number>\"\n          },\n          {\n            \"amount\": \"<number>\"\n          }\n        ],\n        \"currency\": \"<string>\"\n      }\n    ],\n    \"invoices\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"dueTime\": \"<dateTime>\",\n        \"generateTime\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"invoiceState\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"dueTime\": \"<dateTime>\",\n        \"generateTime\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"invoiceState\": \"<string>\"\n      }\n    ],\n    \"payments\": [\n      {\n        \"id\": \"<string>\",\n        \"paymentTime\": \"<dateTime>\",\n        \"paymentType\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\",\n          \"key_1\": \"<object>\"\n        },\n        \"paymentItems\": [\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          },\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          }\n        ],\n        \"createdBy\": \"<uuid>\",\n        \"currency\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"paymentTime\": \"<dateTime>\",\n        \"paymentType\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\",\n          \"key_1\": \"<object>\"\n        },\n        \"paymentItems\": [\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          },\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          }\n        ],\n        \"createdBy\": \"<uuid>\",\n        \"currency\": \"<string>\"\n      }\n    ],\n    \"policies\": [\n      {\n        \"productName\": \"<string>\",\n        \"durationBasis\": \"<string>\",\n        \"id\": \"<string>\",\n        \"createdAt\": \"<dateTime>\",\n        \"createdBy\": \"<uuid>\",\n        \"staticData\": {\n          \"key_0\": \"<object>\",\n          \"key_1\": \"<object>\"\n        },\n        \"terms\": [\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"timezone\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"delinquencyPlanName\": \"<string>\",\n        \"autoRenewalPlanName\": \"<string>\",\n        \"preferences\": {\n          \"installmentPreferences\": {\n            \"installmentWeights\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cadence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorMode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"generateLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dueLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxInstallmentsPerTerm\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"installmentPlanName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfWeek\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"autopayLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"billingLevel\": \"<string>\",\n        \"auxData\": {\n          \"settingsName\": \"<string>\",\n          \"entries\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      },\n      {\n        \"productName\": \"<string>\",\n        \"durationBasis\": \"<string>\",\n        \"id\": \"<string>\",\n        \"createdAt\": \"<dateTime>\",\n        \"createdBy\": \"<uuid>\",\n        \"staticData\": {\n          \"key_0\": \"<object>\",\n          \"key_1\": \"<object>\"\n        },\n        \"terms\": [\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"timezone\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"delinquencyPlanName\": \"<string>\",\n        \"autoRenewalPlanName\": \"<string>\",\n        \"preferences\": {\n          \"installmentPreferences\": {\n            \"installmentWeights\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cadence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorMode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"generateLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dueLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxInstallmentsPerTerm\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"installmentPlanName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfWeek\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"autopayLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"billingLevel\": \"<string>\",\n        \"auxData\": {\n          \"settingsName\": \"<string>\",\n          \"entries\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      }\n    ]\n  },\n  {\n    \"accountData\": {\n      \"accountType\": \"<string>\",\n      \"id\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"createdAt\": \"<dateTime>\",\n      \"createdBy\": \"<uuid>\",\n      \"delinquencyPlanName\": \"<string>\",\n      \"autoRenewalPlanName\": \"<string>\",\n      \"excessCreditPlanName\": \"<string>\",\n      \"shortfallTolerancePlanName\": \"<string>\",\n      \"preferences\": {\n        \"installmentPreferences\": {\n          \"installmentWeights\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"cadence\": \"<string>\",\n          \"anchorMode\": \"<string>\",\n          \"generateLeadDays\": \"<integer>\",\n          \"dueLeadDays\": \"<integer>\",\n          \"maxInstallmentsPerTerm\": \"<integer>\",\n          \"installmentPlanName\": \"<string>\",\n          \"anchorType\": \"<string>\",\n          \"dayOfMonth\": \"<integer>\",\n          \"dayOfWeek\": \"<string>\",\n          \"weekOfMonth\": \"<string>\",\n          \"anchorTime\": \"<dateTime>\",\n          \"autopayLeadDays\": \"<number>\"\n        }\n      },\n      \"billingLevel\": \"<string>\"\n    },\n    \"accounting\": {\n      \"originalAccountBalances\": {\n        \"key_0\": \"<number>\",\n        \"key_1\": \"<number>\"\n      }\n    },\n    \"defaultCreatedBy\": \"<uuid>\",\n    \"disbursements\": [\n      {\n        \"disbursementTime\": \"<dateTime>\",\n        \"disbursementType\": \"<string>\",\n        \"id\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\"\n        },\n        \"sources\": [\n          {\n            \"amount\": \"<number>\"\n          },\n          {\n            \"amount\": \"<number>\"\n          }\n        ],\n        \"currency\": \"<string>\"\n      },\n      {\n        \"disbursementTime\": \"<dateTime>\",\n        \"disbursementType\": \"<string>\",\n        \"id\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\"\n        },\n        \"sources\": [\n          {\n            \"amount\": \"<number>\"\n          },\n          {\n            \"amount\": \"<number>\"\n          }\n        ],\n        \"currency\": \"<string>\"\n      }\n    ],\n    \"invoices\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"dueTime\": \"<dateTime>\",\n        \"generateTime\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"invoiceState\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"dueTime\": \"<dateTime>\",\n        \"generateTime\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"invoiceState\": \"<string>\"\n      }\n    ],\n    \"payments\": [\n      {\n        \"id\": \"<string>\",\n        \"paymentTime\": \"<dateTime>\",\n        \"paymentType\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\"\n        },\n        \"paymentItems\": [\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          },\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          }\n        ],\n        \"createdBy\": \"<uuid>\",\n        \"currency\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"paymentTime\": \"<dateTime>\",\n        \"paymentType\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\"\n        },\n        \"paymentItems\": [\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          },\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          }\n        ],\n        \"createdBy\": \"<uuid>\",\n        \"currency\": \"<string>\"\n      }\n    ],\n    \"policies\": [\n      {\n        \"productName\": \"<string>\",\n        \"durationBasis\": \"<string>\",\n        \"id\": \"<string>\",\n        \"createdAt\": \"<dateTime>\",\n        \"createdBy\": \"<uuid>\",\n        \"staticData\": {\n          \"key_0\": \"<object>\"\n        },\n        \"terms\": [\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"timezone\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"delinquencyPlanName\": \"<string>\",\n        \"autoRenewalPlanName\": \"<string>\",\n        \"preferences\": {\n          \"installmentPreferences\": {\n            \"installmentWeights\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cadence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorMode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"generateLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dueLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxInstallmentsPerTerm\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"installmentPlanName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfWeek\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"autopayLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"billingLevel\": \"<string>\",\n        \"auxData\": {\n          \"settingsName\": \"<string>\",\n          \"entries\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      },\n      {\n        \"productName\": \"<string>\",\n        \"durationBasis\": \"<string>\",\n        \"id\": \"<string>\",\n        \"createdAt\": \"<dateTime>\",\n        \"createdBy\": \"<uuid>\",\n        \"staticData\": {\n          \"key_0\": \"<object>\",\n          \"key_1\": \"<object>\",\n          \"key_2\": \"<object>\",\n          \"key_3\": \"<object>\"\n        },\n        \"terms\": [\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"timezone\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"delinquencyPlanName\": \"<string>\",\n        \"autoRenewalPlanName\": \"<string>\",\n        \"preferences\": {\n          \"installmentPreferences\": {\n            \"installmentWeights\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cadence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorMode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"generateLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dueLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxInstallmentsPerTerm\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"installmentPlanName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfWeek\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"autopayLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"billingLevel\": \"<string>\",\n        \"auxData\": {\n          \"settingsName\": \"<string>\",\n          \"entries\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      }\n    ]\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fa3f6040-2f7c-4250-89c4-2267c98a5809",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "migration",
+                    ":tenantLocator",
+                    "migrations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Idempotency-Key",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"accountData\": {\n      \"accountType\": \"<string>\",\n      \"id\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\",\n        \"key_2\": \"<object>\",\n        \"key_3\": \"<object>\"\n      },\n      \"createdAt\": \"<dateTime>\",\n      \"createdBy\": \"<uuid>\",\n      \"delinquencyPlanName\": \"<string>\",\n      \"autoRenewalPlanName\": \"<string>\",\n      \"excessCreditPlanName\": \"<string>\",\n      \"shortfallTolerancePlanName\": \"<string>\",\n      \"preferences\": {\n        \"installmentPreferences\": {\n          \"installmentWeights\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"cadence\": \"<string>\",\n          \"anchorMode\": \"<string>\",\n          \"generateLeadDays\": \"<integer>\",\n          \"dueLeadDays\": \"<integer>\",\n          \"maxInstallmentsPerTerm\": \"<integer>\",\n          \"installmentPlanName\": \"<string>\",\n          \"anchorType\": \"<string>\",\n          \"dayOfMonth\": \"<integer>\",\n          \"dayOfWeek\": \"<string>\",\n          \"weekOfMonth\": \"<string>\",\n          \"anchorTime\": \"<dateTime>\",\n          \"autopayLeadDays\": \"<number>\"\n        }\n      },\n      \"billingLevel\": \"<string>\"\n    },\n    \"accounting\": {\n      \"originalAccountBalances\": {\n        \"key_0\": \"<number>\"\n      }\n    },\n    \"defaultCreatedBy\": \"<uuid>\",\n    \"disbursements\": [\n      {\n        \"disbursementTime\": \"<dateTime>\",\n        \"disbursementType\": \"<string>\",\n        \"id\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\"\n        },\n        \"sources\": [\n          {\n            \"amount\": \"<number>\"\n          },\n          {\n            \"amount\": \"<number>\"\n          }\n        ],\n        \"currency\": \"<string>\"\n      },\n      {\n        \"disbursementTime\": \"<dateTime>\",\n        \"disbursementType\": \"<string>\",\n        \"id\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\",\n          \"key_1\": \"<object>\"\n        },\n        \"sources\": [\n          {\n            \"amount\": \"<number>\"\n          },\n          {\n            \"amount\": \"<number>\"\n          }\n        ],\n        \"currency\": \"<string>\"\n      }\n    ],\n    \"invoices\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"dueTime\": \"<dateTime>\",\n        \"generateTime\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"invoiceState\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"dueTime\": \"<dateTime>\",\n        \"generateTime\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"invoiceState\": \"<string>\"\n      }\n    ],\n    \"payments\": [\n      {\n        \"id\": \"<string>\",\n        \"paymentTime\": \"<dateTime>\",\n        \"paymentType\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\"\n        },\n        \"paymentItems\": [\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          },\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          }\n        ],\n        \"createdBy\": \"<uuid>\",\n        \"currency\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"paymentTime\": \"<dateTime>\",\n        \"paymentType\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\"\n        },\n        \"paymentItems\": [\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          },\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          }\n        ],\n        \"createdBy\": \"<uuid>\",\n        \"currency\": \"<string>\"\n      }\n    ],\n    \"policies\": [\n      {\n        \"productName\": \"<string>\",\n        \"durationBasis\": \"<string>\",\n        \"id\": \"<string>\",\n        \"createdAt\": \"<dateTime>\",\n        \"createdBy\": \"<uuid>\",\n        \"staticData\": {\n          \"key_0\": \"<object>\"\n        },\n        \"terms\": [\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"timezone\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"delinquencyPlanName\": \"<string>\",\n        \"autoRenewalPlanName\": \"<string>\",\n        \"preferences\": {\n          \"installmentPreferences\": {\n            \"installmentWeights\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cadence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorMode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"generateLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dueLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxInstallmentsPerTerm\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"installmentPlanName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfWeek\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"autopayLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"billingLevel\": \"<string>\",\n        \"auxData\": {\n          \"settingsName\": \"<string>\",\n          \"entries\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      },\n      {\n        \"productName\": \"<string>\",\n        \"durationBasis\": \"<string>\",\n        \"id\": \"<string>\",\n        \"createdAt\": \"<dateTime>\",\n        \"createdBy\": \"<uuid>\",\n        \"staticData\": {\n          \"key_0\": \"<object>\",\n          \"key_1\": \"<object>\",\n          \"key_2\": \"<object>\"\n        },\n        \"terms\": [\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"timezone\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"delinquencyPlanName\": \"<string>\",\n        \"autoRenewalPlanName\": \"<string>\",\n        \"preferences\": {\n          \"installmentPreferences\": {\n            \"installmentWeights\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cadence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorMode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"generateLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dueLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxInstallmentsPerTerm\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"installmentPlanName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfWeek\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"autopayLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"billingLevel\": \"<string>\",\n        \"auxData\": {\n          \"settingsName\": \"<string>\",\n          \"entries\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      }\n    ]\n  },\n  {\n    \"accountData\": {\n      \"accountType\": \"<string>\",\n      \"id\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\",\n        \"key_2\": \"<object>\"\n      },\n      \"createdAt\": \"<dateTime>\",\n      \"createdBy\": \"<uuid>\",\n      \"delinquencyPlanName\": \"<string>\",\n      \"autoRenewalPlanName\": \"<string>\",\n      \"excessCreditPlanName\": \"<string>\",\n      \"shortfallTolerancePlanName\": \"<string>\",\n      \"preferences\": {\n        \"installmentPreferences\": {\n          \"installmentWeights\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"cadence\": \"<string>\",\n          \"anchorMode\": \"<string>\",\n          \"generateLeadDays\": \"<integer>\",\n          \"dueLeadDays\": \"<integer>\",\n          \"maxInstallmentsPerTerm\": \"<integer>\",\n          \"installmentPlanName\": \"<string>\",\n          \"anchorType\": \"<string>\",\n          \"dayOfMonth\": \"<integer>\",\n          \"dayOfWeek\": \"<string>\",\n          \"weekOfMonth\": \"<string>\",\n          \"anchorTime\": \"<dateTime>\",\n          \"autopayLeadDays\": \"<number>\"\n        }\n      },\n      \"billingLevel\": \"<string>\"\n    },\n    \"accounting\": {\n      \"originalAccountBalances\": {\n        \"key_0\": \"<number>\",\n        \"key_1\": \"<number>\"\n      }\n    },\n    \"defaultCreatedBy\": \"<uuid>\",\n    \"disbursements\": [\n      {\n        \"disbursementTime\": \"<dateTime>\",\n        \"disbursementType\": \"<string>\",\n        \"id\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\",\n          \"key_1\": \"<object>\"\n        },\n        \"sources\": [\n          {\n            \"amount\": \"<number>\"\n          },\n          {\n            \"amount\": \"<number>\"\n          }\n        ],\n        \"currency\": \"<string>\"\n      },\n      {\n        \"disbursementTime\": \"<dateTime>\",\n        \"disbursementType\": \"<string>\",\n        \"id\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\"\n        },\n        \"sources\": [\n          {\n            \"amount\": \"<number>\"\n          },\n          {\n            \"amount\": \"<number>\"\n          }\n        ],\n        \"currency\": \"<string>\"\n      }\n    ],\n    \"invoices\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"dueTime\": \"<dateTime>\",\n        \"generateTime\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"invoiceState\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"dueTime\": \"<dateTime>\",\n        \"generateTime\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"invoiceState\": \"<string>\"\n      }\n    ],\n    \"payments\": [\n      {\n        \"id\": \"<string>\",\n        \"paymentTime\": \"<dateTime>\",\n        \"paymentType\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\",\n          \"key_1\": \"<object>\"\n        },\n        \"paymentItems\": [\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          },\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          }\n        ],\n        \"createdBy\": \"<uuid>\",\n        \"currency\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"paymentTime\": \"<dateTime>\",\n        \"paymentType\": \"<string>\",\n        \"data\": {\n          \"key_0\": \"<object>\"\n        },\n        \"paymentItems\": [\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          },\n          {\n            \"amount\": \"<number>\",\n            \"invoiceId\": \"<string>\"\n          }\n        ],\n        \"createdBy\": \"<uuid>\",\n        \"currency\": \"<string>\"\n      }\n    ],\n    \"policies\": [\n      {\n        \"productName\": \"<string>\",\n        \"durationBasis\": \"<string>\",\n        \"id\": \"<string>\",\n        \"createdAt\": \"<dateTime>\",\n        \"createdBy\": \"<uuid>\",\n        \"staticData\": {\n          \"key_0\": \"<object>\"\n        },\n        \"terms\": [\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"timezone\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"delinquencyPlanName\": \"<string>\",\n        \"autoRenewalPlanName\": \"<string>\",\n        \"preferences\": {\n          \"installmentPreferences\": {\n            \"installmentWeights\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cadence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorMode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"generateLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dueLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxInstallmentsPerTerm\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"installmentPlanName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfWeek\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"autopayLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"billingLevel\": \"<string>\",\n        \"auxData\": {\n          \"settingsName\": \"<string>\",\n          \"entries\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      },\n      {\n        \"productName\": \"<string>\",\n        \"durationBasis\": \"<string>\",\n        \"id\": \"<string>\",\n        \"createdAt\": \"<dateTime>\",\n        \"createdBy\": \"<uuid>\",\n        \"staticData\": {\n          \"key_0\": \"<object>\",\n          \"key_1\": \"<object>\"\n        },\n        \"terms\": [\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"startTime\": \"<dateTime>\",\n            \"endTime\": \"<dateTime>\",\n            \"transactions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"timezone\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"delinquencyPlanName\": \"<string>\",\n        \"autoRenewalPlanName\": \"<string>\",\n        \"preferences\": {\n          \"installmentPreferences\": {\n            \"installmentWeights\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cadence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorMode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"generateLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dueLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxInstallmentsPerTerm\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"installmentPlanName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dayOfWeek\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekOfMonth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"anchorTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"autopayLeadDays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"billingLevel\": \"<string>\",\n        \"auxData\": {\n          \"settingsName\": \"<string>\",\n          \"entries\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      }\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"migrationState\": \"finished\",\n  \"processedAccounts\": 9119,\n  \"totalAccounts\": 87\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9a558f3-c7ae-4e0e-9017-08534804b313",
+          "name": "start Migration For Account",
+          "request": {
+            "name": "start Migration For Account",
+            "description": {},
+            "url": {
+              "path": [
+                "migration",
+                ":tenantLocator",
+                "migrations",
+                "accounts",
+                ":accountLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "accountLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Idempotency-Key",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"defaultCreatedBy\": \"<uuid>\",\n  \"disbursements\": [\n    {\n      \"disbursementTime\": \"<dateTime>\",\n      \"disbursementType\": \"<string>\",\n      \"id\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"sources\": [\n        {\n          \"amount\": \"<number>\"\n        },\n        {\n          \"amount\": \"<number>\"\n        }\n      ],\n      \"currency\": \"<string>\"\n    },\n    {\n      \"disbursementTime\": \"<dateTime>\",\n      \"disbursementType\": \"<string>\",\n      \"id\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"sources\": [\n        {\n          \"amount\": \"<number>\"\n        },\n        {\n          \"amount\": \"<number>\"\n        }\n      ],\n      \"currency\": \"<string>\"\n    }\n  ],\n  \"invoices\": [\n    {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\",\n      \"dueTime\": \"<dateTime>\",\n      \"generateTime\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"invoiceState\": \"<string>\"\n    },\n    {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\",\n      \"dueTime\": \"<dateTime>\",\n      \"generateTime\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"invoiceState\": \"<string>\"\n    }\n  ],\n  \"payments\": [\n    {\n      \"id\": \"<string>\",\n      \"paymentTime\": \"<dateTime>\",\n      \"paymentType\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"paymentItems\": [\n        {\n          \"amount\": \"<number>\",\n          \"invoiceId\": \"<string>\"\n        },\n        {\n          \"amount\": \"<number>\",\n          \"invoiceId\": \"<string>\"\n        }\n      ],\n      \"createdBy\": \"<uuid>\",\n      \"currency\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"paymentTime\": \"<dateTime>\",\n      \"paymentType\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"paymentItems\": [\n        {\n          \"amount\": \"<number>\",\n          \"invoiceId\": \"<string>\"\n        },\n        {\n          \"amount\": \"<number>\",\n          \"invoiceId\": \"<string>\"\n        }\n      ],\n      \"createdBy\": \"<uuid>\",\n      \"currency\": \"<string>\"\n    }\n  ],\n  \"policies\": [\n    {\n      \"productName\": \"<string>\",\n      \"durationBasis\": \"<string>\",\n      \"id\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"createdBy\": \"<uuid>\",\n      \"staticData\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"terms\": [\n        {\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\",\n          \"transactions\": [\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\",\n          \"transactions\": [\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"timezone\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"delinquencyPlanName\": \"<string>\",\n      \"autoRenewalPlanName\": \"<string>\",\n      \"preferences\": {\n        \"installmentPreferences\": {\n          \"installmentWeights\": [\n            \"<number>\",\n            \"<number>\"\n          ],\n          \"cadence\": \"<string>\",\n          \"anchorMode\": \"<string>\",\n          \"generateLeadDays\": \"<integer>\",\n          \"dueLeadDays\": \"<integer>\",\n          \"maxInstallmentsPerTerm\": \"<integer>\",\n          \"installmentPlanName\": \"<string>\",\n          \"anchorType\": \"<string>\",\n          \"dayOfMonth\": \"<integer>\",\n          \"dayOfWeek\": \"<string>\",\n          \"weekOfMonth\": \"<string>\",\n          \"anchorTime\": \"<dateTime>\",\n          \"autopayLeadDays\": \"<number>\"\n        }\n      },\n      \"billingLevel\": \"<string>\",\n      \"auxData\": {\n        \"settingsName\": \"<string>\",\n        \"entries\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      }\n    },\n    {\n      \"productName\": \"<string>\",\n      \"durationBasis\": \"<string>\",\n      \"id\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"createdBy\": \"<uuid>\",\n      \"staticData\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"terms\": [\n        {\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\",\n          \"transactions\": [\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\",\n          \"transactions\": [\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"timezone\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"delinquencyPlanName\": \"<string>\",\n      \"autoRenewalPlanName\": \"<string>\",\n      \"preferences\": {\n        \"installmentPreferences\": {\n          \"installmentWeights\": [\n            \"<number>\",\n            \"<number>\"\n          ],\n          \"cadence\": \"<string>\",\n          \"anchorMode\": \"<string>\",\n          \"generateLeadDays\": \"<integer>\",\n          \"dueLeadDays\": \"<integer>\",\n          \"maxInstallmentsPerTerm\": \"<integer>\",\n          \"installmentPlanName\": \"<string>\",\n          \"anchorType\": \"<string>\",\n          \"dayOfMonth\": \"<integer>\",\n          \"dayOfWeek\": \"<string>\",\n          \"weekOfMonth\": \"<string>\",\n          \"anchorTime\": \"<dateTime>\",\n          \"autopayLeadDays\": \"<number>\"\n        }\n      },\n      \"billingLevel\": \"<string>\",\n      \"auxData\": {\n        \"settingsName\": \"<string>\",\n        \"entries\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cb96badb-0716-46ee-91e8-33e3a4429847",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "migration",
+                    ":tenantLocator",
+                    "migrations",
+                    "accounts",
+                    ":accountLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "accountLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Idempotency-Key",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"defaultCreatedBy\": \"<uuid>\",\n  \"disbursements\": [\n    {\n      \"disbursementTime\": \"<dateTime>\",\n      \"disbursementType\": \"<string>\",\n      \"id\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"sources\": [\n        {\n          \"amount\": \"<number>\"\n        },\n        {\n          \"amount\": \"<number>\"\n        }\n      ],\n      \"currency\": \"<string>\"\n    },\n    {\n      \"disbursementTime\": \"<dateTime>\",\n      \"disbursementType\": \"<string>\",\n      \"id\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"sources\": [\n        {\n          \"amount\": \"<number>\"\n        },\n        {\n          \"amount\": \"<number>\"\n        }\n      ],\n      \"currency\": \"<string>\"\n    }\n  ],\n  \"invoices\": [\n    {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\",\n      \"dueTime\": \"<dateTime>\",\n      \"generateTime\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"invoiceState\": \"<string>\"\n    },\n    {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\",\n      \"dueTime\": \"<dateTime>\",\n      \"generateTime\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"invoiceState\": \"<string>\"\n    }\n  ],\n  \"payments\": [\n    {\n      \"id\": \"<string>\",\n      \"paymentTime\": \"<dateTime>\",\n      \"paymentType\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"paymentItems\": [\n        {\n          \"amount\": \"<number>\",\n          \"invoiceId\": \"<string>\"\n        },\n        {\n          \"amount\": \"<number>\",\n          \"invoiceId\": \"<string>\"\n        }\n      ],\n      \"createdBy\": \"<uuid>\",\n      \"currency\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"paymentTime\": \"<dateTime>\",\n      \"paymentType\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"paymentItems\": [\n        {\n          \"amount\": \"<number>\",\n          \"invoiceId\": \"<string>\"\n        },\n        {\n          \"amount\": \"<number>\",\n          \"invoiceId\": \"<string>\"\n        }\n      ],\n      \"createdBy\": \"<uuid>\",\n      \"currency\": \"<string>\"\n    }\n  ],\n  \"policies\": [\n    {\n      \"productName\": \"<string>\",\n      \"durationBasis\": \"<string>\",\n      \"id\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"createdBy\": \"<uuid>\",\n      \"staticData\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"terms\": [\n        {\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\",\n          \"transactions\": [\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\",\n          \"transactions\": [\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"timezone\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"delinquencyPlanName\": \"<string>\",\n      \"autoRenewalPlanName\": \"<string>\",\n      \"preferences\": {\n        \"installmentPreferences\": {\n          \"installmentWeights\": [\n            \"<number>\",\n            \"<number>\"\n          ],\n          \"cadence\": \"<string>\",\n          \"anchorMode\": \"<string>\",\n          \"generateLeadDays\": \"<integer>\",\n          \"dueLeadDays\": \"<integer>\",\n          \"maxInstallmentsPerTerm\": \"<integer>\",\n          \"installmentPlanName\": \"<string>\",\n          \"anchorType\": \"<string>\",\n          \"dayOfMonth\": \"<integer>\",\n          \"dayOfWeek\": \"<string>\",\n          \"weekOfMonth\": \"<string>\",\n          \"anchorTime\": \"<dateTime>\",\n          \"autopayLeadDays\": \"<number>\"\n        }\n      },\n      \"billingLevel\": \"<string>\",\n      \"auxData\": {\n        \"settingsName\": \"<string>\",\n        \"entries\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      }\n    },\n    {\n      \"productName\": \"<string>\",\n      \"durationBasis\": \"<string>\",\n      \"id\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"createdBy\": \"<uuid>\",\n      \"staticData\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\",\n        \"key_2\": \"<object>\"\n      },\n      \"terms\": [\n        {\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\",\n          \"transactions\": [\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\",\n          \"transactions\": [\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"timezone\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"delinquencyPlanName\": \"<string>\",\n      \"autoRenewalPlanName\": \"<string>\",\n      \"preferences\": {\n        \"installmentPreferences\": {\n          \"installmentWeights\": [\n            \"<number>\",\n            \"<number>\"\n          ],\n          \"cadence\": \"<string>\",\n          \"anchorMode\": \"<string>\",\n          \"generateLeadDays\": \"<integer>\",\n          \"dueLeadDays\": \"<integer>\",\n          \"maxInstallmentsPerTerm\": \"<integer>\",\n          \"installmentPlanName\": \"<string>\",\n          \"anchorType\": \"<string>\",\n          \"dayOfMonth\": \"<integer>\",\n          \"dayOfWeek\": \"<string>\",\n          \"weekOfMonth\": \"<string>\",\n          \"anchorTime\": \"<dateTime>\",\n          \"autopayLeadDays\": \"<number>\"\n        }\n      },\n      \"billingLevel\": \"<string>\",\n      \"auxData\": {\n        \"settingsName\": \"<string>\",\n        \"entries\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"migrationState\": \"finished\",\n  \"processedAccounts\": 9119,\n  \"totalAccounts\": 87\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dabae33e-1471-441d-973c-b2db6d843f5b",
+          "name": "get Migration Summary",
+          "request": {
+            "name": "get Migration Summary",
+            "description": {},
+            "url": {
+              "path": [
+                "migration",
+                ":tenantLocator",
+                "migrations",
+                ":migrationLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "migrationLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f5e931f5-909f-4c24-ac57-7ec4e0897a58",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "migration",
+                    ":tenantLocator",
+                    "migrations",
+                    ":migrationLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "migrationLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"migrationState\": \"finished\",\n  \"processedAccounts\": 9119,\n  \"totalAccounts\": 87\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad370611-4501-4276-8434-6b7aed591edd",
+          "name": "patch Migration",
+          "request": {
+            "name": "patch Migration",
+            "description": {},
+            "url": {
+              "path": [
+                "migration",
+                ":tenantLocator",
+                "migrations",
+                ":migrationLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "migrationLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountLocator\": \"<ulid>\",\n  \"defaultCreatedBy\": \"<uuid>\",\n  \"disbursements\": {\n    \"key_0\": {\n      \"disbursementTime\": \"<dateTime>\",\n      \"disbursementType\": \"<string>\",\n      \"id\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"sources\": [\n        {\n          \"amount\": \"<number>\"\n        },\n        {\n          \"amount\": \"<number>\"\n        }\n      ],\n      \"currency\": \"<string>\"\n    },\n    \"key_1\": {\n      \"disbursementTime\": \"<dateTime>\",\n      \"disbursementType\": \"<string>\",\n      \"id\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"sources\": [\n        {\n          \"amount\": \"<number>\"\n        },\n        {\n          \"amount\": \"<number>\"\n        }\n      ],\n      \"currency\": \"<string>\"\n    }\n  },\n  \"invoices\": {\n    \"key_0\": {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\",\n      \"dueTime\": \"<dateTime>\",\n      \"generateTime\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"invoiceState\": \"<string>\"\n    }\n  },\n  \"payments\": {\n    \"key_0\": {\n      \"id\": \"<string>\",\n      \"paymentTime\": \"<dateTime>\",\n      \"paymentType\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"paymentItems\": [\n        {\n          \"amount\": \"<number>\",\n          \"invoiceId\": \"<string>\"\n        },\n        {\n          \"amount\": \"<number>\",\n          \"invoiceId\": \"<string>\"\n        }\n      ],\n      \"createdBy\": \"<uuid>\",\n      \"currency\": \"<string>\"\n    }\n  },\n  \"policies\": {\n    \"key_0\": {\n      \"productName\": \"<string>\",\n      \"durationBasis\": \"<string>\",\n      \"id\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"createdBy\": \"<uuid>\",\n      \"staticData\": {\n        \"key_0\": \"<object>\"\n      },\n      \"terms\": [\n        {\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\",\n          \"transactions\": [\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\",\n          \"transactions\": [\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"timezone\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"delinquencyPlanName\": \"<string>\",\n      \"autoRenewalPlanName\": \"<string>\",\n      \"preferences\": {\n        \"installmentPreferences\": {\n          \"installmentWeights\": [\n            \"<number>\",\n            \"<number>\"\n          ],\n          \"cadence\": \"<string>\",\n          \"anchorMode\": \"<string>\",\n          \"generateLeadDays\": \"<integer>\",\n          \"dueLeadDays\": \"<integer>\",\n          \"maxInstallmentsPerTerm\": \"<integer>\",\n          \"installmentPlanName\": \"<string>\",\n          \"anchorType\": \"<string>\",\n          \"dayOfMonth\": \"<integer>\",\n          \"dayOfWeek\": \"<string>\",\n          \"weekOfMonth\": \"<string>\",\n          \"anchorTime\": \"<dateTime>\",\n          \"autopayLeadDays\": \"<number>\"\n        }\n      },\n      \"billingLevel\": \"<string>\",\n      \"auxData\": {\n        \"settingsName\": \"<string>\",\n        \"entries\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      }\n    }\n  },\n  \"accountData\": {\n    \"accountType\": \"<string>\",\n    \"id\": \"<string>\",\n    \"data\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    },\n    \"createdAt\": \"<dateTime>\",\n    \"createdBy\": \"<uuid>\",\n    \"delinquencyPlanName\": \"<string>\",\n    \"autoRenewalPlanName\": \"<string>\",\n    \"excessCreditPlanName\": \"<string>\",\n    \"shortfallTolerancePlanName\": \"<string>\",\n    \"preferences\": {\n      \"installmentPreferences\": {\n        \"installmentWeights\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"cadence\": \"<string>\",\n        \"anchorMode\": \"<string>\",\n        \"generateLeadDays\": \"<integer>\",\n        \"dueLeadDays\": \"<integer>\",\n        \"maxInstallmentsPerTerm\": \"<integer>\",\n        \"installmentPlanName\": \"<string>\",\n        \"anchorType\": \"<string>\",\n        \"dayOfMonth\": \"<integer>\",\n        \"dayOfWeek\": \"<string>\",\n        \"weekOfMonth\": \"<string>\",\n        \"anchorTime\": \"<dateTime>\",\n        \"autopayLeadDays\": \"<number>\"\n      }\n    },\n    \"billingLevel\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7e82feff-32a8-4d68-87e5-8cccc7695847",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "migration",
+                    ":tenantLocator",
+                    "migrations",
+                    ":migrationLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "migrationLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountLocator\": \"<ulid>\",\n  \"defaultCreatedBy\": \"<uuid>\",\n  \"disbursements\": {\n    \"key_0\": {\n      \"disbursementTime\": \"<dateTime>\",\n      \"disbursementType\": \"<string>\",\n      \"id\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"sources\": [\n        {\n          \"amount\": \"<number>\"\n        },\n        {\n          \"amount\": \"<number>\"\n        }\n      ],\n      \"currency\": \"<string>\"\n    },\n    \"key_1\": {\n      \"disbursementTime\": \"<dateTime>\",\n      \"disbursementType\": \"<string>\",\n      \"id\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\",\n        \"key_2\": \"<object>\"\n      },\n      \"sources\": [\n        {\n          \"amount\": \"<number>\"\n        },\n        {\n          \"amount\": \"<number>\"\n        }\n      ],\n      \"currency\": \"<string>\"\n    }\n  },\n  \"invoices\": {\n    \"key_0\": {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\",\n      \"dueTime\": \"<dateTime>\",\n      \"generateTime\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"invoiceState\": \"<string>\"\n    },\n    \"key_1\": {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\",\n      \"dueTime\": \"<dateTime>\",\n      \"generateTime\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"invoiceState\": \"<string>\"\n    }\n  },\n  \"payments\": {\n    \"key_0\": {\n      \"id\": \"<string>\",\n      \"paymentTime\": \"<dateTime>\",\n      \"paymentType\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"paymentItems\": [\n        {\n          \"amount\": \"<number>\",\n          \"invoiceId\": \"<string>\"\n        },\n        {\n          \"amount\": \"<number>\",\n          \"invoiceId\": \"<string>\"\n        }\n      ],\n      \"createdBy\": \"<uuid>\",\n      \"currency\": \"<string>\"\n    },\n    \"key_1\": {\n      \"id\": \"<string>\",\n      \"paymentTime\": \"<dateTime>\",\n      \"paymentType\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\",\n        \"key_2\": \"<object>\"\n      },\n      \"paymentItems\": [\n        {\n          \"amount\": \"<number>\",\n          \"invoiceId\": \"<string>\"\n        },\n        {\n          \"amount\": \"<number>\",\n          \"invoiceId\": \"<string>\"\n        }\n      ],\n      \"createdBy\": \"<uuid>\",\n      \"currency\": \"<string>\"\n    }\n  },\n  \"policies\": {\n    \"key_0\": {\n      \"productName\": \"<string>\",\n      \"durationBasis\": \"<string>\",\n      \"id\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"createdBy\": \"<uuid>\",\n      \"staticData\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\",\n        \"key_2\": \"<object>\"\n      },\n      \"terms\": [\n        {\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\",\n          \"transactions\": [\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\",\n          \"transactions\": [\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"timezone\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"delinquencyPlanName\": \"<string>\",\n      \"autoRenewalPlanName\": \"<string>\",\n      \"preferences\": {\n        \"installmentPreferences\": {\n          \"installmentWeights\": [\n            \"<number>\",\n            \"<number>\"\n          ],\n          \"cadence\": \"<string>\",\n          \"anchorMode\": \"<string>\",\n          \"generateLeadDays\": \"<integer>\",\n          \"dueLeadDays\": \"<integer>\",\n          \"maxInstallmentsPerTerm\": \"<integer>\",\n          \"installmentPlanName\": \"<string>\",\n          \"anchorType\": \"<string>\",\n          \"dayOfMonth\": \"<integer>\",\n          \"dayOfWeek\": \"<string>\",\n          \"weekOfMonth\": \"<string>\",\n          \"anchorTime\": \"<dateTime>\",\n          \"autopayLeadDays\": \"<number>\"\n        }\n      },\n      \"billingLevel\": \"<string>\",\n      \"auxData\": {\n        \"settingsName\": \"<string>\",\n        \"entries\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      }\n    },\n    \"key_1\": {\n      \"productName\": \"<string>\",\n      \"durationBasis\": \"<string>\",\n      \"id\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"createdBy\": \"<uuid>\",\n      \"staticData\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"terms\": [\n        {\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\",\n          \"transactions\": [\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\",\n          \"transactions\": [\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"issuedTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"transactionType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdBy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"installments\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"segment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preferences\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"timezone\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"delinquencyPlanName\": \"<string>\",\n      \"autoRenewalPlanName\": \"<string>\",\n      \"preferences\": {\n        \"installmentPreferences\": {\n          \"installmentWeights\": [\n            \"<number>\",\n            \"<number>\"\n          ],\n          \"cadence\": \"<string>\",\n          \"anchorMode\": \"<string>\",\n          \"generateLeadDays\": \"<integer>\",\n          \"dueLeadDays\": \"<integer>\",\n          \"maxInstallmentsPerTerm\": \"<integer>\",\n          \"installmentPlanName\": \"<string>\",\n          \"anchorType\": \"<string>\",\n          \"dayOfMonth\": \"<integer>\",\n          \"dayOfWeek\": \"<string>\",\n          \"weekOfMonth\": \"<string>\",\n          \"anchorTime\": \"<dateTime>\",\n          \"autopayLeadDays\": \"<number>\"\n        }\n      },\n      \"billingLevel\": \"<string>\",\n      \"auxData\": {\n        \"settingsName\": \"<string>\",\n        \"entries\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      }\n    }\n  },\n  \"accountData\": {\n    \"accountType\": \"<string>\",\n    \"id\": \"<string>\",\n    \"data\": {\n      \"key_0\": \"<object>\"\n    },\n    \"createdAt\": \"<dateTime>\",\n    \"createdBy\": \"<uuid>\",\n    \"delinquencyPlanName\": \"<string>\",\n    \"autoRenewalPlanName\": \"<string>\",\n    \"excessCreditPlanName\": \"<string>\",\n    \"shortfallTolerancePlanName\": \"<string>\",\n    \"preferences\": {\n      \"installmentPreferences\": {\n        \"installmentWeights\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"cadence\": \"<string>\",\n        \"anchorMode\": \"<string>\",\n        \"generateLeadDays\": \"<integer>\",\n        \"dueLeadDays\": \"<integer>\",\n        \"maxInstallmentsPerTerm\": \"<integer>\",\n        \"installmentPlanName\": \"<string>\",\n        \"anchorType\": \"<string>\",\n        \"dayOfMonth\": \"<integer>\",\n        \"dayOfWeek\": \"<string>\",\n        \"weekOfMonth\": \"<string>\",\n        \"anchorTime\": \"<dateTime>\",\n        \"autopayLeadDays\": \"<number>\"\n      }\n    },\n    \"billingLevel\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"accountLocator\": \"string\",\n  \"accountOriginalId\": \"string\",\n  \"disbursements\": {\n    \"key_0\": {\n      \"errors\": {\n        \"success\": false,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"originalId\": \"string\"\n    },\n    \"key_1\": {\n      \"errors\": {\n        \"success\": true,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"originalId\": \"string\"\n    },\n    \"key_2\": {\n      \"errors\": {\n        \"success\": true,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"originalId\": \"string\"\n    },\n    \"key_3\": {\n      \"errors\": {\n        \"success\": true,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"originalId\": \"string\"\n    },\n    \"key_4\": {\n      \"errors\": {\n        \"success\": true,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"originalId\": \"string\"\n    }\n  },\n  \"invoices\": {\n    \"key_0\": {\n      \"errors\": {\n        \"success\": false,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"originalId\": \"string\"\n    },\n    \"key_1\": {\n      \"errors\": {\n        \"success\": true,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"originalId\": \"string\"\n    },\n    \"key_2\": {\n      \"errors\": {\n        \"success\": true,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"originalId\": \"string\"\n    }\n  },\n  \"payments\": {\n    \"key_0\": {\n      \"errors\": {\n        \"success\": true,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"originalId\": \"string\"\n    },\n    \"key_1\": {\n      \"errors\": {\n        \"success\": false,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"originalId\": \"string\"\n    }\n  },\n  \"policies\": {\n    \"key_0\": {\n      \"errors\": {\n        \"success\": true,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"originalId\": \"string\"\n    },\n    \"key_1\": {\n      \"errors\": {\n        \"success\": true,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"originalId\": \"string\"\n    },\n    \"key_2\": {\n      \"errors\": {\n        \"success\": true,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"originalId\": \"string\"\n    },\n    \"key_3\": {\n      \"errors\": {\n        \"success\": false,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"originalId\": \"string\"\n    }\n  },\n  \"accountError\": {\n    \"errors\": {\n      \"success\": true,\n      \"validationItems\": [\n        {\n          \"locator\": \"string\",\n          \"elementType\": \"string\",\n          \"errors\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"locator\": \"string\",\n          \"elementType\": \"string\",\n          \"errors\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    \"originalId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89e06f88-9863-48ae-8af1-974360ca2083",
+          "name": "resume Migration",
+          "request": {
+            "name": "resume Migration",
+            "description": {},
+            "url": {
+              "path": [
+                "migration",
+                ":tenantLocator",
+                "migrations",
+                ":migrationLocator",
+                "resume"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "migrationLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c99cb36a-7eed-4465-af49-54cd2a3185ae",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "migration",
+                    ":tenantLocator",
+                    "migrations",
+                    ":migrationLocator",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "migrationLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37867350-932b-4aff-8559-65bbd328f35d",
+          "name": "recover Migration",
+          "request": {
+            "name": "recover Migration",
+            "description": {},
+            "url": {
+              "path": [
+                "migration",
+                ":tenantLocator",
+                "migrations",
+                ":migrationLocator",
+                "recover"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "migrationLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3705455c-5253-49b1-ac54-93ebad78de4a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "migration",
+                    ":tenantLocator",
+                    "migrations",
+                    ":migrationLocator",
+                    "recover"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "migrationLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7c04752-2131-45ca-b5df-956177ce8f36",
+          "name": "pause Migration",
+          "request": {
+            "name": "pause Migration",
+            "description": {},
+            "url": {
+              "path": [
+                "migration",
+                ":tenantLocator",
+                "migrations",
+                ":migrationLocator",
+                "pause"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "migrationLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab116e96-35f9-47ef-9c13-cad7e9dac3bb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "migration",
+                    ":tenantLocator",
+                    "migrations",
+                    ":migrationLocator",
+                    "pause"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "migrationLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b87df087-1ced-4c92-b35d-aea5685ce4b6",
+          "name": "get Migration Mappings",
+          "request": {
+            "name": "get Migration Mappings",
+            "description": {
+              "content": "Returns per-account mappings of system locators to original IDs",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "migration",
+                ":tenantLocator",
+                "migrations",
+                ":migrationLocator",
+                "mappings",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "migrationLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3e8afb3-08a3-40f5-b043-e131d13af400",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "migration",
+                    ":tenantLocator",
+                    "migrations",
+                    ":migrationLocator",
+                    "mappings",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "migrationLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"listCompleted\": true,\n  \"items\": [\n    {\n      \"accountLocator\": \"string\",\n      \"migrationLocator\": \"string\",\n      \"originalAccountId\": \"string\",\n      \"disbursements\": {\n        \"key_0\": {\n          \"migratedAt\": \"1967-05-01T00:40:22.552Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {}\n          }\n        },\n        \"key_1\": {\n          \"migratedAt\": \"1996-07-10T19:45:05.763Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {}\n          }\n        }\n      },\n      \"invoices\": {\n        \"key_0\": {\n          \"migratedAt\": \"1951-10-19T07:58:34.449Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {}\n          }\n        },\n        \"key_1\": {\n          \"migratedAt\": \"1989-02-26T22:40:04.595Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          }\n        },\n        \"key_2\": {\n          \"migratedAt\": \"1999-05-25T18:28:48.829Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {}\n          }\n        }\n      },\n      \"payments\": {\n        \"key_0\": {\n          \"migratedAt\": \"2006-07-14T09:57:40.645Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          }\n        },\n        \"key_1\": {\n          \"migratedAt\": \"1979-04-23T13:44:38.208Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {},\n            \"key_1\": {},\n            \"key_2\": {},\n            \"key_3\": {}\n          }\n        }\n      },\n      \"policies\": {\n        \"key_0\": {\n          \"migratedAt\": \"1948-07-19T07:53:51.130Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {},\n            \"key_1\": {},\n            \"key_2\": {}\n          }\n        },\n        \"key_1\": {\n          \"migratedAt\": \"1959-10-22T20:30:17.993Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          }\n        }\n      }\n    },\n    {\n      \"accountLocator\": \"string\",\n      \"migrationLocator\": \"string\",\n      \"originalAccountId\": \"string\",\n      \"disbursements\": {\n        \"key_0\": {\n          \"migratedAt\": \"2004-02-07T02:50:23.092Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          }\n        },\n        \"key_1\": {\n          \"migratedAt\": \"1998-07-03T05:30:04.979Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          }\n        }\n      },\n      \"invoices\": {\n        \"key_0\": {\n          \"migratedAt\": \"1955-02-04T23:07:44.293Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {},\n            \"key_1\": {},\n            \"key_2\": {}\n          }\n        },\n        \"key_1\": {\n          \"migratedAt\": \"2000-10-25T08:50:35.784Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          }\n        },\n        \"key_2\": {\n          \"migratedAt\": \"2016-12-10T01:55:55.031Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          }\n        }\n      },\n      \"payments\": {\n        \"key_0\": {\n          \"migratedAt\": \"1951-04-27T05:38:12.726Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {},\n            \"key_1\": {},\n            \"key_2\": {},\n            \"key_3\": {}\n          }\n        }\n      },\n      \"policies\": {\n        \"key_0\": {\n          \"migratedAt\": \"1986-11-24T01:03:59.386Z\",\n          \"originalId\": \"string\",\n          \"childrenMappings\": {\n            \"key_0\": {},\n            \"key_1\": {},\n            \"key_2\": {}\n          }\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8481085c-a599-4de7-a717-a6c8fd456e57",
+          "name": "get Migration Failures",
+          "request": {
+            "name": "get Migration Failures",
+            "description": {},
+            "url": {
+              "path": [
+                "migration",
+                ":tenantLocator",
+                "migrations",
+                ":migrationLocator",
+                "failures",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "migrationLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ff5e999-5456-40c5-9d5e-c5b0f818db36",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "migration",
+                    ":tenantLocator",
+                    "migrations",
+                    ":migrationLocator",
+                    "failures",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "migrationLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"listCompleted\": true,\n  \"items\": [\n    {\n      \"accountLocator\": \"string\",\n      \"accountOriginalId\": \"string\",\n      \"disbursements\": {\n        \"key_0\": {\n          \"errors\": {\n            \"success\": false,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        },\n        \"key_1\": {\n          \"errors\": {\n            \"success\": false,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        },\n        \"key_2\": {\n          \"errors\": {\n            \"success\": true,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        }\n      },\n      \"invoices\": {\n        \"key_0\": {\n          \"errors\": {\n            \"success\": true,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        }\n      },\n      \"payments\": {\n        \"key_0\": {\n          \"errors\": {\n            \"success\": true,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        },\n        \"key_1\": {\n          \"errors\": {\n            \"success\": true,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        }\n      },\n      \"policies\": {\n        \"key_0\": {\n          \"errors\": {\n            \"success\": true,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        },\n        \"key_1\": {\n          \"errors\": {\n            \"success\": true,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        }\n      },\n      \"accountError\": {\n        \"errors\": {\n          \"success\": false,\n          \"validationItems\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"originalId\": \"string\"\n      }\n    },\n    {\n      \"accountLocator\": \"string\",\n      \"accountOriginalId\": \"string\",\n      \"disbursements\": {\n        \"key_0\": {\n          \"errors\": {\n            \"success\": false,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        }\n      },\n      \"invoices\": {\n        \"key_0\": {\n          \"errors\": {\n            \"success\": true,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        },\n        \"key_1\": {\n          \"errors\": {\n            \"success\": false,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        }\n      },\n      \"payments\": {\n        \"key_0\": {\n          \"errors\": {\n            \"success\": false,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        },\n        \"key_1\": {\n          \"errors\": {\n            \"success\": true,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        },\n        \"key_2\": {\n          \"errors\": {\n            \"success\": true,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        },\n        \"key_3\": {\n          \"errors\": {\n            \"success\": false,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        }\n      },\n      \"policies\": {\n        \"key_0\": {\n          \"errors\": {\n            \"success\": false,\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"originalId\": \"string\"\n        }\n      },\n      \"accountError\": {\n        \"errors\": {\n          \"success\": false,\n          \"validationItems\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"originalId\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db3de0e7-7544-4d92-aa55-072d3afa7631",
+          "name": "get Account Migrations",
+          "request": {
+            "name": "get Account Migrations",
+            "description": {},
+            "url": {
+              "path": [
+                "migration",
+                ":tenantLocator",
+                "migrations",
+                ":migrationLocator",
+                "accounts",
+                ":accountLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "migrationLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "accountLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0505824c-389f-42f4-bd56-00d5021d8e55",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "migration",
+                    ":tenantLocator",
+                    "migrations",
+                    ":migrationLocator",
+                    "accounts",
+                    ":accountLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "migrationLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "accountLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"accountMigrationState\": \"processing\",\n  \"errorItems\": 7219,\n  \"lastUpdated\": \"1990-11-16T14:23:56.813Z\",\n  \"processedItems\": 4689,\n  \"totalItems\": 5352,\n  \"accountLocator\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "099e5cef-725c-4bd6-a914-44d809ae5f7b",
+          "name": "get Migration Mappings For Account",
+          "request": {
+            "name": "get Migration Mappings For Account",
+            "description": {
+              "content": "Fetches mappings of original IDs to system locators for an account",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "migration",
+                ":tenantLocator",
+                "migrations",
+                ":migrationLocator",
+                "accounts",
+                ":accountLocator",
+                "mappings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "migrationLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "accountLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e92d7b38-1160-4e9d-817b-ec0591ee532a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "migration",
+                    ":tenantLocator",
+                    "migrations",
+                    ":migrationLocator",
+                    "accounts",
+                    ":accountLocator",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "migrationLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "accountLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"accountLocator\": \"string\",\n  \"migrationLocator\": \"string\",\n  \"originalAccountId\": \"string\",\n  \"disbursements\": {\n    \"key_0\": {\n      \"migratedAt\": \"1956-12-01T14:19:00.434Z\",\n      \"originalId\": \"string\",\n      \"childrenMappings\": {\n        \"key_0\": {}\n      }\n    }\n  },\n  \"invoices\": {\n    \"key_0\": {\n      \"migratedAt\": \"1975-07-15T12:50:01.876Z\",\n      \"originalId\": \"string\",\n      \"childrenMappings\": {\n        \"key_0\": {}\n      }\n    }\n  },\n  \"payments\": {\n    \"key_0\": {\n      \"migratedAt\": \"2012-09-26T12:53:54.880Z\",\n      \"originalId\": \"string\",\n      \"childrenMappings\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    },\n    \"key_1\": {\n      \"migratedAt\": \"1973-01-18T02:29:13.826Z\",\n      \"originalId\": \"string\",\n      \"childrenMappings\": {\n        \"key_0\": {}\n      }\n    }\n  },\n  \"policies\": {\n    \"key_0\": {\n      \"migratedAt\": \"2003-04-22T08:23:29.604Z\",\n      \"originalId\": \"string\",\n      \"childrenMappings\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    },\n    \"key_1\": {\n      \"migratedAt\": \"1955-12-15T14:57:50.202Z\",\n      \"originalId\": \"string\",\n      \"childrenMappings\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      }\n    },\n    \"key_2\": {\n      \"migratedAt\": \"2018-06-20T20:32:35.095Z\",\n      \"originalId\": \"string\",\n      \"childrenMappings\": {\n        \"key_0\": {}\n      }\n    },\n    \"key_3\": {\n      \"migratedAt\": \"2021-07-22T09:51:14.418Z\",\n      \"originalId\": \"string\",\n      \"childrenMappings\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "227e1a23-7c11-4489-b8aa-9b2dd360f963",
+          "name": "list Account Migrations",
+          "request": {
+            "name": "list Account Migrations",
+            "description": {},
+            "url": {
+              "path": [
+                "migration",
+                ":tenantLocator",
+                "migrations",
+                ":migrationLocator",
+                "accounts",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "migrationLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc0831d0-0fdc-41e1-ad1d-e2dc91e90dbc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "migration",
+                    ":tenantLocator",
+                    "migrations",
+                    ":migrationLocator",
+                    "accounts",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "migrationLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"listCompleted\": true,\n  \"items\": [\n    {\n      \"accountMigrationState\": \"pending\",\n      \"errorItems\": 5189,\n      \"lastUpdated\": \"1959-09-08T05:06:19.609Z\",\n      \"processedItems\": 4830,\n      \"totalItems\": 683,\n      \"accountLocator\": \"string\"\n    },\n    {\n      \"accountMigrationState\": \"failed\",\n      \"errorItems\": 1693,\n      \"lastUpdated\": \"2008-02-26T14:31:05.938Z\",\n      \"processedItems\": 6506,\n      \"totalItems\": 7851,\n      \"accountLocator\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4ce96cf-9778-4ff1-ad43-dc9da86ac235",
+          "name": "fetch Migration Event Definitions",
+          "request": {
+            "name": "fetch Migration Event Definitions",
+            "description": {},
+            "url": {
+              "path": [
+                "migration",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54be1369-2962-4a9b-ad30-c0d7b1331dff",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "migration",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"migrationEvents\": {\n    \"migration.start\": {\n      \"migrationLocator\": \"string\"\n    },\n    \"migration.error\": {\n      \"migrationLocator\": \"string\"\n    },\n    \"migration.resume\": {\n      \"migrationLocator\": \"string\"\n    },\n    \"migration.recover\": {\n      \"migrationLocator\": \"string\"\n    },\n    \"migration.patch\": {\n      \"migrationLocator\": \"string\"\n    },\n    \"migration.finish\": {\n      \"migrationLocator\": \"string\"\n    },\n    \"migration.pause\": {\n      \"migrationLocator\": \"string\"\n    },\n    \"migration.fail\": {\n      \"migrationLocator\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "67e41309-df3d-4bbc-a89c-a416ef9729d9",
+    "name": "Socotra Insurance Suite OpenAPI Definition Migration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Socotra Insurance Suite API",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,3721 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Billing API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Billing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "fetchPayment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/payments/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updatePaymentOverwriteData",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/billing/:tenantLocator/payments/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updatePayment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/payments/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDisbursement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/disbursements/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateDisbursementReplaceData",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/billing/:tenantLocator/disbursements/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the disbursement and replaces all existing data extensions with the data."
+        },
+        {
+          "info": {
+            "name": "updateDisbursement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/disbursements/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchCreditDistribution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/creditDistributions/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createOrReplaceCreditDistribution",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/billing/:tenantLocator/creditDistributions/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateCreditDistribution",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/creditDistributions/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "writeOff",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/writeOffs",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "retryFailedTransactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/retryJobs/:policyLocator/retryFailedTransactions",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createPayment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/payments",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "setPaymentNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/payments/:locator/number/set",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "paymentNumber",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "generatePaymentNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/payments/:locator/number/generate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "runDelinquencyMoratoriumsWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/jobs/delinquencies/moratoriums",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createAggregatedInvoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/invoices",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "transferInvoicesBetweenAggregatedInvoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/invoices/:locator/transfer",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "settleNegativeOrZeroInvoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/invoices/:locator/settle",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "forced",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "setInvoiceNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/invoices/:locator/number/set",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "invoiceNumber",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "generateInvoiceNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/invoices/:locator/number/generate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "initiateEarlyInvoicing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/invoices/earlyInvoicing",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createHold",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/holds",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createFinancialInstrument",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/financialInstruments",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "setFinancialInstrumentAsDefault",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/financialInstruments/:locator/setAsDefault",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createDisbursement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/disbursements",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "setDisbursementNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/disbursements/:locator/number/set",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "disbursementNumber",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "generateDisbursementNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/disbursements/:locator/number/generate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createCreditDistribution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/creditDistributions",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addCharges",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/accounts/:accountLocator/charges",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "reverseCharges",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/billing/:tenantLocator/accounts/:accountLocator/charges/reverse",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "reverseWriteOff",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/writeOffs/:locator/reverse",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "validatePayment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/payments/:locator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "reversePayment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/payments/:locator/reverse",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "resetPayment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/payments/:locator/reset",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "executePayment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/payments/:locator/request",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "postPayment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/payments/:locator/post",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "failPayment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/payments/:locator/fail",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "discardPayment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/payments/:locator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "cancelPayment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/payments/:locator/cancel",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getInvoiceWithItems",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/invoices/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateInvoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/invoices/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "writeOffInvoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/invoices/:locator/writeOff",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "patchAggregatedInvoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/invoices/:locator/aggregated",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateInstallments",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/installments",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchHold",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/holds/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateHold",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/holds/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "validateHold",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/holds/:locator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "resetHold",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/holds/:locator/reset",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "releaseHold",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/holds/:locator/release",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "discardHold",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/holds/:locator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "activateHold",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/holds/:locator/activate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchFinancialInstrument",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/financialInstruments/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateFinancialInstrument",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/financialInstruments/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "validateDisbursement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/disbursements/:locator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "reverseDisbursement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/disbursements/:locator/reverse",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "resetDisbursement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/disbursements/:locator/reset",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "rejectDisbursement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/disbursements/:locator/reject",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "executeDisbursement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/disbursements/:locator/execute",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "discardDisbursement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/disbursements/:locator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "approveDisbursement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/disbursements/:locator/approve",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getDelinquency",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/delinquencies/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateDelinquency",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/delinquencies/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDelinquencyEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/delinquencies/events/:delinquencyEventLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "delinquencyEventLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateDelinquencyEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/delinquencies/events/:delinquencyEventLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "delinquencyEventLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "validateCreditDistribution",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/creditDistributions/:locator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "reverseCreditDistribution",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/creditDistributions/:locator/reverse",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "resetCreditDistribution",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/creditDistributions/:locator/reset",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "executeCreditDistribution",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/creditDistributions/:locator/execute",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "discardCreditDistribution",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/creditDistributions/:locator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "handleExcessFunds",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/billing/:tenantLocator/accountBalances/:locator/handleExcessFunds",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchWriteOff",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/writeOffs/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleWriteOffs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/writeOffs/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchChargesByTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/transactions/:transactionLocator/charges/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transactionLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeAll",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchShortfallCredit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/shortfallCredits/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleShortfallCredits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/shortfallCredits/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInstallmentLatticeSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/settings/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchChargesByPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/policies/:policyLocator/charges/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchSubpayments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/payments/:locator/subpayments/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listShortfallCredits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/payments/:locator/shortfallCredits/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "previewPaymentValidate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/payments/:locator/previewValidate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "previewPaymentPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/payments/:locator/previewPost",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInvoicesTargetedByAPayment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/payments/:locator/invoices/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeReversed",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPaymentsWithNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/payments/numbers/:paymentNumber",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "paymentNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultiplePayments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/payments/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "targetContainerLocator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPaymentExecutionJobData",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/jobs/paymentExecutions/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInvoicingJob",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/jobs/invoicing/:jobLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInvoicingJobsForAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/jobs/invoicing/accounts/:locator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInvoiceLifecycleJobData",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/jobs/invoicesLifecycle/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInvoiceJobDataForAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/jobs/invoices/accounts/:locator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInstallmentsJobDataForTransactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/jobs/installments/transactions/:locator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInstallmentsJobDataForQuotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/jobs/installments/quotes/:locator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDelinquencyGraceJob",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/jobs/delinquencies/:delinquencyLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "delinquencyLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDelinquencyEventJobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/jobs/delinquencies/:delinquencyLocator/events/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "delinquencyLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDelinquencyMoratoriumJobsForTenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/jobs/delinquencies/moratoriums/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchCreateDelinquenciesJobDataForInvoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/jobs/delinquencies/invoices/:invoiceLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "invoiceLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPaymentsForAnInvoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/invoices/:locator/payments/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeReversed",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInvoicesForAggregatedInvoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/invoices/:locator/invoices/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInvoiceDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/invoices/:locator/details",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchCreditsForAnInvoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/invoices/:locator/credits/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeReversed",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchCreditDistributionsForAnInvoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/invoices/:locator/creditDistributions/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeReversed",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDebitsForAnInvoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/invoices/:invoiceLocator/debits/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "invoiceLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeReversed",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "previewInvoicesForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/invoices/transactions/:locator/previewInvoices",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeZeroAmountInvoices",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInvoicesForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/invoices/quotes/:quoteLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quoteLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeZeroAmountInvoices",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "previewInvoicesForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/invoices/quotes/:locator/previewInvoices",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeZeroAmountInvoices",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "previewInvoicesForStatelessQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/invoices/quotes/statelessPreview",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quotePreviewRequest",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeZeroAmountInvoices",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInvoicesForPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/invoices/policies/:policyLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeZeroAmountInvoices",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInvoiceWithNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/invoices/numbers/:invoiceNumber",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "invoiceNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInvoicesForAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/invoices/accounts/:accountLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeZeroAmountInvoices",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInstallmentByLocator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/installments/:installmentLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "installmentLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInstallmentsForPolicyTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/installments/transactions/:transactionLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transactionLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInstallmentsForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/installments/quotes/:quoteLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quoteLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "previewInstallmentsForStatelessQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/installments/quotes/statelessPreview",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quotePreviewRequest",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInstallmentsForPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/installments/policies/:policyLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInstallmentLatticeByLocator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/installmentLattices/:installmentLatticeLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "installmentLatticeLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchLatestInstallmentLatticeByQuoteLocator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/installmentLattices/quotes/:quoteLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quoteLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInstallmentLatticesByPolicyLocator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/installmentLattices/policies/:policyLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchAllHoldsForAnAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/holds/accounts/:accountLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listFinancialInstruments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/financialInstruments/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchExternalCashTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/externalCashTransactions/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchBillingEventDefinitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/events"
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDisbursementsWithNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/disbursements/numbers/:disbursementNumber",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "disbursementNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleDisbursements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/disbursements/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDelinquencyEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/delinquencies/:delinquencyLocator/events/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "delinquencyLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getSuspendedDelinquencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/delinquencies/suspended/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "delinquencyLocator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "policyLocator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getDelinquenciesForPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/delinquencies/policies/:policyLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getDelinquenciesForInvoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/delinquencies/invoices/:invoiceLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "invoiceLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getDelinquenciesForAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/delinquencies/accounts/:accountLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchCredits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/credits/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInvoicesTargetedByACreditDistribution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/creditDistributions/:locator/invoices/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleCreditDistributions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/creditDistributions/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchChargesByAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/accounts/:accountLocator/charges/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchLedgerAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/accounting/ledgerAccounts/:refType/:refLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "refType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "refLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchTenantLevelCashBalance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/accounting/ledgerAccounts/cash",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleLedgerCashAccounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/accounting/ledgerAccounts/cash/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchAccountingTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/billing/:tenantLocator/accounting/faTransactions/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

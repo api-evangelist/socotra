@@ -1,0 +1,1047 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Producers API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Producers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "fetchProducer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/producers/:tenantLocator/producers/:producerLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "replaceProducer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/producers/:tenantLocator/producers/:producerLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateProducer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchProducerLicense",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/licenses/:producerLicenseLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLicenseLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "replaceProducerLicense",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/licenses/:producerLicenseLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLicenseLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateProducerLicense",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/licenses/:producerLicenseLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLicenseLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchProducerCode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/codes/:producerCodeLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerCodeLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "replaceProducerCode",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/codes/:producerCodeLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerCodeLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateProducerCode",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/codes/:producerCodeLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerCodeLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchProducerAppointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/appointments/:producerAppointmentLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerAppointmentLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "replaceProducerAppointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/appointments/:producerAppointmentLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerAppointmentLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateProducerAppointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/appointments/:producerAppointmentLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerAppointmentLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createProducer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/producers/:tenantLocator/producers",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createProducerLicense",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/licenses",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createProducerCode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/codes",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "setCodeByNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/codes/:producerCodeLocator/number/set",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerCodeLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "generateCodeByNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/codes/:producerCodeLocator/number/generate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerCodeLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createProducerAppointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/appointments",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "validateProducer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "unsuspendProducer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/unsuspend",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "suspendProducer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/suspend",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "retireProducer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/retire",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "validateProducerLicense",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/licenses/:producerLicenseLocator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLicenseLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "discardProducerLicense",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/licenses/:producerLicenseLocator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLicenseLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "discardProducer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "validateProducerCode",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/codes/:producerCodeLocator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerCodeLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "unsuspendProducerCode",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/codes/:producerCodeLocator/unsuspend",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerCodeLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "suspendProducerCode",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/codes/:producerCodeLocator/suspend",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerCodeLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "retireProducerCode",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/codes/:producerCodeLocator/retire",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerCodeLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "discardProducerCode",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/codes/:producerCodeLocator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerCodeLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "validateProducerAppointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/appointments/:producerAppointmentLocator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerAppointmentLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "discardProducerAppointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/appointments/:producerAppointmentLocator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerAppointmentLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchProducerHierarchy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/producerHierarchy",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchProducerLicenses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/licenses/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchProducerCodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/codes/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchProducerAppointments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/producers/:tenantLocator/producers/:producerLocator/appointments/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "producerLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchProducers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/producers/:tenantLocator/producers/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchProducerCodeByCode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/producers/:tenantLocator/producers/codes/:code",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchProducersEventDefinitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/producers/events"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,480 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Business Stats API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Business Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getRenewedPolicies",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/metrics/renewedPolicies",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "backfillZeroes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "downloadRenewedPolicies",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/metrics/renewedPolicies/download",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "backfillZeroes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getRenewalRate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/metrics/renewalRate",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "backfillZeroes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "downloadRenewalRate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/metrics/renewalRate/download",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "backfillZeroes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getPricedQuotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/metrics/quotes",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "backfillZeroes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "downloadPricedQuotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/metrics/quotes/download",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "backfillZeroes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getIssuedPolicies",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/metrics/issued",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "backfillZeroes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "downloadIssuedPolicies",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/metrics/issued/download",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "backfillZeroes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getGWP",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/metrics/gwp",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "backfillZeroes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "downloadGWP",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/metrics/gwp/download",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "backfillZeroes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getExpiredPolicies",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/metrics/expiredPolicies",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "backfillZeroes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "downloadExpiredPolicies",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/metrics/expiredPolicies/download",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "backfillZeroes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getConversionRate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/metrics/conversionRate",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "backfillZeroes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "downloadConversionRate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/metrics/conversionRate/download",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "backfillZeroes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDeltaFiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/delta-files/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDeltaFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/business-stats/delta-files/download",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

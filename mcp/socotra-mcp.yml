@@ -18,7 +18,10 @@ clients:
     mcpServers:
       Socotra:
         command: npx
-        args: ["-y", "mcp-remote", "https://mcp-sandbox.socotra.com/mcp"]
+        args:
+        - -y
+        - mcp-remote
+        - https://mcp-sandbox.socotra.com/mcp
 tools:
 - name: Get Policy Summary
   description: Retrieve a policy's summary information for a tenant.
@@ -74,3 +77,10 @@ tools:
   description: Standardize a config to Socotra's specifications.
 - name: Get Config Difference
   description: Compare proposed and deployed tenant configurations.
+deployment:
+  mode: remote
+  endpoint: https://mcp-sandbox.socotra.com/mcp
+  verified: probed
+  probe: wall
+  checked: '2026-08-12'
+  source: catalog MCP census

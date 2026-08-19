@@ -1,0 +1,2449 @@
+{
+  "item": [
+    {
+      "id": "2a78b47f-1d45-4f82-a954-53a4d332f998",
+      "name": "Event",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bd04ee03-e848-40eb-bd11-97bd661a4369",
+          "name": "create Webhook",
+          "request": {
+            "name": "create Webhook",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "webhooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"endpoint\": {\n    \"url\": \"<string>\",\n    \"headers\": {\n      \"key_0\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key_1\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"secureSsl\": \"<boolean>\",\n    \"hmacEnabled\": \"<boolean>\",\n    \"secret\": \"<string>\",\n    \"tag\": \"<string>\"\n  },\n  \"failureHandling\": {\n    \"alertEndpoint\": {\n      \"url\": \"<string>\",\n      \"headers\": {\n        \"key_0\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"secureSsl\": \"<boolean>\",\n      \"hmacEnabled\": \"<boolean>\",\n      \"secret\": \"<string>\",\n      \"tag\": \"<string>\"\n    },\n    \"divert\": \"<boolean>\",\n    \"retryStrategy\": {\n      \"attempts\": \"<integer>\",\n      \"interval\": \"<long>\",\n      \"type\": \"<string>\"\n    },\n    \"suspend\": \"<boolean>\",\n    \"triggers\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"eventTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"useAutomationPlugin\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a5a79465-c183-4536-bdae-badc710eacbc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"endpoint\": {\n    \"url\": \"<string>\",\n    \"headers\": {\n      \"key_0\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key_1\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key_2\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"secureSsl\": \"<boolean>\",\n    \"hmacEnabled\": \"<boolean>\",\n    \"secret\": \"<string>\",\n    \"tag\": \"<string>\"\n  },\n  \"failureHandling\": {\n    \"alertEndpoint\": {\n      \"url\": \"<string>\",\n      \"headers\": {\n        \"key_0\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"secureSsl\": \"<boolean>\",\n      \"hmacEnabled\": \"<boolean>\",\n      \"secret\": \"<string>\",\n      \"tag\": \"<string>\"\n    },\n    \"divert\": \"<boolean>\",\n    \"retryStrategy\": {\n      \"attempts\": \"<integer>\",\n      \"interval\": \"<long>\",\n      \"type\": \"<string>\"\n    },\n    \"suspend\": \"<boolean>\",\n    \"triggers\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"eventTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"useAutomationPlugin\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"name\": \"string\",\n  \"enabled\": true,\n  \"endpoint\": {\n    \"hmacEnabled\": false,\n    \"secret\": \"string\",\n    \"secureSsl\": true,\n    \"tag\": \"string\",\n    \"url\": \"string\",\n    \"headers\": {\n      \"key_0\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_1\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_2\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_3\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_4\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  },\n  \"failureHandling\": {\n    \"alertEndpoint\": {\n      \"hmacEnabled\": false,\n      \"secret\": \"string\",\n      \"secureSsl\": false,\n      \"tag\": \"string\",\n      \"url\": \"string\",\n      \"headers\": {\n        \"key_0\": [\n          \"string\",\n          \"string\"\n        ],\n        \"key_1\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"divert\": true,\n    \"retryStrategy\": {\n      \"attempts\": 4266,\n      \"interval\": 6762,\n      \"type\": \"exponential\"\n    },\n    \"suspend\": true,\n    \"triggers\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"suspended\": false,\n  \"suspendedAt\": \"1956-08-10T14:25:42.637Z\",\n  \"eventTypes\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cad8311-3d47-43bc-80dd-28aaa101a0b7",
+          "name": "resend Diverted Event",
+          "request": {
+            "name": "resend Diverted Event",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "webhooks",
+                ":webhookLocator",
+                "diverted",
+                ":eventLocator",
+                "resend"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "webhookLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "eventLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc92412e-79eb-4ab2-a299-292fe12db767",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "webhooks",
+                    ":webhookLocator",
+                    "diverted",
+                    ":eventLocator",
+                    "resend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "webhookLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "eventLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fce247a7-1cb6-4e95-b0e5-999271a8f69e",
+          "name": "resume Failed Scheduled Event",
+          "request": {
+            "name": "resume Failed Scheduled Event",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "events",
+                "schedules",
+                "failed",
+                "resume"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"triggerName\": \"<string>\",\n  \"triggerGroup\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9f1f29e0-31d8-4243-93d4-4238664fe5bd",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "events",
+                    "schedules",
+                    "failed",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"triggerName\": \"<string>\",\n  \"triggerGroup\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52499436-e7c9-447f-b7f2-f57d3bdfa985",
+          "name": "fetch Webhook",
+          "request": {
+            "name": "fetch Webhook",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "webhooks",
+                ":webhookLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "webhookLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3718169d-1cf2-4357-81dc-06972874942d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "webhooks",
+                    ":webhookLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "webhookLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"name\": \"string\",\n  \"enabled\": false,\n  \"endpoint\": {\n    \"hmacEnabled\": true,\n    \"secret\": \"string\",\n    \"secureSsl\": false,\n    \"tag\": \"string\",\n    \"url\": \"string\",\n    \"headers\": {\n      \"key_0\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_1\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_2\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_3\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  },\n  \"failureHandling\": {\n    \"alertEndpoint\": {\n      \"hmacEnabled\": false,\n      \"secret\": \"string\",\n      \"secureSsl\": false,\n      \"tag\": \"string\",\n      \"url\": \"string\",\n      \"headers\": {\n        \"key_0\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"divert\": true,\n    \"retryStrategy\": {\n      \"attempts\": 5721,\n      \"interval\": 750,\n      \"type\": \"exponential\"\n    },\n    \"suspend\": false,\n    \"triggers\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"suspended\": true,\n  \"suspendedAt\": \"1956-12-14T15:49:30.885Z\",\n  \"eventTypes\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f49d5a13-efab-47d8-9273-123bd77deca7",
+          "name": "update Webhook",
+          "request": {
+            "name": "update Webhook",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "webhooks",
+                ":webhookLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "webhookLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"endpoint\": {\n    \"url\": \"<string>\",\n    \"addHeaders\": {\n      \"key_0\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key_1\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"removeHeaders\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"secureSsl\": \"<boolean>\",\n    \"hmacEnabled\": \"<boolean>\",\n    \"secret\": \"<string>\",\n    \"tag\": \"<string>\"\n  },\n  \"failureHandling\": {\n    \"alertEndpoint\": {\n      \"url\": \"<string>\",\n      \"addHeaders\": {\n        \"key_0\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"removeHeaders\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secureSsl\": \"<boolean>\",\n      \"hmacEnabled\": \"<boolean>\",\n      \"secret\": \"<string>\",\n      \"tag\": \"<string>\"\n    },\n    \"divert\": \"<boolean>\",\n    \"removeAlertEndpoint\": \"<boolean>\",\n    \"removeRetryStrategy\": \"<boolean>\",\n    \"retryStrategy\": {\n      \"attempts\": \"<integer>\",\n      \"interval\": \"<long>\",\n      \"type\": \"<string>\"\n    },\n    \"suspend\": \"<boolean>\",\n    \"addTriggers\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"removeTriggers\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"removeFailureHandling\": \"<boolean>\",\n  \"addEventTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"removeEventTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cf2aff5e-ab1d-4325-b79b-9f56c781f01b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "webhooks",
+                    ":webhookLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "webhookLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"endpoint\": {\n    \"url\": \"<string>\",\n    \"addHeaders\": {\n      \"key_0\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key_1\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key_2\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"removeHeaders\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"secureSsl\": \"<boolean>\",\n    \"hmacEnabled\": \"<boolean>\",\n    \"secret\": \"<string>\",\n    \"tag\": \"<string>\"\n  },\n  \"failureHandling\": {\n    \"alertEndpoint\": {\n      \"url\": \"<string>\",\n      \"addHeaders\": {\n        \"key_0\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"removeHeaders\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secureSsl\": \"<boolean>\",\n      \"hmacEnabled\": \"<boolean>\",\n      \"secret\": \"<string>\",\n      \"tag\": \"<string>\"\n    },\n    \"divert\": \"<boolean>\",\n    \"removeAlertEndpoint\": \"<boolean>\",\n    \"removeRetryStrategy\": \"<boolean>\",\n    \"retryStrategy\": {\n      \"attempts\": \"<integer>\",\n      \"interval\": \"<long>\",\n      \"type\": \"<string>\"\n    },\n    \"suspend\": \"<boolean>\",\n    \"addTriggers\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"removeTriggers\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"removeFailureHandling\": \"<boolean>\",\n  \"addEventTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"removeEventTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"name\": \"string\",\n  \"enabled\": false,\n  \"endpoint\": {\n    \"hmacEnabled\": true,\n    \"secret\": \"string\",\n    \"secureSsl\": false,\n    \"tag\": \"string\",\n    \"url\": \"string\",\n    \"headers\": {\n      \"key_0\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_1\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_2\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_3\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  },\n  \"failureHandling\": {\n    \"alertEndpoint\": {\n      \"hmacEnabled\": false,\n      \"secret\": \"string\",\n      \"secureSsl\": false,\n      \"tag\": \"string\",\n      \"url\": \"string\",\n      \"headers\": {\n        \"key_0\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"divert\": true,\n    \"retryStrategy\": {\n      \"attempts\": 5721,\n      \"interval\": 750,\n      \"type\": \"exponential\"\n    },\n    \"suspend\": false,\n    \"triggers\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"suspended\": true,\n  \"suspendedAt\": \"1956-12-14T15:49:30.885Z\",\n  \"eventTypes\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb98b81d-b053-4da5-87a8-238f6f00631c",
+          "name": "delete Webhook",
+          "request": {
+            "name": "delete Webhook",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "webhooks",
+                ":webhookLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "webhookLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3d4b9204-74d5-4cce-a485-dad7636de4f4",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "webhooks",
+                    ":webhookLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "webhookLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "309cd739-a3c5-4cae-8ca2-294be7e32d18",
+          "name": "unsuspend Webhook",
+          "request": {
+            "name": "unsuspend Webhook",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "webhooks",
+                ":webhookLocator",
+                "unsuspend"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "webhookLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9afd9dc-a085-47ff-903e-dba8627c84a5",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "webhooks",
+                    ":webhookLocator",
+                    "unsuspend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "webhookLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f603450-1b0f-4792-835d-c08d18e7c598",
+          "name": "fetch Multiple Diverted Events",
+          "request": {
+            "name": "fetch Multiple Diverted Events",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "webhooks",
+                ":webhookLocator",
+                "diverted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "webhookLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c049b83-1671-48da-864a-18d656165bba",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "webhooks",
+                    ":webhookLocator",
+                    "diverted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "webhookLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"eventLocator\": \"string\",\n    \"requestLocator\": \"string\",\n    \"failureMessage\": \"string\",\n    \"failureTimestamp\": \"1981-11-20T20:51:45.832Z\",\n    \"failureTrigger\": \"string\"\n  },\n  {\n    \"eventLocator\": \"string\",\n    \"requestLocator\": \"string\",\n    \"failureMessage\": \"string\",\n    \"failureTimestamp\": \"1964-03-04T17:44:59.970Z\",\n    \"failureTrigger\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96e5b1b6-5504-45f8-b502-db56dd644c5f",
+          "name": "fetch Diverted Event",
+          "request": {
+            "name": "fetch Diverted Event",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "webhooks",
+                ":webhookLocator",
+                "diverted",
+                ":eventLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "webhookLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "eventLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fa13d171-fa57-439c-8845-b2cb362082e6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "webhooks",
+                    ":webhookLocator",
+                    "diverted",
+                    ":eventLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "webhookLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "eventLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"eventLocator\": \"string\",\n  \"requestLocator\": \"string\",\n  \"failureMessage\": \"string\",\n  \"failureTimestamp\": \"1953-06-17T09:49:19.222Z\",\n  \"failureTrigger\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32bc2456-ce54-4e03-b7bc-ea1f10bd1186",
+          "name": "delete Diverted Event",
+          "request": {
+            "name": "delete Diverted Event",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "webhooks",
+                ":webhookLocator",
+                "diverted",
+                ":eventLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "webhookLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "eventLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9cc8abc0-7ffa-4fc0-9c5f-69dda45cde3c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "webhooks",
+                    ":webhookLocator",
+                    "diverted",
+                    ":eventLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "webhookLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "eventLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a4e19db-e9a0-474b-b1ba-a77a8209efd6",
+          "name": "fetch Webhooks",
+          "request": {
+            "name": "fetch Webhooks",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "webhooks",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "enabled",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "suspended",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventTypes",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventTypes",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "extended",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2cee187e-3caa-442c-8c43-ced2e0d0a71a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "webhooks",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "suspended",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "eventTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eventTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "extended",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"listCompleted\": false,\n  \"items\": [\n    {\n      \"locator\": \"string\",\n      \"name\": \"string\",\n      \"enabled\": false,\n      \"endpoint\": {\n        \"hmacEnabled\": false,\n        \"secret\": \"string\",\n        \"secureSsl\": false,\n        \"tag\": \"string\",\n        \"url\": \"string\",\n        \"headers\": {\n          \"key_0\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      },\n      \"failureHandling\": {\n        \"alertEndpoint\": {\n          \"hmacEnabled\": false,\n          \"secret\": \"string\",\n          \"secureSsl\": false,\n          \"tag\": \"string\",\n          \"url\": \"string\",\n          \"headers\": {\n            \"key_0\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"divert\": false,\n        \"retryStrategy\": {\n          \"attempts\": 5182,\n          \"interval\": 1528,\n          \"type\": \"exponential\"\n        },\n        \"suspend\": true,\n        \"triggers\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"suspended\": false,\n      \"suspendedAt\": \"1997-09-22T00:38:19.203Z\",\n      \"eventTypes\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"locator\": \"string\",\n      \"name\": \"string\",\n      \"enabled\": false,\n      \"endpoint\": {\n        \"hmacEnabled\": false,\n        \"secret\": \"string\",\n        \"secureSsl\": true,\n        \"tag\": \"string\",\n        \"url\": \"string\",\n        \"headers\": {\n          \"key_0\": [\n            \"string\",\n            \"string\"\n          ],\n          \"key_1\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      },\n      \"failureHandling\": {\n        \"alertEndpoint\": {\n          \"hmacEnabled\": false,\n          \"secret\": \"string\",\n          \"secureSsl\": true,\n          \"tag\": \"string\",\n          \"url\": \"string\",\n          \"headers\": {\n            \"key_0\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"divert\": false,\n        \"retryStrategy\": {\n          \"attempts\": 2532,\n          \"interval\": 8799,\n          \"type\": \"linear\"\n        },\n        \"suspend\": true,\n        \"triggers\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"suspended\": true,\n      \"suspendedAt\": \"1950-08-04T19:53:06.335Z\",\n      \"eventTypes\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1155ce8a-eb05-4dc5-ad1b-b48ca97611b2",
+          "name": "fetch Event",
+          "request": {
+            "name": "fetch Event",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "events",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12c64e72-9c39-4bb7-82e0-8e36c42e0fe1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "events",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"userLocator\": \"a1942ab5-56e2-12ed-9eeb-ffe124140076\",\n  \"requestId\": \"string\",\n  \"timestamp\": \"1988-08-25T12:25:46.526Z\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0587a6ce-8ef5-49ff-83fb-74ad0b36d0b9",
+          "name": "fetch Scheduled Tenant Events",
+          "request": {
+            "name": "fetch Scheduled Tenant Events",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "events",
+                "schedules",
+                "tenant"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "767498ab-17cb-4a7d-9843-b8be51985e01",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "events",
+                    "schedules",
+                    "tenant"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"triggerState\": \"NONE\",\n    \"customEventId\": \"string\",\n    \"scheduledEventId\": \"string\",\n    \"nextEventTime\": \"2008-03-18T02:39:04.833Z\"\n  },\n  {\n    \"triggerState\": \"COMPLETE\",\n    \"customEventId\": \"string\",\n    \"scheduledEventId\": \"string\",\n    \"nextEventTime\": \"1977-01-04T06:14:39.823Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e47294f-80ae-4096-86b3-50e940c80291",
+          "name": "fetch Failed Scheduled Tenant Events",
+          "request": {
+            "name": "fetch Failed Scheduled Tenant Events",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "events",
+                "schedules",
+                "tenant",
+                "failed",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "547444ff-67ce-44b4-b14f-ec3b5ff2fa6a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "events",
+                    "schedules",
+                    "tenant",
+                    "failed",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"triggerName\": \"string\",\n    \"failedJobState\": \"quit\",\n    \"failureCount\": 2021,\n    \"triggerGroup\": \"string\",\n    \"updatedAt\": \"1997-01-16T01:04:36.314Z\",\n    \"createdAt\": \"1979-07-22T10:47:00.615Z\"\n  },\n  {\n    \"triggerName\": \"string\",\n    \"failedJobState\": \"queued\",\n    \"failureCount\": 7698,\n    \"triggerGroup\": \"string\",\n    \"updatedAt\": \"1990-02-04T12:55:03.902Z\",\n    \"createdAt\": \"2026-01-23T08:39:07.968Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93e08a78-4218-4cbc-a383-7da4f75c923d",
+          "name": "fetch Scheduled Policy Events",
+          "request": {
+            "name": "fetch Scheduled Policy Events",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "events",
+                "schedules",
+                "policy",
+                ":policyLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "policyLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "436a552b-dfae-465f-88e8-25afd4b421df",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "events",
+                    "schedules",
+                    "policy",
+                    ":policyLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "policyLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"policyLocator\": \"string\",\n    \"transactionLocator\": \"string\",\n    \"triggerState\": \"PAUSED\",\n    \"customEventId\": \"string\",\n    \"nextEventTime\": \"1970-09-06T13:46:15.596Z\"\n  },\n  {\n    \"policyLocator\": \"string\",\n    \"transactionLocator\": \"string\",\n    \"triggerState\": \"BLOCKED\",\n    \"customEventId\": \"string\",\n    \"nextEventTime\": \"2004-11-18T01:48:14.895Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c187592-6c01-4474-b369-12e5a52d6aa6",
+          "name": "fetch Failed Scheduled Policy Events",
+          "request": {
+            "name": "fetch Failed Scheduled Policy Events",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "events",
+                "schedules",
+                "policy",
+                ":policyLocator",
+                "failed",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "policyLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4404daa0-0339-42ef-8feb-5a7de3bb0dc0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "events",
+                    "schedules",
+                    "policy",
+                    ":policyLocator",
+                    "failed",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "policyLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"triggerName\": \"string\",\n    \"failedJobState\": \"quit\",\n    \"failureCount\": 2021,\n    \"triggerGroup\": \"string\",\n    \"updatedAt\": \"1997-01-16T01:04:36.314Z\",\n    \"createdAt\": \"1979-07-22T10:47:00.615Z\"\n  },\n  {\n    \"triggerName\": \"string\",\n    \"failedJobState\": \"queued\",\n    \"failureCount\": 7698,\n    \"triggerGroup\": \"string\",\n    \"updatedAt\": \"1990-02-04T12:55:03.902Z\",\n    \"createdAt\": \"2026-01-23T08:39:07.968Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4c18e4e-e6e3-4625-ad84-3a79407196fe",
+          "name": "fetch Failed Scheduled Events By Failed Job State",
+          "request": {
+            "name": "fetch Failed Scheduled Events By Failed Job State",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "events",
+                "schedules",
+                "failed",
+                ":failedJobState",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "failedJobState",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a61b3f3d-bc06-48ee-a77a-ae39b427b272",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "events",
+                    "schedules",
+                    "failed",
+                    ":failedJobState",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "failedJobState",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"triggerName\": \"string\",\n    \"failedJobState\": \"quit\",\n    \"failureCount\": 2021,\n    \"triggerGroup\": \"string\",\n    \"updatedAt\": \"1997-01-16T01:04:36.314Z\",\n    \"createdAt\": \"1979-07-22T10:47:00.615Z\"\n  },\n  {\n    \"triggerName\": \"string\",\n    \"failedJobState\": \"queued\",\n    \"failureCount\": 7698,\n    \"triggerGroup\": \"string\",\n    \"updatedAt\": \"1990-02-04T12:55:03.902Z\",\n    \"createdAt\": \"2026-01-23T08:39:07.968Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "090ccceb-aa05-490c-a9db-45103e6df59a",
+          "name": "fetch Failed Scheduled Events",
+          "request": {
+            "name": "fetch Failed Scheduled Events",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "events",
+                "schedules",
+                "failed",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b6f5d4f9-dccf-45e3-bea6-2d90026ddcc7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "events",
+                    "schedules",
+                    "failed",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"triggerName\": \"string\",\n    \"failedJobState\": \"quit\",\n    \"failureCount\": 2021,\n    \"triggerGroup\": \"string\",\n    \"updatedAt\": \"1997-01-16T01:04:36.314Z\",\n    \"createdAt\": \"1979-07-22T10:47:00.615Z\"\n  },\n  {\n    \"triggerName\": \"string\",\n    \"failedJobState\": \"queued\",\n    \"failureCount\": 7698,\n    \"triggerGroup\": \"string\",\n    \"updatedAt\": \"1990-02-04T12:55:03.902Z\",\n    \"createdAt\": \"2026-01-23T08:39:07.968Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb9445b4-1ebd-45b5-98c5-2c4a3a99a16e",
+          "name": "fetch Events For A Request",
+          "request": {
+            "name": "fetch Events For A Request",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "events",
+                "request",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42216c46-2c7e-44f2-b85b-4b45ea6a47ba",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "events",
+                    "request",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"locator\": \"string\",\n    \"userLocator\": \"adfb1d2e-843f-f1ae-4dd9-847da6d440b6\",\n    \"requestId\": \"string\",\n    \"timestamp\": \"1979-12-02T08:51:51.273Z\",\n    \"type\": \"string\",\n    \"data\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  },\n  {\n    \"locator\": \"string\",\n    \"userLocator\": \"57a20b04-19c2-a3b0-5a7f-a17345561234\",\n    \"requestId\": \"string\",\n    \"timestamp\": \"1984-09-09T14:28:28.777Z\",\n    \"type\": \"string\",\n    \"data\": {\n      \"key_0\": {}\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce0d5e19-5ef9-4f53-af21-859e878cf4ec",
+          "name": "fetch Multiple Events",
+          "request": {
+            "name": "fetch Multiple Events",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "events",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startTimestamp",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "endTimestamp",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagingToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9550e432-db2c-4a41-b760-9aba72efa1f4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "events",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startTimestamp",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "endTimestamp",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagingToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagingToken\": \"string\",\n  \"events\": [\n    {\n      \"locator\": \"string\",\n      \"userLocator\": \"b71e11cb-d460-d900-8ae2-43d3bc5d9a03\",\n      \"requestId\": \"string\",\n      \"timestamp\": \"1990-06-11T12:55:42.420Z\",\n      \"type\": \"string\",\n      \"data\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    },\n    {\n      \"locator\": \"string\",\n      \"userLocator\": \"1f8d240b-a5f7-1f9f-7bc9-eaf1f71ee0a8\",\n      \"requestId\": \"string\",\n      \"timestamp\": \"1997-08-23T18:27:05.448Z\",\n      \"type\": \"string\",\n      \"data\": {\n        \"key_0\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a3c23a1-492a-444c-9c3d-81f903f76f29",
+          "name": "delete Failed Scheduled Event",
+          "request": {
+            "name": "delete Failed Scheduled Event",
+            "description": {},
+            "url": {
+              "path": [
+                "event",
+                ":tenantLocator",
+                "events",
+                "schedules",
+                "failed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"triggerName\": \"<string>\",\n  \"triggerGroup\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ab219507-c613-4c50-ac23-1ba767e66ed8",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event",
+                    ":tenantLocator",
+                    "events",
+                    "schedules",
+                    "failed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"triggerName\": \"<string>\",\n  \"triggerGroup\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f25087ec-7697-4380-99a7-d22b98fe2d1e",
+    "name": "Socotra Insurance Suite OpenAPI Definition Event API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Socotra Insurance Suite API",
+      "type": "text/plain"
+    }
+  }
+}

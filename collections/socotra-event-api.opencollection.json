@@ -1,0 +1,586 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Event API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Event",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "createWebhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/event/:tenantLocator/webhooks",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "resendDivertedEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/event/:tenantLocator/webhooks/:webhookLocator/diverted/:eventLocator/resend",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "webhookLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "resumeFailedScheduledEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/event/:tenantLocator/events/schedules/failed/resume",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchWebhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/event/:tenantLocator/webhooks/:webhookLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "webhookLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateWebhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/event/:tenantLocator/webhooks/:webhookLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "webhookLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteWebhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/event/:tenantLocator/webhooks/:webhookLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "webhookLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "unsuspendWebhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/event/:tenantLocator/webhooks/:webhookLocator/unsuspend",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "webhookLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleDivertedEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/event/:tenantLocator/webhooks/:webhookLocator/diverted",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "webhookLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDivertedEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/event/:tenantLocator/webhooks/:webhookLocator/diverted/:eventLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "webhookLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deleteDivertedEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/event/:tenantLocator/webhooks/:webhookLocator/diverted/:eventLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "webhookLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchWebhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/event/:tenantLocator/webhooks/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "enabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "suspended",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "eventTypes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/event/:tenantLocator/events/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchScheduledTenantEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/event/:tenantLocator/events/schedules/tenant",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchFailedScheduledTenantEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/event/:tenantLocator/events/schedules/tenant/failed/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchScheduledPolicyEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/event/:tenantLocator/events/schedules/policy/:policyLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchFailedScheduledPolicyEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/event/:tenantLocator/events/schedules/policy/:policyLocator/failed/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchFailedScheduledEventsByFailedJobState",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/event/:tenantLocator/events/schedules/failed/:failedJobState/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "failedJobState",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchFailedScheduledEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/event/:tenantLocator/events/schedules/failed/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchEventsForARequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/event/:tenantLocator/events/request/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/event/:tenantLocator/events/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "startTimestamp",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endTimestamp",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagingToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deleteFailedScheduledEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/event/:tenantLocator/events/schedules/failed",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,951 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Document API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Document",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "triggerTimedOutDocumentsJobForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/document/:tenantLocator/documents/transaction/:locator/trigger",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "triggerFailedDocumentJobForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/document/:tenantLocator/documents/transaction/:locator/jobs/:jobLocator/trigger",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "triggerTimedOutDocumentsJobForSegment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/document/:tenantLocator/documents/segment/:locator/trigger",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "triggerFailedDocumentJobForSegment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/document/:tenantLocator/documents/segment/:locator/jobs/:jobLocator/trigger",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "renderDocument",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/document/:tenantLocator/documents/render",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "referenceType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "referenceLocator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "productName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "templateFormat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "documentConfig",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "staticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "templateName",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "triggerTimedOutDocumentsJobForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/document/:tenantLocator/documents/quote/:locator/trigger",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "triggerFailedDocumentJobForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/document/:tenantLocator/documents/quote/:locator/jobs/:jobLocator/trigger",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "copyDocumentsOnIssue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/document/:tenantLocator/documents/quote/:locator/copyOnIssue",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deleteAllDocuments",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "triggerTimedOutJob",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/document/:tenantLocator/documents/invoices/:locator/trigger",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "triggerFailedDocumentJobForInvoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/document/:tenantLocator/documents/invoices/:locator/jobs/:jobLocator/trigger",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "attachDocument",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/document/:tenantLocator/documents/attach",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "referenceLocator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "referenceType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "staticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "documentFormat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metadata",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "transactionLocator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "segmentLocator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "copyOnIssuance",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "document",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDocument",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "replaceDocument",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/document/:tenantLocator/documents/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "metadata",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "document",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteDocument",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/document/:tenantLocator/documents/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDocumentEventDefinitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/events"
+          }
+        },
+        {
+          "info": {
+            "name": "fetchSourceForDocument",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/:locator/source",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDocumentResource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/:locator/document",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDocumentsForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/transaction/:locator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              },
+              {
+                "name": "suppressRenderingData",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDocumentsJobForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/transaction/:locator/jobs/:jobLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleDocumentsJobsForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/transaction/:locator/jobs/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDocumentsForSegment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/segment/:locator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              },
+              {
+                "name": "suppressRenderingData",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDocumentsJobForSegment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/segment/:locator/jobs/:jobLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleDocumentsJobsForSegment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/segment/:locator/jobs/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDocumentsForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/quote/:locator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              },
+              {
+                "name": "suppressRenderingData",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDocumentsJobForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/quote/:locator/jobs/:jobLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleDocumentsJobsForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/quote/:locator/jobs/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDocumentsForTerm",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/policy/:policyLocator/term/:termLocator/summary",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "termLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "suppressRenderingData",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInvoiceDocument",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/invoices/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getDocumentJob",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/invoices/:locator/jobs",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDocumentJob",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/document/:tenantLocator/documents/invoices/:locator/jobs/:jobLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

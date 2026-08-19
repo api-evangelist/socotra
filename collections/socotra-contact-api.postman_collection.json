@@ -1,0 +1,881 @@
+{
+  "item": [
+    {
+      "id": "b180fa7c-0d53-496c-b725-bcf43af3fd1e",
+      "name": "Contact",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5d94a94b-5478-4546-8d30-f5ae6c294607",
+          "name": "add Contact",
+          "request": {
+            "name": "add Contact",
+            "description": {},
+            "url": {
+              "path": [
+                "contact",
+                ":tenantLocator",
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"autoValidate\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"data\": {\n    \"key_0\": \"<object>\"\n  },\n  \"region\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "099f07b7-21db-49cb-8743-7e5fb051ad71",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contact",
+                    ":tenantLocator",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"autoValidate\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"data\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\"\n  },\n  \"region\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"staticLocator\": \"string\",\n  \"contactState\": \"draft\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"createdAt\": \"1971-06-21T09:55:53.342Z\",\n  \"createdBy\": \"52f5fba6-ffe4-37aa-3a1e-3956d0062f39\",\n  \"region\": \"string\",\n  \"updatedAt\": \"1963-07-03T15:37:33.604Z\",\n  \"updatedBy\": \"89c7fa32-3204-d7a0-46d4-1b14ae8a56fc\",\n  \"validationResult\": {\n    \"success\": false,\n    \"validationItems\": [\n      {\n        \"locator\": \"string\",\n        \"elementType\": \"string\",\n        \"errors\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"locator\": \"string\",\n        \"elementType\": \"string\",\n        \"errors\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2020-01-10T05:43:36.204Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf1785da-20f7-48dd-8192-2e081d5a74c5",
+          "name": "get Contact",
+          "request": {
+            "name": "get Contact",
+            "description": {},
+            "url": {
+              "path": [
+                "contact",
+                ":tenantLocator",
+                "contacts",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9998a7fc-dcc8-437c-ad6f-b8aeaf655594",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contact",
+                    ":tenantLocator",
+                    "contacts",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"staticLocator\": \"string\",\n  \"contactState\": \"discarded\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {}\n  },\n  \"createdAt\": \"2013-05-12T11:31:34.326Z\",\n  \"createdBy\": \"c8db893c-130f-7447-a508-5098a42b08ca\",\n  \"region\": \"string\",\n  \"updatedAt\": \"1998-12-28T19:02:54.289Z\",\n  \"updatedBy\": \"76c47827-1ca0-0e84-0436-bb85bdae0d9d\",\n  \"validationResult\": {\n    \"success\": false,\n    \"validationItems\": [\n      {\n        \"locator\": \"string\",\n        \"elementType\": \"string\",\n        \"errors\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"locator\": \"string\",\n        \"elementType\": \"string\",\n        \"errors\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2004-03-21T10:54:33.194Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95bb4e11-c7cf-48f8-be3c-d1bbf4984ef7",
+          "name": "update Contact",
+          "request": {
+            "name": "update Contact",
+            "description": {},
+            "url": {
+              "path": [
+                "contact",
+                ":tenantLocator",
+                "contacts",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"removeData\": {\n    \"key_0\": \"<object>\"\n  },\n  \"setData\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\"\n  },\n  \"type\": \"<string>\",\n  \"region\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3ebe0937-e9aa-4607-bf4a-2edada485d88",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contact",
+                    ":tenantLocator",
+                    "contacts",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"removeData\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\"\n  },\n  \"setData\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\"\n  },\n  \"type\": \"<string>\",\n  \"region\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"staticLocator\": \"string\",\n  \"contactState\": \"discarded\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {}\n  },\n  \"createdAt\": \"2013-05-12T11:31:34.326Z\",\n  \"createdBy\": \"c8db893c-130f-7447-a508-5098a42b08ca\",\n  \"region\": \"string\",\n  \"updatedAt\": \"1998-12-28T19:02:54.289Z\",\n  \"updatedBy\": \"76c47827-1ca0-0e84-0436-bb85bdae0d9d\",\n  \"validationResult\": {\n    \"success\": false,\n    \"validationItems\": [\n      {\n        \"locator\": \"string\",\n        \"elementType\": \"string\",\n        \"errors\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"locator\": \"string\",\n        \"elementType\": \"string\",\n        \"errors\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2004-03-21T10:54:33.194Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "909f6e7e-6a88-4a58-ba46-e38d6ebe8acb",
+          "name": "validate Contact",
+          "request": {
+            "name": "validate Contact",
+            "description": {},
+            "url": {
+              "path": [
+                "contact",
+                ":tenantLocator",
+                "contacts",
+                ":locator",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d30d0456-a4c9-4ad5-a753-294312797f4c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contact",
+                    ":tenantLocator",
+                    "contacts",
+                    ":locator",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"staticLocator\": \"string\",\n  \"contactState\": \"discarded\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {}\n  },\n  \"createdAt\": \"2013-05-12T11:31:34.326Z\",\n  \"createdBy\": \"c8db893c-130f-7447-a508-5098a42b08ca\",\n  \"region\": \"string\",\n  \"updatedAt\": \"1998-12-28T19:02:54.289Z\",\n  \"updatedBy\": \"76c47827-1ca0-0e84-0436-bb85bdae0d9d\",\n  \"validationResult\": {\n    \"success\": false,\n    \"validationItems\": [\n      {\n        \"locator\": \"string\",\n        \"elementType\": \"string\",\n        \"errors\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"locator\": \"string\",\n        \"elementType\": \"string\",\n        \"errors\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2004-03-21T10:54:33.194Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "569a0474-f56e-4e74-84eb-3bf835847162",
+          "name": "merge Contacts",
+          "request": {
+            "name": "merge Contacts",
+            "description": {},
+            "url": {
+              "path": [
+                "contact",
+                ":tenantLocator",
+                "contacts",
+                "merge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mergeToContact\": \"<ulid>\",\n  \"contactLocators\": [\n    \"<ulid>\",\n    \"<ulid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5b0cef0c-0003-4b8c-b9b7-bcd5f00c7001",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contact",
+                    ":tenantLocator",
+                    "contacts",
+                    "merge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mergeToContact\": \"<ulid>\",\n  \"contactLocators\": [\n    \"<ulid>\",\n    \"<ulid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"staticLocator\": \"string\",\n  \"contactState\": \"discarded\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {}\n  },\n  \"createdAt\": \"2013-05-12T11:31:34.326Z\",\n  \"createdBy\": \"c8db893c-130f-7447-a508-5098a42b08ca\",\n  \"region\": \"string\",\n  \"updatedAt\": \"1998-12-28T19:02:54.289Z\",\n  \"updatedBy\": \"76c47827-1ca0-0e84-0436-bb85bdae0d9d\",\n  \"validationResult\": {\n    \"success\": false,\n    \"validationItems\": [\n      {\n        \"locator\": \"string\",\n        \"elementType\": \"string\",\n        \"errors\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"locator\": \"string\",\n        \"elementType\": \"string\",\n        \"errors\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2004-03-21T10:54:33.194Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6eb46f5-6d74-4668-b575-57593236c1b4",
+          "name": "fetch Contact Event Definitions",
+          "request": {
+            "name": "fetch Contact Event Definitions",
+            "description": {},
+            "url": {
+              "path": [
+                "contact",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d92a9585-cfeb-495b-af5b-95065629c1bf",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contact",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"contactEvents\": {\n    \"contact.anonymized\": {\n      \"locator\": \"string\",\n      \"staticLocator\": \"string\"\n    },\n    \"contact.merged\": {\n      \"newStaticLocator\": \"string\",\n      \"oldStaticLocator\": \"string\"\n    },\n    \"contact.validated\": {\n      \"locator\": \"string\",\n      \"staticLocator\": \"string\"\n    },\n    \"contact.created\": {\n      \"locator\": \"string\",\n      \"staticLocator\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1159528d-7732-48ee-980e-45aa3549a090",
+          "name": "list Contacts",
+          "request": {
+            "name": "list Contacts",
+            "description": {},
+            "url": {
+              "path": [
+                "contact",
+                ":tenantLocator",
+                "contacts",
+                ":staticLocator",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "staticLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4a93872-1ef1-4404-9a3e-6d13da1ee789",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contact",
+                    ":tenantLocator",
+                    "contacts",
+                    ":staticLocator",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "staticLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"listCompleted\": true,\n  \"items\": [\n    {\n      \"locator\": \"string\",\n      \"staticLocator\": \"string\",\n      \"contactState\": \"validated\",\n      \"type\": \"string\",\n      \"data\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"createdAt\": \"1984-03-19T23:16:46.581Z\",\n      \"createdBy\": \"5240fd40-64a6-b3b5-9456-46d2ac809f40\",\n      \"region\": \"string\",\n      \"updatedAt\": \"2011-09-17T05:41:08.852Z\",\n      \"updatedBy\": \"f6051d88-5dd4-2f16-16e3-6659f39a04a2\",\n      \"validationResult\": {\n        \"success\": true,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"1999-01-28T15:24:01.336Z\"\n    },\n    {\n      \"locator\": \"string\",\n      \"staticLocator\": \"string\",\n      \"contactState\": \"draft\",\n      \"type\": \"string\",\n      \"data\": {\n        \"key_0\": {}\n      },\n      \"createdAt\": \"2022-06-05T17:35:52.492Z\",\n      \"createdBy\": \"c2d917f8-fd56-2090-dd29-baab2ee13ea3\",\n      \"region\": \"string\",\n      \"updatedAt\": \"1960-03-31T02:31:15.003Z\",\n      \"updatedBy\": \"9aafb88b-e014-2a42-96e7-390c8c453178\",\n      \"validationResult\": {\n        \"success\": false,\n        \"validationItems\": [\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"string\",\n            \"elementType\": \"string\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"1981-11-11T00:24:17.444Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09066748-a11e-41f4-a288-fa14fb9c91a3",
+          "name": "lookup Contact",
+          "request": {
+            "name": "lookup Contact",
+            "description": {},
+            "url": {
+              "path": [
+                "contact",
+                ":tenantLocator",
+                "contacts",
+                "lookup",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4e82ff56-c260-4dcb-b8eb-4f7d4fb4391d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contact",
+                    ":tenantLocator",
+                    "contacts",
+                    "lookup",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"staticLocator\": \"string\",\n  \"contactState\": \"discarded\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {}\n  },\n  \"createdAt\": \"2013-05-12T11:31:34.326Z\",\n  \"createdBy\": \"c8db893c-130f-7447-a508-5098a42b08ca\",\n  \"region\": \"string\",\n  \"updatedAt\": \"1998-12-28T19:02:54.289Z\",\n  \"updatedBy\": \"76c47827-1ca0-0e84-0436-bb85bdae0d9d\",\n  \"validationResult\": {\n    \"success\": false,\n    \"validationItems\": [\n      {\n        \"locator\": \"string\",\n        \"elementType\": \"string\",\n        \"errors\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"locator\": \"string\",\n        \"elementType\": \"string\",\n        \"errors\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2004-03-21T10:54:33.194Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2d617bf4-8ad2-4bc5-a002-e69d3a5c6e2d",
+    "name": "Socotra Insurance Suite OpenAPI Definition Contact API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Socotra Insurance Suite API",
+      "type": "text/plain"
+    }
+  }
+}

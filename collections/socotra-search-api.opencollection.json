@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Search API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "fetchAdditionalSearchResultsByToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/search/:tenantLocator/search",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "searchToken",
+                "value": "",
+                "type": "query",
+                "description": "The token returned from the initial search"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchSearchResults",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/search/:tenantLocator/search",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchSearchStats",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/search/:tenantLocator/search/searchStats",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchIgnoredFields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/search/:tenantLocator/search/ignoredFields",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "request",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchFieldsMapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/search/:tenantLocator/search/fieldsMapping",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "request",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

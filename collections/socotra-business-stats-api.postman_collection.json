@@ -1,0 +1,1924 @@
+{
+  "item": [
+    {
+      "id": "5300af6a-251d-4571-8098-d72b56fc9bae",
+      "name": "Business Stats",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ed32c079-f26d-4c1c-82c2-8e4a6efe4692",
+          "name": "get Renewed Policies",
+          "request": {
+            "name": "get Renewed Policies",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "metrics",
+                "renewedPolicies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "backfillZeroes",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "42553e72-7365-4601-95d3-026efca74d47",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "metrics",
+                    "renewedPolicies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "backfillZeroes",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9028,\n  \"endDate\": \"2017-07-07\",\n  \"offset\": 2204,\n  \"periodic\": \"quarter\",\n  \"startDate\": \"1985-09-27\",\n  \"results\": [\n    {\n      \"tenantLocator\": \"39ae38ce-cea5-e737-f8b8-f38c228c9314\",\n      \"productName\": \"string\",\n      \"currency\": \"string\",\n      \"dataPointStartDate\": \"1953-05-02\",\n      \"value\": 103.20981996348344\n    },\n    {\n      \"tenantLocator\": \"4204d59d-eefa-46ae-866a-245a9036b553\",\n      \"productName\": \"string\",\n      \"currency\": \"string\",\n      \"dataPointStartDate\": \"1949-05-14\",\n      \"value\": 8026.169825703752\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20e070a3-9579-43bd-bf1d-78f609f3a13e",
+          "name": "download Renewed Policies",
+          "request": {
+            "name": "download Renewed Policies",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "metrics",
+                "renewedPolicies",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "backfillZeroes",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "032ddaa2-6d19-4dfd-a760-b3a35f3971ad",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "metrics",
+                    "renewedPolicies",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "backfillZeroes",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d203999c-a0af-4623-b70e-20ed6099524c",
+          "name": "get Renewal Rate",
+          "request": {
+            "name": "get Renewal Rate",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "metrics",
+                "renewalRate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "backfillZeroes",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "084151ba-328f-4da6-8335-0d1b49117433",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "metrics",
+                    "renewalRate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "backfillZeroes",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5031,\n  \"endDate\": \"2022-01-22\",\n  \"offset\": 862,\n  \"periodic\": \"week\",\n  \"startDate\": \"1957-07-23\",\n  \"results\": [\n    {\n      \"tenantLocator\": \"293a9051-6638-e59f-1368-1546f96d7012\",\n      \"productName\": \"string\",\n      \"currency\": \"string\",\n      \"dataPointStartDate\": \"1977-12-17\",\n      \"value\": 5296.609842348843\n    },\n    {\n      \"tenantLocator\": \"6c872656-8aa0-a893-5891-0572425137d7\",\n      \"productName\": \"string\",\n      \"currency\": \"string\",\n      \"dataPointStartDate\": \"2025-05-30\",\n      \"value\": 860.3210351898749\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c6726cc-63e7-4cd2-a981-b30d4872ad27",
+          "name": "download Renewal Rate",
+          "request": {
+            "name": "download Renewal Rate",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "metrics",
+                "renewalRate",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "backfillZeroes",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "25cc2675-f345-4049-a4b4-f7f2a97878ee",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "metrics",
+                    "renewalRate",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "backfillZeroes",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e4ed15ec-bb7b-46fe-b007-d2613b826483",
+          "name": "get Priced Quotes",
+          "request": {
+            "name": "get Priced Quotes",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "metrics",
+                "quotes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "backfillZeroes",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a661955a-b40d-4369-86ec-e258cb029256",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "metrics",
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "backfillZeroes",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5031,\n  \"endDate\": \"2022-01-22\",\n  \"offset\": 862,\n  \"periodic\": \"week\",\n  \"startDate\": \"1957-07-23\",\n  \"results\": [\n    {\n      \"tenantLocator\": \"293a9051-6638-e59f-1368-1546f96d7012\",\n      \"productName\": \"string\",\n      \"currency\": \"string\",\n      \"dataPointStartDate\": \"1977-12-17\",\n      \"value\": 5296.609842348843\n    },\n    {\n      \"tenantLocator\": \"6c872656-8aa0-a893-5891-0572425137d7\",\n      \"productName\": \"string\",\n      \"currency\": \"string\",\n      \"dataPointStartDate\": \"2025-05-30\",\n      \"value\": 860.3210351898749\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "525ffab2-eaff-4e2a-80d7-5b47e89c40a8",
+          "name": "download Priced Quotes",
+          "request": {
+            "name": "download Priced Quotes",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "metrics",
+                "quotes",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "backfillZeroes",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1c149598-4dcd-4001-b6d2-987e3466d126",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "metrics",
+                    "quotes",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "backfillZeroes",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61484505-cd25-425e-a9b9-72b9edf71aff",
+          "name": "get Issued Policies",
+          "request": {
+            "name": "get Issued Policies",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "metrics",
+                "issued"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "backfillZeroes",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b2d01a98-e97b-402e-8999-b577b0e3dd72",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "metrics",
+                    "issued"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "backfillZeroes",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5031,\n  \"endDate\": \"2022-01-22\",\n  \"offset\": 862,\n  \"periodic\": \"week\",\n  \"startDate\": \"1957-07-23\",\n  \"results\": [\n    {\n      \"tenantLocator\": \"293a9051-6638-e59f-1368-1546f96d7012\",\n      \"productName\": \"string\",\n      \"currency\": \"string\",\n      \"dataPointStartDate\": \"1977-12-17\",\n      \"value\": 5296.609842348843\n    },\n    {\n      \"tenantLocator\": \"6c872656-8aa0-a893-5891-0572425137d7\",\n      \"productName\": \"string\",\n      \"currency\": \"string\",\n      \"dataPointStartDate\": \"2025-05-30\",\n      \"value\": 860.3210351898749\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "843e5491-a6bc-465d-8e34-73c516b4b2cf",
+          "name": "download Issued Policies",
+          "request": {
+            "name": "download Issued Policies",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "metrics",
+                "issued",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "backfillZeroes",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ba68a478-91d7-41f8-b46f-4a8cffdbd215",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "metrics",
+                    "issued",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "backfillZeroes",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "813c43a1-e726-4bf7-b669-3f03df26f3e7",
+          "name": "get GWP",
+          "request": {
+            "name": "get GWP",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "metrics",
+                "gwp"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "backfillZeroes",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "24a21d1d-e971-48b7-b877-895efbf76b60",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "metrics",
+                    "gwp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "backfillZeroes",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5031,\n  \"endDate\": \"2022-01-22\",\n  \"offset\": 862,\n  \"periodic\": \"week\",\n  \"startDate\": \"1957-07-23\",\n  \"results\": [\n    {\n      \"tenantLocator\": \"293a9051-6638-e59f-1368-1546f96d7012\",\n      \"productName\": \"string\",\n      \"currency\": \"string\",\n      \"dataPointStartDate\": \"1977-12-17\",\n      \"value\": 5296.609842348843\n    },\n    {\n      \"tenantLocator\": \"6c872656-8aa0-a893-5891-0572425137d7\",\n      \"productName\": \"string\",\n      \"currency\": \"string\",\n      \"dataPointStartDate\": \"2025-05-30\",\n      \"value\": 860.3210351898749\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d64038e-8a4a-4ca1-976b-271e57c1accc",
+          "name": "download GWP",
+          "request": {
+            "name": "download GWP",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "metrics",
+                "gwp",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "backfillZeroes",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6bb5b800-fb42-4c69-953e-e89b4b4c5ccd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "metrics",
+                    "gwp",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "backfillZeroes",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "efcf7ec7-cf60-48d1-ad9c-1d61e611f3b5",
+          "name": "get Expired Policies",
+          "request": {
+            "name": "get Expired Policies",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "metrics",
+                "expiredPolicies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "backfillZeroes",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a9da058f-dd67-4b6c-8310-1581295306f7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "metrics",
+                    "expiredPolicies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "backfillZeroes",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5031,\n  \"endDate\": \"2022-01-22\",\n  \"offset\": 862,\n  \"periodic\": \"week\",\n  \"startDate\": \"1957-07-23\",\n  \"results\": [\n    {\n      \"tenantLocator\": \"293a9051-6638-e59f-1368-1546f96d7012\",\n      \"productName\": \"string\",\n      \"currency\": \"string\",\n      \"dataPointStartDate\": \"1977-12-17\",\n      \"value\": 5296.609842348843\n    },\n    {\n      \"tenantLocator\": \"6c872656-8aa0-a893-5891-0572425137d7\",\n      \"productName\": \"string\",\n      \"currency\": \"string\",\n      \"dataPointStartDate\": \"2025-05-30\",\n      \"value\": 860.3210351898749\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ece7cf01-9da9-41e8-b5d8-15aec502b487",
+          "name": "download Expired Policies",
+          "request": {
+            "name": "download Expired Policies",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "metrics",
+                "expiredPolicies",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "backfillZeroes",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "75328ef9-b3db-4397-b789-d6f078086cae",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "metrics",
+                    "expiredPolicies",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "backfillZeroes",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7aa82b6f-1f24-4510-b694-082e47e5ae50",
+          "name": "get Conversion Rate",
+          "request": {
+            "name": "get Conversion Rate",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "metrics",
+                "conversionRate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "backfillZeroes",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e9c7fd3f-8d88-4b62-8f5c-a3607215e821",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "metrics",
+                    "conversionRate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "backfillZeroes",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5031,\n  \"endDate\": \"2022-01-22\",\n  \"offset\": 862,\n  \"periodic\": \"week\",\n  \"startDate\": \"1957-07-23\",\n  \"results\": [\n    {\n      \"tenantLocator\": \"293a9051-6638-e59f-1368-1546f96d7012\",\n      \"productName\": \"string\",\n      \"currency\": \"string\",\n      \"dataPointStartDate\": \"1977-12-17\",\n      \"value\": 5296.609842348843\n    },\n    {\n      \"tenantLocator\": \"6c872656-8aa0-a893-5891-0572425137d7\",\n      \"productName\": \"string\",\n      \"currency\": \"string\",\n      \"dataPointStartDate\": \"2025-05-30\",\n      \"value\": 860.3210351898749\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fdb512a9-81e3-44bb-875f-581995189ceb",
+          "name": "download Conversion Rate",
+          "request": {
+            "name": "download Conversion Rate",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "metrics",
+                "conversionRate",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "backfillZeroes",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "984cbe56-be0a-46b5-990e-ae54d1981443",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "metrics",
+                    "conversionRate",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "backfillZeroes",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"localEndDateAdjusted\": \"<date>\",\n  \"localStartDateAdjusted\": \"<date>\",\n  \"groupByProduct\": \"<boolean>\",\n  \"groupByTenant\": \"<boolean>\",\n  \"tenantLocators\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"products\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenantType\": \"<string>\",\n  \"periodic\": \"<string>\",\n  \"currencies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4e50b5c-c8b0-48bb-8578-15b6df8e318f",
+          "name": "fetch Delta Files",
+          "request": {
+            "name": "fetch Delta Files",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "delta-files",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tenantLocator\": \"<uuid>\",\n  \"transformationTable\": \"<string>\",\n  \"deltaFileType\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"startTime\": \"<long>\",\n  \"lastFile\": \"<string>\",\n  \"dataProcessedThroughTime\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8abeaa5e-2b00-477d-bed8-d44b2f59d02b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "delta-files",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tenantLocator\": \"<uuid>\",\n  \"transformationTable\": \"<string>\",\n  \"deltaFileType\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"startTime\": \"<long>\",\n  \"lastFile\": \"<string>\",\n  \"dataProcessedThroughTime\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createTableFile\": \"string\",\n  \"dataProcessedThroughTime\": 9153,\n  \"dropTableFile\": \"string\",\n  \"s3Bucket\": \"string\",\n  \"version\": 8820,\n  \"deltaFiles\": [\n    {\n      \"fileName\": \"string\",\n      \"deltaFileType\": \"csv\",\n      \"generationTime\": 1805,\n      \"jobEndTime\": 2010,\n      \"jobStartTime\": 9313,\n      \"recordCount\": 8408,\n      \"md5HashSum\": \"string\"\n    },\n    {\n      \"fileName\": \"string\",\n      \"deltaFileType\": \"sql\",\n      \"generationTime\": 5729,\n      \"jobEndTime\": 9476,\n      \"jobStartTime\": 419,\n      \"recordCount\": 9370,\n      \"md5HashSum\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cfda7609-f548-4a7c-b38c-80bbc8f907ee",
+          "name": "fetch Delta File",
+          "request": {
+            "name": "fetch Delta File",
+            "description": {},
+            "url": {
+              "path": [
+                "business-stats",
+                "delta-files",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/sql"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tenantLocator\": \"<uuid>\",\n  \"fileName\": \"<string>\",\n  \"s3Bucket\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "301f29e5-f044-41c5-9cd0-f9f3eff907f8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business-stats",
+                    "delta-files",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/sql"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tenantLocator\": \"<uuid>\",\n  \"fileName\": \"<string>\",\n  \"s3Bucket\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/sql"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "769f4391-504e-47fe-852e-f2b81914fb28",
+    "name": "Socotra Insurance Suite OpenAPI Definition Business Stats API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Socotra Insurance Suite API",
+      "type": "text/plain"
+    }
+  }
+}

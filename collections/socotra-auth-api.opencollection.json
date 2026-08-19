@@ -1,0 +1,1115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Auth API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "fetchPasswordPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/identity/passwordPolicy"
+          }
+        },
+        {
+          "info": {
+            "name": "updatePasswordPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/auth/identity/passwordPolicy",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/auth/users",
+            "params": [
+              {
+                "name": "enableUser",
+                "value": "",
+                "type": "query",
+                "description": "When true, user will be active (enabled) even if password is not set. Useful for SSO since user cannot use any other credentials to log in"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchAuthTokensForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/users/:locator/tokens",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createServiceAccountAuthToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/auth/users/:locator/tokens",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "revokeUserOauthTokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/auth/users/:locator/revoke",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchAuthTokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/users/tokens"
+          }
+        },
+        {
+          "info": {
+            "name": "createAuthToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/auth/users/tokens",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getGroupedTokenPermissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/auth/users/tokens/permissions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createRole",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/auth/roles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getTenantRole",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/roles/tenant/:tenantLocator/:roleLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "roleLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createTenantRole",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/auth/roles/tenant/:tenantLocator/:roleLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "roleLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateTenantRole",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/auth/roles/tenant/:tenantLocator/:roleLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "roleLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteTenantRole",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/auth/roles/tenant/:tenantLocator/:roleLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "roleLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createIdentityProvider",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/auth/identity",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addSAMLIdentityProvider",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/auth/identity/saml",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addOIDCIdentityProvider",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/auth/identity/oidc",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchUserByLocator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/users/:locator",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/auth/users/:locator",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/auth/users/:locator",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateUserTenantAssignments",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/auth/users/:locator/tenants",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateUserRoles",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/auth/users/:locator/roles",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "resetUserPassword",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/auth/users/:locator/passwordreset",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "enableUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/auth/users/:locator/enable",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchUserDataAccessForTenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/users/:locator/dataaccess/:tenantLocator",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "addUserDataAccess",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/auth/users/:locator/dataaccess/:tenantLocator",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteUserDataAccess",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/auth/users/:locator/dataaccess/:tenantLocator",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchUserMasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/users/:locator/accessmask",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "addDataSecurityMask",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/auth/users/:locator/accessmask",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchTenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/tenants/:locator",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateTenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/auth/tenants/:locator",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "retireTenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/auth/tenants/:locator/retire",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getRole",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/roles/:locator",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateRole",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/auth/roles/:locator",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteRole",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/auth/roles/:locator",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchUserTenantPermissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/users/:userLocator/tenant/:tenantLocator/permissions",
+            "params": [
+              {
+                "name": "userLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchUserPermissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/users/:locator/permissions",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchUserDataAccess",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/users/:locator/dataaccess",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchCredentialStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/users/:locator/credentialStatus",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchUserMasksForTenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/users/:locator/accessmask/:tenantLocator",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deleteUserMasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/auth/users/:locator/accessmask/:tenantLocator",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchUserMask",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/users/:locator/accessmask/:tenantLocator/:type",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMyUserDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/users/whoami"
+          }
+        },
+        {
+          "info": {
+            "name": "fetchUserByName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/users/username/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/users/list",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleBasicUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/users/basic/list",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint returns a simplified response and therefore has a higher count limit compared to 'fetchMultipleUsers'."
+        },
+        {
+          "info": {
+            "name": "fetchMyTenants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/tenants/mytenants/list",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          },
+          "docs": "Returns a list of tenants you have access to."
+        },
+        {
+          "info": {
+            "name": "fetchTenants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/tenants/list",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listTenantRoles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/roles/tenant/:tenantLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchAvailablePermissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/roles/permissions"
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleRoles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/roles/list",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchIdentityProviders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/identity/instances"
+          }
+        },
+        {
+          "info": {
+            "name": "fetchIdentityProviderByName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auth/identity/instances/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deleteIdentityServerInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/auth/identity/instances/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deleteAuthTokenForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/auth/users/:locator/tokens/:tokenOrName",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tokenOrName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "removeCredentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/auth/users/:locator/credentials",
+            "params": [
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deleteAuthToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/auth/users/tokens/:tokenOrName",
+            "params": [
+              {
+                "name": "tokenOrName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

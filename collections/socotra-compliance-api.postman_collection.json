@@ -1,0 +1,457 @@
+{
+  "item": [
+    {
+      "id": "f9bb5ec1-f035-4f06-8c12-33e13ed99aa7",
+      "name": "Compliance",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d25588b6-1f7b-400a-9a25-2e1dae9aa401",
+          "name": "anonymize Data",
+          "request": {
+            "name": "anonymize Data",
+            "description": {},
+            "url": {
+              "path": [
+                "compliance",
+                ":tenantLocator",
+                "anonymize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"references\": {\n    \"key_0\": [\n      \"<ulid>\",\n      \"<ulid>\"\n    ]\n  },\n  \"includeAcceptedQuotes\": \"<boolean>\",\n  \"policyStatuses\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b4525dc4-63fe-4a55-9226-b193b7fcbb4b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "compliance",
+                    ":tenantLocator",
+                    "anonymize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"references\": {\n    \"key_0\": [\n      \"<ulid>\",\n      \"<ulid>\"\n    ],\n    \"key_1\": [\n      \"<ulid>\",\n      \"<ulid>\"\n    ],\n    \"key_2\": [\n      \"<ulid>\",\n      \"<ulid>\"\n    ]\n  },\n  \"includeAcceptedQuotes\": \"<boolean>\",\n  \"policyStatuses\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"jobLocator\": \"string\",\n    \"fromCurrentRequest\": false,\n    \"jobStatus\": \"suspended\",\n    \"referenceType\": \"disbursement\",\n    \"assignedReferenceLocators\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"jobLocator\": \"string\",\n    \"fromCurrentRequest\": true,\n    \"jobStatus\": \"suspended\",\n    \"referenceType\": \"contact\",\n    \"assignedReferenceLocators\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51dbe228-804a-40af-af50-b67a54054feb",
+          "name": "get Anonymization References",
+          "request": {
+            "name": "get Anonymization References",
+            "description": {},
+            "url": {
+              "path": [
+                "compliance",
+                ":tenantLocator",
+                "references"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "references",
+                  "value": "{\"key_0\":[\"<ulid>\",\"<ulid>\"],\"key_1\":[\"<ulid>\",\"<ulid>\"]}",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e5be1cb6-a397-49d7-92a8-e05451e6c2b3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "compliance",
+                    ":tenantLocator",
+                    "references"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "references",
+                      "value": "[object Object]"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"referenceLocator\": \"string\",\n    \"anonymizationState\": \"anonymized\",\n    \"parentReferenceType\": \"account\",\n    \"referenceType\": \"policy\",\n    \"updatedAt\": \"1949-04-03T10:28:52.729Z\",\n    \"parentReferenceLocator\": \"string\",\n    \"anonymizationJobLocator\": \"string\",\n    \"scheduledAt\": \"2008-11-19T05:39:55.262Z\",\n    \"anonymizedAt\": \"1951-02-02T10:54:41.692Z\",\n    \"preAnonymizationChildren\": [\n      {\n        \"referenceType\": \"fnol\",\n        \"referenceLocators\": [\n          \"string\",\n          \"string\"\n        ],\n        \"parentJobLocator\": \"string\"\n      },\n      {\n        \"referenceType\": \"payment\",\n        \"referenceLocators\": [\n          \"string\",\n          \"string\"\n        ],\n        \"parentJobLocator\": \"string\"\n      }\n    ],\n    \"postAnonymizationChildren\": [\n      {\n        \"referenceType\": \"quote\",\n        \"referenceLocators\": [\n          \"string\",\n          \"string\"\n        ],\n        \"parentJobLocator\": \"string\"\n      },\n      {\n        \"referenceType\": \"contact\",\n        \"referenceLocators\": [\n          \"string\",\n          \"string\"\n        ],\n        \"parentJobLocator\": \"string\"\n      }\n    ]\n  },\n  {\n    \"referenceLocator\": \"string\",\n    \"anonymizationState\": \"identifiable\",\n    \"parentReferenceType\": \"none\",\n    \"referenceType\": \"account\",\n    \"updatedAt\": \"1986-01-17T07:12:39.218Z\",\n    \"parentReferenceLocator\": \"string\",\n    \"anonymizationJobLocator\": \"string\",\n    \"scheduledAt\": \"1981-01-26T01:56:51.347Z\",\n    \"anonymizedAt\": \"1991-02-06T23:27:54.002Z\",\n    \"preAnonymizationChildren\": [\n      {\n        \"referenceType\": \"none\",\n        \"referenceLocators\": [\n          \"string\",\n          \"string\"\n        ],\n        \"parentJobLocator\": \"string\"\n      },\n      {\n        \"referenceType\": \"disbursement\",\n        \"referenceLocators\": [\n          \"string\",\n          \"string\"\n        ],\n        \"parentJobLocator\": \"string\"\n      }\n    ],\n    \"postAnonymizationChildren\": [\n      {\n        \"referenceType\": \"quote\",\n        \"referenceLocators\": [\n          \"string\",\n          \"string\"\n        ],\n        \"parentJobLocator\": \"string\"\n      },\n      {\n        \"referenceType\": \"disbursement\",\n        \"referenceLocators\": [\n          \"string\",\n          \"string\"\n        ],\n        \"parentJobLocator\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7caa564b-cd78-4192-aeaf-3d45159ff37e",
+          "name": "preview Anonymization",
+          "request": {
+            "name": "preview Anonymization",
+            "description": {},
+            "url": {
+              "path": [
+                "compliance",
+                ":tenantLocator",
+                "preview"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "references",
+                  "value": "{\"key_0\":[\"<ulid>\",\"<ulid>\"]}",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "includeAcceptedQuotes",
+                  "value": "<boolean>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "policyStatuses",
+                  "value": "[\"<string>\",\"<string>\"]",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f234384d-9507-440c-9c1a-fc4eb12ffc88",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "compliance",
+                    ":tenantLocator",
+                    "preview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "references",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "includeAcceptedQuotes",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "policyStatuses",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"referenceType\": \"disbursement\",\n    \"references\": [\n      {\n        \"referenceLocator\": \"string\",\n        \"state\": \"anonymized\",\n        \"targets\": [\n          {\n            \"referenceType\": \"payment\",\n            \"willAnonymize\": false,\n            \"anonymizableReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"restrictedReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"referenceType\": \"fnol\",\n            \"willAnonymize\": true,\n            \"anonymizableReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"restrictedReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"referenceLocator\": \"string\",\n        \"state\": \"restricted\",\n        \"targets\": [\n          {\n            \"referenceType\": \"payment\",\n            \"willAnonymize\": false,\n            \"anonymizableReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"restrictedReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"referenceType\": \"none\",\n            \"willAnonymize\": true,\n            \"anonymizableReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"restrictedReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"referenceType\": \"payment\",\n    \"references\": [\n      {\n        \"referenceLocator\": \"string\",\n        \"state\": \"restricted\",\n        \"targets\": [\n          {\n            \"referenceType\": \"policy\",\n            \"willAnonymize\": false,\n            \"anonymizableReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"restrictedReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"referenceType\": \"policy\",\n            \"willAnonymize\": true,\n            \"anonymizableReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"restrictedReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"referenceLocator\": \"string\",\n        \"state\": \"anonymized\",\n        \"targets\": [\n          {\n            \"referenceType\": \"quote\",\n            \"willAnonymize\": false,\n            \"anonymizableReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"restrictedReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"referenceType\": \"none\",\n            \"willAnonymize\": true,\n            \"anonymizableReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"restrictedReferenceLocators\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7194e1b6-fef9-4533-be86-ddf65cb1feae",
+          "name": "fetch Anonymization Jobs",
+          "request": {
+            "name": "fetch Anonymization Jobs",
+            "description": {},
+            "url": {
+              "path": [
+                "compliance",
+                ":tenantLocator",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jobLocators",
+                  "value": "[\"<ulid>\",\"<ulid>\"]",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "71e31c64-9d67-44f9-997a-4d4d64f21b15",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "compliance",
+                    ":tenantLocator",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobLocators",
+                      "value": "<ulid>,<ulid>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"jobLocator\": \"string\",\n    \"jobDetails\": {\n      \"assignedReferenceLocators\": [\n        \"string\",\n        \"string\"\n      ],\n      \"problematicReferenceLocators\": {\n        \"assigned\": [\n          \"string\",\n          \"string\"\n        ],\n        \"children\": [\n          \"string\",\n          \"string\"\n        ],\n        \"failed\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"includeAcceptedQuotes\": true,\n      \"policyStatuses\": [\n        \"cancelPending\",\n        \"cancelPending\"\n      ]\n    },\n    \"jobStatus\": \"completed\",\n    \"referenceType\": \"fnol\",\n    \"updatedAt\": \"1976-03-20T06:36:23.164Z\",\n    \"assignedReferenceLocators\": [\n      \"string\",\n      \"string\"\n    ],\n    \"createdBy\": \"05cc9e82-d828-27f9-e83d-55379454bad1\",\n    \"parentJobLocator\": \"string\",\n    \"processingErrors\": \"string\",\n    \"anonymizedReferenceLocators\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"jobLocator\": \"string\",\n    \"jobDetails\": {\n      \"assignedReferenceLocators\": [\n        \"string\",\n        \"string\"\n      ],\n      \"problematicReferenceLocators\": {\n        \"assigned\": [\n          \"string\",\n          \"string\"\n        ],\n        \"children\": [\n          \"string\",\n          \"string\"\n        ],\n        \"failed\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"includeAcceptedQuotes\": false,\n      \"policyStatuses\": [\n        \"delinquent\",\n        \"doNotRenew\"\n      ]\n    },\n    \"jobStatus\": \"running\",\n    \"referenceType\": \"contact\",\n    \"updatedAt\": \"1968-10-08T18:21:28.994Z\",\n    \"assignedReferenceLocators\": [\n      \"string\",\n      \"string\"\n    ],\n    \"createdBy\": \"909ee77b-ad02-0495-b577-7cad70746f37\",\n    \"parentJobLocator\": \"string\",\n    \"processingErrors\": \"string\",\n    \"anonymizedReferenceLocators\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "78b19805-1b07-430f-a289-fe4ec11c6eb9",
+    "name": "Socotra Insurance Suite OpenAPI Definition Compliance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Socotra Insurance Suite API",
+      "type": "text/plain"
+    }
+  }
+}

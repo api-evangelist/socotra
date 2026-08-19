@@ -1,0 +1,690 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Auxdata API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auxdata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getAuxDataKeys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auxdata/:tenantLocator/auxdata/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "putAuxData",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/auxdata/:tenantLocator/auxdata/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createMediaData",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/auxdata/:tenantLocator/mediadata",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filename",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mimeType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "references",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchLatestDiaryEntriesByReference",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auxdata/:tenantLocator/diary/:referenceType/:referenceLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "referenceType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "referenceLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeDiscarded",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetches all of the latest revisions for a given entity"
+        },
+        {
+          "info": {
+            "name": "createDiary",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/auxdata/:tenantLocator/diary/:referenceType/:referenceLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "referenceType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "referenceLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createDiaryForSegmentElement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/auxdata/:tenantLocator/diary/segments/:segmentLocator/element/:staticElementLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "segmentLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticElementLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createDiaryForQuoteElement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/auxdata/:tenantLocator/diary/quotes/:quoteLocator/element/:staticElementLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quoteLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticElementLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchLatestMediaData",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auxdata/:tenantLocator/mediadata/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateMediaData",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/auxdata/:tenantLocator/mediadata/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filename",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mimeType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "referencesToAdd",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "referencesToRemove",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteMediaData",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/auxdata/:tenantLocator/mediadata/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchAllDiaryEntriesByLocator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auxdata/:tenantLocator/diary/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetches all revisions of a single diary entry"
+        },
+        {
+          "info": {
+            "name": "updateDiary",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/auxdata/:tenantLocator/diary/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "discardDiary",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/auxdata/:tenantLocator/diary/:locator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMediaData",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auxdata/:tenantLocator/mediadata/:locator/versions/:versionLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "versionLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auxdata/:tenantLocator/mediadata/:locator/versions/:versionLocator/file",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "versionLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchAllMediaDataByLocator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auxdata/:tenantLocator/mediadata/:locator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchLatestFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auxdata/:tenantLocator/mediadata/:locator/file",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchLatestMediaDataByReference",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auxdata/:tenantLocator/mediadata/search/:referenceType/:referenceLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "referenceLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "referenceType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchLatestDiaryEntryByLocator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auxdata/:tenantLocator/diary/:locator/latest",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetches the latest revision of a single diary entry"
+        },
+        {
+          "info": {
+            "name": "getAuxData",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auxdata/:tenantLocator/auxdata/:locator/:key",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deleteAuxData",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/auxdata/:tenantLocator/auxdata/:locator/:key",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getAuxDataSize",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/auxdata/:tenantLocator/auxdata/size",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

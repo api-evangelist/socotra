@@ -1,0 +1,3030 @@
+{
+  "item": [
+    {
+      "id": "d85c838b-46ed-48df-b307-302df0fc71b3",
+      "name": "Claim",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "be5f01f7-eb60-4dfb-8276-0a2701bd0d2a",
+          "name": "add Losses",
+          "request": {
+            "name": "add Losses",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":locator",
+                "losses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"locator\": \"<ulid>\",\n    \"fnolLossState\": \"<string>\",\n    \"category\": \"<string>\",\n    \"type\": \"<string>\",\n    \"data\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    },\n    \"exposureElementLocator\": \"<ulid>\",\n    \"coverageElementLocator\": \"<ulid>\",\n    \"validationResult\": {\n      \"success\": \"<boolean>\",\n      \"validationItems\": [\n        {\n          \"locator\": \"<ulid>\",\n          \"elementType\": \"<string>\",\n          \"errors\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"locator\": \"<ulid>\",\n          \"elementType\": \"<string>\",\n          \"errors\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    \"anonymizedAt\": \"<dateTime>\"\n  },\n  {\n    \"locator\": \"<ulid>\",\n    \"fnolLossState\": \"<string>\",\n    \"category\": \"<string>\",\n    \"type\": \"<string>\",\n    \"data\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\",\n      \"key_2\": \"<object>\",\n      \"key_3\": \"<object>\"\n    },\n    \"exposureElementLocator\": \"<ulid>\",\n    \"coverageElementLocator\": \"<ulid>\",\n    \"validationResult\": {\n      \"success\": \"<boolean>\",\n      \"validationItems\": [\n        {\n          \"locator\": \"<ulid>\",\n          \"elementType\": \"<string>\",\n          \"errors\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"locator\": \"<ulid>\",\n          \"elementType\": \"<string>\",\n          \"errors\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    \"anonymizedAt\": \"<dateTime>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9e53a85d-f633-4e1e-9160-39bbaa2722fc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":locator",
+                    "losses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"locator\": \"<ulid>\",\n    \"fnolLossState\": \"<string>\",\n    \"category\": \"<string>\",\n    \"type\": \"<string>\",\n    \"data\": {\n      \"key_0\": \"<object>\"\n    },\n    \"exposureElementLocator\": \"<ulid>\",\n    \"coverageElementLocator\": \"<ulid>\",\n    \"validationResult\": {\n      \"success\": \"<boolean>\",\n      \"validationItems\": [\n        {\n          \"locator\": \"<ulid>\",\n          \"elementType\": \"<string>\",\n          \"errors\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"locator\": \"<ulid>\",\n          \"elementType\": \"<string>\",\n          \"errors\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    \"anonymizedAt\": \"<dateTime>\"\n  },\n  {\n    \"locator\": \"<ulid>\",\n    \"fnolLossState\": \"<string>\",\n    \"category\": \"<string>\",\n    \"type\": \"<string>\",\n    \"data\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\",\n      \"key_2\": \"<object>\"\n    },\n    \"exposureElementLocator\": \"<ulid>\",\n    \"coverageElementLocator\": \"<ulid>\",\n    \"validationResult\": {\n      \"success\": \"<boolean>\",\n      \"validationItems\": [\n        {\n          \"locator\": \"<ulid>\",\n          \"elementType\": \"<string>\",\n          \"errors\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"locator\": \"<ulid>\",\n          \"elementType\": \"<string>\",\n          \"errors\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    \"anonymizedAt\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"validated\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1966-11-22T03:39:29.381Z\",\n  \"createdBy\": \"a0534cf5-d42d-3683-41ec-4cd964f551f1\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"contactLocator\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1970-03-22T07:47:15.519Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1991-04-07T09:10:41.705Z\",\n  \"updatedBy\": \"e8580acf-b61f-797a-ebb9-d3853381520c\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2006-05-19T04:29:49.214Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b1c5fe8-308a-43ea-9c49-48d05adb55f9",
+          "name": "delete Losses",
+          "request": {
+            "name": "delete Losses",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":locator",
+                "losses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<ulid>\",\n  \"<ulid>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b3262383-530a-4d09-a7ea-268d371adffc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":locator",
+                    "losses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<ulid>\",\n  \"<ulid>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"validated\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"createdAt\": \"2014-12-22T12:14:03.642Z\",\n  \"createdBy\": \"d1e1d4db-89ef-358d-af19-11581873224b\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"contactLocator\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"2001-09-08T16:54:13.740Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1958-10-26T13:58:00.848Z\",\n  \"updatedBy\": \"af71aa57-dddf-821f-4d62-04b851169935\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2002-03-31T01:44:50.185Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "760cc425-3ead-443b-b795-5b4f87b69f47",
+          "name": "add Fnol",
+          "request": {
+            "name": "add Fnol",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"autoValidate\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"data\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\"\n  },\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"<ulid>\",\n  \"policyLocator\": \"<ulid>\",\n  \"incidentTime\": \"<dateTime>\",\n  \"incidentTimezone\": \"<string>\",\n  \"incidentSummary\": \"<string>\",\n  \"region\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f6480396-6aa9-4a77-813c-1843a48f757b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"autoValidate\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"data\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\"\n  },\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"<ulid>\",\n  \"policyLocator\": \"<ulid>\",\n  \"incidentTime\": \"<dateTime>\",\n  \"incidentTimezone\": \"<string>\",\n  \"incidentSummary\": \"<string>\",\n  \"region\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"onClaim\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1987-10-15T13:41:43.796Z\",\n  \"createdBy\": \"b2024eb7-2c79-e9ec-17f3-6754246b21f2\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1980-04-23T21:23:47.172Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1957-05-22T17:11:05.100Z\",\n  \"updatedBy\": \"95b44313-8a38-b8f0-2c94-6cf423a977a3\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2000-11-30T04:43:15.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5dd80f51-b962-491c-a399-617e7373ad45",
+          "name": "set Fnol Number",
+          "request": {
+            "name": "set Fnol Number",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":locator",
+                "number",
+                "set"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fnolNumber",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4b57a1f-885f-4fa9-b2ed-9423d5ec3b80",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":locator",
+                    "number",
+                    "set"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fnolNumber",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"onClaim\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1987-10-15T13:41:43.796Z\",\n  \"createdBy\": \"b2024eb7-2c79-e9ec-17f3-6754246b21f2\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1980-04-23T21:23:47.172Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1957-05-22T17:11:05.100Z\",\n  \"updatedBy\": \"95b44313-8a38-b8f0-2c94-6cf423a977a3\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2000-11-30T04:43:15.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97ceba1a-cc08-45b0-b7e9-878d27efe2b8",
+          "name": "generate Fnol Number",
+          "request": {
+            "name": "generate Fnol Number",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":locator",
+                "number",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "99592251-c46b-4543-a545-4f9a4fc41b9e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":locator",
+                    "number",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"onClaim\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1987-10-15T13:41:43.796Z\",\n  \"createdBy\": \"b2024eb7-2c79-e9ec-17f3-6754246b21f2\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1980-04-23T21:23:47.172Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1957-05-22T17:11:05.100Z\",\n  \"updatedBy\": \"95b44313-8a38-b8f0-2c94-6cf423a977a3\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2000-11-30T04:43:15.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a008d80-875c-44c7-bb8e-2cc5909ba782",
+          "name": "add Fnol Contact",
+          "request": {
+            "name": "add Fnol Contact",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":fnolLocator",
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "fnolLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contactLocator\": \"<ulid>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "683e8252-5389-4071-91e1-ffb6e89a04ec",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":fnolLocator",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "fnolLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contactLocator\": \"<ulid>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"onClaim\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1987-10-15T13:41:43.796Z\",\n  \"createdBy\": \"b2024eb7-2c79-e9ec-17f3-6754246b21f2\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1980-04-23T21:23:47.172Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1957-05-22T17:11:05.100Z\",\n  \"updatedBy\": \"95b44313-8a38-b8f0-2c94-6cf423a977a3\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2000-11-30T04:43:15.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de1a209a-13c8-4f79-b86b-7431998195a8",
+          "name": "get Fnol",
+          "request": {
+            "name": "get Fnol",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "74698ba0-7d95-4a7e-8bc8-b2edb1b193aa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"onClaim\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1987-10-15T13:41:43.796Z\",\n  \"createdBy\": \"b2024eb7-2c79-e9ec-17f3-6754246b21f2\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1980-04-23T21:23:47.172Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1957-05-22T17:11:05.100Z\",\n  \"updatedBy\": \"95b44313-8a38-b8f0-2c94-6cf423a977a3\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2000-11-30T04:43:15.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "935c8d16-d0a0-4f21-8113-fe27c06438a9",
+          "name": "patch Fnol",
+          "request": {
+            "name": "patch Fnol",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"removeData\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\"\n  },\n  \"setData\": {\n    \"key_0\": \"<object>\"\n  },\n  \"incidentTime\": \"<dateTime>\",\n  \"incidentTimezone\": \"<string>\",\n  \"incidentSummary\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accountLocator\": \"<ulid>\",\n  \"policyLocator\": \"<ulid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "529db6c4-0420-4989-b452-ae524ea08b7b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"removeData\": {\n    \"key_0\": \"<object>\"\n  },\n  \"setData\": {\n    \"key_0\": \"<object>\"\n  },\n  \"incidentTime\": \"<dateTime>\",\n  \"incidentTimezone\": \"<string>\",\n  \"incidentSummary\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accountLocator\": \"<ulid>\",\n  \"policyLocator\": \"<ulid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"onClaim\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1987-10-15T13:41:43.796Z\",\n  \"createdBy\": \"b2024eb7-2c79-e9ec-17f3-6754246b21f2\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1980-04-23T21:23:47.172Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1957-05-22T17:11:05.100Z\",\n  \"updatedBy\": \"95b44313-8a38-b8f0-2c94-6cf423a977a3\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2000-11-30T04:43:15.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35eb3741-7e9b-4d6a-aa63-0f487752b1b0",
+          "name": "validate",
+          "request": {
+            "name": "validate",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":locator",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f83f404b-571e-40e8-8bb0-6b80d6c0cb6d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":locator",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"onClaim\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1987-10-15T13:41:43.796Z\",\n  \"createdBy\": \"b2024eb7-2c79-e9ec-17f3-6754246b21f2\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1980-04-23T21:23:47.172Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1957-05-22T17:11:05.100Z\",\n  \"updatedBy\": \"95b44313-8a38-b8f0-2c94-6cf423a977a3\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2000-11-30T04:43:15.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b7a0102-1644-4ba0-a178-c75cb7294785",
+          "name": "reject",
+          "request": {
+            "name": "reject",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":locator",
+                "reject"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d82f9218-e188-4066-b26f-4cf3cc6ee343",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":locator",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"onClaim\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1987-10-15T13:41:43.796Z\",\n  \"createdBy\": \"b2024eb7-2c79-e9ec-17f3-6754246b21f2\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1980-04-23T21:23:47.172Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1957-05-22T17:11:05.100Z\",\n  \"updatedBy\": \"95b44313-8a38-b8f0-2c94-6cf423a977a3\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2000-11-30T04:43:15.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1d0f01c-048b-430c-9648-2e052061fc8a",
+          "name": "check Losses",
+          "request": {
+            "name": "check Losses",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":locator",
+                "losses",
+                "coverageCheck"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ede237e-110c-44d6-abb8-37cb2bc48686",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":locator",
+                    "losses",
+                    "coverageCheck"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"onClaim\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1987-10-15T13:41:43.796Z\",\n  \"createdBy\": \"b2024eb7-2c79-e9ec-17f3-6754246b21f2\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1980-04-23T21:23:47.172Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1957-05-22T17:11:05.100Z\",\n  \"updatedBy\": \"95b44313-8a38-b8f0-2c94-6cf423a977a3\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2000-11-30T04:43:15.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f499a19a-d52c-4712-ab10-1b7e18fa8e72",
+          "name": "discard",
+          "request": {
+            "name": "discard",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":locator",
+                "discard"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f730cf7d-71ea-4166-8373-65ecf1b7844b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":locator",
+                    "discard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"onClaim\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1987-10-15T13:41:43.796Z\",\n  \"createdBy\": \"b2024eb7-2c79-e9ec-17f3-6754246b21f2\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1980-04-23T21:23:47.172Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1957-05-22T17:11:05.100Z\",\n  \"updatedBy\": \"95b44313-8a38-b8f0-2c94-6cf423a977a3\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2000-11-30T04:43:15.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b49b84e5-fa37-419e-af13-410ef4ae5a58",
+          "name": "create Claim",
+          "request": {
+            "name": "create Claim",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":locator",
+                "createClaim"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "markAsComplete",
+                  "value": "false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "06a5ae01-92d9-4e3c-a06a-ddae28259136",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":locator",
+                    "createClaim"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "markAsComplete",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"onClaim\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1987-10-15T13:41:43.796Z\",\n  \"createdBy\": \"b2024eb7-2c79-e9ec-17f3-6754246b21f2\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1980-04-23T21:23:47.172Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1957-05-22T17:11:05.100Z\",\n  \"updatedBy\": \"95b44313-8a38-b8f0-2c94-6cf423a977a3\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2000-11-30T04:43:15.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e5018bd-825e-4de0-9c19-c4d06832ca0d",
+          "name": "complete",
+          "request": {
+            "name": "complete",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":locator",
+                "complete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c00369cc-ee44-4776-a008-23fe74dce077",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":locator",
+                    "complete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"onClaim\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1987-10-15T13:41:43.796Z\",\n  \"createdBy\": \"b2024eb7-2c79-e9ec-17f3-6754246b21f2\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1980-04-23T21:23:47.172Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1957-05-22T17:11:05.100Z\",\n  \"updatedBy\": \"95b44313-8a38-b8f0-2c94-6cf423a977a3\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2000-11-30T04:43:15.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29b474d8-9af3-415a-852e-791007619548",
+          "name": "update Loss",
+          "request": {
+            "name": "update Loss",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":fnolLocator",
+                "losses",
+                ":lossLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "fnolLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "lossLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"removeData\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\"\n  },\n  \"setData\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\"\n  },\n  \"type\": \"<string>\",\n  \"fnolLossState\": \"<string>\",\n  \"exposureElementLocator\": \"<ulid>\",\n  \"coverageElementLocator\": \"<ulid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "61433c37-d53b-475e-a820-fd44bb90d53b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":fnolLocator",
+                    "losses",
+                    ":lossLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "fnolLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "lossLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"removeData\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\"\n  },\n  \"setData\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\"\n  },\n  \"type\": \"<string>\",\n  \"fnolLossState\": \"<string>\",\n  \"exposureElementLocator\": \"<ulid>\",\n  \"coverageElementLocator\": \"<ulid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"<ulid>\",\n  \"fnolLossState\": \"<string>\",\n  \"category\": \"<string>\",\n  \"type\": \"<string>\",\n  \"data\": {\n    \"key_0\": \"<object>\"\n  },\n  \"exposureElementLocator\": \"<ulid>\",\n  \"coverageElementLocator\": \"<ulid>\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e026efd5-0c04-49f0-9d27-f7ffdf3dbbfb",
+          "name": "reset Loss",
+          "request": {
+            "name": "reset Loss",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":fnolLocator",
+                "losses",
+                ":lossLocator",
+                "reset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "fnolLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "lossLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8e10efc-c22d-4e97-902d-e194d570e11e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":fnolLocator",
+                    "losses",
+                    ":lossLocator",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "fnolLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "lossLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"<ulid>\",\n  \"fnolLossState\": \"<string>\",\n  \"category\": \"<string>\",\n  \"type\": \"<string>\",\n  \"data\": {\n    \"key_0\": \"<object>\"\n  },\n  \"exposureElementLocator\": \"<ulid>\",\n  \"coverageElementLocator\": \"<ulid>\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f62baab-3e1f-447e-bee7-9d7c1fa25313",
+          "name": "include Loss",
+          "request": {
+            "name": "include Loss",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":fnolLocator",
+                "losses",
+                ":lossLocator",
+                "include"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "fnolLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "lossLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "738c1c2b-e06c-41ec-8f7e-8cf36bbab8fe",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":fnolLocator",
+                    "losses",
+                    ":lossLocator",
+                    "include"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "fnolLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "lossLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"<ulid>\",\n  \"fnolLossState\": \"<string>\",\n  \"category\": \"<string>\",\n  \"type\": \"<string>\",\n  \"data\": {\n    \"key_0\": \"<object>\"\n  },\n  \"exposureElementLocator\": \"<ulid>\",\n  \"coverageElementLocator\": \"<ulid>\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8bde9146-23e3-4383-8bbe-87773644ac29",
+          "name": "exclude Loss",
+          "request": {
+            "name": "exclude Loss",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":fnolLocator",
+                "losses",
+                ":lossLocator",
+                "exclude"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "fnolLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "lossLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6ca63d1-3590-4414-98e0-2f836d859a84",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":fnolLocator",
+                    "losses",
+                    ":lossLocator",
+                    "exclude"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "fnolLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "lossLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"<ulid>\",\n  \"fnolLossState\": \"<string>\",\n  \"category\": \"<string>\",\n  \"type\": \"<string>\",\n  \"data\": {\n    \"key_0\": \"<object>\"\n  },\n  \"exposureElementLocator\": \"<ulid>\",\n  \"coverageElementLocator\": \"<ulid>\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fcfa5879-0ef2-446c-ad33-c93d4fe8a531",
+          "name": "update Fnol Contact",
+          "request": {
+            "name": "update Fnol Contact",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":fnolLocator",
+                "contacts",
+                ":contactLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "fnolLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "contactLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"addRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"removeRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "78672519-13ae-4f15-8e53-905297468691",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":fnolLocator",
+                    "contacts",
+                    ":contactLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "fnolLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "contactLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"addRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"removeRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"onClaim\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1987-10-15T13:41:43.796Z\",\n  \"createdBy\": \"b2024eb7-2c79-e9ec-17f3-6754246b21f2\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1980-04-23T21:23:47.172Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1957-05-22T17:11:05.100Z\",\n  \"updatedBy\": \"95b44313-8a38-b8f0-2c94-6cf423a977a3\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2000-11-30T04:43:15.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d049d81b-a546-4f8b-84d4-bfd8dbb11b23",
+          "name": "delete Fnol Contact",
+          "request": {
+            "name": "delete Fnol Contact",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":fnolLocator",
+                "contacts",
+                ":contactLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "fnolLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "contactLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a4f469b-b1ed-4492-a028-f5306fb5e316",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":fnolLocator",
+                    "contacts",
+                    ":contactLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "fnolLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "contactLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"onClaim\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1987-10-15T13:41:43.796Z\",\n  \"createdBy\": \"b2024eb7-2c79-e9ec-17f3-6754246b21f2\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1980-04-23T21:23:47.172Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1957-05-22T17:11:05.100Z\",\n  \"updatedBy\": \"95b44313-8a38-b8f0-2c94-6cf423a977a3\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2000-11-30T04:43:15.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59199c80-6f8a-4716-b2ae-e6a113ed98a8",
+          "name": "list Fnol History",
+          "request": {
+            "name": "list Fnol History",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":locator",
+                "history",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38b37083-aef8-4d86-b4e2-013cfd669058",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":locator",
+                    "history",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"listCompleted\": true,\n  \"items\": [\n    {\n      \"locator\": \"string\",\n      \"fnolState\": \"discarded\",\n      \"type\": \"string\",\n      \"data\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"createdAt\": \"1996-12-18T15:51:20.319Z\",\n      \"createdBy\": \"101059b2-f5d0-c180-3c0f-b173f35563f3\",\n      \"claims\": [\n        \"string\",\n        \"string\"\n      ],\n      \"contacts\": [\n        {\n          \"contactLocator\": \"<ulid>\",\n          \"roles\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"contactLocator\": \"<ulid>\",\n          \"roles\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"losses\": [\n        {\n          \"locator\": \"<ulid>\",\n          \"fnolLossState\": \"<string>\",\n          \"category\": \"<string>\",\n          \"type\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"<object>\",\n            \"key_1\": \"<object>\",\n            \"key_2\": \"<object>\"\n          },\n          \"exposureElementLocator\": \"<ulid>\",\n          \"coverageElementLocator\": \"<ulid>\",\n          \"validationResult\": {\n            \"success\": \"<boolean>\",\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"anonymizedAt\": \"<dateTime>\"\n        },\n        {\n          \"locator\": \"<ulid>\",\n          \"fnolLossState\": \"<string>\",\n          \"category\": \"<string>\",\n          \"type\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"<object>\"\n          },\n          \"exposureElementLocator\": \"<ulid>\",\n          \"coverageElementLocator\": \"<ulid>\",\n          \"validationResult\": {\n            \"success\": \"<boolean>\",\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"anonymizedAt\": \"<dateTime>\"\n        }\n      ],\n      \"accountLocator\": \"string\",\n      \"policyLocator\": \"string\",\n      \"segmentLocator\": \"string\",\n      \"incidentTime\": \"1983-03-25T16:55:46.642Z\",\n      \"incidentTimezone\": \"string\",\n      \"incidentSummary\": \"string\",\n      \"region\": \"string\",\n      \"fnolNumber\": \"string\",\n      \"updatedAt\": \"2022-11-04T12:46:45.225Z\",\n      \"updatedBy\": \"125dbd66-74db-828b-ee27-d501b411e956\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"1964-01-06T15:00:19.771Z\"\n    },\n    {\n      \"locator\": \"string\",\n      \"fnolState\": \"validated\",\n      \"type\": \"string\",\n      \"data\": {\n        \"key_0\": {}\n      },\n      \"createdAt\": \"2022-01-02T03:19:26.310Z\",\n      \"createdBy\": \"df8a6674-3e97-6592-aae5-b411958bbae9\",\n      \"claims\": [\n        \"string\",\n        \"string\"\n      ],\n      \"contacts\": [\n        {\n          \"contactLocator\": \"<ulid>\",\n          \"roles\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"contactLocator\": \"<ulid>\",\n          \"roles\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"losses\": [\n        {\n          \"locator\": \"<ulid>\",\n          \"fnolLossState\": \"<string>\",\n          \"category\": \"<string>\",\n          \"type\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"<object>\",\n            \"key_1\": \"<object>\"\n          },\n          \"exposureElementLocator\": \"<ulid>\",\n          \"coverageElementLocator\": \"<ulid>\",\n          \"validationResult\": {\n            \"success\": \"<boolean>\",\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"anonymizedAt\": \"<dateTime>\"\n        },\n        {\n          \"locator\": \"<ulid>\",\n          \"fnolLossState\": \"<string>\",\n          \"category\": \"<string>\",\n          \"type\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"<object>\",\n            \"key_1\": \"<object>\"\n          },\n          \"exposureElementLocator\": \"<ulid>\",\n          \"coverageElementLocator\": \"<ulid>\",\n          \"validationResult\": {\n            \"success\": \"<boolean>\",\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"anonymizedAt\": \"<dateTime>\"\n        }\n      ],\n      \"accountLocator\": \"string\",\n      \"policyLocator\": \"string\",\n      \"segmentLocator\": \"string\",\n      \"incidentTime\": \"2014-12-28T03:54:10.454Z\",\n      \"incidentTimezone\": \"string\",\n      \"incidentSummary\": \"string\",\n      \"region\": \"string\",\n      \"fnolNumber\": \"string\",\n      \"updatedAt\": \"1975-11-21T18:58:54.814Z\",\n      \"updatedBy\": \"198beebb-2a95-3da3-9177-cb3fc8a72fcd\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"2006-03-20T07:44:41.005Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df3c3c71-2d36-472e-952f-e84d2e0776a1",
+          "name": "get Fnol Claim Locators",
+          "request": {
+            "name": "get Fnol Claim Locators",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                ":locator",
+                "claims"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d165e2b1-3a83-46e8-abe9-ddc1c3df028f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    ":locator",
+                    "claims"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92106a8c-ec89-4357-8ff0-e7e6b051aee1",
+          "name": "list Fnols By Policy Locator",
+          "request": {
+            "name": "list Fnols By Policy Locator",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                "policy",
+                ":policyLocator",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "policyLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "290688d4-2ab6-4972-b4a9-668afe2eb7db",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    "policy",
+                    ":policyLocator",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "policyLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"listCompleted\": true,\n  \"items\": [\n    {\n      \"locator\": \"string\",\n      \"fnolState\": \"onClaim\",\n      \"type\": \"string\",\n      \"data\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"createdAt\": \"2025-12-02T20:18:10.180Z\",\n      \"createdBy\": \"a9f41176-7031-172c-2022-97347c05af4e\",\n      \"claims\": [\n        \"string\",\n        \"string\"\n      ],\n      \"contacts\": [\n        {\n          \"contactLocator\": \"<ulid>\",\n          \"roles\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"contactLocator\": \"<ulid>\",\n          \"roles\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"losses\": [\n        {\n          \"locator\": \"<ulid>\",\n          \"fnolLossState\": \"<string>\",\n          \"category\": \"<string>\",\n          \"type\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"<object>\"\n          },\n          \"exposureElementLocator\": \"<ulid>\",\n          \"coverageElementLocator\": \"<ulid>\",\n          \"validationResult\": {\n            \"success\": \"<boolean>\",\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"anonymizedAt\": \"<dateTime>\"\n        },\n        {\n          \"locator\": \"<ulid>\",\n          \"fnolLossState\": \"<string>\",\n          \"category\": \"<string>\",\n          \"type\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"<object>\",\n            \"key_1\": \"<object>\"\n          },\n          \"exposureElementLocator\": \"<ulid>\",\n          \"coverageElementLocator\": \"<ulid>\",\n          \"validationResult\": {\n            \"success\": \"<boolean>\",\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"anonymizedAt\": \"<dateTime>\"\n        }\n      ],\n      \"accountLocator\": \"string\",\n      \"policyLocator\": \"string\",\n      \"segmentLocator\": \"string\",\n      \"incidentTime\": \"2023-06-11T06:33:32.542Z\",\n      \"incidentTimezone\": \"string\",\n      \"incidentSummary\": \"string\",\n      \"region\": \"string\",\n      \"fnolNumber\": \"string\",\n      \"updatedAt\": \"1954-01-31T08:26:16.713Z\",\n      \"updatedBy\": \"b5383804-8bc9-10c3-6fa0-abb0f802978a\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"1970-02-03T18:47:54.145Z\"\n    },\n    {\n      \"locator\": \"string\",\n      \"fnolState\": \"validated\",\n      \"type\": \"string\",\n      \"data\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"createdAt\": \"2006-12-02T08:32:47.185Z\",\n      \"createdBy\": \"fbcd5808-1e29-82f3-3f29-b46b5377d340\",\n      \"claims\": [\n        \"string\",\n        \"string\"\n      ],\n      \"contacts\": [\n        {\n          \"contactLocator\": \"<ulid>\",\n          \"roles\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"contactLocator\": \"<ulid>\",\n          \"roles\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"losses\": [\n        {\n          \"locator\": \"<ulid>\",\n          \"fnolLossState\": \"<string>\",\n          \"category\": \"<string>\",\n          \"type\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"<object>\",\n            \"key_1\": \"<object>\"\n          },\n          \"exposureElementLocator\": \"<ulid>\",\n          \"coverageElementLocator\": \"<ulid>\",\n          \"validationResult\": {\n            \"success\": \"<boolean>\",\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"anonymizedAt\": \"<dateTime>\"\n        },\n        {\n          \"locator\": \"<ulid>\",\n          \"fnolLossState\": \"<string>\",\n          \"category\": \"<string>\",\n          \"type\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"<object>\",\n            \"key_1\": \"<object>\",\n            \"key_2\": \"<object>\"\n          },\n          \"exposureElementLocator\": \"<ulid>\",\n          \"coverageElementLocator\": \"<ulid>\",\n          \"validationResult\": {\n            \"success\": \"<boolean>\",\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"anonymizedAt\": \"<dateTime>\"\n        }\n      ],\n      \"accountLocator\": \"string\",\n      \"policyLocator\": \"string\",\n      \"segmentLocator\": \"string\",\n      \"incidentTime\": \"2007-08-15T14:12:12.145Z\",\n      \"incidentTimezone\": \"string\",\n      \"incidentSummary\": \"string\",\n      \"region\": \"string\",\n      \"fnolNumber\": \"string\",\n      \"updatedAt\": \"1999-06-13T01:49:36.995Z\",\n      \"updatedBy\": \"09b9644a-1457-bbd7-2f8e-d36bffc63756\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"1981-05-01T13:53:18.048Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17521a4c-2286-4857-beab-ebb26d42030c",
+          "name": "get Fnol By Number",
+          "request": {
+            "name": "get Fnol By Number",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                "number",
+                ":number"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "240263cb-d4d7-40e6-9763-9cb43c16e936",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    "number",
+                    ":number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"fnolState\": \"onClaim\",\n  \"type\": \"string\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"createdAt\": \"1987-10-15T13:41:43.796Z\",\n  \"createdBy\": \"b2024eb7-2c79-e9ec-17f3-6754246b21f2\",\n  \"claims\": [\n    \"string\",\n    \"string\"\n  ],\n  \"contacts\": [\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"contactLocator\": \"<ulid>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"losses\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"fnolLossState\": \"<string>\",\n      \"category\": \"<string>\",\n      \"type\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"exposureElementLocator\": \"<ulid>\",\n      \"coverageElementLocator\": \"<ulid>\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"<dateTime>\"\n    }\n  ],\n  \"accountLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"incidentTime\": \"1980-04-23T21:23:47.172Z\",\n  \"incidentTimezone\": \"string\",\n  \"incidentSummary\": \"string\",\n  \"region\": \"string\",\n  \"fnolNumber\": \"string\",\n  \"updatedAt\": \"1957-05-22T17:11:05.100Z\",\n  \"updatedBy\": \"95b44313-8a38-b8f0-2c94-6cf423a977a3\",\n  \"validationResult\": {\n    \"success\": \"<boolean>\",\n    \"validationItems\": [\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"locator\": \"<ulid>\",\n        \"elementType\": \"<string>\",\n        \"errors\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"anonymizedAt\": \"2000-11-30T04:43:15.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "159fe98e-e8db-4809-9aa3-7e39bfc289ee",
+          "name": "list Fnol",
+          "request": {
+            "name": "list Fnol",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                ":tenantLocator",
+                "fnols",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b986b86c-acef-41a2-bb10-1a8c5a0b56bb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    ":tenantLocator",
+                    "fnols",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"listCompleted\": true,\n  \"items\": [\n    {\n      \"locator\": \"string\",\n      \"fnolState\": \"onClaim\",\n      \"type\": \"string\",\n      \"data\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"createdAt\": \"2025-12-02T20:18:10.180Z\",\n      \"createdBy\": \"a9f41176-7031-172c-2022-97347c05af4e\",\n      \"claims\": [\n        \"string\",\n        \"string\"\n      ],\n      \"contacts\": [\n        {\n          \"contactLocator\": \"<ulid>\",\n          \"roles\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"contactLocator\": \"<ulid>\",\n          \"roles\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"losses\": [\n        {\n          \"locator\": \"<ulid>\",\n          \"fnolLossState\": \"<string>\",\n          \"category\": \"<string>\",\n          \"type\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"<object>\"\n          },\n          \"exposureElementLocator\": \"<ulid>\",\n          \"coverageElementLocator\": \"<ulid>\",\n          \"validationResult\": {\n            \"success\": \"<boolean>\",\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"anonymizedAt\": \"<dateTime>\"\n        },\n        {\n          \"locator\": \"<ulid>\",\n          \"fnolLossState\": \"<string>\",\n          \"category\": \"<string>\",\n          \"type\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"<object>\",\n            \"key_1\": \"<object>\"\n          },\n          \"exposureElementLocator\": \"<ulid>\",\n          \"coverageElementLocator\": \"<ulid>\",\n          \"validationResult\": {\n            \"success\": \"<boolean>\",\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"anonymizedAt\": \"<dateTime>\"\n        }\n      ],\n      \"accountLocator\": \"string\",\n      \"policyLocator\": \"string\",\n      \"segmentLocator\": \"string\",\n      \"incidentTime\": \"2023-06-11T06:33:32.542Z\",\n      \"incidentTimezone\": \"string\",\n      \"incidentSummary\": \"string\",\n      \"region\": \"string\",\n      \"fnolNumber\": \"string\",\n      \"updatedAt\": \"1954-01-31T08:26:16.713Z\",\n      \"updatedBy\": \"b5383804-8bc9-10c3-6fa0-abb0f802978a\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"1970-02-03T18:47:54.145Z\"\n    },\n    {\n      \"locator\": \"string\",\n      \"fnolState\": \"validated\",\n      \"type\": \"string\",\n      \"data\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"createdAt\": \"2006-12-02T08:32:47.185Z\",\n      \"createdBy\": \"fbcd5808-1e29-82f3-3f29-b46b5377d340\",\n      \"claims\": [\n        \"string\",\n        \"string\"\n      ],\n      \"contacts\": [\n        {\n          \"contactLocator\": \"<ulid>\",\n          \"roles\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"contactLocator\": \"<ulid>\",\n          \"roles\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"losses\": [\n        {\n          \"locator\": \"<ulid>\",\n          \"fnolLossState\": \"<string>\",\n          \"category\": \"<string>\",\n          \"type\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"<object>\",\n            \"key_1\": \"<object>\"\n          },\n          \"exposureElementLocator\": \"<ulid>\",\n          \"coverageElementLocator\": \"<ulid>\",\n          \"validationResult\": {\n            \"success\": \"<boolean>\",\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"anonymizedAt\": \"<dateTime>\"\n        },\n        {\n          \"locator\": \"<ulid>\",\n          \"fnolLossState\": \"<string>\",\n          \"category\": \"<string>\",\n          \"type\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"<object>\",\n            \"key_1\": \"<object>\",\n            \"key_2\": \"<object>\"\n          },\n          \"exposureElementLocator\": \"<ulid>\",\n          \"coverageElementLocator\": \"<ulid>\",\n          \"validationResult\": {\n            \"success\": \"<boolean>\",\n            \"validationItems\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"anonymizedAt\": \"<dateTime>\"\n        }\n      ],\n      \"accountLocator\": \"string\",\n      \"policyLocator\": \"string\",\n      \"segmentLocator\": \"string\",\n      \"incidentTime\": \"2007-08-15T14:12:12.145Z\",\n      \"incidentTimezone\": \"string\",\n      \"incidentSummary\": \"string\",\n      \"region\": \"string\",\n      \"fnolNumber\": \"string\",\n      \"updatedAt\": \"1999-06-13T01:49:36.995Z\",\n      \"updatedBy\": \"09b9644a-1457-bbd7-2f8e-d36bffc63756\",\n      \"validationResult\": {\n        \"success\": \"<boolean>\",\n        \"validationItems\": [\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"locator\": \"<ulid>\",\n            \"elementType\": \"<string>\",\n            \"errors\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"anonymizedAt\": \"1981-05-01T13:53:18.048Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1efc1b8b-79f1-46b9-b6bf-2eedc363c99d",
+          "name": "fetch Claim Events",
+          "request": {
+            "name": "fetch Claim Events",
+            "description": {},
+            "url": {
+              "path": [
+                "claim",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "021c4a23-8960-4d5d-80e5-4800e60cf0c4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "claim",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fnolEvents\": {\n    \"claim.fnol.update\": {\n      \"locator\": \"string\"\n    },\n    \"claim.fnol.complete\": {\n      \"locator\": \"string\"\n    },\n    \"claim.fnol.validate\": {\n      \"locator\": \"string\"\n    },\n    \"claim.fnol.create\": {\n      \"locator\": \"string\"\n    },\n    \"claim.fnol.anonymize\": {\n      \"locator\": \"string\"\n    },\n    \"fnol.numberAssignmentFailed\": {\n      \"locator\": \"string\"\n    },\n    \"claim.fnol.reject\": {\n      \"locator\": \"string\"\n    },\n    \"claim.fnol.discard\": {\n      \"locator\": \"string\"\n    },\n    \"claim.fnol.onclaim\": {\n      \"claimLocator\": \"string\",\n      \"fnolLocator\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bb987038-1b5b-4997-bf8b-44d3a2e75365",
+    "name": "Socotra Insurance Suite OpenAPI Definition Claim API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Socotra Insurance Suite API",
+      "type": "text/plain"
+    }
+  }
+}

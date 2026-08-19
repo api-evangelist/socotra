@@ -1,0 +1,353 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Migration API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Migration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "startMigration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/migration/:tenantLocator/migrations",
+            "headers": [
+              {
+                "name": "X-Idempotency-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "startMigrationForAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/migration/:tenantLocator/migrations/accounts/:accountLocator",
+            "headers": [
+              {
+                "name": "X-Idempotency-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getMigrationSummary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/migration/:tenantLocator/migrations/:migrationLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "migrationLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "patchMigration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/migration/:tenantLocator/migrations/:migrationLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "migrationLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "resumeMigration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/migration/:tenantLocator/migrations/:migrationLocator/resume",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "migrationLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "recoverMigration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/migration/:tenantLocator/migrations/:migrationLocator/recover",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "migrationLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "pauseMigration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/migration/:tenantLocator/migrations/:migrationLocator/pause",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "migrationLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getMigrationMappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/migration/:tenantLocator/migrations/:migrationLocator/mappings/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "migrationLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns per-account mappings of system locators to original IDs"
+        },
+        {
+          "info": {
+            "name": "getMigrationFailures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/migration/:tenantLocator/migrations/:migrationLocator/failures/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "migrationLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getAccountMigrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/migration/:tenantLocator/migrations/:migrationLocator/accounts/:accountLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "migrationLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getMigrationMappingsForAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/migration/:tenantLocator/migrations/:migrationLocator/accounts/:accountLocator/mappings",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "migrationLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetches mappings of original IDs to system locators for an account"
+        },
+        {
+          "info": {
+            "name": "listAccountMigrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/migration/:tenantLocator/migrations/:migrationLocator/accounts/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "migrationLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMigrationEventDefinitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/migration/events"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

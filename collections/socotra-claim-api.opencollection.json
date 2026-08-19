@@ -1,0 +1,666 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Claim API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Claim",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "addLosses",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/claim/:tenantLocator/fnols/:locator/losses",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteLosses",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/claim/:tenantLocator/fnols/:locator/losses",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addFnol",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/claim/:tenantLocator/fnols",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "setFnolNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/claim/:tenantLocator/fnols/:locator/number/set",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fnolNumber",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "generateFnolNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/claim/:tenantLocator/fnols/:locator/number/generate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "addFnolContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/claim/:tenantLocator/fnols/:fnolLocator/contacts",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fnolLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getFnol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/claim/:tenantLocator/fnols/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "patchFnol",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/claim/:tenantLocator/fnols/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/claim/:tenantLocator/fnols/:locator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "reject",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/claim/:tenantLocator/fnols/:locator/reject",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "checkLosses",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/claim/:tenantLocator/fnols/:locator/losses/coverageCheck",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "discard",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/claim/:tenantLocator/fnols/:locator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createClaim",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/claim/:tenantLocator/fnols/:locator/createClaim",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "markAsComplete",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "complete",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/claim/:tenantLocator/fnols/:locator/complete",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateLoss",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/claim/:tenantLocator/fnols/:fnolLocator/losses/:lossLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fnolLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "lossLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "resetLoss",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/claim/:tenantLocator/fnols/:fnolLocator/losses/:lossLocator/reset",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fnolLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "lossLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "includeLoss",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/claim/:tenantLocator/fnols/:fnolLocator/losses/:lossLocator/include",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fnolLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "lossLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "excludeLoss",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/claim/:tenantLocator/fnols/:fnolLocator/losses/:lossLocator/exclude",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fnolLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "lossLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateFnolContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/claim/:tenantLocator/fnols/:fnolLocator/contacts/:contactLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fnolLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contactLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteFnolContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/claim/:tenantLocator/fnols/:fnolLocator/contacts/:contactLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fnolLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contactLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listFnolHistory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/claim/:tenantLocator/fnols/:locator/history/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getFnolClaimLocators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/claim/:tenantLocator/fnols/:locator/claims",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listFnolsByPolicyLocator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/claim/:tenantLocator/fnols/policy/:policyLocator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getFnolByNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/claim/:tenantLocator/fnols/number/:number",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listFnol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/claim/:tenantLocator/fnols/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchClaimEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/claim/events"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

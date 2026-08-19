@@ -1,0 +1,5816 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Policy API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Policy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getTransactionSchedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/transactions/:locator/schedules/:staticElementLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticElementLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "lastSeenLocator",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "uploadTransactionSchedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/transactions/:locator/schedules/:staticElementLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticElementLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addTransactionSchedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/policy/:tenantLocator/transactions/:locator/schedules/:staticElementLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticElementLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateTransactionSchedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/transactions/:locator/schedules/:staticElementLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticElementLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteTransactionSchedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/transactions/:locator/schedules/:staticElementLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticElementLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addElementsToPolicyWithTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/policy/:tenantLocator/transactions/:locator/elements",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateElementsInPolicyWithTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/transactions/:locator/elements",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "removeElementsFromPolicyWithTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/transactions/:locator/elements",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createPolicyChangeInstruction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/policy/:tenantLocator/transactions/:locator/changeInstructions",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchStaticDataForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/:locator/static",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets static data for a quote"
+        },
+        {
+          "info": {
+            "name": "addStaticDataForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/:locator/static",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the static extension data on a quote"
+        },
+        {
+          "info": {
+            "name": "replaceAllStaticDataForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/policy/:tenantLocator/quotes/:locator/static",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces all of the static data on a quote"
+        },
+        {
+          "info": {
+            "name": "updateStaticDataForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/static",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates some of the static data on a quote"
+        },
+        {
+          "info": {
+            "name": "fetchScheduleItems",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/:locator/schedules/:staticElementLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticElementLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "lastSeenLocator",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "uploadScheduleItems",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/:locator/schedules/:staticElementLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticElementLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addScheduleItems",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/policy/:tenantLocator/quotes/:locator/schedules/:staticElementLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticElementLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateScheduleItems",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/schedules/:staticElementLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticElementLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteScheduleItems",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/quotes/:locator/schedules/:staticElementLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticElementLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addElementsToQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/policy/:tenantLocator/quotes/:locator/elements",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "removeElementsFromQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/quotes/:locator/elements",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addElementsToQuickQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/policy/:tenantLocator/quickquotes/:locator/elements",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteElementsFromQuickQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/quickquotes/:locator/elements",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchStaticDataForPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/policies/:locator/static",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the static data on a policy"
+        },
+        {
+          "info": {
+            "name": "addStaticDataForPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/policies/:locator/static",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the static extension data on a policy"
+        },
+        {
+          "info": {
+            "name": "replaceAllStaticDataForPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/policy/:tenantLocator/policies/:locator/static",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces all of the static data on a policy"
+        },
+        {
+          "info": {
+            "name": "updateStaticDataForPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:locator/static",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates some of the static data on a policy"
+        },
+        {
+          "info": {
+            "name": "addPolicyMoratoriumElections",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/policy/:tenantLocator/policies/:locator/moratoriums/elections",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deletePolicyMoratoriumElections",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/policies/:locator/moratoriums/elections",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "Fetches all entity holds for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/policy/:tenantLocator/holds",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fetches all entity holds for the current user"
+        },
+        {
+          "info": {
+            "name": "fetchAutoRenewal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/autoRenewals/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "putAutoRenewal",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/policy/:tenantLocator/autoRenewals/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or replaces *all* the specified data on the auto renewal, including null values."
+        },
+        {
+          "info": {
+            "name": "updateAutoRenewal",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/autoRenewals/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/accounts/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateAccountReplaceData",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/policy/:tenantLocator/accounts/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the account and replaces all existing data extensions with the new data."
+        },
+        {
+          "info": {
+            "name": "updateAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/accounts/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the account and individual data extensions."
+        },
+        {
+          "info": {
+            "name": "addRejectUnderwritingFlagsForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/transactions/:locator/underwritingFlags/reject",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addInfoUnderwritingFlagsForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/transactions/:locator/underwritingFlags/info",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addDeclineUnderwritingFlagsForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/transactions/:locator/underwritingFlags/decline",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addBlockUnderwritingFlagsForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/transactions/:locator/underwritingFlags/block",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addApproveUnderwritingFlagsForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/transactions/:locator/underwritingFlags/approve",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "uploadDeserializedTransactionSchedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/transactions/:locator/schedules/:staticElementLocator/deserialize",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticElementLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "params",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "evaluateConstraintsForPolicyTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/transactions/:locator/elements/constraints/evaluate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "setTermNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/terms/:locator/number/set",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "termNumber",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "generateTermNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/terms/:locator/number/generate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchQuoteContacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/:quoteLocator/contacts",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quoteLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "addQuoteContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/:quoteLocator/contacts",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quoteLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addUnderwritingRejectFlagForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/:locator/underwritingFlags/reject",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addUnderwritingInfoFlagForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/:locator/underwritingFlags/info",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addUnderwritingDeclineFlagForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/:locator/underwritingFlags/decline",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addUnderwritingBlockFlagForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/:locator/underwritingFlags/block",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addUnderwritingApproveFlagForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/:locator/underwritingFlags/approve",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "uploadDeserializedScheduleItems",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/:locator/schedules/:staticElementLocator/deserialize",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staticElementLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "params",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "setReservedPolicyNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/:locator/reservedPolicyNumber/set",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "reservedPolicyNumber",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "setQuoteNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/:locator/number/set",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quoteNumber",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "generateQuoteNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/:locator/number/generate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "copyQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/:locator/copy",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "evaluateConstraintsForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/:locator/constraints/evaluate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "quoteValidatePreview",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/validatePreview",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "quotePricePreview",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/pricePreview",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createQuoteGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quotes/groups",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createQuickQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quickquotes",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchQuickQuoteContacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quickquotes/:quoteLocator/contacts",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quoteLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "addQuickQuoteContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quickquotes/:quoteLocator/contacts",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quoteLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createQuoteFromQuickQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quickquotes/:locator/quote/:accountLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "markAsQuoted",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "copyQuickQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quickquotes/:locator/copy",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "evaluateConstraintsForQuickQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quickquotes/:locator/constraints/evaluate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "quickQuoteValidatePreview",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quickquotes/validatePreview",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "quickQuotePricePreview",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/quickquotes/pricePreview",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPolicyContacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/policies/:policyLocator/contacts",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "addPolicyContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/policies/:policyLocator/contacts",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createQuoteFromPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/policies/:locator/quote",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "byIssuedTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeStaticData",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "setPolicyNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/policies/:locator/number/set",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyNumber",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "generatePolicyNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/policies/:locator/number/generate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createAutoRenewal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/autoRenewals",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/accounts",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "setAccountNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/accounts/:locator/number/set",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountNumber",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "generateAccountNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/accounts/:locator/number/generate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "evaluateConstraintsForAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/accounts/:locator/constraints/evaluate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchAccountContacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/accounts/:accountLocator/contacts",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "addAccountContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/policy/:tenantLocator/accounts/:accountLocator/contacts",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "validateTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/transactions/:locator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stateless",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchUnderwritingFlagsForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/transactions/:locator/underwritingFlags",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateUnderwritingFlagsForPolicyTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/transactions/:locator/underwritingFlags",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "underwriteTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/transactions/:locator/underwrite",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stateless",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "patchTransactionData",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/transactions/:locator/transactionData",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "resetTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/transactions/:locator/reset",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "resetToDraft",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "refuseTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/transactions/:locator/refuse",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchTransactionPricing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/transactions/:locator/price",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "priceTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/transactions/:locator/price",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stateless",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "precommitTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/transactions/:locator/precommit",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "issueTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/transactions/:locator/issue",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "autoRebase",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "initializeTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/transactions/:locator/initialize",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "discardTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/transactions/:locator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateChangeInstruction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/transactions/:locator/changeInstructions/:instructionLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instructionLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteChangeInstructionFromTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/transactions/:locator/changeInstructions/:instructionLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instructionLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "acceptTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/transactions/:locator/accept",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateQuoteContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:quoteLocator/contacts/:contactLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quoteLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contactLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteQuoteContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/quotes/:quoteLocator/contacts/:contactLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quoteLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contactLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "validateQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stateless",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchUnderwritingFlagsForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/:locator/underwritingFlags",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateUnderwritingFlagsForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/underwritingFlags",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "underwriteQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/underwrite",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stateless",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "resetQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/reset",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "refuseQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/refuse",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPricedQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/:locator/price",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "priceQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/price",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stateless",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "precommitQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/precommit",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "issueQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/issue",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateQuoteInvoiceFeeAmount",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/invoiceFeeAmount",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "discardQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateQuoteDelinquencyPlan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/delinquencyPlan",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateBillingLevelForAQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/billingLevel",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateQuoteAutoRenewalPlan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/autoRenewalPlan",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "assignQuoteGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/assignToGroup",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "acceptQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/:locator/accept",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchQuoteGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/groups/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateQuoteGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/groups/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteQuoteGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/quotes/groups/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "validateQuoteGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quotes/groups/:locator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateQuickQuoteContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quickquotes/:quoteLocator/contacts/:contactLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quoteLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contactLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteQuickQuoteContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/quickquotes/:quoteLocator/contacts/:contactLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quoteLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contactLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchQuickQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quickquotes/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateQuickQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quickquotes/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "validateQuickQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quickquotes/:locator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "resetQuickQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quickquotes/:locator/reset",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPricingForQuickQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quickquotes/:locator/price",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "priceAQuickQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quickquotes/:locator/price",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "discardQuickQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/quickquotes/:locator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updatePolicyContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:policyLocator/contacts/:contactLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contactLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deletePolicyContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/policies/:policyLocator/contacts/:contactLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contactLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createPolicyTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:locator/:transactionType",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transactionType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseLocator",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "transactionValidatePreview",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:locator/:transactionType/validatePreview",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transactionType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseLocator",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "underwritePreview",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:locator/:transactionType/underwritePreview",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transactionType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseLocator",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "transactionPricePreview",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:locator/:transactionType/pricePreview",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transactionType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseLocator",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "reversePolicyChange",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:locator/reversal",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "renewPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:locator/renew",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseLocator",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "reinstatePolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:locator/reinstate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseLocator",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updatePolicyJurisdiction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:locator/jurisdiction",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updatePolicyInvoiceFeeAmount",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:locator/invoiceFeeAmount",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updatePolicyDelinquencyPlan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:locator/delinquencyPlan",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "changePolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:locator/change",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseLocator",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "cancelPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:locator/cancel",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseLocator",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateBillingLevelForAPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:locator/billingLevel",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updatePolicyAutoRenewalPlan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/policies/:locator/autoRenewalPlan",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "Fetches an entity hold by its locator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/holds/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetches an entity hold by its locator"
+        },
+        {
+          "info": {
+            "name": "Updates an entity hold by its locator",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/holds/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an entity hold by its locator"
+        },
+        {
+          "info": {
+            "name": "Validates an entity hold by its locator",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/holds/:locator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Validates an entity hold by its locator"
+        },
+        {
+          "info": {
+            "name": "Releases an entity hold by its locator",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/holds/:locator/release",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Releases an entity hold by its locator"
+        },
+        {
+          "info": {
+            "name": "Discards an entity hold by its locator",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/holds/:locator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Discards an entity hold by its locator"
+        },
+        {
+          "info": {
+            "name": "Activates an entity hold by its locator",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/holds/:locator/activate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Activates an entity hold by its locator"
+        },
+        {
+          "info": {
+            "name": "terminateDeserializationJob",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/deserializeJobs/:locator/terminate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "restartDeserializationJob",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/deserializeJobs/:locator/restart",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "markPolicyForDoNotRenew",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/autoRenewals/:locator/doNotRenew",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Prevents renewal of the policy, either with auto-renew or manually."
+        },
+        {
+          "info": {
+            "name": "discardAutoRenewal",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/autoRenewals/:locator/discard",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Discards and prevents auto renewal unless a new one is created."
+        },
+        {
+          "info": {
+            "name": "reactivateAutoRenewal",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/autoRenewals/:locator/activate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Restarts autorenewal when it has been previously put into doNotRenew, error, or terminated state."
+        },
+        {
+          "info": {
+            "name": "validateAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/accounts/:locator/validate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateBillingLevelForAnAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/accounts/:locator/billingLevel",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateAccountContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/policy/:tenantLocator/accounts/:accountLocator/contacts/:contactLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contactLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteAccountContact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/accounts/:accountLocator/contacts/:contactLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contactLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/transactions/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPolicySegmentEx",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/transactions/:locator/segments/:segmentLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "segmentLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchTransactionSegments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/transactions/:locator/segments/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchTransactionSegment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/transactions/:locator/segment",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getTransactionSchedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/transactions/:locator/schedules",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPreferencesForATransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/transactions/:locator/preferences",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDependencyMapForPolicyTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/transactions/:locator/elements/constraints/dependency",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPolicyTransactionWithUpdatedChanges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/transactions/:locator/elements/changes",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchAffectedTransactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/transactions/:locator/affectedTransactions",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchAffectedTransactionsForListEndpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/transactions/:locator/affectedTransactions/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPolicySegment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/transactions/segments/:segmentLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "segmentLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchTerm",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/terms/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchTermSummaryByTermLocator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/terms/:locator/summary",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchTermPayableAmounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/terms/:locator/payable",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchTermCharges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/terms/:locator/charges",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchTermsWithNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/terms/numbers/:termNumber",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "termNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listStaticDataForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/:locator/static/history/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchSchedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/:locator/schedules",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getQuoteMoratoriumsStatuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/:locator/moratoriums",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchQuoteHolds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/:locator/holds",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDependencyMapForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/:locator/constraints/dependency",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchQuotesWithNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/numbers/:quoteNumber",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quoteNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchQuotesInATenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchAllQuotesInGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/groups/:locator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchQuoteGroupByName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/groups/name/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchQuoteGroupsInATenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/groups/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchAllQuotesInGroup_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quotes/group/:locator/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDependencyMapForQuickQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quickquotes/:locator/constraints/dependency",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleQuickQuotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/quickquotes/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/policies/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleTerms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/policies/:locator/terms/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchTermSummaryByTermNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/policies/:locator/summary",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "termNumber",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listStaticDataForPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/policies/:locator/static/history/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPolicySnapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/policies/:locator/snapshot",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "byIssuedTime",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getPolicyMoratoriumsStatuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/policies/:locator/moratoriums",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getPolicyMoratoriumElectionsHistory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/policies/:locator/moratoriums/elections/history/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchIssuedTransactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/policies/:locator/issuedTransactions/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          },
+          "docs": "Fetches the 'local stack' of issued transactions, excluding those that have been reversed or reapplied"
+        },
+        {
+          "info": {
+            "name": "fetchPolicyHolds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/policies/:locator/holds",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getTransactionsBranchesByPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/policies/:locator/branches",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleSnapshots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/policies/snapshot/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPoliciesWithNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/policies/numbers/:policyNumber",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "policyNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPolicyEventDefinitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/events"
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDeserializeScheduleItemsJob",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/deserializeJobs/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listDeserializeScheduleItemsJobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/deserializeJobs/:jobType/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchQuotesForAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/accounts/:locator/quotes/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeStaticData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPolicySnapshotsForAnAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/accounts/:locator/policies/snapshot/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPoliciesForAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/accounts/:locator/policies/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeStaticData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDependencyMapForAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/accounts/:locator/constraints/dependency",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchAccountsWithNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/accounts/numbers/:accountNumber",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleAccounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/policy/:tenantLocator/accounts/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "clearRejectUnderwritingFlagsForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/transactions/:locator/underwritingFlags/reject/:flagLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "flagLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "clearInfoUnderwritingFlagsForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/transactions/:locator/underwritingFlags/info/:flagLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "flagLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "clearDeclineUnderwritingFlagsForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/transactions/:locator/underwritingFlags/decline/:flagLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "flagLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "clearBlockUnderwritingFlagsForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/transactions/:locator/underwritingFlags/block/:flagLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "flagLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "clearApproveUnderwritingFlagsForTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/transactions/:locator/underwritingFlags/approve/:flagLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "flagLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "clearUnderwritingRejectFlagForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/quotes/:locator/underwritingFlags/reject/:flagLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "flagLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "clearUnderwritingInfoFlagForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/quotes/:locator/underwritingFlags/info/:flagLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "flagLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "clearUnderwritingDeclineFlagForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/quotes/:locator/underwritingFlags/decline/:flagLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "flagLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "clearUnderwritingBlockFlagForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/quotes/:locator/underwritingFlags/block/:flagLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "flagLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "clearUnderwritingApproveFlagForQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/policy/:tenantLocator/quotes/:locator/underwritingFlags/approve/:flagLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "flagLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

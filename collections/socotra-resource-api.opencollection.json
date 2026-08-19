@@ -1,0 +1,1606 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Resource API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "createUiConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/resource/:tenantLocator/uiConfigs",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "staticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createVelocityDocumentTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/resource/:tenantLocator/templates/velocity",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "staticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateVelocityDocumentTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/resource/:tenantLocator/templates/velocity",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createLiquidDocumentTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/resource/:tenantLocator/templates/liquid",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "staticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateLiquidDocumentTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/resource/:tenantLocator/templates/liquid",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "uploadVelocity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/resource/:tenantLocator/templateSnippets/velocity",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "staticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateVelocity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/resource/:tenantLocator/templateSnippets/velocity",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "uploadLiquid",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/resource/:tenantLocator/templateSnippets/liquid",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "staticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateLiquid",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/resource/:tenantLocator/templateSnippets/liquid",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createLookupTable",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/resource/:tenantLocator/tables",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "staticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createSecret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/resource/:tenantLocator/secrets",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createRiskAssessmentCriteria",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/resource/:tenantLocator/riskAssessmentCriteria",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "staticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createRangeTable",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/resource/:tenantLocator/rangeTables",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "staticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createResourceGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/resource/:tenantLocator/groups",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addFont",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/resource/:tenantLocator/fonts",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "staticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createDocumentResource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/resource/:tenantLocator/documents",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "staticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createConstraintTable",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/resource/:tenantLocator/constraints",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "staticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchUiConfigByName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/uiConfigs/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "byStaticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateUiConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/resource/:tenantLocator/uiConfigs/:name",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchLookupTableInZipFormat",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/tables/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "replaceLookupTable",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/resource/:tenantLocator/tables/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchSecret",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/secrets/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "byStaticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateSecret",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/resource/:tenantLocator/secrets/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteSecret",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/resource/:tenantLocator/secrets/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchRiskAssessmentCriteriaResourceByName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/riskAssessmentCriteria/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "byStaticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateRiskAssessmentCriteria",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/resource/:tenantLocator/riskAssessmentCriteria/:name",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchRangeTableInZipFormat",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/rangeTables/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "replaceRangeTable",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/resource/:tenantLocator/rangeTables/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchResourceGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/groups/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateResourceGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/resource/:tenantLocator/groups/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "retire",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/resource/:tenantLocator/groups/:locator/retire",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchFont",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/fonts/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "byStaticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateFont",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/resource/:tenantLocator/fonts/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDocumentResourceByName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/documents/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "byStaticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateDocument",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/resource/:tenantLocator/documents/:name",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "zipConstraintTable",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/constraints/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "replaceConstraintTable",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/resource/:tenantLocator/constraints/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchDocumentTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/templates/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "byStaticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/templateSnippets/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "byStaticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchTableRecord",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/tables/:name/record",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "byStaticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchResource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/resources/:name",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "byStaticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleResourcesByType",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/resources/type/:type/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchMultipleResources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/resources/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getBootstrapStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/resources/bootstrap",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchRangeTableRecord",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/rangeTables/:name/record",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "byStaticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "boundValue",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchResourceGroups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/groups/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query",
+                "description": "When false, returns a bare array."
+              },
+              {
+                "name": "excludeRetired",
+                "value": "",
+                "type": "query",
+                "description": "Default value true."
+              },
+              {
+                "name": "excludeActive",
+                "value": "",
+                "type": "query",
+                "description": "Default value false."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchConstraints",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/resource/:tenantLocator/constraints/:name/record",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "byStaticName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

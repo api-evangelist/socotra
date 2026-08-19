@@ -1,0 +1,3813 @@
+{
+  "item": [
+    {
+      "id": "2a210015-2100-42c5-84bc-40a3393039f1",
+      "name": "Document",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fadc2a5c-f2bf-4807-adbb-bef14a9e26db",
+          "name": "trigger Timed Out Documents Job For Transaction",
+          "request": {
+            "name": "trigger Timed Out Documents Job For Transaction",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "transaction",
+                ":locator",
+                "trigger"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ebb19ef7-dfeb-45da-a65a-8d218eca7239",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "transaction",
+                    ":locator",
+                    "trigger"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"locator\": \"string\",\n    \"referenceType\": \"transaction\",\n    \"status\": \"failed\",\n    \"createdAt\": \"2011-12-20T21:56:35.797Z\"\n  },\n  {\n    \"locator\": \"string\",\n    \"referenceType\": \"quote\",\n    \"status\": \"failed\",\n    \"createdAt\": \"2026-01-08T17:32:07.429Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f19ff66d-153e-4f63-bdb3-140223a09f62",
+          "name": "trigger Failed Document Job For Transaction",
+          "request": {
+            "name": "trigger Failed Document Job For Transaction",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "transaction",
+                ":locator",
+                "jobs",
+                ":jobLocator",
+                "trigger"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "jobLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d9fc4857-272c-4590-88dc-55e430025598",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "transaction",
+                    ":locator",
+                    "jobs",
+                    ":jobLocator",
+                    "trigger"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "jobLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"referenceType\": \"quote\",\n  \"status\": \"failed\",\n  \"createdAt\": \"2020-03-18T23:08:18.952Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a818b2ee-092b-43b4-b621-37748ee02a7e",
+          "name": "trigger Timed Out Documents Job For Segment",
+          "request": {
+            "name": "trigger Timed Out Documents Job For Segment",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "segment",
+                ":locator",
+                "trigger"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9308d13c-30d6-456c-9a7f-2074ba431d64",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "segment",
+                    ":locator",
+                    "trigger"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"locator\": \"string\",\n    \"referenceType\": \"transaction\",\n    \"status\": \"failed\",\n    \"createdAt\": \"2011-12-20T21:56:35.797Z\"\n  },\n  {\n    \"locator\": \"string\",\n    \"referenceType\": \"quote\",\n    \"status\": \"failed\",\n    \"createdAt\": \"2026-01-08T17:32:07.429Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b206ed2b-851b-42cb-ba16-9f8bbf484470",
+          "name": "trigger Failed Document Job For Segment",
+          "request": {
+            "name": "trigger Failed Document Job For Segment",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "segment",
+                ":locator",
+                "jobs",
+                ":jobLocator",
+                "trigger"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "jobLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "83abbea4-a219-4c87-ad01-dc454ea67391",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "segment",
+                    ":locator",
+                    "jobs",
+                    ":jobLocator",
+                    "trigger"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "jobLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"referenceType\": \"quote\",\n  \"status\": \"failed\",\n  \"createdAt\": \"2020-03-18T23:08:18.952Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58edf822-f864-4fb0-8483-930ddbfc8a6a",
+          "name": "render Document",
+          "request": {
+            "name": "render Document",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "render"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "referenceType",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "referenceLocator",
+                  "value": "<ulid>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "productName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "templateFormat",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "documentConfig",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "staticName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "templateName",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "value": "{\"file\":\"<binary>\"}",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "template",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6d8d4829-c414-4c86-be51-91c594e0558c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "render"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "referenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referenceLocator",
+                      "value": "<ulid>"
+                    },
+                    {
+                      "key": "productName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "templateFormat",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "documentConfig",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "staticName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "templateName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "{\"file\":\"<binary>\"}",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "template",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06e2fd24-b212-4b5f-a20d-7d32844d629f",
+          "name": "trigger Timed Out Documents Job For Quote",
+          "request": {
+            "name": "trigger Timed Out Documents Job For Quote",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "quote",
+                ":locator",
+                "trigger"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c7be58f-acef-467a-87ef-d3d419d655aa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "quote",
+                    ":locator",
+                    "trigger"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"locator\": \"string\",\n    \"referenceType\": \"transaction\",\n    \"status\": \"failed\",\n    \"createdAt\": \"2011-12-20T21:56:35.797Z\"\n  },\n  {\n    \"locator\": \"string\",\n    \"referenceType\": \"quote\",\n    \"status\": \"failed\",\n    \"createdAt\": \"2026-01-08T17:32:07.429Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d033051d-eb02-4411-8835-07812778523d",
+          "name": "trigger Failed Document Job For Quote",
+          "request": {
+            "name": "trigger Failed Document Job For Quote",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "quote",
+                ":locator",
+                "jobs",
+                ":jobLocator",
+                "trigger"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "jobLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43246aa3-8676-4988-b83c-2de8bcecb098",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "quote",
+                    ":locator",
+                    "jobs",
+                    ":jobLocator",
+                    "trigger"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "jobLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"referenceType\": \"quote\",\n  \"status\": \"failed\",\n  \"createdAt\": \"2020-03-18T23:08:18.952Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7848555-f7ee-4c02-abd1-116dc2b4ba0f",
+          "name": "copy Documents On Issue",
+          "request": {
+            "name": "copy Documents On Issue",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "quote",
+                ":locator",
+                "copyOnIssue"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "deleteAllDocuments",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8bc5d32d-ea59-4b96-9da3-80289004af70",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "quote",
+                    ":locator",
+                    "copyOnIssue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "deleteAllDocuments",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88ab3d4e-f1f0-42de-afec-d4ad8a0b7dd5",
+          "name": "trigger Timed Out Job",
+          "request": {
+            "name": "trigger Timed Out Job",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "invoices",
+                ":locator",
+                "trigger"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f850ffe8-8bc4-44cd-8878-ced06fd85e42",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "invoices",
+                    ":locator",
+                    "trigger"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"locator\": \"string\",\n    \"referenceType\": \"transaction\",\n    \"status\": \"failed\",\n    \"createdAt\": \"2011-12-20T21:56:35.797Z\"\n  },\n  {\n    \"locator\": \"string\",\n    \"referenceType\": \"quote\",\n    \"status\": \"failed\",\n    \"createdAt\": \"2026-01-08T17:32:07.429Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5cdea87e-09f0-4596-bbfc-dd02a2984da1",
+          "name": "trigger Failed Document Job For Invoice",
+          "request": {
+            "name": "trigger Failed Document Job For Invoice",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "invoices",
+                ":locator",
+                "jobs",
+                ":jobLocator",
+                "trigger"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "jobLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5824e253-6091-4fe3-b35f-366a9988758b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "invoices",
+                    ":locator",
+                    "jobs",
+                    ":jobLocator",
+                    "trigger"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "jobLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"referenceType\": \"quote\",\n  \"status\": \"failed\",\n  \"createdAt\": \"2020-03-18T23:08:18.952Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae89860f-24be-40b3-abce-11402721788d",
+          "name": "attach Document",
+          "request": {
+            "name": "attach Document",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "attach"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "referenceLocator",
+                  "value": "<ulid>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "referenceType",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "staticName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "documentFormat",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "transactionLocator",
+                  "value": "<ulid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "segmentLocator",
+                  "value": "<ulid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "copyOnIssuance",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "document",
+                  "type": "file",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "236ee5c4-3afe-4f20-9ff1-956496271991",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "attach"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "referenceLocator",
+                      "value": "<ulid>"
+                    },
+                    {
+                      "key": "referenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "staticName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "documentFormat",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadata",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transactionLocator",
+                      "value": "<ulid>"
+                    },
+                    {
+                      "key": "segmentLocator",
+                      "value": "<ulid>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "copyOnIssuance",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "document",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"referenceLocator\": \"string\",\n  \"documentInstanceState\": \"rendered\",\n  \"documentFormat\": \"jpg\",\n  \"external\": true,\n  \"referenceType\": \"term\",\n  \"createdAt\": \"1947-04-04T23:12:13.545Z\",\n  \"consolidatedFrom\": [\n    \"string\",\n    \"string\"\n  ],\n  \"consolidatedTo\": [\n    \"string\",\n    \"string\"\n  ],\n  \"metadata\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"renderingData\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"referenceDocumentLocator\": \"string\",\n  \"transactionLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"termLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"name\": \"string\",\n  \"staticName\": \"string\",\n  \"createdBy\": \"d4ba74e7-cf5f-5072-0343-5d194dde9b54\",\n  \"readyAt\": \"1980-05-23T22:21:19.446Z\",\n  \"processingErrors\": \"string\",\n  \"category\": \"string\",\n  \"copyOnIssuance\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3834ff71-eaa0-4728-8767-4f6c244f750b",
+          "name": "fetch Document",
+          "request": {
+            "name": "fetch Document",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "37235302-f21c-46e4-b9f3-2641beea6091",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"referenceLocator\": \"string\",\n  \"documentInstanceState\": \"conversionError\",\n  \"documentFormat\": \"text\",\n  \"external\": false,\n  \"referenceType\": \"transaction\",\n  \"createdAt\": \"1981-01-29T06:55:22.789Z\",\n  \"consolidatedFrom\": [\n    \"string\",\n    \"string\"\n  ],\n  \"consolidatedTo\": [\n    \"string\",\n    \"string\"\n  ],\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"renderingData\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"referenceDocumentLocator\": \"string\",\n  \"transactionLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"termLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"name\": \"string\",\n  \"staticName\": \"string\",\n  \"createdBy\": \"4210a2f0-3752-19ed-9c16-807274b1bba6\",\n  \"readyAt\": \"2017-01-27T20:18:24.289Z\",\n  \"processingErrors\": \"string\",\n  \"category\": \"string\",\n  \"copyOnIssuance\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4af368c0-cbe8-4d08-aadd-af8814788d0a",
+          "name": "replace Document",
+          "request": {
+            "name": "replace Document",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "document",
+                  "type": "file",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e0a33475-798b-4cd8-a85b-102bc7e25e89",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metadata",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "document",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"referenceLocator\": \"string\",\n  \"documentInstanceState\": \"conversionError\",\n  \"documentFormat\": \"text\",\n  \"external\": false,\n  \"referenceType\": \"transaction\",\n  \"createdAt\": \"1981-01-29T06:55:22.789Z\",\n  \"consolidatedFrom\": [\n    \"string\",\n    \"string\"\n  ],\n  \"consolidatedTo\": [\n    \"string\",\n    \"string\"\n  ],\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"renderingData\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"referenceDocumentLocator\": \"string\",\n  \"transactionLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"termLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"name\": \"string\",\n  \"staticName\": \"string\",\n  \"createdBy\": \"4210a2f0-3752-19ed-9c16-807274b1bba6\",\n  \"readyAt\": \"2017-01-27T20:18:24.289Z\",\n  \"processingErrors\": \"string\",\n  \"category\": \"string\",\n  \"copyOnIssuance\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b35bda6b-f025-4556-9eec-d52ce90182f4",
+          "name": "delete Document",
+          "request": {
+            "name": "delete Document",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bac35ac2-73cf-47fd-bfaa-57fa8231892e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62b41960-f243-471f-92fb-8748d94f45a2",
+          "name": "fetch Document Event Definitions",
+          "request": {
+            "name": "fetch Document Event Definitions",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed61ea19-eeea-404e-9c52-ff8bf2d3c01d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documentEvents\": {\n    \"document.ready\": {\n      \"documentLocator\": \"string\",\n      \"referenceLocator\": \"string\",\n      \"referenceType\": \"segment\"\n    },\n    \"document.failed\": {\n      \"documentLocator\": \"string\",\n      \"referenceLocator\": \"string\",\n      \"referenceType\": \"invoice\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddc7ba5b-6a16-4738-8011-9f0578cf3f8f",
+          "name": "fetch Source For Document",
+          "request": {
+            "name": "fetch Source For Document",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                ":locator",
+                "source"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2dd9fe6e-1b12-403d-98c1-52a879ee4a10",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    ":locator",
+                    "source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae93ae7a-2d95-4658-942f-787f6345717a",
+          "name": "fetch Document Resource",
+          "request": {
+            "name": "fetch Document Resource",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                ":locator",
+                "document"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5730c0e8-eb49-4d5c-8d7e-ac1a10b07143",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    ":locator",
+                    "document"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ed3e974-f1cc-405b-8c4b-f923a56f5981",
+          "name": "fetch Documents For Transaction",
+          "request": {
+            "name": "fetch Documents For Transaction",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "transaction",
+                ":locator",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "extended",
+                  "value": "<boolean>",
+                  "description": "When false, returns a bare array."
+                },
+                {
+                  "disabled": false,
+                  "key": "suppressRenderingData",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f033b4ba-273c-4505-ae7e-4c278d310ecf",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "transaction",
+                    ":locator",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "extended",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "suppressRenderingData",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"listCompleted\": true,\n  \"items\": [\n    {\n      \"locator\": \"string\",\n      \"referenceLocator\": \"string\",\n      \"documentInstanceState\": \"renderError\",\n      \"documentFormat\": \"xls\",\n      \"external\": false,\n      \"referenceType\": \"invoice\",\n      \"createdAt\": \"1974-11-01T16:08:01.749Z\",\n      \"consolidatedFrom\": [\n        \"string\",\n        \"string\"\n      ],\n      \"consolidatedTo\": [\n        \"string\",\n        \"string\"\n      ],\n      \"metadata\": {\n        \"key_0\": {}\n      },\n      \"renderingData\": {\n        \"key_0\": {}\n      },\n      \"referenceDocumentLocator\": \"string\",\n      \"transactionLocator\": \"string\",\n      \"segmentLocator\": \"string\",\n      \"termLocator\": \"string\",\n      \"policyLocator\": \"string\",\n      \"name\": \"string\",\n      \"staticName\": \"string\",\n      \"createdBy\": \"5b7fb4d5-faa4-9210-9219-faa5673ece87\",\n      \"readyAt\": \"1962-03-05T07:08:00.337Z\",\n      \"processingErrors\": \"string\",\n      \"category\": \"string\",\n      \"copyOnIssuance\": true\n    },\n    {\n      \"locator\": \"string\",\n      \"referenceLocator\": \"string\",\n      \"documentInstanceState\": \"conversionError\",\n      \"documentFormat\": \"html\",\n      \"external\": true,\n      \"referenceType\": \"policy\",\n      \"createdAt\": \"1986-07-31T20:37:30.384Z\",\n      \"consolidatedFrom\": [\n        \"string\",\n        \"string\"\n      ],\n      \"consolidatedTo\": [\n        \"string\",\n        \"string\"\n      ],\n      \"metadata\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"renderingData\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"referenceDocumentLocator\": \"string\",\n      \"transactionLocator\": \"string\",\n      \"segmentLocator\": \"string\",\n      \"termLocator\": \"string\",\n      \"policyLocator\": \"string\",\n      \"name\": \"string\",\n      \"staticName\": \"string\",\n      \"createdBy\": \"4cb22e9c-bcf5-f29d-48b1-7b051fc87b1a\",\n      \"readyAt\": \"1992-11-13T15:48:02.879Z\",\n      \"processingErrors\": \"string\",\n      \"category\": \"string\",\n      \"copyOnIssuance\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03c5bf3e-a71c-4cf1-968c-7db25bf72715",
+          "name": "fetch Documents Job For Transaction",
+          "request": {
+            "name": "fetch Documents Job For Transaction",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "transaction",
+                ":locator",
+                "jobs",
+                ":jobLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "jobLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "168aeae7-30de-48ba-a0a2-8b2918e045a6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "transaction",
+                    ":locator",
+                    "jobs",
+                    ":jobLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "jobLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"transactionLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"referenceLocator\": \"string\",\n  \"completedAt\": \"1985-05-27T05:39:50.772Z\",\n  \"documentTrigger\": \"underwritten\",\n  \"isConsolidation\": false,\n  \"processingErrors\": \"string\",\n  \"referenceType\": \"transaction\",\n  \"status\": \"running\",\n  \"createdAt\": \"1961-11-30T19:12:24.605Z\",\n  \"createdBy\": \"e7ab6929-6915-67a9-eb95-77bd3c65f93f\",\n  \"childrenJobs\": [\n    \"string\",\n    \"string\"\n  ],\n  \"documents\": [\n    {\n      \"locator\": \"string\",\n      \"staticName\": \"string\",\n      \"name\": \"string\",\n      \"documentInstanceState\": \"string\",\n      \"processingErrors\": \"string\",\n      \"state\": \"string\"\n    },\n    {\n      \"locator\": \"string\",\n      \"staticName\": \"string\",\n      \"name\": \"string\",\n      \"documentInstanceState\": \"string\",\n      \"processingErrors\": \"string\",\n      \"state\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0146f868-3857-45c1-9b3b-af98b6436e65",
+          "name": "fetch Multiple Documents Jobs For Transaction",
+          "request": {
+            "name": "fetch Multiple Documents Jobs For Transaction",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "transaction",
+                ":locator",
+                "jobs",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "extended",
+                  "value": "<boolean>",
+                  "description": "When false, returns a bare array."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23abef89-2fc0-4799-b03d-beca29442493",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "transaction",
+                    ":locator",
+                    "jobs",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "extended",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"listCompleted\": false,\n  \"items\": [\n    {\n      \"locator\": \"string\",\n      \"referenceType\": \"term\",\n      \"status\": \"finished\",\n      \"createdAt\": \"1994-01-07T19:08:42.032Z\"\n    },\n    {\n      \"locator\": \"string\",\n      \"referenceType\": \"invoice\",\n      \"status\": \"running\",\n      \"createdAt\": \"2026-05-21T08:55:46.867Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1cae5745-2dd0-45eb-832d-c8e861883335",
+          "name": "fetch Documents For Segment",
+          "request": {
+            "name": "fetch Documents For Segment",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "segment",
+                ":locator",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "extended",
+                  "value": "<boolean>",
+                  "description": "When false, returns a bare array."
+                },
+                {
+                  "disabled": false,
+                  "key": "suppressRenderingData",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "801bb75f-1d73-4e22-a3a8-66e23bbc4322",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "segment",
+                    ":locator",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "extended",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "suppressRenderingData",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"listCompleted\": false,\n  \"items\": [\n    {\n      \"locator\": \"string\",\n      \"referenceLocator\": \"string\",\n      \"documentInstanceState\": \"draft\",\n      \"documentFormat\": \"txt\",\n      \"external\": true,\n      \"referenceType\": \"transaction\",\n      \"createdAt\": \"1983-12-10T04:38:31.977Z\",\n      \"consolidatedFrom\": [\n        \"string\",\n        \"string\"\n      ],\n      \"consolidatedTo\": [\n        \"string\",\n        \"string\"\n      ],\n      \"metadata\": {\n        \"key_0\": {}\n      },\n      \"renderingData\": {\n        \"key_0\": {}\n      },\n      \"referenceDocumentLocator\": \"string\",\n      \"transactionLocator\": \"string\",\n      \"segmentLocator\": \"string\",\n      \"termLocator\": \"string\",\n      \"policyLocator\": \"string\",\n      \"name\": \"string\",\n      \"staticName\": \"string\",\n      \"createdBy\": \"3ad4d6c9-8484-0aba-61e6-381f8a3cef46\",\n      \"readyAt\": \"2000-03-12T02:24:24.815Z\",\n      \"processingErrors\": \"string\",\n      \"category\": \"string\",\n      \"copyOnIssuance\": false\n    },\n    {\n      \"locator\": \"string\",\n      \"referenceLocator\": \"string\",\n      \"documentInstanceState\": \"dataReady\",\n      \"documentFormat\": \"xlsx\",\n      \"external\": true,\n      \"referenceType\": \"term\",\n      \"createdAt\": \"1990-06-11T19:41:48.403Z\",\n      \"consolidatedFrom\": [\n        \"string\",\n        \"string\"\n      ],\n      \"consolidatedTo\": [\n        \"string\",\n        \"string\"\n      ],\n      \"metadata\": {\n        \"key_0\": {}\n      },\n      \"renderingData\": {\n        \"key_0\": {}\n      },\n      \"referenceDocumentLocator\": \"string\",\n      \"transactionLocator\": \"string\",\n      \"segmentLocator\": \"string\",\n      \"termLocator\": \"string\",\n      \"policyLocator\": \"string\",\n      \"name\": \"string\",\n      \"staticName\": \"string\",\n      \"createdBy\": \"d60a7467-6c5f-dbb7-add6-9a7e0bebfe72\",\n      \"readyAt\": \"1947-10-24T02:09:58.943Z\",\n      \"processingErrors\": \"string\",\n      \"category\": \"string\",\n      \"copyOnIssuance\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13192d05-4280-4afb-9cb4-1275be6b995a",
+          "name": "fetch Documents Job For Segment",
+          "request": {
+            "name": "fetch Documents Job For Segment",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "segment",
+                ":locator",
+                "jobs",
+                ":jobLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "jobLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "759d31e5-90af-4a37-8052-8a2925cda954",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "segment",
+                    ":locator",
+                    "jobs",
+                    ":jobLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "jobLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"transactionLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"referenceLocator\": \"string\",\n  \"completedAt\": \"1984-03-26T08:20:11.473Z\",\n  \"documentTrigger\": \"accepted\",\n  \"isConsolidation\": true,\n  \"processingErrors\": \"string\",\n  \"referenceType\": \"policy\",\n  \"status\": \"finished\",\n  \"createdAt\": \"1975-05-07T00:02:37.660Z\",\n  \"createdBy\": \"ad488969-5674-30d5-d0c2-046c7be8c16c\",\n  \"childrenJobs\": [\n    \"string\",\n    \"string\"\n  ],\n  \"documents\": [\n    {\n      \"locator\": \"string\",\n      \"staticName\": \"string\",\n      \"name\": \"string\",\n      \"documentInstanceState\": \"string\",\n      \"processingErrors\": \"string\",\n      \"state\": \"string\"\n    },\n    {\n      \"locator\": \"string\",\n      \"staticName\": \"string\",\n      \"name\": \"string\",\n      \"documentInstanceState\": \"string\",\n      \"processingErrors\": \"string\",\n      \"state\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2482210-32d8-4507-8068-09a0951e8e5a",
+          "name": "fetch Multiple Documents Jobs For Segment",
+          "request": {
+            "name": "fetch Multiple Documents Jobs For Segment",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "segment",
+                ":locator",
+                "jobs",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "extended",
+                  "value": "<boolean>",
+                  "description": "When false, returns a bare array."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92cb4507-bd81-471a-baad-c465b89e5994",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "segment",
+                    ":locator",
+                    "jobs",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "extended",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"listCompleted\": false,\n  \"items\": [\n    {\n      \"locator\": \"string\",\n      \"referenceType\": \"segment\",\n      \"status\": \"finished\",\n      \"createdAt\": \"1975-06-05T18:16:53.502Z\"\n    },\n    {\n      \"locator\": \"string\",\n      \"referenceType\": \"policy\",\n      \"status\": \"running\",\n      \"createdAt\": \"1969-06-27T19:44:05.004Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9bf385f1-0ba1-4060-aa0b-aa742606cfc6",
+          "name": "fetch Documents For Quote",
+          "request": {
+            "name": "fetch Documents For Quote",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "quote",
+                ":locator",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "extended",
+                  "value": "<boolean>",
+                  "description": "When false, returns a bare array."
+                },
+                {
+                  "disabled": false,
+                  "key": "suppressRenderingData",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "70831107-363f-4a73-bf82-512f7d33ea2f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "quote",
+                    ":locator",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "extended",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "suppressRenderingData",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"listCompleted\": false,\n  \"items\": [\n    {\n      \"locator\": \"string\",\n      \"referenceLocator\": \"string\",\n      \"documentInstanceState\": \"draft\",\n      \"documentFormat\": \"txt\",\n      \"external\": true,\n      \"referenceType\": \"transaction\",\n      \"createdAt\": \"1983-12-10T04:38:31.977Z\",\n      \"consolidatedFrom\": [\n        \"string\",\n        \"string\"\n      ],\n      \"consolidatedTo\": [\n        \"string\",\n        \"string\"\n      ],\n      \"metadata\": {\n        \"key_0\": {}\n      },\n      \"renderingData\": {\n        \"key_0\": {}\n      },\n      \"referenceDocumentLocator\": \"string\",\n      \"transactionLocator\": \"string\",\n      \"segmentLocator\": \"string\",\n      \"termLocator\": \"string\",\n      \"policyLocator\": \"string\",\n      \"name\": \"string\",\n      \"staticName\": \"string\",\n      \"createdBy\": \"3ad4d6c9-8484-0aba-61e6-381f8a3cef46\",\n      \"readyAt\": \"2000-03-12T02:24:24.815Z\",\n      \"processingErrors\": \"string\",\n      \"category\": \"string\",\n      \"copyOnIssuance\": false\n    },\n    {\n      \"locator\": \"string\",\n      \"referenceLocator\": \"string\",\n      \"documentInstanceState\": \"dataReady\",\n      \"documentFormat\": \"xlsx\",\n      \"external\": true,\n      \"referenceType\": \"term\",\n      \"createdAt\": \"1990-06-11T19:41:48.403Z\",\n      \"consolidatedFrom\": [\n        \"string\",\n        \"string\"\n      ],\n      \"consolidatedTo\": [\n        \"string\",\n        \"string\"\n      ],\n      \"metadata\": {\n        \"key_0\": {}\n      },\n      \"renderingData\": {\n        \"key_0\": {}\n      },\n      \"referenceDocumentLocator\": \"string\",\n      \"transactionLocator\": \"string\",\n      \"segmentLocator\": \"string\",\n      \"termLocator\": \"string\",\n      \"policyLocator\": \"string\",\n      \"name\": \"string\",\n      \"staticName\": \"string\",\n      \"createdBy\": \"d60a7467-6c5f-dbb7-add6-9a7e0bebfe72\",\n      \"readyAt\": \"1947-10-24T02:09:58.943Z\",\n      \"processingErrors\": \"string\",\n      \"category\": \"string\",\n      \"copyOnIssuance\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95323531-5ef6-4ce8-ab9f-5eb2ea43c2e0",
+          "name": "fetch Documents Job For Quote",
+          "request": {
+            "name": "fetch Documents Job For Quote",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "quote",
+                ":locator",
+                "jobs",
+                ":jobLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "jobLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3d15352c-8cc1-4481-9ff6-9ab336f9bd5f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "quote",
+                    ":locator",
+                    "jobs",
+                    ":jobLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "jobLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"transactionLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"referenceLocator\": \"string\",\n  \"completedAt\": \"1984-03-26T08:20:11.473Z\",\n  \"documentTrigger\": \"accepted\",\n  \"isConsolidation\": true,\n  \"processingErrors\": \"string\",\n  \"referenceType\": \"policy\",\n  \"status\": \"finished\",\n  \"createdAt\": \"1975-05-07T00:02:37.660Z\",\n  \"createdBy\": \"ad488969-5674-30d5-d0c2-046c7be8c16c\",\n  \"childrenJobs\": [\n    \"string\",\n    \"string\"\n  ],\n  \"documents\": [\n    {\n      \"locator\": \"string\",\n      \"staticName\": \"string\",\n      \"name\": \"string\",\n      \"documentInstanceState\": \"string\",\n      \"processingErrors\": \"string\",\n      \"state\": \"string\"\n    },\n    {\n      \"locator\": \"string\",\n      \"staticName\": \"string\",\n      \"name\": \"string\",\n      \"documentInstanceState\": \"string\",\n      \"processingErrors\": \"string\",\n      \"state\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3dafd09e-524e-4a98-9fd0-f0c3ed009f19",
+          "name": "fetch Multiple Documents Jobs For Quote",
+          "request": {
+            "name": "fetch Multiple Documents Jobs For Quote",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "quote",
+                ":locator",
+                "jobs",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "extended",
+                  "value": "<boolean>",
+                  "description": "When false, returns a bare array."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87d7996d-425c-4588-b8b9-6fcb3573a4d9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "quote",
+                    ":locator",
+                    "jobs",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "extended",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"listCompleted\": false,\n  \"items\": [\n    {\n      \"locator\": \"string\",\n      \"referenceType\": \"segment\",\n      \"status\": \"finished\",\n      \"createdAt\": \"1975-06-05T18:16:53.502Z\"\n    },\n    {\n      \"locator\": \"string\",\n      \"referenceType\": \"policy\",\n      \"status\": \"running\",\n      \"createdAt\": \"1969-06-27T19:44:05.004Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0008cea6-a0ce-49de-b2c3-1eb80e77d1f3",
+          "name": "fetch Documents For Term",
+          "request": {
+            "name": "fetch Documents For Term",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "policy",
+                ":policyLocator",
+                "term",
+                ":termLocator",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "suppressRenderingData",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "policyLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "termLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69043a53-2723-46c9-95ad-771d8321913d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "policy",
+                    ":policyLocator",
+                    "term",
+                    ":termLocator",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "suppressRenderingData",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "policyLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "termLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"listCompleted\": false,\n  \"items\": [\n    {\n      \"locator\": \"string\",\n      \"referenceLocator\": \"string\",\n      \"documentInstanceState\": \"draft\",\n      \"documentFormat\": \"txt\",\n      \"external\": true,\n      \"referenceType\": \"transaction\",\n      \"createdAt\": \"1983-12-10T04:38:31.977Z\",\n      \"consolidatedFrom\": [\n        \"string\",\n        \"string\"\n      ],\n      \"consolidatedTo\": [\n        \"string\",\n        \"string\"\n      ],\n      \"metadata\": {\n        \"key_0\": {}\n      },\n      \"renderingData\": {\n        \"key_0\": {}\n      },\n      \"referenceDocumentLocator\": \"string\",\n      \"transactionLocator\": \"string\",\n      \"segmentLocator\": \"string\",\n      \"termLocator\": \"string\",\n      \"policyLocator\": \"string\",\n      \"name\": \"string\",\n      \"staticName\": \"string\",\n      \"createdBy\": \"3ad4d6c9-8484-0aba-61e6-381f8a3cef46\",\n      \"readyAt\": \"2000-03-12T02:24:24.815Z\",\n      \"processingErrors\": \"string\",\n      \"category\": \"string\",\n      \"copyOnIssuance\": false\n    },\n    {\n      \"locator\": \"string\",\n      \"referenceLocator\": \"string\",\n      \"documentInstanceState\": \"dataReady\",\n      \"documentFormat\": \"xlsx\",\n      \"external\": true,\n      \"referenceType\": \"term\",\n      \"createdAt\": \"1990-06-11T19:41:48.403Z\",\n      \"consolidatedFrom\": [\n        \"string\",\n        \"string\"\n      ],\n      \"consolidatedTo\": [\n        \"string\",\n        \"string\"\n      ],\n      \"metadata\": {\n        \"key_0\": {}\n      },\n      \"renderingData\": {\n        \"key_0\": {}\n      },\n      \"referenceDocumentLocator\": \"string\",\n      \"transactionLocator\": \"string\",\n      \"segmentLocator\": \"string\",\n      \"termLocator\": \"string\",\n      \"policyLocator\": \"string\",\n      \"name\": \"string\",\n      \"staticName\": \"string\",\n      \"createdBy\": \"d60a7467-6c5f-dbb7-add6-9a7e0bebfe72\",\n      \"readyAt\": \"1947-10-24T02:09:58.943Z\",\n      \"processingErrors\": \"string\",\n      \"category\": \"string\",\n      \"copyOnIssuance\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "609d4030-dd7e-4996-a25f-77123eeb511e",
+          "name": "fetch Invoice Document",
+          "request": {
+            "name": "fetch Invoice Document",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "invoices",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "488fa9c7-0a29-406b-a64d-40955d91db77",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "invoices",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"referenceLocator\": \"string\",\n  \"documentInstanceState\": \"conversionError\",\n  \"documentFormat\": \"text\",\n  \"external\": false,\n  \"referenceType\": \"transaction\",\n  \"createdAt\": \"1981-01-29T06:55:22.789Z\",\n  \"consolidatedFrom\": [\n    \"string\",\n    \"string\"\n  ],\n  \"consolidatedTo\": [\n    \"string\",\n    \"string\"\n  ],\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"renderingData\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"referenceDocumentLocator\": \"string\",\n  \"transactionLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"termLocator\": \"string\",\n  \"policyLocator\": \"string\",\n  \"name\": \"string\",\n  \"staticName\": \"string\",\n  \"createdBy\": \"4210a2f0-3752-19ed-9c16-807274b1bba6\",\n  \"readyAt\": \"2017-01-27T20:18:24.289Z\",\n  \"processingErrors\": \"string\",\n  \"category\": \"string\",\n  \"copyOnIssuance\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "daefb203-2984-4014-a324-733dd0a717bf",
+          "name": "get Document Job",
+          "request": {
+            "name": "get Document Job",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "invoices",
+                ":locator",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bd429686-656d-4ae6-93d2-72f1b9804335",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "invoices",
+                    ":locator",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"referenceType\": \"quote\",\n  \"status\": \"failed\",\n  \"createdAt\": \"2020-03-18T23:08:18.952Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e3a5737-bb48-4057-8393-af6b8719fcc8",
+          "name": "fetch Document Job",
+          "request": {
+            "name": "fetch Document Job",
+            "description": {},
+            "url": {
+              "path": [
+                "document",
+                ":tenantLocator",
+                "documents",
+                "invoices",
+                ":locator",
+                "jobs",
+                ":jobLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "jobLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f5703d5-5fdc-458a-aa90-31741f42214e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    ":tenantLocator",
+                    "documents",
+                    "invoices",
+                    ":locator",
+                    "jobs",
+                    ":jobLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "jobLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"transactionLocator\": \"string\",\n  \"segmentLocator\": \"string\",\n  \"referenceLocator\": \"string\",\n  \"completedAt\": \"1984-03-26T08:20:11.473Z\",\n  \"documentTrigger\": \"accepted\",\n  \"isConsolidation\": true,\n  \"processingErrors\": \"string\",\n  \"referenceType\": \"policy\",\n  \"status\": \"finished\",\n  \"createdAt\": \"1975-05-07T00:02:37.660Z\",\n  \"createdBy\": \"ad488969-5674-30d5-d0c2-046c7be8c16c\",\n  \"childrenJobs\": [\n    \"string\",\n    \"string\"\n  ],\n  \"documents\": [\n    {\n      \"locator\": \"string\",\n      \"staticName\": \"string\",\n      \"name\": \"string\",\n      \"documentInstanceState\": \"string\",\n      \"processingErrors\": \"string\",\n      \"state\": \"string\"\n    },\n    {\n      \"locator\": \"string\",\n      \"staticName\": \"string\",\n      \"name\": \"string\",\n      \"documentInstanceState\": \"string\",\n      \"processingErrors\": \"string\",\n      \"state\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a0ecc6c1-dab0-4aa7-91b3-988708d6e04e",
+    "name": "Socotra Insurance Suite OpenAPI Definition Document API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Socotra Insurance Suite API",
+      "type": "text/plain"
+    }
+  }
+}

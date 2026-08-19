@@ -1,0 +1,215 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Socotra Insurance Suite OpenAPI Definition Payment Execution API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payment Execution",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "addPaymentProviderConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/payment-execution/:tenantLocator/paymentProviders",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPaymentExecutionConfigurationForFinancialInstrument",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/payment-execution/:tenantLocator/financialInstruments/:financialInstrumentLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "financialInstrumentLocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "addPaymentExecutionConfigurationForFinancialInstrument",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/payment-execution/:tenantLocator/financialInstruments/:financialInstrumentLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "financialInstrumentLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updatePaymentExecutionConfigurationForFinancialInstrument",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/payment-execution/:tenantLocator/financialInstruments/:financialInstrumentLocator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "financialInstrumentLocator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPaymentProviderConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/payment-execution/:tenantLocator/paymentProviders/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updatePaymentProviderConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/payment-execution/:tenantLocator/paymentProviders/:locator",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "inactivatePaymentProviderConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/payment-execution/:tenantLocator/paymentProviders/:locator/inactivate",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchPaymentProviderConfigurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/payment-execution/:tenantLocator/paymentProviders/list",
+            "params": [
+              {
+                "name": "tenantLocator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "paymentServiceProvider",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

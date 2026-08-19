@@ -1,0 +1,2815 @@
+{
+  "item": [
+    {
+      "id": "974a93bc-d376-476b-a0f6-d1b3bc623d8d",
+      "name": "Auxdata",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4390214a-9a73-4fa6-9a5a-6db25f473af7",
+          "name": "get Aux Data Keys",
+          "request": {
+            "name": "get Aux Data Keys",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "auxdata",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b0571000-742c-41b3-bbfc-6f9115f4a39d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "auxdata",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8243,\n  \"offset\": 201,\n  \"keys\": [\n    {\n      \"key\": \"string\",\n      \"uiType\": \"readonly\",\n      \"auxDataSettingsName\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"uiType\": \"normal\",\n      \"auxDataSettingsName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a29250ed-bf3e-40fc-ba0f-3b12cce0d953",
+          "name": "put Aux Data",
+          "request": {
+            "name": "put Aux Data",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "auxdata",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"auxData\": [\n    {\n      \"key\": \"<string>\",\n      \"uiType\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"uiType\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"auxDataSettingsName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b0c29b25-5aae-42cc-93d3-04e8b5ae4ff4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "auxdata",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"auxData\": [\n    {\n      \"key\": \"<string>\",\n      \"uiType\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"uiType\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"auxDataSettingsName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8e74fcb-c177-4f06-b87a-49f149c6b4c7",
+          "name": "create Media Data",
+          "request": {
+            "name": "create Media Data",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "mediadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filename",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "mimeType",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "references",
+                  "value": "{\"locator\":\"<ulid>\",\"type\":\"<string>\"}",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "references",
+                  "value": "{\"locator\":\"<ulid>\",\"type\":\"<string>\"}",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3c61b673-263e-48ea-807f-46251780c835",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "mediadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filename",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mimeType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "references",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "references",
+                      "value": "[object Object]"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"filename\": \"string\",\n  \"updatedAt\": \"2012-08-11T01:16:36.077Z\",\n  \"updatedBy\": \"55b743a3-6b8e-acf0-ddec-cd680cb99b01\",\n  \"createdAt\": \"1969-03-30T04:03:37.132Z\",\n  \"createdBy\": \"dfc39af8-1735-1249-0757-8d4893410904\",\n  \"references\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"versionLocator\": \"string\",\n  \"title\": \"string\",\n  \"tag\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ed8ecc9-5084-42c6-8bed-065356a61f7f",
+          "name": "fetch Latest Diary Entries By Reference",
+          "request": {
+            "name": "fetch Latest Diary Entries By Reference",
+            "description": {
+              "content": "Fetches all of the latest revisions for a given entity",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "diary",
+                ":referenceType",
+                ":referenceLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeDiscarded",
+                  "value": "false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "referenceType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "referenceLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b2650e7-b834-4a09-ada8-67094a8547ef",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "diary",
+                    ":referenceType",
+                    ":referenceLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeDiscarded",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "referenceType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "referenceLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"locator\": \"string\",\n    \"referenceLocator\": \"string\",\n    \"diaryState\": \"discarded\",\n    \"contents\": \"string\",\n    \"referenceType\": \"quote\",\n    \"updatedAt\": \"1975-10-26T09:31:23.789Z\",\n    \"updatedBy\": \"8f4b4521-7ddb-68cb-57c1-da197a6bc7d0\",\n    \"createdAt\": \"1953-01-13T03:51:51.773Z\",\n    \"createdBy\": \"255b5382-4d53-5eb7-5ba9-7f00b6e64e89\",\n    \"category\": \"string\"\n  },\n  {\n    \"locator\": \"string\",\n    \"referenceLocator\": \"string\",\n    \"diaryState\": \"discarded\",\n    \"contents\": \"string\",\n    \"referenceType\": \"account\",\n    \"updatedAt\": \"1993-04-26T10:26:33.390Z\",\n    \"updatedBy\": \"6febce91-4f49-5be0-4852-5e8616b900db\",\n    \"createdAt\": \"2003-10-23T19:20:27.328Z\",\n    \"createdBy\": \"459d9720-9922-0677-ab48-8be2ccb9b571\",\n    \"category\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d45092ee-6e92-4b84-84ef-9b8ae4a03414",
+          "name": "create Diary",
+          "request": {
+            "name": "create Diary",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "diary",
+                ":referenceType",
+                ":referenceLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "referenceType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "referenceLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contents\": \"<string>\",\n  \"category\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "49724910-4c85-4e98-b093-6f42ddc22d5a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "diary",
+                    ":referenceType",
+                    ":referenceLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "referenceType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "referenceLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": \"<string>\",\n  \"category\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"referenceLocator\": \"string\",\n  \"diaryState\": \"active\",\n  \"contents\": \"string\",\n  \"referenceType\": \"policy\",\n  \"updatedAt\": \"2013-05-29T19:33:09.265Z\",\n  \"updatedBy\": \"b1f195c7-2410-e79a-8a72-5662b725055e\",\n  \"createdAt\": \"2003-03-30T15:09:27.696Z\",\n  \"createdBy\": \"2b462835-85fb-9925-58fd-5cf8fb17d6a2\",\n  \"category\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb0b0c58-537a-4c5b-a840-57ae0ad46b73",
+          "name": "create Diary For Segment Element",
+          "request": {
+            "name": "create Diary For Segment Element",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "diary",
+                "segments",
+                ":segmentLocator",
+                "element",
+                ":staticElementLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "segmentLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "staticElementLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contents\": \"<string>\",\n  \"category\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6526f872-6192-4906-83f2-14ba4b34f598",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "diary",
+                    "segments",
+                    ":segmentLocator",
+                    "element",
+                    ":staticElementLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "segmentLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "staticElementLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": \"<string>\",\n  \"category\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"referenceLocator\": \"string\",\n  \"diaryState\": \"active\",\n  \"contents\": \"string\",\n  \"referenceType\": \"policy\",\n  \"updatedAt\": \"2013-05-29T19:33:09.265Z\",\n  \"updatedBy\": \"b1f195c7-2410-e79a-8a72-5662b725055e\",\n  \"createdAt\": \"2003-03-30T15:09:27.696Z\",\n  \"createdBy\": \"2b462835-85fb-9925-58fd-5cf8fb17d6a2\",\n  \"category\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46c211ff-f694-4df3-bace-551fdb0b2c5f",
+          "name": "create Diary For Quote Element",
+          "request": {
+            "name": "create Diary For Quote Element",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "diary",
+                "quotes",
+                ":quoteLocator",
+                "element",
+                ":staticElementLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "quoteLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "staticElementLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contents\": \"<string>\",\n  \"category\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "697cfb17-d266-465b-af74-7c6d792afc2a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "diary",
+                    "quotes",
+                    ":quoteLocator",
+                    "element",
+                    ":staticElementLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "quoteLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "staticElementLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": \"<string>\",\n  \"category\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"referenceLocator\": \"string\",\n  \"diaryState\": \"active\",\n  \"contents\": \"string\",\n  \"referenceType\": \"policy\",\n  \"updatedAt\": \"2013-05-29T19:33:09.265Z\",\n  \"updatedBy\": \"b1f195c7-2410-e79a-8a72-5662b725055e\",\n  \"createdAt\": \"2003-03-30T15:09:27.696Z\",\n  \"createdBy\": \"2b462835-85fb-9925-58fd-5cf8fb17d6a2\",\n  \"category\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "612f234f-d060-45c0-b557-be352886ed2a",
+          "name": "fetch Latest Media Data",
+          "request": {
+            "name": "fetch Latest Media Data",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "mediadata",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8aeda1d6-b15c-4ebf-9dca-f9f4ee51e3e7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "mediadata",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"filename\": \"string\",\n  \"updatedAt\": \"2024-03-13T12:24:51.645Z\",\n  \"updatedBy\": \"a422afb4-d637-4247-6164-63cd63b45f1a\",\n  \"createdAt\": \"2008-06-28T12:16:47.981Z\",\n  \"createdBy\": \"a26546f1-fc96-8fd2-983b-1655751e7d88\",\n  \"references\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"versionLocator\": \"string\",\n  \"title\": \"string\",\n  \"tag\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6e30b7d-b567-4a66-8708-caba70673af4",
+          "name": "update Media Data",
+          "request": {
+            "name": "update Media Data",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "mediadata",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filename",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mimeType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "referencesToAdd",
+                  "value": "{\"locator\":\"<ulid>\",\"type\":\"<string>\"}"
+                },
+                {
+                  "disabled": false,
+                  "key": "referencesToAdd",
+                  "value": "{\"locator\":\"<ulid>\",\"type\":\"<string>\"}"
+                },
+                {
+                  "disabled": false,
+                  "key": "referencesToRemove",
+                  "value": "{\"locator\":\"<ulid>\",\"type\":\"<string>\"}"
+                },
+                {
+                  "disabled": false,
+                  "key": "referencesToRemove",
+                  "value": "{\"locator\":\"<ulid>\",\"type\":\"<string>\"}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9d3190b5-16d0-4198-af07-9bb8dabe5d42",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "mediadata",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filename",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mimeType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referencesToAdd",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "referencesToAdd",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "referencesToRemove",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "referencesToRemove",
+                      "value": "[object Object]"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"filename\": \"string\",\n  \"updatedAt\": \"2024-03-13T12:24:51.645Z\",\n  \"updatedBy\": \"a422afb4-d637-4247-6164-63cd63b45f1a\",\n  \"createdAt\": \"2008-06-28T12:16:47.981Z\",\n  \"createdBy\": \"a26546f1-fc96-8fd2-983b-1655751e7d88\",\n  \"references\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"versionLocator\": \"string\",\n  \"title\": \"string\",\n  \"tag\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "151bcddb-3b22-4391-abfc-d21ce9d55ace",
+          "name": "delete Media Data",
+          "request": {
+            "name": "delete Media Data",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "mediadata",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54060cbe-a85e-4d98-ac20-3d1483137d1b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "mediadata",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dce7b4a5-3501-4548-9151-68f94b28a562",
+          "name": "fetch All Diary Entries By Locator",
+          "request": {
+            "name": "fetch All Diary Entries By Locator",
+            "description": {
+              "content": "Fetches all revisions of a single diary entry",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "diary",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b53554c5-32c1-4dfd-b48e-a8554e3886fc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "diary",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"locator\": \"string\",\n    \"referenceLocator\": \"string\",\n    \"diaryState\": \"discarded\",\n    \"contents\": \"string\",\n    \"referenceType\": \"quote\",\n    \"updatedAt\": \"1975-10-26T09:31:23.789Z\",\n    \"updatedBy\": \"8f4b4521-7ddb-68cb-57c1-da197a6bc7d0\",\n    \"createdAt\": \"1953-01-13T03:51:51.773Z\",\n    \"createdBy\": \"255b5382-4d53-5eb7-5ba9-7f00b6e64e89\",\n    \"category\": \"string\"\n  },\n  {\n    \"locator\": \"string\",\n    \"referenceLocator\": \"string\",\n    \"diaryState\": \"discarded\",\n    \"contents\": \"string\",\n    \"referenceType\": \"account\",\n    \"updatedAt\": \"1993-04-26T10:26:33.390Z\",\n    \"updatedBy\": \"6febce91-4f49-5be0-4852-5e8616b900db\",\n    \"createdAt\": \"2003-10-23T19:20:27.328Z\",\n    \"createdBy\": \"459d9720-9922-0677-ab48-8be2ccb9b571\",\n    \"category\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ceadb95-88f9-44cd-9d4d-fe58551e9025",
+          "name": "update Diary",
+          "request": {
+            "name": "update Diary",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "diary",
+                ":locator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contents\": \"<string>\",\n  \"category\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57c95dd1-9188-4514-96c3-f77e9e66efd3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "diary",
+                    ":locator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": \"<string>\",\n  \"category\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"referenceLocator\": \"string\",\n  \"diaryState\": \"active\",\n  \"contents\": \"string\",\n  \"referenceType\": \"policy\",\n  \"updatedAt\": \"2013-05-29T19:33:09.265Z\",\n  \"updatedBy\": \"b1f195c7-2410-e79a-8a72-5662b725055e\",\n  \"createdAt\": \"2003-03-30T15:09:27.696Z\",\n  \"createdBy\": \"2b462835-85fb-9925-58fd-5cf8fb17d6a2\",\n  \"category\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df06d993-ae8d-412d-a2a1-0a0ee80f4c57",
+          "name": "discard Diary",
+          "request": {
+            "name": "discard Diary",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "diary",
+                ":locator",
+                "discard"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "334e7de1-3bf8-4817-9377-8deea7bb3717",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "diary",
+                    ":locator",
+                    "discard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"referenceLocator\": \"string\",\n  \"diaryState\": \"active\",\n  \"contents\": \"string\",\n  \"referenceType\": \"policy\",\n  \"updatedAt\": \"2013-05-29T19:33:09.265Z\",\n  \"updatedBy\": \"b1f195c7-2410-e79a-8a72-5662b725055e\",\n  \"createdAt\": \"2003-03-30T15:09:27.696Z\",\n  \"createdBy\": \"2b462835-85fb-9925-58fd-5cf8fb17d6a2\",\n  \"category\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ac97d54-56c6-45d4-a790-bf9ca0e07eec",
+          "name": "fetch Media Data",
+          "request": {
+            "name": "fetch Media Data",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "mediadata",
+                ":locator",
+                "versions",
+                ":versionLocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "versionLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9de600ab-2120-43e1-adee-3265d4f77ca7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "mediadata",
+                    ":locator",
+                    "versions",
+                    ":versionLocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "versionLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"filename\": \"string\",\n  \"updatedAt\": \"2024-03-13T12:24:51.645Z\",\n  \"updatedBy\": \"a422afb4-d637-4247-6164-63cd63b45f1a\",\n  \"createdAt\": \"2008-06-28T12:16:47.981Z\",\n  \"createdBy\": \"a26546f1-fc96-8fd2-983b-1655751e7d88\",\n  \"references\": [\n    {\n      \"locator\": \"<ulid>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"locator\": \"<ulid>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"versionLocator\": \"string\",\n  \"title\": \"string\",\n  \"tag\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d082cbf4-011a-44be-ad4f-7a2f50fab610",
+          "name": "fetch File",
+          "request": {
+            "name": "fetch File",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "mediadata",
+                ":locator",
+                "versions",
+                ":versionLocator",
+                "file"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "versionLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ca0cfa11-d4d7-4b45-b0d7-5f13e9bb17f5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "mediadata",
+                    ":locator",
+                    "versions",
+                    ":versionLocator",
+                    "file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "versionLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2118995-5f00-48c9-8c98-52cef8bfa194",
+          "name": "fetch All Media Data By Locator",
+          "request": {
+            "name": "fetch All Media Data By Locator",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "mediadata",
+                ":locator",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "extended",
+                  "value": "true"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c22080f-cd6b-4e92-936f-398cc3b30b05",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "mediadata",
+                    ":locator",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "extended",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6dafc56f-1f08-4d54-b57d-daddcedf0e6f",
+          "name": "fetch Latest File",
+          "request": {
+            "name": "fetch Latest File",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "mediadata",
+                ":locator",
+                "file"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "97306d7c-0ef6-4114-bc40-649a14836f9c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "mediadata",
+                    ":locator",
+                    "file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45163d20-5a08-416f-b8a9-9d8720613432",
+          "name": "fetch Latest Media Data By Reference",
+          "request": {
+            "name": "fetch Latest Media Data By Reference",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "mediadata",
+                "search",
+                ":referenceType",
+                ":referenceLocator",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "extended",
+                  "value": "true"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "referenceLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "referenceType",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba2d7e9a-517e-4bcb-ace1-022bd89eedd7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "mediadata",
+                    "search",
+                    ":referenceType",
+                    ":referenceLocator",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "extended",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "referenceLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "referenceType",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc863adb-7439-4ba0-92e7-a6ef79341506",
+          "name": "fetch Latest Diary Entry By Locator",
+          "request": {
+            "name": "fetch Latest Diary Entry By Locator",
+            "description": {
+              "content": "Fetches the latest revision of a single diary entry",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "diary",
+                ":locator",
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "locator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b29fc58d-b1ef-4f94-81aa-0984e0b5de22",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "diary",
+                    ":locator",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"referenceLocator\": \"string\",\n  \"diaryState\": \"active\",\n  \"contents\": \"string\",\n  \"referenceType\": \"policy\",\n  \"updatedAt\": \"2013-05-29T19:33:09.265Z\",\n  \"updatedBy\": \"b1f195c7-2410-e79a-8a72-5662b725055e\",\n  \"createdAt\": \"2003-03-30T15:09:27.696Z\",\n  \"createdBy\": \"2b462835-85fb-9925-58fd-5cf8fb17d6a2\",\n  \"category\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab8c13a4-36dd-4f74-af27-cd6335792325",
+          "name": "get Aux Data",
+          "request": {
+            "name": "get Aux Data",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "auxdata",
+                ":locator",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b728ab34-56fb-478f-972a-ce4da85b3a90",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "auxdata",
+                    ":locator",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locator\": \"string\",\n  \"key\": \"string\",\n  \"modificationTimestamp\": \"1958-02-26T12:36:10.994Z\",\n  \"uiType\": \"hidden\",\n  \"value\": \"string\",\n  \"expirationTimestamp\": \"1969-04-22T12:22:54.368Z\",\n  \"auxDataSettingsName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d2254c0-f28e-4e33-b581-1bb49d94bc85",
+          "name": "delete Aux Data",
+          "request": {
+            "name": "delete Aux Data",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "auxdata",
+                ":locator",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locator",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e23e76a-8dc1-40a3-b210-d34d00cd328d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "auxdata",
+                    ":locator",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locator",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5aa4bf8-768d-4a02-822a-8929b5d14be1",
+          "name": "get Aux Data Size",
+          "request": {
+            "name": "get Aux Data Size",
+            "description": {},
+            "url": {
+              "path": [
+                "auxdata",
+                ":tenantLocator",
+                "auxdata",
+                "size"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantLocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3b8be0d-353f-46ff-b3b4-433e306fbb55",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auxdata",
+                    ":tenantLocator",
+                    "auxdata",
+                    "size"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantLocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dataSizeKb\": 4983\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "04c6f0a6-374e-4f7a-8437-692a1995d785",
+    "name": "Socotra Insurance Suite OpenAPI Definition Auxdata API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Socotra Insurance Suite API",
+      "type": "text/plain"
+    }
+  }
+}
