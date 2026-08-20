@@ -49,6 +49,16 @@ tags:
 - Billing
 - Claims
 - Underwriting
+- MCP
+tags_raw:
+- Company
+- Insurtech
+- Insurance
+- Core Platform
+- Policy Administration
+- Billing
+- Claims
+- Underwriting
 - API
 - MCP
 image: https://www.socotra.com/favicon.ico
@@ -59,6 +69,8 @@ apis:
   humanURL: https://docs.socotra.com/docs/api
   baseURL: https://api.sandbox.socotra.com
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
