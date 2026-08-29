@@ -1,0 +1,77 @@
+slug: socotra
+provider: Socotra
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Insurance
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 6
+edges:
+- tag: Claim
+  spec_file: socotra-claim-api-openapi.yml
+  capability_id: BC-2160.10
+  capability_id_l1: BC-2160
+  capability_name: First Notice of Loss Management
+  confidence: 0.92
+  evidence: POST /claim/{tenantLocator}/fnols addFnol; PATCH .../fnols/{locator}/losses/coverageCheck
+    checkLosses; schemas FnolCreateRequest, FnolClaimData
+  reason: Operations register first-notice-of-loss records, add losses, verify coverage, validate/reject/discard
+    — First Notice of Loss Management within insurance claims.
+- tag: Policy
+  spec_file: socotra-policy-api-openapi.yml
+  capability_id: BC-2140
+  capability_id_l1: BC-2140
+  capability_name: Policy Administration Management
+  confidence: 0.92
+  evidence: addElementsToPolicyWithTransaction, createPolicyChangeInstruction, PolicyTransactionResponse,
+    AutoRenewalCreateRequest, TermSummary
+  reason: 'Operations administer in-force insurance contracts: policy transactions, change instructions,
+    terms, auto-renewal and quotes. This is plainly Policy Administration Management; the surface spans
+    issuance, endorsement and renewal so no single L2 is named exclusively.'
+- tag: Producers
+  spec_file: socotra-producers-api-openapi.yml
+  capability_id: BC-2110
+  capability_id_l1: BC-2110
+  capability_name: Insurance Distribution Management
+  confidence: 0.9
+  evidence: fetchProducerLicense, ProducerAppointmentCreateRequest, ProducerCodeUpdateRequest, ProducerHierarchyResponse
+  reason: Manages producers (agents/brokers) with licences, appointments, codes and hierarchy — insurance
+    distribution management. Evidence covers both intermediary master data and licensing/appointment,
+    so the L1 is the honest level.
+- tag: Auth
+  spec_file: socotra-auth-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /auth/users createUser; POST /auth/roles createRole; POST /auth/users/{locator}/revoke
+    revokeUserOauthTokens; schemas OIDCIdentityProviderCreateRequest, PasswordPolicyUpdateRequest
+  reason: Operations create users, issue and revoke tokens, manage roles, password policies and OIDC federation
+    — squarely Identity & Access Management, not an insurance business capability.
+- tag: Billing
+  spec_file: socotra-billing-api-openapi.yml
+  capability_id: BC-2150
+  capability_id_l1: BC-2150
+  capability_name: Premium Accounting Management
+  confidence: 0.85
+  evidence: POST /billing/{tenantLocator}/payments createPayment; POST /billing/{tenantLocator}/writeOffs
+    writeOff; schemas AggregatedInvoiceCreateRequest, InvoiceSummaryView, DelinquencyEvents
+  reason: 'Insurance core platform billing: invoices, instalments, payments, credits, disbursements, delinquency
+    and write-offs — premium accounting. Spans billing, collection and dunning sub-capabilities so only
+    the L1 is asserted.'
+- tag: Compliance
+  spec_file: socotra-compliance-api-openapi.yml
+  capability_id: BC-130.50
+  capability_id_l1: BC-130
+  capability_name: Privacy & Data Protection Management
+  confidence: 0.78
+  evidence: POST /compliance/{tenantLocator}/anonymize anonymizeData; GET /compliance/{tenantLocator}/preview
+    previewAnonymization; schemas AnonymizationJobDetails
+  reason: The whole surface is personal-data anonymisation with preview and job tracking — the technical
+    realisation of data-protection / erasure obligations.
