@@ -163,6 +163,8 @@ apis:
   humanURL: https://docs.socotra.com/docs/api
   baseURL: https://api.sandbox.socotra.com
   tags:
+  - Documents
+  tags_raw:
   - Document
   properties:
   - type: OpenAPI
@@ -203,6 +205,8 @@ apis:
   humanURL: https://docs.socotra.com/docs/api
   baseURL: https://api.sandbox.socotra.com
   tags:
+  - Plugins
+  tags_raw:
   - Plugin
   properties:
   - type: OpenAPI
