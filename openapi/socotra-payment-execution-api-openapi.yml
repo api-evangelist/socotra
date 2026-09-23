@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Socotra Insurance Suite OpenAPI Definition Payment Execution API
+  title: Socotra Insurance Suite OpenAPI Definition Payment…
   description: Socotra Insurance Suite API
   termsOfService: https://www.socotra.com
   version: v0
@@ -46,6 +46,8 @@ paths:
       deprecated: false
       tags:
       - Payment Execution
+      summary: Add payment provider configuration
+      x-summary-source: derived
   /payment-execution/{tenantLocator}/financialInstruments/{financialInstrumentLocator}:
     get:
       operationId: fetchPaymentExecutionConfigurationForFinancialInstrument
@@ -78,6 +80,8 @@ paths:
       deprecated: false
       tags:
       - Payment Execution
+      summary: Fetch payment execution configuration for financial instrument
+      x-summary-source: derived
     post:
       operationId: addPaymentExecutionConfigurationForFinancialInstrument
       parameters:
@@ -116,6 +120,8 @@ paths:
       deprecated: false
       tags:
       - Payment Execution
+      summary: Add payment execution configuration for financial instrument
+      x-summary-source: derived
     patch:
       operationId: updatePaymentExecutionConfigurationForFinancialInstrument
       parameters:
@@ -154,6 +160,8 @@ paths:
       deprecated: false
       tags:
       - Payment Execution
+      summary: Update payment execution configuration for financial instrument
+      x-summary-source: derived
   /payment-execution/{tenantLocator}/paymentProviders/{locator}:
     get:
       operationId: fetchPaymentProviderConfiguration
@@ -186,6 +194,8 @@ paths:
       deprecated: false
       tags:
       - Payment Execution
+      summary: Fetch payment provider configuration
+      x-summary-source: derived
     patch:
       operationId: updatePaymentProviderConfiguration
       parameters:
@@ -228,6 +238,8 @@ paths:
       deprecated: false
       tags:
       - Payment Execution
+      summary: Update payment provider configuration
+      x-summary-source: derived
   /payment-execution/{tenantLocator}/paymentProviders/{locator}/inactivate:
     patch:
       operationId: inactivatePaymentProviderConfiguration
@@ -260,6 +272,8 @@ paths:
       deprecated: true
       tags:
       - Payment Execution
+      summary: Inactivate payment provider configuration
+      x-summary-source: derived
   /payment-execution/{tenantLocator}/paymentProviders/list:
     get:
       operationId: fetchPaymentProviderConfigurations
@@ -310,39 +324,10 @@ paths:
       deprecated: false
       tags:
       - Payment Execution
+      summary: Fetch payment provider configurations
+      x-summary-source: derived
 components:
   schemas:
-    StripeConfigurationRequest:
-      type: object
-      required:
-      - paymentProviderState
-      - paymentServiceProvider
-      - secretKey
-      allOf:
-      - $ref: '#/components/schemas/PaymentProviderConfigurationRequestPaymentProviderConfiguration'
-        deprecated: false
-      - type: object
-        properties:
-          paymentServiceProvider:
-            type: string
-            enum:
-            - braintree
-            - braintreeSandbox
-            - stripe
-            - stripeTest
-            deprecated: false
-          paymentProviderState:
-            type: string
-            enum:
-            - active
-            - inactive
-            deprecated: false
-          secretKey:
-            type: string
-            deprecated: false
-            writeOnly: true
-        deprecated: false
-      deprecated: false
     FinancialInstrumentConfigurationResponse:
       type: object
       required:
@@ -360,6 +345,22 @@ components:
         externalAccountNumber:
           type: string
           deprecated: false
+      deprecated: false
+    ListPageResponsePaymentProvider:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PaymentProvider'
+            deprecated: false
       deprecated: false
     PaymentProviderConfigurationRequestPaymentProviderConfiguration:
       type: object
@@ -415,6 +416,37 @@ components:
           type: string
           deprecated: false
       deprecated: false
+    StripeConfigurationRequest:
+      type: object
+      required:
+      - paymentProviderState
+      - paymentServiceProvider
+      - secretKey
+      allOf:
+      - $ref: '#/components/schemas/PaymentProviderConfigurationRequestPaymentProviderConfiguration'
+        deprecated: false
+      - type: object
+        properties:
+          paymentServiceProvider:
+            type: string
+            enum:
+            - braintree
+            - braintreeSandbox
+            - stripe
+            - stripeTest
+            deprecated: false
+          paymentProviderState:
+            type: string
+            enum:
+            - active
+            - inactive
+            deprecated: false
+          secretKey:
+            type: string
+            deprecated: false
+            writeOnly: true
+        deprecated: false
+      deprecated: false
     BraintreeConfigurationRequest:
       type: object
       required:
@@ -455,20 +487,4 @@ components:
             deprecated: false
             writeOnly: true
         deprecated: false
-      deprecated: false
-    ListPageResponsePaymentProvider:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/PaymentProvider'
-            deprecated: false
       deprecated: false

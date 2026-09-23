@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Socotra Insurance Suite OpenAPI Definition Work Management API
+  title: Socotra Insurance Suite OpenAPI Definition Work Management…
   description: Socotra Insurance Suite API
   termsOfService: https://www.socotra.com
   version: v0
@@ -42,6 +42,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Create workplan
+      x-summary-source: derived
   /work-management/{tenantLocator}/workgroups:
     post:
       operationId: createWorkgroup
@@ -74,6 +76,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Create workgroup
+      x-summary-source: derived
   /work-management/{tenantLocator}/userAssociations:
     post:
       operationId: makeUserAssociation
@@ -106,6 +110,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Make user association
+      x-summary-source: derived
   /work-management/{tenantLocator}/tasks:
     post:
       operationId: addTask
@@ -138,6 +144,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Add task
+      x-summary-source: derived
   /work-management/{tenantLocator}/tasks/{locator}/number/set:
     post:
       operationId: setTaskNumber
@@ -176,6 +184,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Set task number
+      x-summary-source: derived
   /work-management/{tenantLocator}/tasks/{locator}/number/generate:
     post:
       operationId: generateTaskNumber
@@ -208,6 +218,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Generate task number
+      x-summary-source: derived
   /work-management/{tenantLocator}/assignments:
     post:
       operationId: autoAssign
@@ -240,6 +252,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Auto assign
+      x-summary-source: derived
   /work-management/{tenantLocator}/workplans/{locator}:
     get:
       operationId: getWorkplan
@@ -272,6 +286,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Get workplan
+      x-summary-source: derived
     patch:
       operationId: patchWorkplan
       parameters:
@@ -310,6 +326,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Patch workplan
+      x-summary-source: derived
   /work-management/{tenantLocator}/workplans/{locator}/discard:
     patch:
       operationId: discardWorkplan
@@ -342,6 +360,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Discard workplan
+      x-summary-source: derived
   /work-management/{tenantLocator}/workgroups/{workgroupLocator}:
     get:
       operationId: getWorkgroup
@@ -374,6 +394,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Get workgroup
+      x-summary-source: derived
     patch:
       operationId: patchWorkgroup
       parameters:
@@ -412,6 +434,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Patch workgroup
+      x-summary-source: derived
   /work-management/{tenantLocator}/workgroups/{workgroupLocator}/discard:
     patch:
       operationId: discardWorkgroup
@@ -444,6 +468,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Discard workgroup
+      x-summary-source: derived
   /work-management/{tenantLocator}/userAssociations/{userAssociationLocator}/uncomplete:
     patch:
       operationId: uncompleteUserAssociation
@@ -476,6 +502,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Uncomplete user association
+      x-summary-source: derived
   /work-management/{tenantLocator}/userAssociations/{userAssociationLocator}/disassociate:
     patch:
       operationId: disassociateUserAssociation
@@ -508,6 +536,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Disassociate user association
+      x-summary-source: derived
   /work-management/{tenantLocator}/userAssociations/{userAssociationLocator}/complete:
     patch:
       operationId: completeUserAssociation
@@ -540,6 +570,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Complete user association
+      x-summary-source: derived
   /work-management/{tenantLocator}/tasks/{locator}:
     get:
       operationId: getTask
@@ -572,6 +604,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Get task
+      x-summary-source: derived
     patch:
       operationId: updateTask
       parameters:
@@ -610,6 +644,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Update task
+      x-summary-source: derived
   /work-management/{tenantLocator}/tasks/{locator}/unassign:
     patch:
       operationId: unassignTask
@@ -642,6 +678,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Unassign task
+      x-summary-source: derived
   /work-management/{tenantLocator}/tasks/{locator}/complete:
     patch:
       operationId: completeTask
@@ -674,6 +712,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Complete task
+      x-summary-source: derived
   /work-management/{tenantLocator}/tasks/{locator}/cancel:
     patch:
       operationId: cancelTask
@@ -706,6 +746,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Cancel task
+      x-summary-source: derived
   /work-management/{tenantLocator}/tasks/{locator}/assign/{userLocator}:
     patch:
       operationId: assignTask
@@ -745,6 +787,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Assign task
+      x-summary-source: derived
   /work-management/{tenantLocator}/tasks/{locator}/activate:
     patch:
       operationId: activateTask
@@ -777,6 +821,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Activate task
+      x-summary-source: derived
   /work-management/{tenantLocator}/qualifications/{userLocator}:
     get:
       operationId: getUserQualifications
@@ -812,6 +858,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Get user qualifications
+      x-summary-source: derived
     patch:
       operationId: updateUserQualifications
       parameters:
@@ -853,6 +901,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Update user qualifications
+      x-summary-source: derived
   /work-management/{tenantLocator}/workplans/list:
     get:
       operationId: listWorkplans
@@ -892,6 +942,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: List workplans
+      x-summary-source: derived
   /work-management/{tenantLocator}/workgroups/list:
     get:
       operationId: listWorkgroups
@@ -939,6 +991,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: List workgroups
+      x-summary-source: derived
   /work-management/{tenantLocator}/userAssociations/{referenceType}/{referenceLocator}/{userAssociationState}/list:
     get:
       operationId: listAssignedUsers
@@ -1013,6 +1067,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: List assigned users
+      x-summary-source: derived
   /work-management/{tenantLocator}/userAssociations/{referenceType}/{referenceLocator}/history/list:
     get:
       operationId: listReferenceUserAssociationsHistory
@@ -1076,6 +1132,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: List reference user associations history
+      x-summary-source: derived
   /work-management/{tenantLocator}/userAssociations/{locator}:
     get:
       operationId: getUserAssociation
@@ -1108,6 +1166,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Get user association
+      x-summary-source: derived
   /work-management/{tenantLocator}/userAssociations/{locator}/history/list:
     get:
       operationId: listUserAssociationHistory
@@ -1154,6 +1214,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: List user association history
+      x-summary-source: derived
   /work-management/{tenantLocator}/userAssociations/user/{userLocator}/{userAssociationState}/list:
     get:
       operationId: listUserUserAssociations
@@ -1211,6 +1273,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: List user user associations
+      x-summary-source: derived
   /work-management/{tenantLocator}/userAssociations/user/{userLocator}/qualifiedRoles/list:
     get:
       operationId: listUserQualifiedRoles
@@ -1260,6 +1324,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: List user qualified roles
+      x-summary-source: derived
   /work-management/{tenantLocator}/userAssociations/user/{userLocator}/history/list:
     get:
       operationId: listUserUserAssociationsHistory
@@ -1306,6 +1372,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: List user user associations history
+      x-summary-source: derived
   /work-management/{tenantLocator}/tasks/{referenceType}/{referenceLocator}/list:
     get:
       operationId: searchTasks
@@ -1369,6 +1437,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Search tasks
+      x-summary-source: derived
   /work-management/{tenantLocator}/tasks/{locator}/history/list:
     get:
       operationId: listTaskHistory
@@ -1415,6 +1485,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: List task history
+      x-summary-source: derived
   /work-management/{tenantLocator}/tasks/user/{userLocator}/list:
     get:
       operationId: listAssignedTasks
@@ -1461,6 +1533,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: List assigned tasks
+      x-summary-source: derived
   /work-management/{tenantLocator}/tasks/numbers/{taskNumber}:
     get:
       operationId: fetchTasksWithNumber
@@ -1496,6 +1570,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Fetch tasks with number
+      x-summary-source: derived
   /work-management/{tenantLocator}/tasks/list:
     get:
       operationId: listTasks
@@ -1535,6 +1611,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: List tasks
+      x-summary-source: derived
   /work-management/{tenantLocator}/tasks/all/list:
     get:
       operationId: listAllTasks
@@ -1574,6 +1652,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: List all tasks
+      x-summary-source: derived
   /work-management/{tenantLocator}/qualifications:
     get:
       operationId: getQualifications
@@ -1605,6 +1685,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Get qualifications
+      x-summary-source: derived
   /work-management/{tenantLocator}/qualifications/{category}/{level}:
     get:
       operationId: fetchUsersQualifications
@@ -1645,6 +1727,8 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Fetch users qualifications
+      x-summary-source: derived
   /work-management/events:
     get:
       operationId: fetchWorkManagementEventDefinitions
@@ -1663,21 +1747,150 @@ paths:
       deprecated: false
       tags:
       - Work Management
+      summary: Fetch work management event definitions
+      x-summary-source: derived
 components:
   schemas:
-    WorkplanItem:
+    TaskCreateRequest:
+      type: object
+      required:
+      - type
+      - references
+      - underwritingFlagLocators
+      properties:
+        type:
+          type: string
+          deprecated: false
+        deadlineTime:
+          type: string
+          format: date-time
+          deprecated: false
+        references:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/TaskReference'
+            deprecated: false
+        underwritingFlagLocators:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        assignedTo:
+          type: string
+          format: uuid
+          deprecated: false
+        description:
+          type: string
+          deprecated: false
+        source:
+          type: string
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+      deprecated: false
+    TaskUpdateRequest:
+      type: object
+      required:
+      - addReferences
+      - addUnderwritingFlags
+      - removeReferences
+      - removeUnderwritingFlags
+      properties:
+        deadlineTime:
+          type: string
+          format: date-time
+          deprecated: false
+        addReferences:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/TaskReference'
+            deprecated: false
+        removeReferences:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/TaskReference'
+            deprecated: false
+        addUnderwritingFlags:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        removeUnderwritingFlags:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        description:
+          type: string
+          deprecated: false
+        source:
+          type: string
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+      deprecated: false
+    Workplan:
       type: object
       required:
       - locator
-      - referenceLocator
-      - assignToGroup
-      - referenceType
-      - traversal
+      - name
+      - workplanState
+      - createdAt
+      - createdBy
+      - items
       properties:
         locator:
           type: string
           format: ulid
           deprecated: false
+        name:
+          type: string
+          deprecated: false
+        workplanState:
+          type: string
+          enum:
+          - active
+          - discarded
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/WorkplanItem'
+            deprecated: false
+        defaultGroup:
+          type: string
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    WorkplanItemRequest:
+      type: object
+      required:
+      - referenceLocator
+      - assignToGroup
+      - associationRole
+      - defaultGroup
+      - referenceType
+      - traversal
+      properties:
         associationRole:
           type: string
           deprecated: false
@@ -1729,29 +1942,23 @@ components:
           $ref: '#/components/schemas/UserAssociationEvents'
           deprecated: false
       deprecated: false
-    AutoAssignmentResponse:
+    WorkplanCreateRequest:
       type: object
       required:
-      - assignedUserLocator
-      - assignedWorkgroupLocator
-      - associationLocator
-      - taskLocator
+      - name
+      - items
       properties:
-        taskLocator:
+        name:
           type: string
-          format: ulid
           deprecated: false
-        assignedUserLocator:
-          type: string
-          format: uuid
+        items:
+          type: array
           deprecated: false
-        assignedWorkgroupLocator:
+          items:
+            $ref: '#/components/schemas/WorkplanItemRequest'
+            deprecated: false
+        defaultGroup:
           type: string
-          format: ulid
-          deprecated: false
-        associationLocator:
-          type: string
-          format: ulid
           deprecated: false
       deprecated: false
     UserQualification:
@@ -1772,194 +1979,24 @@ components:
           type: string
           deprecated: false
       deprecated: false
-    ListPageResponseTask:
+    WorkgroupCreateRequest:
       type: object
       required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/Task'
-            deprecated: false
-      deprecated: false
-    WorkgroupResponse:
-      type: object
-      required:
-      - locator
       - name
-      - workgroupState
-      - createdAt
-      - createdBy
-      - entities
       - subgroups
-      - tasks
       - users
       properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
         name:
           type: string
-          deprecated: false
-        workgroupState:
-          type: string
-          enum:
-          - active
-          - discarded
           deprecated: false
         subgroups:
           type: array
           deprecated: false
           items:
-            $ref: '#/components/schemas/WorkgroupResponse'
+            type: string
+            format: ulid
             deprecated: false
         users:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: uuid
-            deprecated: false
-        entities:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        tasks:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        parent:
-          type: string
-          format: ulid
-          deprecated: false
-        region:
-          type: string
-          deprecated: false
-        tag:
-          type: string
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-      deprecated: false
-    UserAssociation:
-      type: object
-      required:
-      - locator
-      - referenceLocator
-      - userLocator
-      - userAssociationState
-      - referenceType
-      - userAssociationRole
-      - createdAt
-      - createdBy
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        userLocator:
-          type: string
-          format: uuid
-          deprecated: false
-        userAssociationRole:
-          type: string
-          deprecated: false
-        referenceType:
-          type: string
-          enum:
-          - account
-          - quickQuote
-          - quote
-          - policy
-          - transaction
-          - invoice
-          - underwritingFlag
-          - payment
-          - quoteGroup
-          - inquiry
-          deprecated: false
-        referenceLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        userAssociationState:
-          type: string
-          enum:
-          - active
-          - completed
-          - disassociated
-          - discarded
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        updatedBy:
-          type: string
-          format: uuid
-          deprecated: false
-        updatedAt:
-          type: string
-          format: date-time
-          deprecated: false
-      deprecated: false
-    WorkgroupPatchRequest:
-      type: object
-      required:
-      - empty
-      - removeSubgroups
-      - removeUsers
-      - setSubgroups
-      - setUsers
-      properties:
-        name:
-          type: string
-          deprecated: false
-        setSubgroups:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        removeSubgroups:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        setUsers:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: uuid
-            deprecated: false
-        removeUsers:
           type: array
           deprecated: false
           items:
@@ -1976,8 +2013,31 @@ components:
         tag:
           type: string
           deprecated: false
-        empty:
-          type: boolean
+      deprecated: false
+    WorkplanPatchRequest:
+      type: object
+      required:
+      - addItems
+      - removeItems
+      properties:
+        name:
+          type: string
+          deprecated: false
+        addItems:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/WorkplanItemRequest'
+            deprecated: false
+        removeItems:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        defaultGroup:
+          type: string
           deprecated: false
       deprecated: false
     Task:
@@ -2068,24 +2128,52 @@ components:
           type: string
           deprecated: false
       deprecated: false
-    WorkgroupCreateRequest:
+    UserQualifiedRolesResponse:
       type: object
       required:
-      - name
-      - subgroups
-      - users
+      - qualifiedUserAssociationRoles
+      properties:
+        qualifiedUserAssociationRoles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    WorkgroupPatchRequest:
+      type: object
+      required:
+      - empty
+      - removeSubgroups
+      - removeUsers
+      - setSubgroups
+      - setUsers
       properties:
         name:
           type: string
           deprecated: false
-        subgroups:
+        setSubgroups:
           type: array
           deprecated: false
           items:
             type: string
             format: ulid
             deprecated: false
-        users:
+        removeSubgroups:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        setUsers:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: uuid
+            deprecated: false
+        removeUsers:
           type: array
           deprecated: false
           items:
@@ -2102,6 +2190,222 @@ components:
         tag:
           type: string
           deprecated: false
+        empty:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    ListPageResponseWorkplan:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/Workplan'
+            deprecated: false
+      deprecated: false
+    ListPageResponseWorkgroupResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/WorkgroupResponse'
+            deprecated: false
+      deprecated: false
+    UserAssociationCreateRequest:
+      type: object
+      required:
+      - referenceLocator
+      - userLocator
+      - referenceType
+      - userAssociationRole
+      properties:
+        userLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        userAssociationRole:
+          type: string
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    UserAssociation:
+      type: object
+      required:
+      - locator
+      - referenceLocator
+      - userLocator
+      - userAssociationState
+      - referenceType
+      - userAssociationRole
+      - createdAt
+      - createdBy
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        userLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        userAssociationRole:
+          type: string
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        userAssociationState:
+          type: string
+          enum:
+          - active
+          - completed
+          - disassociated
+          - discarded
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        updatedBy:
+          type: string
+          format: uuid
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    UserAssociationEventData:
+      type: object
+      required:
+      - referenceLocator
+      - userAssociationLocator
+      - referenceType
+      properties:
+        userAssociationLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    ListPageResponseTask:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/Task'
+            deprecated: false
+      deprecated: false
+    QualificationsUpdateRequest:
+      type: object
+      required:
+      - addQualifications
+      - removeQualifications
+      properties:
+        removeQualifications:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: string
+            deprecated: false
+        addQualifications:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: string
+            deprecated: false
+      deprecated: false
+    ListPageResponseUserAssociation:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/UserAssociation'
+            deprecated: false
       deprecated: false
     AutoAssignmentCreateRequest:
       type: object
@@ -2156,31 +2460,6 @@ components:
           - always
           deprecated: false
       deprecated: false
-    TaskReference:
-      type: object
-      required:
-      - referenceLocator
-      - referenceType
-      properties:
-        referenceType:
-          type: string
-          enum:
-          - account
-          - quickQuote
-          - quote
-          - policy
-          - transaction
-          - invoice
-          - underwritingFlag
-          - payment
-          - quoteGroup
-          - inquiry
-          deprecated: false
-        referenceLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
     UserAssociationEvents:
       type: object
       properties:
@@ -2197,280 +2476,44 @@ components:
           $ref: '#/components/schemas/UserAssociationEventData'
           deprecated: false
       deprecated: false
-    ListPageResponseWorkplan:
+    AutoAssignmentResponse:
       type: object
       required:
-      - listCompleted
-      - items
+      - assignedUserLocator
+      - assignedWorkgroupLocator
+      - associationLocator
+      - taskLocator
       properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/Workplan'
-            deprecated: false
-      deprecated: false
-    QualificationsUpdateRequest:
-      type: object
-      required:
-      - addQualifications
-      - removeQualifications
-      properties:
-        removeQualifications:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: string
-            deprecated: false
-        addQualifications:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: string
-            deprecated: false
-      deprecated: false
-    TaskCreateRequest:
-      type: object
-      required:
-      - type
-      - references
-      - underwritingFlagLocators
-      properties:
-        type:
+        taskLocator:
           type: string
+          format: ulid
           deprecated: false
-        deadlineTime:
-          type: string
-          format: date-time
-          deprecated: false
-        references:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/TaskReference'
-            deprecated: false
-        underwritingFlagLocators:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        assignedTo:
+        assignedUserLocator:
           type: string
           format: uuid
           deprecated: false
-        description:
+        assignedWorkgroupLocator:
           type: string
+          format: ulid
           deprecated: false
-        source:
+        associationLocator:
           type: string
-          deprecated: false
-        tag:
-          type: string
+          format: ulid
           deprecated: false
       deprecated: false
-    Workplan:
+    WorkplanItem:
       type: object
       required:
       - locator
-      - name
-      - workplanState
-      - createdAt
-      - createdBy
-      - items
+      - referenceLocator
+      - assignToGroup
+      - referenceType
+      - traversal
       properties:
         locator:
           type: string
           format: ulid
           deprecated: false
-        name:
-          type: string
-          deprecated: false
-        workplanState:
-          type: string
-          enum:
-          - active
-          - discarded
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/WorkplanItem'
-            deprecated: false
-        defaultGroup:
-          type: string
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-      deprecated: false
-    UserAssociationCreateRequest:
-      type: object
-      required:
-      - referenceLocator
-      - userLocator
-      - referenceType
-      - userAssociationRole
-      properties:
-        userLocator:
-          type: string
-          format: uuid
-          deprecated: false
-        userAssociationRole:
-          type: string
-          deprecated: false
-        referenceType:
-          type: string
-          enum:
-          - account
-          - quickQuote
-          - quote
-          - policy
-          - transaction
-          - invoice
-          - underwritingFlag
-          - payment
-          - quoteGroup
-          - inquiry
-          deprecated: false
-        referenceLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    WorkplanCreateRequest:
-      type: object
-      required:
-      - name
-      - items
-      properties:
-        name:
-          type: string
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/WorkplanItemRequest'
-            deprecated: false
-        defaultGroup:
-          type: string
-          deprecated: false
-      deprecated: false
-    ListPageResponseUserAssociation:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/UserAssociation'
-            deprecated: false
-      deprecated: false
-    TaskUpdateRequest:
-      type: object
-      required:
-      - addReferences
-      - addUnderwritingFlags
-      - removeReferences
-      - removeUnderwritingFlags
-      properties:
-        deadlineTime:
-          type: string
-          format: date-time
-          deprecated: false
-        addReferences:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/TaskReference'
-            deprecated: false
-        removeReferences:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/TaskReference'
-            deprecated: false
-        addUnderwritingFlags:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        removeUnderwritingFlags:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        description:
-          type: string
-          deprecated: false
-        source:
-          type: string
-          deprecated: false
-        tag:
-          type: string
-          deprecated: false
-      deprecated: false
-    UserAssociationEventData:
-      type: object
-      required:
-      - referenceLocator
-      - userAssociationLocator
-      - referenceType
-      properties:
-        userAssociationLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        referenceType:
-          type: string
-          enum:
-          - account
-          - quickQuote
-          - quote
-          - policy
-          - transaction
-          - invoice
-          - underwritingFlag
-          - payment
-          - quoteGroup
-          - inquiry
-          deprecated: false
-        referenceLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    WorkplanItemRequest:
-      type: object
-      required:
-      - referenceLocator
-      - assignToGroup
-      - associationRole
-      - defaultGroup
-      - referenceType
-      - traversal
-      properties:
         associationRole:
           type: string
           deprecated: false
@@ -2513,57 +2556,100 @@ components:
           - always
           deprecated: false
       deprecated: false
-    WorkplanPatchRequest:
+    WorkgroupResponse:
       type: object
       required:
-      - addItems
-      - removeItems
+      - locator
+      - name
+      - workgroupState
+      - createdAt
+      - createdBy
+      - entities
+      - subgroups
+      - tasks
+      - users
       properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
         name:
           type: string
           deprecated: false
-        addItems:
+        workgroupState:
+          type: string
+          enum:
+          - active
+          - discarded
+          deprecated: false
+        subgroups:
           type: array
           deprecated: false
           items:
-            $ref: '#/components/schemas/WorkplanItemRequest'
+            $ref: '#/components/schemas/WorkgroupResponse'
             deprecated: false
-        removeItems:
+        users:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: uuid
+            deprecated: false
+        entities:
           type: array
           deprecated: false
           items:
             type: string
             format: ulid
             deprecated: false
-        defaultGroup:
-          type: string
-          deprecated: false
-      deprecated: false
-    UserQualifiedRolesResponse:
-      type: object
-      required:
-      - qualifiedUserAssociationRoles
-      properties:
-        qualifiedUserAssociationRoles:
+        tasks:
           type: array
           deprecated: false
           items:
             type: string
+            format: ulid
             deprecated: false
+        parent:
+          type: string
+          format: ulid
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
       deprecated: false
-    ListPageResponseWorkgroupResponse:
+    TaskReference:
       type: object
       required:
-      - listCompleted
-      - items
+      - referenceLocator
+      - referenceType
       properties:
-        listCompleted:
-          type: boolean
+        referenceType:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
           deprecated: false
-        items:
-          type: array
+        referenceLocator:
+          type: string
+          format: ulid
           deprecated: false
-          items:
-            $ref: '#/components/schemas/WorkgroupResponse'
-            deprecated: false
       deprecated: false

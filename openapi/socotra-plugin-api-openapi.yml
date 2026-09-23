@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Socotra Insurance Suite OpenAPI Definition Plugin API
   description: Socotra Insurance Suite API
@@ -67,6 +67,8 @@ paths:
       deprecated: false
       tags:
       - Plugin
+      summary: Fetch from automation plugin
+      x-summary-source: derived
     post:
       operationId: executeAutomationPlugin
       parameters:
@@ -123,6 +125,8 @@ paths:
       deprecated: false
       tags:
       - Plugin
+      summary: Execute automation plugin
+      x-summary-source: derived
   /plugin/{tenantLocator}/ratingregistries/{category}/{locator}/{elementLocator}:
     get:
       operationId: getRatingRegistry
@@ -180,6 +184,8 @@ paths:
       deprecated: false
       tags:
       - Plugin
+      summary: Get rating registry
+      x-summary-source: derived
   /plugin/{tenantLocator}/ratingregistries/{category}/{locator}/list:
     get:
       operationId: listRatingRegistries
@@ -226,6 +232,8 @@ paths:
       deprecated: false
       tags:
       - Plugin
+      summary: List rating registries
+      x-summary-source: derived
   /plugin/{tenantLocator}/logs/{locator}:
     get:
       operationId: fetchLogs
@@ -267,6 +275,8 @@ paths:
       deprecated: false
       tags:
       - Plugin
+      summary: Fetch logs
+      x-summary-source: derived
   /plugin/{tenantLocator}/logs/list:
     get:
       operationId: fetchLogsList
@@ -346,21 +356,28 @@ paths:
       deprecated: false
       tags:
       - Plugin
+      summary: Fetch logs list
+      x-summary-source: derived
 components:
   schemas:
-    ObjectReference:
+    PluginLogsListResponse:
       type: object
       required:
-      - locator
-      - type
+      - listCompleted
+      - items
       properties:
-        locator:
-          type: string
-          format: ulid
+        listCompleted:
+          type: boolean
           deprecated: false
-        type:
-          type: string
+        items:
+          type: array
           deprecated: false
+          items:
+            $ref: '#/components/schemas/PluginLogsMetadata'
+            deprecated: false
+      deprecated: false
+    StreamingResponseBody:
+      type: object
       deprecated: false
     PluginLogsMetadata:
       type: object
@@ -402,22 +419,17 @@ components:
             $ref: '#/components/schemas/ObjectReference'
             deprecated: false
       deprecated: false
-    PluginLogsListResponse:
+    ObjectReference:
       type: object
       required:
-      - listCompleted
-      - items
+      - locator
+      - type
       properties:
-        listCompleted:
-          type: boolean
+        locator:
+          type: string
+          format: ulid
           deprecated: false
-        items:
-          type: array
+        type:
+          type: string
           deprecated: false
-          items:
-            $ref: '#/components/schemas/PluginLogsMetadata'
-            deprecated: false
-      deprecated: false
-    StreamingResponseBody:
-      type: object
       deprecated: false

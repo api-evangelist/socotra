@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Socotra Insurance Suite OpenAPI Definition Resource API
   description: Socotra Insurance Suite API
@@ -79,6 +79,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Create ui config
+      x-summary-source: derived
   /resource/{tenantLocator}/templates/velocity:
     post:
       operationId: createVelocityDocumentTemplate
@@ -139,6 +141,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Create velocity document template
+      x-summary-source: derived
     patch:
       operationId: updateVelocityDocumentTemplate
       parameters:
@@ -183,6 +187,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Update velocity document template
+      x-summary-source: derived
   /resource/{tenantLocator}/templates/liquid:
     post:
       operationId: createLiquidDocumentTemplate
@@ -243,6 +249,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Create liquid document template
+      x-summary-source: derived
     patch:
       operationId: updateLiquidDocumentTemplate
       parameters:
@@ -287,6 +295,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Update liquid document template
+      x-summary-source: derived
   /resource/{tenantLocator}/templateSnippets/velocity:
     post:
       operationId: uploadVelocity
@@ -347,6 +357,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Upload velocity
+      x-summary-source: derived
     patch:
       operationId: updateVelocity
       parameters:
@@ -391,6 +403,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Update velocity
+      x-summary-source: derived
   /resource/{tenantLocator}/templateSnippets/liquid:
     post:
       operationId: uploadLiquid
@@ -451,6 +465,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Upload liquid
+      x-summary-source: derived
     patch:
       operationId: updateLiquid
       parameters:
@@ -495,6 +511,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Update liquid
+      x-summary-source: derived
   /resource/{tenantLocator}/tables:
     post:
       operationId: createLookupTable
@@ -558,6 +576,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Create lookup table
+      x-summary-source: derived
   /resource/{tenantLocator}/secrets:
     post:
       operationId: createSecret
@@ -590,6 +610,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Create secret
+      x-summary-source: derived
   /resource/{tenantLocator}/riskAssessmentCriteria:
     post:
       operationId: createRiskAssessmentCriteria
@@ -659,6 +681,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Create risk assessment criteria
+      x-summary-source: derived
   /resource/{tenantLocator}/rangeTables:
     post:
       operationId: createRangeTable
@@ -722,6 +746,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Create range table
+      x-summary-source: derived
   /resource/{tenantLocator}/groups:
     post:
       operationId: createResourceGroup
@@ -754,6 +780,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Create resource group
+      x-summary-source: derived
   /resource/{tenantLocator}/fonts:
     post:
       operationId: addFont
@@ -819,6 +847,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Add font
+      x-summary-source: derived
   /resource/{tenantLocator}/documents:
     post:
       operationId: createDocumentResource
@@ -888,6 +918,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Create document resource
+      x-summary-source: derived
   /resource/{tenantLocator}/constraints:
     post:
       operationId: createConstraintTable
@@ -951,6 +983,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Create constraint table
+      x-summary-source: derived
   /resource/{tenantLocator}/uiConfigs/{name}:
     get:
       operationId: fetchUiConfigByName
@@ -1004,6 +1038,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch ui config by name
+      x-summary-source: derived
     patch:
       operationId: updateUiConfig
       parameters:
@@ -1054,6 +1090,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Update ui config
+      x-summary-source: derived
   /resource/{tenantLocator}/tables/{name}:
     get:
       operationId: fetchLookupTableInZipFormat
@@ -1088,6 +1126,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch lookup table in zip format
+      x-summary-source: derived
     patch:
       operationId: replaceLookupTable
       parameters:
@@ -1135,6 +1175,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Replace lookup table
+      x-summary-source: derived
   /resource/{tenantLocator}/secrets/{name}:
     get:
       operationId: fetchSecret
@@ -1186,6 +1228,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch secret
+      x-summary-source: derived
     patch:
       operationId: updateSecret
       parameters:
@@ -1226,6 +1270,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Update secret
+      x-summary-source: derived
     delete:
       operationId: deleteSecret
       parameters:
@@ -1251,6 +1297,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Delete secret
+      x-summary-source: derived
   /resource/{tenantLocator}/riskAssessmentCriteria/{name}:
     get:
       operationId: fetchRiskAssessmentCriteriaResourceByName
@@ -1304,6 +1352,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch risk assessment criteria resource by name
+      x-summary-source: derived
     patch:
       operationId: updateRiskAssessmentCriteria
       parameters:
@@ -1357,6 +1407,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Update risk assessment criteria
+      x-summary-source: derived
   /resource/{tenantLocator}/rangeTables/{name}:
     get:
       operationId: fetchRangeTableInZipFormat
@@ -1391,6 +1443,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch range table in zip format
+      x-summary-source: derived
     patch:
       operationId: replaceRangeTable
       parameters:
@@ -1438,6 +1492,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Replace range table
+      x-summary-source: derived
   /resource/{tenantLocator}/groups/{locator}:
     get:
       operationId: fetchResourceGroup
@@ -1470,6 +1526,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch resource group
+      x-summary-source: derived
     patch:
       operationId: updateResourceGroup
       parameters:
@@ -1508,6 +1566,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Update resource group
+      x-summary-source: derived
   /resource/{tenantLocator}/groups/{locator}/retire:
     patch:
       operationId: retire
@@ -1540,6 +1600,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Retire
+      x-summary-source: derived
   /resource/{tenantLocator}/fonts/{name}:
     get:
       operationId: fetchFont
@@ -1593,6 +1655,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch font
+      x-summary-source: derived
     patch:
       operationId: updateFont
       parameters:
@@ -1640,6 +1704,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Update font
+      x-summary-source: derived
   /resource/{tenantLocator}/documents/{name}:
     get:
       operationId: fetchDocumentResourceByName
@@ -1693,6 +1759,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch document resource by name
+      x-summary-source: derived
     patch:
       operationId: updateDocument
       parameters:
@@ -1746,6 +1814,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Update document
+      x-summary-source: derived
   /resource/{tenantLocator}/constraints/{name}:
     get:
       operationId: zipConstraintTable
@@ -1780,6 +1850,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Zip constraint table
+      x-summary-source: derived
     patch:
       operationId: replaceConstraintTable
       parameters:
@@ -1827,6 +1899,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Replace constraint table
+      x-summary-source: derived
   /resource/{tenantLocator}/templates/{name}:
     get:
       operationId: fetchDocumentTemplate
@@ -1880,6 +1954,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch document template
+      x-summary-source: derived
   /resource/{tenantLocator}/templateSnippets/{name}:
     get:
       operationId: fetchTemplate
@@ -1933,6 +2009,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch template
+      x-summary-source: derived
   /resource/{tenantLocator}/tables/{name}/record:
     get:
       operationId: fetchTableRecord
@@ -1993,6 +2071,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch table record
+      x-summary-source: derived
   /resource/{tenantLocator}/resources/{name}:
     get:
       operationId: fetchResource
@@ -2043,6 +2123,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch resource
+      x-summary-source: derived
   /resource/{tenantLocator}/resources/type/{type}/list:
     get:
       operationId: fetchMultipleResourcesByType
@@ -2095,6 +2177,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch multiple resources by type
+      x-summary-source: derived
   /resource/{tenantLocator}/resources/list:
     get:
       operationId: fetchMultipleResources
@@ -2141,6 +2225,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch multiple resources
+      x-summary-source: derived
   /resource/{tenantLocator}/resources/bootstrap:
     get:
       operationId: getBootstrapStatus
@@ -2169,6 +2255,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Get bootstrap status
+      x-summary-source: derived
   /resource/{tenantLocator}/rangeTables/{name}/record:
     get:
       operationId: fetchRangeTableRecord
@@ -2235,6 +2323,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch range table record
+      x-summary-source: derived
   /resource/{tenantLocator}/groups/list:
     get:
       operationId: fetchResourceGroups
@@ -2297,6 +2387,8 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch resource groups
+      x-summary-source: derived
   /resource/{tenantLocator}/constraints/{name}/record:
     get:
       operationId: fetchConstraints
@@ -2363,40 +2455,80 @@ paths:
       deprecated: false
       tags:
       - Resource
+      summary: Fetch constraints
+      x-summary-source: derived
 components:
   schemas:
-    SecretCreateRequest:
+    ResourceGroupResponse:
       type: object
       required:
-      - staticName
+      - locator
       - name
-      - jurisdictions
-      - secret
+      - selectionStartTime
+      - createdAt
+      - createdBy
+      - retired
+      - resourceNames
       properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
         name:
           type: string
           deprecated: false
-          maxLength: 128
-          minLength: 1
-        staticName:
-          type: string
+        retired:
+          type: boolean
           deprecated: false
-          minLength: 1
-        jurisdictions:
+        selectionStartTime:
+          type: string
+          format: date-time
+          deprecated: false
+        resourceNames:
           type: array
           deprecated: false
           items:
             type: string
             deprecated: false
-        secret:
-          type: object
+        createdBy:
+          type: string
+          format: uuid
           deprecated: false
-          additionalProperties:
-            type: object
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    ResourceListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ResourceResponse'
             deprecated: false
       deprecated: false
-    StreamingResponseBody:
+    TemplateResponse:
       type: object
+      properties:
+        file:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+              deprecated: false
+          deprecated: false
+        template:
+          type: string
+          deprecated: false
       deprecated: false
     ResourceResponse:
       type: object
@@ -2501,103 +2633,30 @@ components:
             type: string
             deprecated: false
       deprecated: false
-    ResourceGroupCreateRequest:
+    StreamingResponseBody:
+      type: object
+      deprecated: false
+    TableLookupResponse:
       type: object
       required:
-      - name
-      - selectionStartTime
-      - resourceNames
+      - value
       properties:
-        name:
-          type: string
-          deprecated: false
-          maxLength: 128
-          minLength: 1
-        selectionStartTime:
-          type: string
-          format: date-time
-          deprecated: false
-        resourceNames:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-      deprecated: false
-    ResourceGroupUpdateRequest:
-      type: object
-      required:
-      - name
-      - selectionStartTime
-      - addResources
-      - removeResources
-      properties:
-        name:
-          type: string
-          deprecated: false
-        selectionStartTime:
-          type: string
-          format: date-time
-          deprecated: false
-        removeResources:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        addResources:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-      deprecated: false
-    TemplateResponse:
-      type: object
-      properties:
-        file:
+        value:
           type: object
-          properties:
-            file:
-              type: string
-              format: binary
-              deprecated: false
-          deprecated: false
-        template:
-          type: string
           deprecated: false
       deprecated: false
-    ResourceGroupListResponse:
+    SecretResponse:
       type: object
       required:
-      - listCompleted
-      - items
+      - resource
+      - secret
       properties:
-        listCompleted:
-          type: boolean
+        resource:
+          $ref: '#/components/schemas/BasicResourceResponse'
           deprecated: false
-        items:
-          type: array
+        secret:
+          type: object
           deprecated: false
-          items:
-            $ref: '#/components/schemas/ResourceGroupResponse'
-            deprecated: false
-      deprecated: false
-    ResourceListResponse:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ResourceResponse'
-            deprecated: false
       deprecated: false
     BootstrapResource:
       type: object
@@ -2637,40 +2696,46 @@ components:
           type: string
           deprecated: false
       deprecated: false
-    SecretResponse:
+    ResourceGroupUpdateRequest:
       type: object
       required:
-      - resource
-      - secret
-      properties:
-        resource:
-          $ref: '#/components/schemas/BasicResourceResponse'
-          deprecated: false
-        secret:
-          type: object
-          deprecated: false
-      deprecated: false
-    ResourceGroupResponse:
-      type: object
-      required:
-      - locator
       - name
       - selectionStartTime
-      - createdAt
-      - createdBy
-      - retired
-      - resourceNames
+      - addResources
+      - removeResources
       properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
         name:
           type: string
           deprecated: false
-        retired:
-          type: boolean
+        selectionStartTime:
+          type: string
+          format: date-time
           deprecated: false
+        removeResources:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        addResources:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    ResourceGroupCreateRequest:
+      type: object
+      required:
+      - name
+      - selectionStartTime
+      - resourceNames
+      properties:
+        name:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 1
         selectionStartTime:
           type: string
           format: date-time
@@ -2681,14 +2746,22 @@ components:
           items:
             type: string
             deprecated: false
-        createdBy:
-          type: string
-          format: uuid
+      deprecated: false
+    ResourceGroupListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
           deprecated: false
-        createdAt:
-          type: string
-          format: date-time
+        items:
+          type: array
           deprecated: false
+          items:
+            $ref: '#/components/schemas/ResourceGroupResponse'
+            deprecated: false
       deprecated: false
     BasicResourceResponse:
       type: object
@@ -2769,12 +2842,33 @@ components:
             type: string
             deprecated: false
       deprecated: false
-    TableLookupResponse:
+    SecretCreateRequest:
       type: object
       required:
-      - value
+      - staticName
+      - name
+      - jurisdictions
+      - secret
       properties:
-        value:
+        name:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 1
+        staticName:
+          type: string
+          deprecated: false
+          minLength: 1
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        secret:
           type: object
           deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
       deprecated: false

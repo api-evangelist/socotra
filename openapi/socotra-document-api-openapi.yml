@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Socotra Insurance Suite OpenAPI Definition Document API
   description: Socotra Insurance Suite API
@@ -45,6 +45,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Trigger timed out documents job for transaction
+      x-summary-source: derived
   /document/{tenantLocator}/documents/transaction/{locator}/jobs/{jobLocator}/trigger:
     post:
       operationId: triggerFailedDocumentJobForTransaction
@@ -84,6 +86,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Trigger failed document job for transaction
+      x-summary-source: derived
   /document/{tenantLocator}/documents/segment/{locator}/trigger:
     post:
       operationId: triggerTimedOutDocumentsJobForSegment
@@ -119,6 +123,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Trigger timed out documents job for segment
+      x-summary-source: derived
   /document/{tenantLocator}/documents/segment/{locator}/jobs/{jobLocator}/trigger:
     post:
       operationId: triggerFailedDocumentJobForSegment
@@ -158,6 +164,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Trigger failed document job for segment
+      x-summary-source: derived
   /document/{tenantLocator}/documents/render:
     post:
       operationId: renderDocument
@@ -246,6 +254,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Render document
+      x-summary-source: derived
   /document/{tenantLocator}/documents/quote/{locator}/trigger:
     post:
       operationId: triggerTimedOutDocumentsJobForQuote
@@ -281,6 +291,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Trigger timed out documents job for quote
+      x-summary-source: derived
   /document/{tenantLocator}/documents/quote/{locator}/jobs/{jobLocator}/trigger:
     post:
       operationId: triggerFailedDocumentJobForQuote
@@ -320,6 +332,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Trigger failed document job for quote
+      x-summary-source: derived
   /document/{tenantLocator}/documents/quote/{locator}/copyOnIssue:
     post:
       operationId: copyDocumentsOnIssue
@@ -353,6 +367,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Copy documents on issue
+      x-summary-source: derived
   /document/{tenantLocator}/documents/invoices/{locator}/trigger:
     post:
       operationId: triggerTimedOutJob
@@ -388,6 +404,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Trigger timed out job
+      x-summary-source: derived
   /document/{tenantLocator}/documents/invoices/{locator}/jobs/{jobLocator}/trigger:
     post:
       operationId: triggerFailedDocumentJobForInvoice
@@ -427,6 +445,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Trigger failed document job for invoice
+      x-summary-source: derived
   /document/{tenantLocator}/documents/attach:
     post:
       operationId: attachDocument
@@ -553,6 +573,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Attach document
+      x-summary-source: derived
   /document/{tenantLocator}/documents/{locator}:
     get:
       operationId: fetchDocument
@@ -585,6 +607,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch document
+      x-summary-source: derived
     patch:
       operationId: replaceDocument
       parameters:
@@ -642,6 +666,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Replace document
+      x-summary-source: derived
     delete:
       operationId: deleteDocument
       parameters:
@@ -668,6 +694,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Delete document
+      x-summary-source: derived
   /document/events:
     get:
       operationId: fetchDocumentEventDefinitions
@@ -686,6 +714,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch document event definitions
+      x-summary-source: derived
   /document/{tenantLocator}/documents/{locator}/source:
     get:
       operationId: fetchSourceForDocument
@@ -721,6 +751,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch source for document
+      x-summary-source: derived
   /document/{tenantLocator}/documents/{locator}/document:
     get:
       operationId: fetchDocumentResource
@@ -756,6 +788,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch document resource
+      x-summary-source: derived
   /document/{tenantLocator}/documents/transaction/{locator}/list:
     get:
       operationId: fetchDocumentsForTransaction
@@ -819,6 +853,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch documents for transaction
+      x-summary-source: derived
   /document/{tenantLocator}/documents/transaction/{locator}/jobs/{jobLocator}:
     get:
       operationId: fetchDocumentsJobForTransaction
@@ -858,6 +894,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch documents job for transaction
+      x-summary-source: derived
   /document/{tenantLocator}/documents/transaction/{locator}/jobs/list:
     get:
       operationId: fetchMultipleDocumentsJobsForTransaction
@@ -915,6 +953,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch multiple documents jobs for transaction
+      x-summary-source: derived
   /document/{tenantLocator}/documents/segment/{locator}/list:
     get:
       operationId: fetchDocumentsForSegment
@@ -978,6 +1018,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch documents for segment
+      x-summary-source: derived
   /document/{tenantLocator}/documents/segment/{locator}/jobs/{jobLocator}:
     get:
       operationId: fetchDocumentsJobForSegment
@@ -1017,6 +1059,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch documents job for segment
+      x-summary-source: derived
   /document/{tenantLocator}/documents/segment/{locator}/jobs/list:
     get:
       operationId: fetchMultipleDocumentsJobsForSegment
@@ -1074,6 +1118,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch multiple documents jobs for segment
+      x-summary-source: derived
   /document/{tenantLocator}/documents/quote/{locator}/list:
     get:
       operationId: fetchDocumentsForQuote
@@ -1137,6 +1183,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch documents for quote
+      x-summary-source: derived
   /document/{tenantLocator}/documents/quote/{locator}/jobs/{jobLocator}:
     get:
       operationId: fetchDocumentsJobForQuote
@@ -1176,6 +1224,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch documents job for quote
+      x-summary-source: derived
   /document/{tenantLocator}/documents/quote/{locator}/jobs/list:
     get:
       operationId: fetchMultipleDocumentsJobsForQuote
@@ -1233,6 +1283,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch multiple documents jobs for quote
+      x-summary-source: derived
   /document/{tenantLocator}/documents/policy/{policyLocator}/term/{termLocator}/summary:
     get:
       operationId: fetchDocumentsForTerm
@@ -1296,6 +1348,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch documents for term
+      x-summary-source: derived
   /document/{tenantLocator}/documents/invoices/{locator}:
     get:
       operationId: fetchInvoiceDocument
@@ -1328,6 +1382,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch invoice document
+      x-summary-source: derived
   /document/{tenantLocator}/documents/invoices/{locator}/jobs:
     get:
       operationId: getDocumentJob
@@ -1360,6 +1416,8 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Get document job
+      x-summary-source: derived
   /document/{tenantLocator}/documents/invoices/{locator}/jobs/{jobLocator}:
     get:
       operationId: fetchDocumentJob
@@ -1399,8 +1457,81 @@ paths:
       deprecated: false
       tags:
       - Document
+      summary: Fetch document job
+      x-summary-source: derived
 components:
   schemas:
+    DocumentJobListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DocumentsJobSummary'
+            deprecated: false
+      deprecated: false
+    TemplateResponse:
+      type: object
+      properties:
+        file:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+              deprecated: false
+          deprecated: false
+        template:
+          type: string
+          deprecated: false
+      deprecated: false
+    DocumentEvents:
+      type: object
+      properties:
+        document.ready:
+          $ref: '#/components/schemas/DocumentEventData'
+          deprecated: false
+        document.failed:
+          $ref: '#/components/schemas/DocumentEventData'
+          deprecated: false
+      deprecated: false
+    DocumentJobInfo:
+      type: object
+      required:
+      - locator
+      - staticName
+      - name
+      - documentInstanceState
+      - processingErrors
+      - state
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        staticName:
+          type: string
+          deprecated: false
+        name:
+          type: string
+          deprecated: false
+        documentInstanceState:
+          type: string
+          deprecated: false
+        processingErrors:
+          type: string
+          deprecated: false
+        state:
+          type: string
+          deprecated: true
+      deprecated: false
     DocumentServiceEventTypeDefinitions:
       type: object
       required:
@@ -1426,44 +1557,24 @@ components:
             $ref: '#/components/schemas/DocumentInstanceResponse'
             deprecated: false
       deprecated: false
-    DocumentEvents:
-      type: object
-      properties:
-        document.ready:
-          $ref: '#/components/schemas/DocumentEventData'
-          deprecated: false
-        document.failed:
-          $ref: '#/components/schemas/DocumentEventData'
-          deprecated: false
-      deprecated: false
-    DocumentEventData:
-      type: object
-      required:
-      - documentLocator
-      - referenceLocator
-      - referenceType
-      properties:
-        documentLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        referenceType:
-          type: string
-          enum:
-          - quote
-          - policy
-          - invoice
-          - transaction
-          - segment
-          - term
-          deprecated: false
-        referenceLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
     StreamingResponseBody:
       type: object
+      deprecated: false
+    ListPageResponseDocumentInstance:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DocumentInstanceResponse'
+            deprecated: false
       deprecated: false
     DocumentInstanceResponse:
       type: object
@@ -1602,31 +1713,14 @@ components:
           type: boolean
           deprecated: false
       deprecated: false
-    DocumentJobListResponse:
+    DocumentEventData:
       type: object
       required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/DocumentsJobSummary'
-            deprecated: false
-      deprecated: false
-    DocumentsJobSummary:
-      type: object
-      required:
-      - locator
+      - documentLocator
+      - referenceLocator
       - referenceType
-      - status
-      - createdAt
       properties:
-        locator:
+        documentLocator:
           type: string
           format: ulid
           deprecated: false
@@ -1640,48 +1734,10 @@ components:
           - segment
           - term
           deprecated: false
-        status:
+        referenceLocator:
           type: string
-          enum:
-          - running
-          - finished
-          - failed
+          format: ulid
           deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-      deprecated: false
-    TemplateResponse:
-      type: object
-      properties:
-        file:
-          type: object
-          properties:
-            file:
-              type: string
-              format: binary
-              deprecated: false
-          deprecated: false
-        template:
-          type: string
-          deprecated: false
-      deprecated: false
-    ListPageResponseDocumentInstance:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/DocumentInstanceResponse'
-            deprecated: false
       deprecated: false
     DocumentsJob:
       type: object
@@ -1779,33 +1835,37 @@ components:
           type: boolean
           deprecated: false
       deprecated: false
-    DocumentJobInfo:
+    DocumentsJobSummary:
       type: object
       required:
       - locator
-      - staticName
-      - name
-      - documentInstanceState
-      - processingErrors
-      - state
+      - referenceType
+      - status
+      - createdAt
       properties:
         locator:
           type: string
           format: ulid
           deprecated: false
-        staticName:
+        referenceType:
           type: string
+          enum:
+          - quote
+          - policy
+          - invoice
+          - transaction
+          - segment
+          - term
           deprecated: false
-        name:
+        status:
           type: string
+          enum:
+          - running
+          - finished
+          - failed
           deprecated: false
-        documentInstanceState:
+        createdAt:
           type: string
+          format: date-time
           deprecated: false
-        processingErrors:
-          type: string
-          deprecated: false
-        state:
-          type: string
-          deprecated: true
       deprecated: false

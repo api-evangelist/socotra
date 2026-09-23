@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Socotra Insurance Suite OpenAPI Definition Business Stats API
+  title: Socotra Insurance Suite OpenAPI Definition Business Stats…
   description: Socotra Insurance Suite API
   termsOfService: https://www.socotra.com
   version: v0
@@ -56,6 +56,8 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Get renewed policies
+      x-summary-source: derived
   /business-stats/metrics/renewedPolicies/download:
     post:
       operationId: downloadRenewedPolicies
@@ -105,6 +107,8 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Download renewed policies
+      x-summary-source: derived
   /business-stats/metrics/renewalRate:
     post:
       operationId: getRenewalRate
@@ -151,6 +155,8 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Get renewal rate
+      x-summary-source: derived
   /business-stats/metrics/renewalRate/download:
     post:
       operationId: downloadRenewalRate
@@ -200,6 +206,8 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Download renewal rate
+      x-summary-source: derived
   /business-stats/metrics/quotes:
     post:
       operationId: getPricedQuotes
@@ -246,6 +254,8 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Get priced quotes
+      x-summary-source: derived
   /business-stats/metrics/quotes/download:
     post:
       operationId: downloadPricedQuotes
@@ -295,6 +305,8 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Download priced quotes
+      x-summary-source: derived
   /business-stats/metrics/issued:
     post:
       operationId: getIssuedPolicies
@@ -341,6 +353,8 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Get issued policies
+      x-summary-source: derived
   /business-stats/metrics/issued/download:
     post:
       operationId: downloadIssuedPolicies
@@ -390,6 +404,8 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Download issued policies
+      x-summary-source: derived
   /business-stats/metrics/gwp:
     post:
       operationId: getGWP
@@ -436,6 +452,8 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Get GWP
+      x-summary-source: derived
   /business-stats/metrics/gwp/download:
     post:
       operationId: downloadGWP
@@ -485,6 +503,8 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Download GWP
+      x-summary-source: derived
   /business-stats/metrics/expiredPolicies:
     post:
       operationId: getExpiredPolicies
@@ -531,6 +551,8 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Get expired policies
+      x-summary-source: derived
   /business-stats/metrics/expiredPolicies/download:
     post:
       operationId: downloadExpiredPolicies
@@ -580,6 +602,8 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Download expired policies
+      x-summary-source: derived
   /business-stats/metrics/conversionRate:
     post:
       operationId: getConversionRate
@@ -626,6 +650,8 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Get conversion rate
+      x-summary-source: derived
   /business-stats/metrics/conversionRate/download:
     post:
       operationId: downloadConversionRate
@@ -675,6 +701,8 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Download conversion rate
+      x-summary-source: derived
   /business-stats/delta-files/list:
     post:
       operationId: fetchDeltaFiles
@@ -700,6 +728,8 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Fetch delta files
+      x-summary-source: derived
   /business-stats/delta-files/download:
     post:
       operationId: fetchDeltaFile
@@ -728,48 +758,10 @@ paths:
       deprecated: false
       tags:
       - Business Stats
+      summary: Fetch delta file
+      x-summary-source: derived
 components:
   schemas:
-    DeltaFilesGetResponse:
-      type: object
-      required:
-      - createTableFile
-      - dataProcessedThroughTime
-      - dropTableFile
-      - s3Bucket
-      - version
-      - deltaFiles
-      properties:
-        version:
-          type: integer
-          format: int32
-          description: Target a specific schema version; defaults to latest if omitted
-          deprecated: false
-        createTableFile:
-          type: string
-          description: Path & name of file with necessary sql statement to create the table in the destination schema
-          deprecated: false
-        dropTableFile:
-          type: string
-          description: Path & name of file with necessary sql statement to drop the existing version of the table in the destination schema
-          deprecated: false
-        s3Bucket:
-          type: string
-          description: The source S3 bucket required for the <ApiLink name='DeltaFileDownloadRequest' />
-          deprecated: false
-        dataProcessedThroughTime:
-          type: integer
-          format: int64
-          description: The time of the latest operational change that will be reflected in the data. Format is UNIX timestamp in UTC seconds (e.g. 1451606100)
-          deprecated: false
-        deltaFiles:
-          type: array
-          description: The index of individual delta files
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/DeltaFile'
-            deprecated: false
-      deprecated: false
     MetricRequest:
       type: object
       required:
@@ -836,6 +828,53 @@ components:
         localEndDateAdjusted:
           type: string
           format: date
+          deprecated: false
+      deprecated: false
+    DataPoint:
+      type: object
+      required:
+      - tenantLocator
+      - productName
+      - currency
+      - dataPointStartDate
+      - value
+      properties:
+        productName:
+          type: string
+          deprecated: false
+        tenantLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        currency:
+          type: string
+          deprecated: false
+        dataPointStartDate:
+          type: string
+          format: date
+          deprecated: false
+        value:
+          type: number
+          deprecated: false
+      deprecated: false
+    DeltaFileDownloadRequest:
+      type: object
+      required:
+      - tenantLocator
+      - fileName
+      properties:
+        tenantLocator:
+          type: string
+          format: uuid
+          description: Locator of the tenant corresponding to the data
+          deprecated: false
+        s3Bucket:
+          type: string
+          description: The name of the S3 bucket as returned by the <ApiLink name='DeltaFilesGetResponse' />. Only required if requesting `createTableFile` or `dropTableFile`, and `deltaFileType` is `csv`
+          deprecated: false
+        fileName:
+          type: string
+          description: The name of the file to be requested. Value may be `fileName`, `createTableFile`, or `dropTableFile`
           deprecated: false
       deprecated: false
     StreamingResponseBody:
@@ -990,26 +1029,6 @@ components:
           description: For files with `deltaFileType` = `csv`, the MD5 format hashsum for the file contents, including headers
           deprecated: false
       deprecated: false
-    DeltaFileDownloadRequest:
-      type: object
-      required:
-      - tenantLocator
-      - fileName
-      properties:
-        tenantLocator:
-          type: string
-          format: uuid
-          description: Locator of the tenant corresponding to the data
-          deprecated: false
-        s3Bucket:
-          type: string
-          description: The name of the S3 bucket as returned by the <ApiLink name='DeltaFilesGetResponse' />. Only required if requesting `createTableFile` or `dropTableFile`, and `deltaFileType` is `csv`
-          deprecated: false
-        fileName:
-          type: string
-          description: The name of the file to be requested. Value may be `fileName`, `createTableFile`, or `dropTableFile`
-          deprecated: false
-      deprecated: false
     MetricResponse:
       type: object
       required:
@@ -1053,30 +1072,43 @@ components:
             $ref: '#/components/schemas/DataPoint'
             deprecated: false
       deprecated: false
-    DataPoint:
+    DeltaFilesGetResponse:
       type: object
       required:
-      - tenantLocator
-      - productName
-      - currency
-      - dataPointStartDate
-      - value
+      - createTableFile
+      - dataProcessedThroughTime
+      - dropTableFile
+      - s3Bucket
+      - version
+      - deltaFiles
       properties:
-        productName:
+        version:
+          type: integer
+          format: int32
+          description: Target a specific schema version; defaults to latest if omitted
+          deprecated: false
+        createTableFile:
           type: string
+          description: Path & name of file with necessary sql statement to create the table in the destination schema
           deprecated: false
-        tenantLocator:
+        dropTableFile:
           type: string
-          format: uuid
+          description: Path & name of file with necessary sql statement to drop the existing version of the table in the destination schema
           deprecated: false
-        currency:
+        s3Bucket:
           type: string
+          description: The source S3 bucket required for the <ApiLink name='DeltaFileDownloadRequest' />
           deprecated: false
-        dataPointStartDate:
-          type: string
-          format: date
+        dataProcessedThroughTime:
+          type: integer
+          format: int64
+          description: The time of the latest operational change that will be reflected in the data. Format is UNIX timestamp in UTC seconds (e.g. 1451606100)
           deprecated: false
-        value:
-          type: number
+        deltaFiles:
+          type: array
+          description: The index of individual delta files
           deprecated: false
+          items:
+            $ref: '#/components/schemas/DeltaFile'
+            deprecated: false
       deprecated: false

@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Socotra Insurance Suite OpenAPI Definition Auxdata API
   description: Socotra Insurance Suite API
@@ -56,6 +56,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Get aux data keys
+      x-summary-source: derived
     put:
       operationId: putAuxData
       parameters:
@@ -88,6 +90,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Put aux data
+      x-summary-source: derived
   /auxdata/{tenantLocator}/mediadata:
     post:
       operationId: createMediaData
@@ -160,6 +164,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Create media data
+      x-summary-source: derived
   /auxdata/{tenantLocator}/diary/{referenceType}/{referenceLocator}:
     get:
       operationId: fetchLatestDiaryEntriesByReference
@@ -209,6 +215,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Fetch latest diary entries by reference
+      x-summary-source: derived
     post:
       operationId: createDiary
       parameters:
@@ -253,6 +261,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Create diary
+      x-summary-source: derived
   /auxdata/{tenantLocator}/diary/segments/{segmentLocator}/element/{staticElementLocator}:
     post:
       operationId: createDiaryForSegmentElement
@@ -299,6 +309,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Create diary for segment element
+      x-summary-source: derived
   /auxdata/{tenantLocator}/diary/quotes/{quoteLocator}/element/{staticElementLocator}:
     post:
       operationId: createDiaryForQuoteElement
@@ -345,6 +357,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Create diary for quote element
+      x-summary-source: derived
   /auxdata/{tenantLocator}/mediadata/{locator}:
     get:
       operationId: fetchLatestMediaData
@@ -377,6 +391,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Fetch latest media data
+      x-summary-source: derived
     patch:
       operationId: updateMediaData
       parameters:
@@ -462,6 +478,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Update media data
+      x-summary-source: derived
     delete:
       operationId: deleteMediaData
       parameters:
@@ -488,6 +506,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Delete media data
+      x-summary-source: derived
   /auxdata/{tenantLocator}/diary/{locator}:
     get:
       operationId: fetchAllDiaryEntriesByLocator
@@ -539,6 +559,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Fetch all diary entries by locator
+      x-summary-source: derived
     patch:
       operationId: updateDiary
       parameters:
@@ -577,6 +599,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Update diary
+      x-summary-source: derived
   /auxdata/{tenantLocator}/diary/{locator}/discard:
     patch:
       operationId: discardDiary
@@ -609,6 +633,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Discard diary
+      x-summary-source: derived
   /auxdata/{tenantLocator}/mediadata/{locator}/versions/{versionLocator}:
     get:
       operationId: fetchMediaData
@@ -648,6 +674,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Fetch media data
+      x-summary-source: derived
   /auxdata/{tenantLocator}/mediadata/{locator}/versions/{versionLocator}/file:
     get:
       operationId: fetchFile
@@ -690,6 +718,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Fetch file
+      x-summary-source: derived
   /auxdata/{tenantLocator}/mediadata/{locator}/list:
     get:
       operationId: fetchAllMediaDataByLocator
@@ -744,6 +774,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Fetch all media data by locator
+      x-summary-source: derived
   /auxdata/{tenantLocator}/mediadata/{locator}/file:
     get:
       operationId: fetchLatestFile
@@ -779,6 +811,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Fetch latest file
+      x-summary-source: derived
   /auxdata/{tenantLocator}/mediadata/search/{referenceType}/{referenceLocator}/list:
     get:
       operationId: fetchLatestMediaDataByReference
@@ -852,6 +886,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Fetch latest media data by reference
+      x-summary-source: derived
   /auxdata/{tenantLocator}/diary/{locator}/latest:
     get:
       operationId: fetchLatestDiaryEntryByLocator
@@ -885,6 +921,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Fetch latest diary entry by locator
+      x-summary-source: derived
   /auxdata/{tenantLocator}/auxdata/{locator}/{key}:
     get:
       operationId: getAuxData
@@ -922,6 +960,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Get aux data
+      x-summary-source: derived
     delete:
       operationId: deleteAuxData
       parameters:
@@ -953,6 +993,8 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Delete aux data
+      x-summary-source: derived
   /auxdata/{tenantLocator}/auxdata/size:
     get:
       operationId: getAuxDataSize
@@ -978,43 +1020,33 @@ paths:
       deprecated: false
       tags:
       - Auxdata
+      summary: Get aux data size
+      x-summary-source: derived
 components:
   schemas:
-    AuxDataResponse:
+    AuxDataSetCreateRequest:
       type: object
       required:
-      - locator
-      - key
-      - modificationTimestamp
-      - uiType
-      - value
+      - auxData
       properties:
-        locator:
-          type: string
-          deprecated: false
-        key:
-          type: string
-          deprecated: false
-        uiType:
-          type: string
-          enum:
-          - normal
-          - hidden
-          - readonly
-          deprecated: false
-        value:
-          type: string
-          deprecated: false
-        modificationTimestamp:
-          type: string
-          format: date-time
-          deprecated: false
-        expirationTimestamp:
-          type: string
-          format: date-time
-          deprecated: false
         auxDataSettingsName:
           type: string
+          deprecated: false
+        auxData:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/AuxDataSet'
+            deprecated: false
+      deprecated: false
+    AuxDataSizeResponse:
+      type: object
+      required:
+      - dataSizeKb
+      properties:
+        dataSizeKb:
+          type: integer
+          format: int32
           deprecated: false
       deprecated: false
     DiaryEntryResponse:
@@ -1083,8 +1115,72 @@ components:
           - discarded
           deprecated: false
       deprecated: false
+    AuxDataResponse:
+      type: object
+      required:
+      - locator
+      - key
+      - modificationTimestamp
+      - uiType
+      - value
+      properties:
+        locator:
+          type: string
+          deprecated: false
+        key:
+          type: string
+          deprecated: false
+        uiType:
+          type: string
+          enum:
+          - normal
+          - hidden
+          - readonly
+          deprecated: false
+        value:
+          type: string
+          deprecated: false
+        modificationTimestamp:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTimestamp:
+          type: string
+          format: date-time
+          deprecated: false
+        auxDataSettingsName:
+          type: string
+          deprecated: false
+      deprecated: false
     StreamingResponseBody:
       type: object
+      deprecated: false
+    MediaDataEntryReference:
+      type: object
+      required:
+      - locator
+      - type
+      properties:
+        type:
+          type: string
+          enum:
+          - diary
+          - fnol
+          - inquiry
+          - policy
+          - producer
+          - producerAppointment
+          - producerCode
+          - producerLicense
+          - quote
+          - task
+          - transaction
+          - userAssociation
+          deprecated: false
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
       deprecated: false
     AuxDataKey:
       type: object
@@ -1103,6 +1199,18 @@ components:
           - readonly
           deprecated: false
         auxDataSettingsName:
+          type: string
+          deprecated: false
+      deprecated: false
+    DiaryEntryCreateRequest:
+      type: object
+      required:
+      - contents
+      properties:
+        category:
+          type: string
+          deprecated: false
+        contents:
           type: string
           deprecated: false
       deprecated: false
@@ -1126,66 +1234,6 @@ components:
           deprecated: false
           items:
             $ref: '#/components/schemas/AuxDataKey'
-            deprecated: false
-      deprecated: false
-    AuxDataSet:
-      type: object
-      required:
-      - key
-      - uiType
-      - value
-      properties:
-        uiType:
-          type: string
-          enum:
-          - normal
-          - hidden
-          - readonly
-          deprecated: false
-        key:
-          type: string
-          deprecated: false
-        value:
-          type: string
-          deprecated: false
-      deprecated: false
-    DiaryEntryCreateRequest:
-      type: object
-      required:
-      - contents
-      properties:
-        category:
-          type: string
-          deprecated: false
-        contents:
-          type: string
-          deprecated: false
-      deprecated: false
-    DiaryEntryUpdateRequest:
-      type: object
-      required:
-      - contents
-      properties:
-        category:
-          type: string
-          deprecated: false
-        contents:
-          type: string
-          deprecated: false
-      deprecated: false
-    AuxDataSetCreateRequest:
-      type: object
-      required:
-      - auxData
-      properties:
-        auxDataSettingsName:
-          type: string
-          deprecated: false
-        auxData:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/AuxDataSet'
             deprecated: false
       deprecated: false
     MediaDataEntry:
@@ -1239,40 +1287,36 @@ components:
           format: uuid
           deprecated: false
       deprecated: false
-    MediaDataEntryReference:
+    DiaryEntryUpdateRequest:
       type: object
       required:
-      - locator
-      - type
+      - contents
       properties:
-        type:
+        category:
           type: string
-          enum:
-          - diary
-          - fnol
-          - inquiry
-          - policy
-          - producer
-          - producerAppointment
-          - producerCode
-          - producerLicense
-          - quote
-          - task
-          - transaction
-          - userAssociation
           deprecated: false
-        locator:
+        contents:
           type: string
-          format: ulid
           deprecated: false
       deprecated: false
-    AuxDataSizeResponse:
+    AuxDataSet:
       type: object
       required:
-      - dataSizeKb
+      - key
+      - uiType
+      - value
       properties:
-        dataSizeKb:
-          type: integer
-          format: int32
+        uiType:
+          type: string
+          enum:
+          - normal
+          - hidden
+          - readonly
+          deprecated: false
+        key:
+          type: string
+          deprecated: false
+        value:
+          type: string
           deprecated: false
       deprecated: false

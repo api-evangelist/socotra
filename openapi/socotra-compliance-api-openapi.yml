@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Socotra Insurance Suite OpenAPI Definition Compliance API
   description: Socotra Insurance Suite API
@@ -45,6 +45,8 @@ paths:
       deprecated: false
       tags:
       - Compliance
+      summary: Anonymize data
+      x-summary-source: derived
   /compliance/{tenantLocator}/references:
     get:
       operationId: getAnonymizationReferences
@@ -79,6 +81,8 @@ paths:
       deprecated: false
       tags:
       - Compliance
+      summary: Get anonymization references
+      x-summary-source: derived
   /compliance/{tenantLocator}/preview:
     get:
       operationId: previewAnonymization
@@ -113,6 +117,8 @@ paths:
       deprecated: false
       tags:
       - Compliance
+      summary: Preview anonymization
+      x-summary-source: derived
   /compliance/{tenantLocator}/jobs:
     get:
       operationId: fetchAnonymizationJobs
@@ -147,55 +153,118 @@ paths:
       deprecated: false
       tags:
       - Compliance
+      summary: Fetch anonymization jobs
+      x-summary-source: derived
 components:
   schemas:
-    FetchAnonymizationReferencesRequest:
+    AnonymizationReferencesBatch:
       type: object
       required:
-      - references
+      - referenceType
+      - referenceLocators
       properties:
-        references:
-          type: object
+        referenceType:
+          type: string
+          enum:
+          - none
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - contact
+          - fnol
+          - payment
+          - disbursement
           deprecated: false
-          additionalProperties:
-            type: array
-            deprecated: false
-            items:
-              type: string
-              format: ulid
-              deprecated: false
-      deprecated: false
-    AnonymizationJobDetails:
-      type: object
-      required:
-      - assignedReferenceLocators
-      properties:
-        assignedReferenceLocators:
+        referenceLocators:
           type: array
           deprecated: false
           items:
             type: string
             format: ulid
             deprecated: false
-        problematicReferenceLocators:
-          $ref: '#/components/schemas/ProblematicReferenceLocators'
+        parentJobLocator:
+          type: string
+          format: ulid
           deprecated: false
-        includeAcceptedQuotes:
-          type: boolean
+      deprecated: false
+    AnonymizationReferenceResponse:
+      type: object
+      required:
+      - referenceLocator
+      - anonymizationState
+      - parentReferenceType
+      - referenceType
+      - updatedAt
+      properties:
+        referenceType:
+          type: string
+          enum:
+          - none
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - contact
+          - fnol
+          - payment
+          - disbursement
           deprecated: false
-        policyStatuses:
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        anonymizationState:
+          type: string
+          enum:
+          - identifiable
+          - pending
+          - anonymized
+          deprecated: false
+        parentReferenceType:
+          type: string
+          enum:
+          - none
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - contact
+          - fnol
+          - payment
+          - disbursement
+          deprecated: false
+        parentReferenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        anonymizationJobLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        scheduledAt:
+          type: string
+          format: date-time
+          deprecated: false
+        anonymizedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        preAnonymizationChildren:
           type: array
           deprecated: false
           items:
-            type: string
-            enum:
-            - pending
-            - expired
-            - cancelled
-            - cancelPending
-            - onRisk
-            - delinquent
-            - doNotRenew
+            $ref: '#/components/schemas/AnonymizationReferencesBatch'
+            deprecated: false
+        postAnonymizationChildren:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/AnonymizationReferencesBatch'
             deprecated: false
       deprecated: false
     AnonymizationJobResponse:
@@ -292,6 +361,46 @@ components:
             $ref: '#/components/schemas/AnonymizationReferencePreviewResponse'
             deprecated: false
       deprecated: false
+    AnonymizationReferencePreviewResponse:
+      type: object
+      required:
+      - referenceLocator
+      - state
+      properties:
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        state:
+          type: string
+          enum:
+          - allowed
+          - restricted
+          - anonymized
+          deprecated: false
+        targets:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/TargetReferences'
+            deprecated: false
+      deprecated: false
+    FetchAnonymizationReferencesRequest:
+      type: object
+      required:
+      - references
+      properties:
+        references:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: array
+            deprecated: false
+            items:
+              type: string
+              format: ulid
+              deprecated: false
+      deprecated: false
     TargetReferences:
       type: object
       required:
@@ -327,186 +436,6 @@ components:
           items:
             type: string
             format: ulid
-            deprecated: false
-      deprecated: false
-    AnonymizationReferenceResponse:
-      type: object
-      required:
-      - referenceLocator
-      - anonymizationState
-      - parentReferenceType
-      - referenceType
-      - updatedAt
-      properties:
-        referenceType:
-          type: string
-          enum:
-          - none
-          - account
-          - quickQuote
-          - quote
-          - policy
-          - contact
-          - fnol
-          - payment
-          - disbursement
-          deprecated: false
-        referenceLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        updatedAt:
-          type: string
-          format: date-time
-          deprecated: false
-        anonymizationState:
-          type: string
-          enum:
-          - identifiable
-          - pending
-          - anonymized
-          deprecated: false
-        parentReferenceType:
-          type: string
-          enum:
-          - none
-          - account
-          - quickQuote
-          - quote
-          - policy
-          - contact
-          - fnol
-          - payment
-          - disbursement
-          deprecated: false
-        parentReferenceLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        anonymizationJobLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        scheduledAt:
-          type: string
-          format: date-time
-          deprecated: false
-        anonymizedAt:
-          type: string
-          format: date-time
-          deprecated: false
-        preAnonymizationChildren:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/AnonymizationReferencesBatch'
-            deprecated: false
-        postAnonymizationChildren:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/AnonymizationReferencesBatch'
-            deprecated: false
-      deprecated: false
-    AnonymizationReferencesBatch:
-      type: object
-      required:
-      - referenceType
-      - referenceLocators
-      properties:
-        referenceType:
-          type: string
-          enum:
-          - none
-          - account
-          - quickQuote
-          - quote
-          - policy
-          - contact
-          - fnol
-          - payment
-          - disbursement
-          deprecated: false
-        referenceLocators:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        parentJobLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    FetchAnonymizationJobsRequest:
-      type: object
-      required:
-      - jobLocators
-      properties:
-        jobLocators:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-      deprecated: false
-    AnonymizationRequest:
-      type: object
-      required:
-      - references
-      properties:
-        references:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: array
-            deprecated: false
-            items:
-              type: string
-              format: ulid
-              deprecated: false
-        includeAcceptedQuotes:
-          type: boolean
-          deprecated: false
-        policyStatuses:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            enum:
-            - pending
-            - expired
-            - cancelled
-            - cancelPending
-            - onRisk
-            - delinquent
-            - doNotRenew
-            deprecated: false
-      deprecated: false
-    AnonymizationReferencePreviewResponse:
-      type: object
-      required:
-      - referenceLocator
-      - state
-      properties:
-        referenceLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        state:
-          type: string
-          enum:
-          - allowed
-          - restricted
-          - anonymized
-          deprecated: false
-        targets:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/TargetReferences'
             deprecated: false
       deprecated: false
     ProblematicReferenceLocators:
@@ -582,4 +511,83 @@ components:
         fromCurrentRequest:
           type: boolean
           deprecated: false
+      deprecated: false
+    AnonymizationRequest:
+      type: object
+      required:
+      - references
+      properties:
+        references:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: array
+            deprecated: false
+            items:
+              type: string
+              format: ulid
+              deprecated: false
+        includeAcceptedQuotes:
+          type: boolean
+          deprecated: false
+        policyStatuses:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            enum:
+            - pending
+            - expired
+            - cancelled
+            - cancelPending
+            - onRisk
+            - delinquent
+            - doNotRenew
+            deprecated: false
+      deprecated: false
+    FetchAnonymizationJobsRequest:
+      type: object
+      required:
+      - jobLocators
+      properties:
+        jobLocators:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+      deprecated: false
+    AnonymizationJobDetails:
+      type: object
+      required:
+      - assignedReferenceLocators
+      properties:
+        assignedReferenceLocators:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        problematicReferenceLocators:
+          $ref: '#/components/schemas/ProblematicReferenceLocators'
+          deprecated: false
+        includeAcceptedQuotes:
+          type: boolean
+          deprecated: false
+        policyStatuses:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            enum:
+            - pending
+            - expired
+            - cancelled
+            - cancelPending
+            - onRisk
+            - delinquent
+            - doNotRenew
+            deprecated: false
       deprecated: false
