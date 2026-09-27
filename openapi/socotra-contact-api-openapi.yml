@@ -305,47 +305,6 @@ components:
           format: ulid
           deprecated: false
       deprecated: false
-    ContactUpdateRequest:
-      type: object
-      required:
-      - removeData
-      - setData
-      properties:
-        type:
-          type: string
-          deprecated: false
-        region:
-          type: string
-          deprecated: false
-        setData:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        removeData:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-      deprecated: false
-    ListPageResponseContact:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/Contact'
-            deprecated: false
-      deprecated: false
     ContactServiceEventTypeDefinitions:
       type: object
       required:
@@ -353,45 +312,6 @@ components:
       properties:
         contactEvents:
           $ref: '#/components/schemas/ContactEvents'
-          deprecated: false
-      deprecated: false
-    ContactCreateRequest:
-      type: object
-      required:
-      - autoValidate
-      - type
-      - data
-      properties:
-        type:
-          type: string
-          deprecated: false
-        region:
-          type: string
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        autoValidate:
-          type: boolean
-          deprecated: false
-      deprecated: false
-    ContactEvents:
-      type: object
-      properties:
-        contact.anonymized:
-          $ref: '#/components/schemas/ContactEventData'
-          deprecated: false
-        contact.merged:
-          $ref: '#/components/schemas/ContactMergeEventData'
-          deprecated: false
-        contact.validated:
-          $ref: '#/components/schemas/ContactEventData'
-          deprecated: false
-        contact.created:
-          $ref: '#/components/schemas/ContactEventData'
           deprecated: false
       deprecated: false
     ValidationItemResponse:
@@ -414,6 +334,21 @@ components:
           items:
             type: string
             deprecated: false
+      deprecated: false
+    ContactMergeEventData:
+      type: object
+      required:
+      - newStaticLocator
+      - oldStaticLocator
+      properties:
+        oldStaticLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        newStaticLocator:
+          type: string
+          format: ulid
+          deprecated: false
       deprecated: false
     Contact:
       type: object
@@ -477,21 +412,6 @@ components:
           format: date-time
           deprecated: false
       deprecated: false
-    ValidationResult:
-      type: object
-      required:
-      - success
-      properties:
-        validationItems:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ValidationItemResponse'
-            deprecated: false
-        success:
-          type: boolean
-          deprecated: false
-      deprecated: false
     ContactsMergeRequest:
       type: object
       required:
@@ -510,18 +430,98 @@ components:
           format: ulid
           deprecated: false
       deprecated: false
-    ContactMergeEventData:
+    ContactEvents:
+      type: object
+      properties:
+        contact.anonymized:
+          $ref: '#/components/schemas/ContactEventData'
+          deprecated: false
+        contact.merged:
+          $ref: '#/components/schemas/ContactMergeEventData'
+          deprecated: false
+        contact.validated:
+          $ref: '#/components/schemas/ContactEventData'
+          deprecated: false
+        contact.created:
+          $ref: '#/components/schemas/ContactEventData'
+          deprecated: false
+      deprecated: false
+    ValidationResult:
       type: object
       required:
-      - newStaticLocator
-      - oldStaticLocator
+      - success
       properties:
-        oldStaticLocator:
-          type: string
-          format: ulid
+        validationItems:
+          type: array
           deprecated: false
-        newStaticLocator:
-          type: string
-          format: ulid
+          items:
+            $ref: '#/components/schemas/ValidationItemResponse'
+            deprecated: false
+        success:
+          type: boolean
           deprecated: false
+      deprecated: false
+    ListPageResponseContact:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/Contact'
+            deprecated: false
+      deprecated: false
+    ContactCreateRequest:
+      type: object
+      required:
+      - autoValidate
+      - type
+      - data
+      properties:
+        type:
+          type: string
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        autoValidate:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    ContactUpdateRequest:
+      type: object
+      required:
+      - removeData
+      - setData
+      properties:
+        type:
+          type: string
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        setData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
       deprecated: false

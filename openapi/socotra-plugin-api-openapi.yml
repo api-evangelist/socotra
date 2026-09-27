@@ -360,25 +360,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    PluginLogsListResponse:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/PluginLogsMetadata'
-            deprecated: false
-      deprecated: false
-    StreamingResponseBody:
-      type: object
-      deprecated: false
     PluginLogsMetadata:
       type: object
       required:
@@ -417,6 +398,25 @@ components:
           deprecated: false
           items:
             $ref: '#/components/schemas/ObjectReference'
+            deprecated: false
+      deprecated: false
+    StreamingResponseBody:
+      type: object
+      deprecated: false
+    PluginLogsListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PluginLogsMetadata'
             deprecated: false
       deprecated: false
     ObjectReference:

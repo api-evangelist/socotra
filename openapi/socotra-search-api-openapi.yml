@@ -213,6 +213,166 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    FieldsRequest:
+      type: object
+      required:
+      - searchEntityType
+      properties:
+        searchEntityType:
+          type: string
+          enum:
+          - unspecified
+          - account
+          - quote
+          - policy
+          - fnol
+          - contact
+          - diary
+          - payment
+          - task
+          - userAssociation
+          deprecated: false
+      deprecated: false
+    Field:
+      type: object
+      required:
+      - name
+      - type
+      properties:
+        name:
+          type: string
+          deprecated: false
+        type:
+          type: string
+          enum:
+          - TEXT
+          - DATE
+          - OTHER
+          deprecated: false
+      deprecated: false
+    SearchRequest:
+      type: object
+      required:
+      - searchEntityType
+      - searchString
+      - sortOrder
+      - fields
+      - searchTerms
+      properties:
+        searchString:
+          type: string
+          deprecated: false
+        searchEntityType:
+          type: string
+          enum:
+          - unspecified
+          - account
+          - quote
+          - policy
+          - fnol
+          - contact
+          - diary
+          - payment
+          - task
+          - userAssociation
+          deprecated: false
+        searchTerms:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/SearchTermRequest'
+            deprecated: false
+        startCreationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        endCreationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        sortField:
+          type: string
+          deprecated: false
+        sortOrder:
+          type: string
+          enum:
+          - Asc
+          - Desc
+          deprecated: false
+        fields:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    SearchServiceResponse:
+      type: object
+      required:
+      - count
+      - offset
+      - searchToken
+      - results
+      properties:
+        searchToken:
+          type: string
+          deprecated: false
+        offset:
+          type: integer
+          format: int32
+          deprecated: false
+        count:
+          type: integer
+          format: int32
+          deprecated: false
+        results:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/SearchResultResponse'
+            deprecated: false
+      deprecated: false
+    SearchStatsResponse:
+      type: object
+      required:
+      - searchToken
+      - results
+      properties:
+        searchToken:
+          type: string
+          deprecated: false
+        results:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/SearchStatsResult'
+            deprecated: false
+      deprecated: false
+    SearchStatsResult:
+      type: object
+      required:
+      - recordCount
+      - searchEntityType
+      properties:
+        searchEntityType:
+          type: string
+          enum:
+          - unspecified
+          - account
+          - quote
+          - policy
+          - fnol
+          - contact
+          - diary
+          - payment
+          - task
+          - userAssociation
+          deprecated: false
+        recordCount:
+          type: integer
+          format: int64
+          deprecated: false
+      deprecated: false
     SearchResultResponse:
       type: object
       required:
@@ -269,59 +429,6 @@ components:
             type: string
             deprecated: false
       deprecated: false
-    FieldsRequest:
-      type: object
-      required:
-      - searchEntityType
-      properties:
-        searchEntityType:
-          type: string
-          enum:
-          - unspecified
-          - account
-          - quote
-          - policy
-          - fnol
-          - contact
-          - diary
-          - payment
-          - task
-          - userAssociation
-          deprecated: false
-      deprecated: false
-    FieldsMappingResponse:
-      type: object
-      required:
-      - index
-      - fields
-      properties:
-        index:
-          type: string
-          deprecated: false
-        fields:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/Field'
-            deprecated: false
-      deprecated: false
-    Field:
-      type: object
-      required:
-      - name
-      - type
-      properties:
-        name:
-          type: string
-          deprecated: false
-        type:
-          type: string
-          enum:
-          - TEXT
-          - DATE
-          - OTHER
-          deprecated: false
-      deprecated: false
     SearchTermRequest:
       type: object
       required:
@@ -353,126 +460,19 @@ components:
           - excluded
           deprecated: false
       deprecated: false
-    SearchStatsResult:
+    FieldsMappingResponse:
       type: object
       required:
-      - recordCount
-      - searchEntityType
-      properties:
-        searchEntityType:
-          type: string
-          enum:
-          - unspecified
-          - account
-          - quote
-          - policy
-          - fnol
-          - contact
-          - diary
-          - payment
-          - task
-          - userAssociation
-          deprecated: false
-        recordCount:
-          type: integer
-          format: int64
-          deprecated: false
-      deprecated: false
-    SearchServiceResponse:
-      type: object
-      required:
-      - count
-      - offset
-      - searchToken
-      - results
-      properties:
-        searchToken:
-          type: string
-          deprecated: false
-        offset:
-          type: integer
-          format: int32
-          deprecated: false
-        count:
-          type: integer
-          format: int32
-          deprecated: false
-        results:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/SearchResultResponse'
-            deprecated: false
-      deprecated: false
-    SearchStatsResponse:
-      type: object
-      required:
-      - searchToken
-      - results
-      properties:
-        searchToken:
-          type: string
-          deprecated: false
-        results:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/SearchStatsResult'
-            deprecated: false
-      deprecated: false
-    SearchRequest:
-      type: object
-      required:
-      - searchEntityType
-      - searchString
-      - sortOrder
+      - index
       - fields
-      - searchTerms
       properties:
-        searchString:
+        index:
           type: string
-          deprecated: false
-        searchEntityType:
-          type: string
-          enum:
-          - unspecified
-          - account
-          - quote
-          - policy
-          - fnol
-          - contact
-          - diary
-          - payment
-          - task
-          - userAssociation
-          deprecated: false
-        searchTerms:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/SearchTermRequest'
-            deprecated: false
-        startCreationTime:
-          type: string
-          format: date-time
-          deprecated: false
-        endCreationTime:
-          type: string
-          format: date-time
-          deprecated: false
-        sortField:
-          type: string
-          deprecated: false
-        sortOrder:
-          type: string
-          enum:
-          - Asc
-          - Desc
           deprecated: false
         fields:
           type: array
           deprecated: false
           items:
-            type: string
+            $ref: '#/components/schemas/Field'
             deprecated: false
       deprecated: false

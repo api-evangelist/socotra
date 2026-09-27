@@ -1591,34 +1591,105 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ProducerAppointmentEventData:
+    ProducerAppointmentEvents:
+      type: object
+      properties:
+        producers.producerappointment.update:
+          $ref: '#/components/schemas/ProducerAppointmentEventData'
+          deprecated: false
+        producers.producerappointment.validate:
+          $ref: '#/components/schemas/ProducerAppointmentEventData'
+          deprecated: false
+        producers.producerappointment.create:
+          $ref: '#/components/schemas/ProducerAppointmentEventData'
+          deprecated: false
+        producers.producerappointment.discard:
+          $ref: '#/components/schemas/ProducerAppointmentEventData'
+          deprecated: false
+      deprecated: false
+    ValidationItemResponse:
       type: object
       required:
-      - producerAppointmentLocator
+      - locator
+      - elementType
+      - errors
       properties:
-        producerAppointmentLocator:
+        elementType:
+          type: string
+          deprecated: false
+        locator:
           type: string
           format: ulid
           deprecated: false
+        errors:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
       deprecated: false
-    ProducerCodeCreateRequest:
+    ProducerLicenseEvents:
+      type: object
+      properties:
+        producers.producerlicense.discard:
+          $ref: '#/components/schemas/ProducerLicenseEventData'
+          deprecated: false
+        producers.producerlicense.update:
+          $ref: '#/components/schemas/ProducerLicenseEventData'
+          deprecated: false
+        producers.producerlicense.create:
+          $ref: '#/components/schemas/ProducerLicenseEventData'
+          deprecated: false
+        producers.producerlicense.validate:
+          $ref: '#/components/schemas/ProducerLicenseEventData'
+          deprecated: false
+      deprecated: false
+    ProducerResponse:
       type: object
       required:
+      - locator
+      - producerState
       - type
+      - createdAt
+      - createdBy
       properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
         type:
           type: string
           deprecated: false
-        code:
+        producerState:
           type: string
+          enum:
+          - draft
+          - validated
+          - suspended
+          - discarded
+          - retired
           deprecated: false
-          maxLength: 128
+        parentLocator:
+          type: string
+          format: ulid
+          deprecated: false
         data:
           type: object
           deprecated: false
           additionalProperties:
             type: object
             deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
       deprecated: false
     ProducerAppointmentCreateRequest:
       type: object
@@ -1660,6 +1731,408 @@ components:
           items:
             type: string
             format: ulid
+            deprecated: false
+        effectiveTime:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerLicenseEventData:
+      type: object
+      required:
+      - producerLicenseLocator
+      properties:
+        producerLicenseLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    ValidationResult:
+      type: object
+      required:
+      - success
+      properties:
+        validationItems:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ValidationItemResponse'
+            deprecated: false
+        success:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    ProducerAppointmentUpdateRequest:
+      type: object
+      required:
+      - removeData
+      - setData
+      properties:
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        appointmentNumber:
+          type: string
+          deprecated: false
+          maxLength: 128
+        producerCodes:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        products:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        licenses:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        effectiveTime:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        setData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerCodeReplaceRequest:
+      type: object
+      required:
+      - producerLocator
+      - type
+      properties:
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        code:
+          type: string
+          deprecated: false
+          maxLength: 128
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerAppointmentReplaceRequest:
+      type: object
+      required:
+      - producerLocator
+      - type
+      - jurisdictions
+      - licenses
+      - producerCodes
+      - products
+      properties:
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        appointmentNumber:
+          type: string
+          deprecated: false
+          maxLength: 128
+        producerCodes:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        products:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        licenses:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        effectiveTime:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerEventData:
+      type: object
+      required:
+      - producerLocator
+      properties:
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    ListPageResponseProducerAppointmentResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ProducerAppointmentResponse'
+            deprecated: false
+      deprecated: false
+    ProducersEventTypeDefinitions:
+      type: object
+      required:
+      - producerAppointmentEvents
+      - producerCodeEvents
+      - producerEvents
+      - producerLicenseEvents
+      properties:
+        producerEvents:
+          $ref: '#/components/schemas/ProducerEvents'
+          deprecated: false
+        producerCodeEvents:
+          $ref: '#/components/schemas/ProducerCodeEvents'
+          deprecated: false
+        producerAppointmentEvents:
+          $ref: '#/components/schemas/ProducerAppointmentEvents'
+          deprecated: false
+        producerLicenseEvents:
+          $ref: '#/components/schemas/ProducerLicenseEvents'
+          deprecated: false
+      deprecated: false
+    ProducerCreateRequest:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+          deprecated: false
+        parentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerUpdateRequest:
+      type: object
+      required:
+      - removeData
+      - setData
+      properties:
+        type:
+          type: string
+          deprecated: false
+        parentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        setData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerHierarchyResponse:
+      type: object
+      required:
+      - locator
+      - producerState
+      - type
+      - createdAt
+      - createdBy
+      - childProducers
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        producerState:
+          type: string
+          enum:
+          - draft
+          - validated
+          - suspended
+          - discarded
+          - retired
+          deprecated: false
+        parentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+        childProducers:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ProducerHierarchyResponse'
+            deprecated: false
+      deprecated: false
+    ProducerCodeUpdateRequest:
+      type: object
+      required:
+      - removeData
+      - setData
+      properties:
+        type:
+          type: string
+          deprecated: false
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        code:
+          type: string
+          deprecated: false
+          maxLength: 128
+        setData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ProducerLicenseReplaceRequest:
+      type: object
+      required:
+      - producerLocator
+      - type
+      - jurisdictions
+      - producerCodes
+      - products
+      properties:
+        producerLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        licenseNumber:
+          type: string
+          deprecated: false
+          maxLength: 128
+        producerCodes:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        products:
+          type: array
+          deprecated: false
+          items:
+            type: string
             deprecated: false
         effectiveTime:
           type: string
@@ -1732,176 +2205,6 @@ components:
             type: object
             deprecated: false
       deprecated: false
-    ProducerLicenseCreateRequest:
-      type: object
-      required:
-      - type
-      - jurisdictions
-      - producerCodes
-      - products
-      properties:
-        type:
-          type: string
-          deprecated: false
-        licenseNumber:
-          type: string
-          deprecated: false
-          maxLength: 128
-        producerCodes:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        jurisdictions:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        products:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        effectiveTime:
-          type: string
-          format: date-time
-          deprecated: false
-        expirationTime:
-          type: string
-          format: date-time
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-      deprecated: false
-    ProducerResponse:
-      type: object
-      required:
-      - locator
-      - producerState
-      - type
-      - createdAt
-      - createdBy
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        type:
-          type: string
-          deprecated: false
-        producerState:
-          type: string
-          enum:
-          - draft
-          - validated
-          - suspended
-          - discarded
-          - retired
-          deprecated: false
-        parentLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        validationResult:
-          $ref: '#/components/schemas/ValidationResult'
-          deprecated: false
-      deprecated: false
-    ProducerLicenseEvents:
-      type: object
-      properties:
-        producers.producerlicense.discard:
-          $ref: '#/components/schemas/ProducerLicenseEventData'
-          deprecated: false
-        producers.producerlicense.update:
-          $ref: '#/components/schemas/ProducerLicenseEventData'
-          deprecated: false
-        producers.producerlicense.create:
-          $ref: '#/components/schemas/ProducerLicenseEventData'
-          deprecated: false
-        producers.producerlicense.validate:
-          $ref: '#/components/schemas/ProducerLicenseEventData'
-          deprecated: false
-      deprecated: false
-    ProducerEvents:
-      type: object
-      properties:
-        producers.producer.unsuspend:
-          $ref: '#/components/schemas/ProducerEventData'
-          deprecated: false
-        producers.producer.update:
-          $ref: '#/components/schemas/ProducerEventData'
-          deprecated: false
-        producers.producer.retire:
-          $ref: '#/components/schemas/ProducerEventData'
-          deprecated: false
-        producers.producer.discard:
-          $ref: '#/components/schemas/ProducerEventData'
-          deprecated: false
-        producers.producer.validate:
-          $ref: '#/components/schemas/ProducerEventData'
-          deprecated: false
-        producers.producer.suspend:
-          $ref: '#/components/schemas/ProducerEventData'
-          deprecated: false
-        producers.producer.create:
-          $ref: '#/components/schemas/ProducerEventData'
-          deprecated: false
-      deprecated: false
-    ProducerCodeReplaceRequest:
-      type: object
-      required:
-      - producerLocator
-      - type
-      properties:
-        producerLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        type:
-          type: string
-          deprecated: false
-        code:
-          type: string
-          deprecated: false
-          maxLength: 128
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-      deprecated: false
-    ProducerEventData:
-      type: object
-      required:
-      - producerLocator
-      properties:
-        producerLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
     ProducerCodeResponse:
       type: object
       required:
@@ -1953,57 +2256,55 @@ components:
           $ref: '#/components/schemas/ValidationResult'
           deprecated: false
       deprecated: false
-    ProducerLicenseReplaceRequest:
+    ProducerCodeCreateRequest:
       type: object
       required:
-      - producerLocator
       - type
-      - jurisdictions
-      - producerCodes
-      - products
       properties:
-        producerLocator:
-          type: string
-          format: ulid
-          deprecated: false
         type:
           type: string
           deprecated: false
-        licenseNumber:
+        code:
           type: string
           deprecated: false
           maxLength: 128
-        producerCodes:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        jurisdictions:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        products:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        effectiveTime:
-          type: string
-          format: date-time
-          deprecated: false
-        expirationTime:
-          type: string
-          format: date-time
-          deprecated: false
         data:
           type: object
           deprecated: false
           additionalProperties:
             type: object
+            deprecated: false
+      deprecated: false
+    ListPageResponseProducerResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ProducerResponse'
+            deprecated: false
+      deprecated: false
+    ListPageResponseProducerCodeResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ProducerCodeResponse'
             deprecated: false
       deprecated: false
     ProducerCodeEvents:
@@ -2034,79 +2335,18 @@ components:
           $ref: '#/components/schemas/ProducerCodeEventData'
           deprecated: false
       deprecated: false
-    ProducerCodeEventData:
-      type: object
-      required:
-      - producerCodeLocator
-      properties:
-        producerCodeLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        code:
-          type: string
-          deprecated: false
-      deprecated: false
-    ProducerCodeUpdateRequest:
-      type: object
-      required:
-      - removeData
-      - setData
-      properties:
-        type:
-          type: string
-          deprecated: false
-        producerLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        code:
-          type: string
-          deprecated: false
-          maxLength: 128
-        setData:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        removeData:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-      deprecated: false
-    ProducersEventTypeDefinitions:
-      type: object
-      required:
-      - producerAppointmentEvents
-      - producerCodeEvents
-      - producerEvents
-      - producerLicenseEvents
-      properties:
-        producerEvents:
-          $ref: '#/components/schemas/ProducerEvents'
-          deprecated: false
-        producerCodeEvents:
-          $ref: '#/components/schemas/ProducerCodeEvents'
-          deprecated: false
-        producerAppointmentEvents:
-          $ref: '#/components/schemas/ProducerAppointmentEvents'
-          deprecated: false
-        producerLicenseEvents:
-          $ref: '#/components/schemas/ProducerLicenseEvents'
-          deprecated: false
-      deprecated: false
-    ProducerHierarchyResponse:
+    ProducerLicenseResponse:
       type: object
       required:
       - locator
-      - producerState
+      - producerLocator
+      - producerLicenseState
       - type
       - createdAt
       - createdBy
-      - childProducers
+      - jurisdictions
+      - producerCodes
+      - products
       properties:
         locator:
           type: string
@@ -2115,76 +2355,20 @@ components:
         type:
           type: string
           deprecated: false
-        producerState:
+        producerLicenseState:
           type: string
           enum:
           - draft
           - validated
-          - suspended
           - discarded
-          - retired
           deprecated: false
-        parentLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        validationResult:
-          $ref: '#/components/schemas/ValidationResult'
-          deprecated: false
-        childProducers:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ProducerHierarchyResponse'
-            deprecated: false
-      deprecated: false
-    ProducerAppointmentEvents:
-      type: object
-      properties:
-        producers.producerappointment.update:
-          $ref: '#/components/schemas/ProducerAppointmentEventData'
-          deprecated: false
-        producers.producerappointment.validate:
-          $ref: '#/components/schemas/ProducerAppointmentEventData'
-          deprecated: false
-        producers.producerappointment.create:
-          $ref: '#/components/schemas/ProducerAppointmentEventData'
-          deprecated: false
-        producers.producerappointment.discard:
-          $ref: '#/components/schemas/ProducerAppointmentEventData'
-          deprecated: false
-      deprecated: false
-    ProducerAppointmentUpdateRequest:
-      type: object
-      required:
-      - removeData
-      - setData
-      properties:
         producerLocator:
           type: string
           format: ulid
           deprecated: false
-        type:
+        licenseNumber:
           type: string
           deprecated: false
-        appointmentNumber:
-          type: string
-          deprecated: false
-          maxLength: 128
         producerCodes:
           type: array
           deprecated: false
@@ -2203,13 +2387,6 @@ components:
           items:
             type: string
             deprecated: false
-        licenses:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
         effectiveTime:
           type: string
           format: date-time
@@ -2218,44 +2395,87 @@ components:
           type: string
           format: date-time
           deprecated: false
-        setData:
+        data:
           type: object
           deprecated: false
           additionalProperties:
             type: object
             deprecated: false
-        removeData:
-          type: object
+        createdAt:
+          type: string
+          format: date-time
           deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
       deprecated: false
-    ProducerUpdateRequest:
+    ProducerAppointmentEventData:
       type: object
       required:
-      - removeData
-      - setData
+      - producerAppointmentLocator
       properties:
-        type:
-          type: string
-          deprecated: false
-        parentLocator:
+        producerAppointmentLocator:
           type: string
           format: ulid
           deprecated: false
-        setData:
-          type: object
+      deprecated: false
+    ProducerEvents:
+      type: object
+      properties:
+        producers.producer.unsuspend:
+          $ref: '#/components/schemas/ProducerEventData'
           deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        removeData:
-          type: object
+        producers.producer.update:
+          $ref: '#/components/schemas/ProducerEventData'
           deprecated: false
-          additionalProperties:
-            type: object
+        producers.producer.retire:
+          $ref: '#/components/schemas/ProducerEventData'
+          deprecated: false
+        producers.producer.discard:
+          $ref: '#/components/schemas/ProducerEventData'
+          deprecated: false
+        producers.producer.validate:
+          $ref: '#/components/schemas/ProducerEventData'
+          deprecated: false
+        producers.producer.suspend:
+          $ref: '#/components/schemas/ProducerEventData'
+          deprecated: false
+        producers.producer.create:
+          $ref: '#/components/schemas/ProducerEventData'
+          deprecated: false
+      deprecated: false
+    ListPageResponseProducerLicenseResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ProducerLicenseResponse'
             deprecated: false
+      deprecated: false
+    ProducerCodeEventData:
+      type: object
+      required:
+      - producerCodeLocator
+      properties:
+        producerCodeLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        code:
+          type: string
+          deprecated: false
       deprecated: false
     ProducerAppointmentResponse:
       type: object
@@ -2343,118 +2563,18 @@ components:
           $ref: '#/components/schemas/ValidationResult'
           deprecated: false
       deprecated: false
-    ProducerLicenseResponse:
+    ProducerLicenseCreateRequest:
       type: object
       required:
-      - locator
-      - producerLocator
-      - producerLicenseState
       - type
-      - createdAt
-      - createdBy
       - jurisdictions
       - producerCodes
       - products
       properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
         type:
           type: string
-          deprecated: false
-        producerLicenseState:
-          type: string
-          enum:
-          - draft
-          - validated
-          - discarded
-          deprecated: false
-        producerLocator:
-          type: string
-          format: ulid
           deprecated: false
         licenseNumber:
-          type: string
-          deprecated: false
-        producerCodes:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        jurisdictions:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        products:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        effectiveTime:
-          type: string
-          format: date-time
-          deprecated: false
-        expirationTime:
-          type: string
-          format: date-time
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        validationResult:
-          $ref: '#/components/schemas/ValidationResult'
-          deprecated: false
-      deprecated: false
-    ListPageResponseProducerAppointmentResponse:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ProducerAppointmentResponse'
-            deprecated: false
-      deprecated: false
-    ProducerAppointmentReplaceRequest:
-      type: object
-      required:
-      - producerLocator
-      - type
-      - jurisdictions
-      - licenses
-      - producerCodes
-      - products
-      properties:
-        producerLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        type:
-          type: string
-          deprecated: false
-        appointmentNumber:
           type: string
           deprecated: false
           maxLength: 128
@@ -2476,13 +2596,6 @@ components:
           items:
             type: string
             deprecated: false
-        licenses:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
         effectiveTime:
           type: string
           format: date-time
@@ -2496,118 +2609,5 @@ components:
           deprecated: false
           additionalProperties:
             type: object
-            deprecated: false
-      deprecated: false
-    ProducerCreateRequest:
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          type: string
-          deprecated: false
-        parentLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-      deprecated: false
-    ProducerLicenseEventData:
-      type: object
-      required:
-      - producerLicenseLocator
-      properties:
-        producerLicenseLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    ValidationItemResponse:
-      type: object
-      required:
-      - locator
-      - elementType
-      - errors
-      properties:
-        elementType:
-          type: string
-          deprecated: false
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        errors:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-      deprecated: false
-    ValidationResult:
-      type: object
-      required:
-      - success
-      properties:
-        validationItems:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ValidationItemResponse'
-            deprecated: false
-        success:
-          type: boolean
-          deprecated: false
-      deprecated: false
-    ListPageResponseProducerCodeResponse:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ProducerCodeResponse'
-            deprecated: false
-      deprecated: false
-    ListPageResponseProducerResponse:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ProducerResponse'
-            deprecated: false
-      deprecated: false
-    ListPageResponseProducerLicenseResponse:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ProducerLicenseResponse'
             deprecated: false
       deprecated: false

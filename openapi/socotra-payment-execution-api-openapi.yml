@@ -328,40 +328,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    FinancialInstrumentConfigurationResponse:
-      type: object
-      required:
-      - paymentInstrumentLocator
-      - paymentProviderLocator
-      properties:
-        paymentInstrumentLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        paymentProviderLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        externalAccountNumber:
-          type: string
-          deprecated: false
-      deprecated: false
-    ListPageResponsePaymentProvider:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/PaymentProvider'
-            deprecated: false
-      deprecated: false
     PaymentProviderConfigurationRequestPaymentProviderConfiguration:
       type: object
       required:
@@ -398,6 +364,65 @@ components:
           - active
           - inactive
           deprecated: false
+      deprecated: false
+    FinancialInstrumentConfigurationResponse:
+      type: object
+      required:
+      - paymentInstrumentLocator
+      - paymentProviderLocator
+      properties:
+        paymentInstrumentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        paymentProviderLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        externalAccountNumber:
+          type: string
+          deprecated: false
+      deprecated: false
+    BraintreeConfigurationRequest:
+      type: object
+      required:
+      - paymentProviderState
+      - merchantId
+      - paymentServiceProvider
+      - privateKey
+      - publicKey
+      allOf:
+      - $ref: '#/components/schemas/PaymentProviderConfigurationRequestPaymentProviderConfiguration'
+        deprecated: false
+      - type: object
+        properties:
+          paymentServiceProvider:
+            type: string
+            enum:
+            - braintree
+            - braintreeSandbox
+            - stripe
+            - stripeTest
+            deprecated: false
+          paymentProviderState:
+            type: string
+            enum:
+            - active
+            - inactive
+            deprecated: false
+          merchantId:
+            type: string
+            deprecated: false
+            writeOnly: true
+          publicKey:
+            type: string
+            deprecated: false
+            writeOnly: true
+          privateKey:
+            type: string
+            deprecated: false
+            writeOnly: true
+        deprecated: false
       deprecated: false
     FinancialInstrumentConfigurationRequest:
       type: object
@@ -447,44 +472,19 @@ components:
             writeOnly: true
         deprecated: false
       deprecated: false
-    BraintreeConfigurationRequest:
+    ListPageResponsePaymentProvider:
       type: object
       required:
-      - paymentProviderState
-      - merchantId
-      - paymentServiceProvider
-      - privateKey
-      - publicKey
-      allOf:
-      - $ref: '#/components/schemas/PaymentProviderConfigurationRequestPaymentProviderConfiguration'
-        deprecated: false
-      - type: object
-        properties:
-          paymentServiceProvider:
-            type: string
-            enum:
-            - braintree
-            - braintreeSandbox
-            - stripe
-            - stripeTest
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PaymentProvider'
             deprecated: false
-          paymentProviderState:
-            type: string
-            enum:
-            - active
-            - inactive
-            deprecated: false
-          merchantId:
-            type: string
-            deprecated: false
-            writeOnly: true
-          publicKey:
-            type: string
-            deprecated: false
-            writeOnly: true
-          privateKey:
-            type: string
-            deprecated: false
-            writeOnly: true
-        deprecated: false
       deprecated: false

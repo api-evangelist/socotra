@@ -1461,7 +1461,7 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DocumentJobListResponse:
+    ListPageResponseDocumentInstance:
       type: object
       required:
       - listCompleted
@@ -1474,33 +1474,8 @@ components:
           type: array
           deprecated: false
           items:
-            $ref: '#/components/schemas/DocumentsJobSummary'
+            $ref: '#/components/schemas/DocumentInstanceResponse'
             deprecated: false
-      deprecated: false
-    TemplateResponse:
-      type: object
-      properties:
-        file:
-          type: object
-          properties:
-            file:
-              type: string
-              format: binary
-              deprecated: false
-          deprecated: false
-        template:
-          type: string
-          deprecated: false
-      deprecated: false
-    DocumentEvents:
-      type: object
-      properties:
-        document.ready:
-          $ref: '#/components/schemas/DocumentEventData'
-          deprecated: false
-        document.failed:
-          $ref: '#/components/schemas/DocumentEventData'
-          deprecated: false
       deprecated: false
     DocumentJobInfo:
       type: object
@@ -1531,50 +1506,6 @@ components:
         state:
           type: string
           deprecated: true
-      deprecated: false
-    DocumentServiceEventTypeDefinitions:
-      type: object
-      required:
-      - documentEvents
-      properties:
-        documentEvents:
-          $ref: '#/components/schemas/DocumentEvents'
-          deprecated: false
-      deprecated: false
-    DocumentListResponse:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/DocumentInstanceResponse'
-            deprecated: false
-      deprecated: false
-    StreamingResponseBody:
-      type: object
-      deprecated: false
-    ListPageResponseDocumentInstance:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/DocumentInstanceResponse'
-            deprecated: false
       deprecated: false
     DocumentInstanceResponse:
       type: object
@@ -1713,6 +1644,22 @@ components:
           type: boolean
           deprecated: false
       deprecated: false
+    DocumentListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DocumentInstanceResponse'
+            deprecated: false
+      deprecated: false
     DocumentEventData:
       type: object
       required:
@@ -1833,6 +1780,59 @@ components:
           deprecated: false
         isConsolidation:
           type: boolean
+          deprecated: false
+      deprecated: false
+    TemplateResponse:
+      type: object
+      properties:
+        file:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+              deprecated: false
+          deprecated: false
+        template:
+          type: string
+          deprecated: false
+      deprecated: false
+    DocumentServiceEventTypeDefinitions:
+      type: object
+      required:
+      - documentEvents
+      properties:
+        documentEvents:
+          $ref: '#/components/schemas/DocumentEvents'
+          deprecated: false
+      deprecated: false
+    DocumentJobListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DocumentsJobSummary'
+            deprecated: false
+      deprecated: false
+    StreamingResponseBody:
+      type: object
+      deprecated: false
+    DocumentEvents:
+      type: object
+      properties:
+        document.ready:
+          $ref: '#/components/schemas/DocumentEventData'
+          deprecated: false
+        document.failed:
+          $ref: '#/components/schemas/DocumentEventData'
           deprecated: false
       deprecated: false
     DocumentsJobSummary:

@@ -2459,6 +2459,22 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ResourceListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ResourceResponse'
+            deprecated: false
+      deprecated: false
     ResourceGroupResponse:
       type: object
       required:
@@ -2499,36 +2515,202 @@ components:
           format: date-time
           deprecated: false
       deprecated: false
-    ResourceListResponse:
+    BasicResourceResponse:
       type: object
       required:
-      - listCompleted
-      - items
+      - name
+      - resourceType
+      - createdAt
+      - createdBy
+      - jurisdictions
       properties:
-        listCompleted:
-          type: boolean
+        name:
+          type: string
           deprecated: false
-        items:
-          type: array
+        staticName:
+          type: string
           deprecated: false
-          items:
-            $ref: '#/components/schemas/ResourceResponse'
-            deprecated: false
-      deprecated: false
-    TemplateResponse:
-      type: object
-      properties:
-        file:
-          type: object
-          properties:
-            file:
-              type: string
-              format: binary
-              deprecated: false
+        resourceType:
+          type: string
+          enum:
+          - constraintTable
+          - customFont
+          - documentTemplate
+          - documentTemplateSnippet
+          - rangeTable
+          - secret
+          - staticDocument
+          - table
+          deprecated: false
+        lookupTableLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        rangeTableLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        constraintTableLocator:
+          type: string
+          format: ulid
           deprecated: false
         template:
           type: string
           deprecated: false
+        staticDocumentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        fontLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        riskAssessmentCriteriaLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        uiConfigLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        templateFormat:
+          type: string
+          enum:
+          - liquid
+          - velocity
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    TableLookupResponse:
+      type: object
+      required:
+      - value
+      properties:
+        value:
+          type: object
+          deprecated: false
+      deprecated: false
+    SecretResponse:
+      type: object
+      required:
+      - resource
+      - secret
+      properties:
+        resource:
+          $ref: '#/components/schemas/BasicResourceResponse'
+          deprecated: false
+        secret:
+          type: object
+          deprecated: false
+      deprecated: false
+    ResourceGroupUpdateRequest:
+      type: object
+      required:
+      - name
+      - selectionStartTime
+      - addResources
+      - removeResources
+      properties:
+        name:
+          type: string
+          deprecated: false
+        selectionStartTime:
+          type: string
+          format: date-time
+          deprecated: false
+        removeResources:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        addResources:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    BootstrapResource:
+      type: object
+      required:
+      - name
+      - resourceType
+      - status
+      - updatedAt
+      properties:
+        name:
+          type: string
+          deprecated: false
+        resourceType:
+          type: string
+          enum:
+          - constraintTable
+          - customFont
+          - documentTemplate
+          - documentTemplateSnippet
+          - rangeTable
+          - secret
+          - staticDocument
+          - table
+          deprecated: false
+        status:
+          type: string
+          enum:
+          - queued
+          - created
+          - failed
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        error:
+          type: string
+          deprecated: false
+      deprecated: false
+    SecretCreateRequest:
+      type: object
+      required:
+      - staticName
+      - name
+      - jurisdictions
+      - secret
+      properties:
+        name:
+          type: string
+          deprecated: false
+          maxLength: 128
+          minLength: 1
+        staticName:
+          type: string
+          deprecated: false
+          minLength: 1
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        secret:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
       deprecated: false
     ResourceResponse:
       type: object
@@ -2633,97 +2815,6 @@ components:
             type: string
             deprecated: false
       deprecated: false
-    StreamingResponseBody:
-      type: object
-      deprecated: false
-    TableLookupResponse:
-      type: object
-      required:
-      - value
-      properties:
-        value:
-          type: object
-          deprecated: false
-      deprecated: false
-    SecretResponse:
-      type: object
-      required:
-      - resource
-      - secret
-      properties:
-        resource:
-          $ref: '#/components/schemas/BasicResourceResponse'
-          deprecated: false
-        secret:
-          type: object
-          deprecated: false
-      deprecated: false
-    BootstrapResource:
-      type: object
-      required:
-      - name
-      - resourceType
-      - status
-      - updatedAt
-      properties:
-        name:
-          type: string
-          deprecated: false
-        resourceType:
-          type: string
-          enum:
-          - constraintTable
-          - customFont
-          - documentTemplate
-          - documentTemplateSnippet
-          - rangeTable
-          - secret
-          - staticDocument
-          - table
-          deprecated: false
-        status:
-          type: string
-          enum:
-          - queued
-          - created
-          - failed
-          deprecated: false
-        updatedAt:
-          type: string
-          format: date-time
-          deprecated: false
-        error:
-          type: string
-          deprecated: false
-      deprecated: false
-    ResourceGroupUpdateRequest:
-      type: object
-      required:
-      - name
-      - selectionStartTime
-      - addResources
-      - removeResources
-      properties:
-        name:
-          type: string
-          deprecated: false
-        selectionStartTime:
-          type: string
-          format: date-time
-          deprecated: false
-        removeResources:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        addResources:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-      deprecated: false
     ResourceGroupCreateRequest:
       type: object
       required:
@@ -2763,112 +2854,21 @@ components:
             $ref: '#/components/schemas/ResourceGroupResponse'
             deprecated: false
       deprecated: false
-    BasicResourceResponse:
+    TemplateResponse:
       type: object
-      required:
-      - name
-      - resourceType
-      - createdAt
-      - createdBy
-      - jurisdictions
       properties:
-        name:
-          type: string
-          deprecated: false
-        staticName:
-          type: string
-          deprecated: false
-        resourceType:
-          type: string
-          enum:
-          - constraintTable
-          - customFont
-          - documentTemplate
-          - documentTemplateSnippet
-          - rangeTable
-          - secret
-          - staticDocument
-          - table
-          deprecated: false
-        lookupTableLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        rangeTableLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        constraintTableLocator:
-          type: string
-          format: ulid
+        file:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+              deprecated: false
           deprecated: false
         template:
           type: string
           deprecated: false
-        staticDocumentLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        fontLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        riskAssessmentCriteriaLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        uiConfigLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        templateFormat:
-          type: string
-          enum:
-          - liquid
-          - velocity
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        jurisdictions:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
       deprecated: false
-    SecretCreateRequest:
+    StreamingResponseBody:
       type: object
-      required:
-      - staticName
-      - name
-      - jurisdictions
-      - secret
-      properties:
-        name:
-          type: string
-          deprecated: false
-          maxLength: 128
-          minLength: 1
-        staticName:
-          type: string
-          deprecated: false
-          minLength: 1
-        jurisdictions:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        secret:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
       deprecated: false
