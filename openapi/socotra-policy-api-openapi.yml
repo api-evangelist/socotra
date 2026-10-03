@@ -9318,32 +9318,51 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ElementScheduleResponse:
+    ProducersChangeInstructionCreateRequest:
       type: object
       required:
-      - staticElementLocator
-      - complexData
-      - elementType
-      - maxValidationErrors
-      - scheduleItemType
+      - action
+      allOf:
+      - $ref: '#/components/schemas/ChangeInstructionCreateRequest'
+        deprecated: false
+      - type: object
+        properties:
+          action:
+            type: string
+            enum:
+            - producers
+            deprecated: false
+          setProducerCode:
+            type: string
+            deprecated: false
+            maxLength: 128
+          clearProducerCode:
+            type: boolean
+            deprecated: false
+          setProducerCodeOfRecord:
+            type: string
+            deprecated: false
+            maxLength: 128
+          revertProducerCodeOfRecord:
+            type: boolean
+            deprecated: false
+        deprecated: false
+      deprecated: false
+    QuickQuoteListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
       properties:
-        staticElementLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        elementType:
-          type: string
-          deprecated: false
-        scheduleItemType:
-          type: string
-          deprecated: false
-        complexData:
+        listCompleted:
           type: boolean
           deprecated: false
-        maxValidationErrors:
-          type: integer
-          format: int32
+        items:
+          type: array
           deprecated: false
+          items:
+            $ref: '#/components/schemas/QuickQuoteResponse'
+            deprecated: false
       deprecated: false
     AccountEvents:
       type: object
@@ -9363,6 +9382,116 @@ components:
         policy.account.create:
           $ref: '#/components/schemas/AccountEventData'
           deprecated: false
+      deprecated: false
+    PolicyStatusEvents:
+      type: object
+      properties:
+        policy.status.update:
+          $ref: '#/components/schemas/PolicyStatusEventData'
+          deprecated: false
+      deprecated: false
+    MigrateChangeInstructionCreateRequest:
+      type: object
+      required:
+      - action
+      allOf:
+      - $ref: '#/components/schemas/ChangeInstructionCreateRequest'
+        deprecated: false
+      - type: object
+        properties:
+          action:
+            type: string
+            enum:
+            - migrate
+            deprecated: false
+          configVersionLocator:
+            type: string
+            format: ulid
+            deprecated: false
+        deprecated: false
+      deprecated: false
+    ListPageResponseStaticDataHistoryResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/StaticDataHistoryResponse'
+            deprecated: false
+      deprecated: false
+    TaskCreationResponse:
+      type: object
+      required:
+      - taskLocator
+      - status
+      properties:
+        taskLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        status:
+          type: string
+          enum:
+          - succeeded
+          - failed
+          deprecated: false
+      deprecated: false
+    AutoRenewalUpdateRequest:
+      type: object
+      properties:
+        renewalTransactionType:
+          type: string
+          deprecated: false
+        newTermDuration:
+          type: integer
+          format: int32
+          deprecated: false
+        renewalTransactionCreateTime:
+          type: string
+          format: date-time
+          deprecated: false
+        renewalTransactionAcceptTime:
+          type: string
+          format: date-time
+          deprecated: false
+        renewalTransactionIssueTime:
+          type: string
+          format: date-time
+          deprecated: false
+        renewalTransactionLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    TransactionDataChangeInstructionCreateRequest:
+      type: object
+      required:
+      - action
+      - data
+      allOf:
+      - $ref: '#/components/schemas/ChangeInstructionCreateRequest'
+        deprecated: false
+      - type: object
+        properties:
+          action:
+            type: string
+            enum:
+            - transactionData
+            deprecated: false
+          data:
+            type: object
+            deprecated: false
+            additionalProperties:
+              type: object
+              deprecated: false
+        deprecated: false
       deprecated: false
     MoratoriumStatus:
       type: object
@@ -9387,6 +9516,248 @@ components:
           - optIn
           - optOut
           - mandatory
+          deprecated: false
+      deprecated: false
+    TermPayableResponse:
+      type: object
+      required:
+      - locator
+      - staticLocator
+      - policyLocator
+      - startTime
+      - endTime
+      - amount
+      - number
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        staticLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        number:
+          type: integer
+          format: int32
+          deprecated: false
+        startTime:
+          type: string
+          format: date-time
+          deprecated: false
+        endTime:
+          type: string
+          format: date-time
+          deprecated: false
+        amount:
+          type: number
+          deprecated: false
+      deprecated: false
+    QuoteHoldScope:
+      type: object
+      required:
+      - quoteState
+      properties:
+        quoteState:
+          type: string
+          enum:
+          - validated
+          - underwritten
+          - accepted
+          - priced
+          deprecated: false
+      deprecated: false
+    MoratoriumStatusesResponse:
+      type: object
+      required:
+      - locator
+      - moratoriums
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        moratoriums:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/MoratoriumStatus'
+            deprecated: false
+      deprecated: false
+    PatchScheduleItemRequest:
+      type: object
+      required:
+      - locator
+      - removeData
+      - setData
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        setData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    PolicyLocatorData:
+      type: object
+      required:
+      - policyLocator
+      properties:
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    ValidationResult:
+      type: object
+      required:
+      - success
+      properties:
+        validationItems:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ValidationItemResponse'
+            deprecated: false
+        success:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    TaskReference:
+      type: object
+      required:
+      - referenceLocator
+      - referenceType
+      properties:
+        referenceType:
+          type: string
+          enum:
+          - account
+          - quickQuote
+          - quote
+          - policy
+          - transaction
+          - invoice
+          - underwritingFlag
+          - payment
+          - quoteGroup
+          - inquiry
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    PolicyListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PolicyResponse'
+            deprecated: false
+      deprecated: false
+    UnderwritingFlagsUpdateRequest:
+      type: object
+      required:
+      - addFlags
+      - clearFlags
+      properties:
+        addFlags:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/UnderwritingFlagCreateRequest'
+            deprecated: false
+        clearFlags:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+      deprecated: false
+    AccountUpdateReplaceDataRequest:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+          description: One of the configured Account Types
+          deprecated: false
+        autoValidate:
+          type: boolean
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        delinquencyPlanName:
+          type: string
+          deprecated: false
+        shortfallTolerancePlanName:
+          type: string
+          deprecated: false
+        autoRenewalPlanName:
+          type: string
+          deprecated: false
+        excessCreditPlanName:
+          type: string
+          deprecated: false
+        preferences:
+          $ref: '#/components/schemas/PreferencesResponse'
+          deprecated: false
+        billingLevel:
+          type: string
+          enum:
+          - account
+          - inherit
+          - policy
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        invoiceDocument:
+          type: string
+          deprecated: false
+        timezone:
+          type: string
+          deprecated: false
+        contacts:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ContactRoles'
+            deprecated: false
+        invoicingPlanName:
+          type: string
+          deprecated: false
+        paymentExecutionRetryPlanName:
+          type: string
           deprecated: false
       deprecated: false
     InstallmentPreferences:
@@ -9478,929 +9849,6 @@ components:
           type: number
           deprecated: false
       deprecated: false
-    PolicySnapshotListResponse:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/PolicySnapshotResponse'
-            deprecated: false
-      deprecated: false
-    QuoteCreateRequest:
-      type: object
-      required:
-      - accountLocator
-      - productName
-      - startTime
-      - invoiceFeeAmount
-      - data
-      - contacts
-      properties:
-        productName:
-          type: string
-          deprecated: false
-        accountLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        startTime:
-          type: string
-          format: date-time
-          deprecated: false
-        endTime:
-          type: string
-          format: date-time
-          deprecated: false
-        expirationTime:
-          type: string
-          format: date-time
-          deprecated: false
-        currency:
-          type: string
-          deprecated: false
-        timezone:
-          type: string
-          deprecated: false
-        jurisdiction:
-          type: string
-          deprecated: false
-        coverageTerms:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        elements:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ElementCreateRequest'
-            deprecated: false
-        durationBasis:
-          type: string
-          enum:
-          - years
-          - months
-          - weeks
-          - days
-          - hours
-          deprecated: false
-        preferences:
-          $ref: '#/components/schemas/PreferencesResponse'
-          deprecated: false
-        delinquencyPlanName:
-          type: string
-          deprecated: false
-        autoRenewalPlanName:
-          type: string
-          deprecated: false
-        billingLevel:
-          type: string
-          enum:
-          - account
-          - inherit
-          - policy
-          deprecated: false
-        region:
-          type: string
-          deprecated: false
-        quoteGroupLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        static:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        contacts:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ContactRoles'
-            deprecated: false
-        invoiceFeeAmount:
-          type: number
-          deprecated: false
-        termDuration:
-          type: integer
-          format: int32
-          deprecated: false
-        producerCode:
-          type: string
-          deprecated: false
-          maxLength: 128
-      deprecated: false
-    QuickQuoteQuoteDetails:
-      type: object
-      required:
-      - locator
-      - accountLocator
-      - groupLocator
-      - productName
-      - quoteState
-      - billingLevel
-      - element
-      - contacts
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        quoteState:
-          type: string
-          enum:
-          - draft
-          - validated
-          - earlyUnderwritten
-          - priced
-          - underwritten
-          - accepted
-          - issued
-          - underwrittenBlocked
-          - declined
-          - rejected
-          - refused
-          - discarded
-          deprecated: false
-        productName:
-          type: string
-          deprecated: false
-        accountLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        startTime:
-          type: string
-          format: date-time
-          deprecated: false
-        endTime:
-          type: string
-          format: date-time
-          deprecated: false
-        timezone:
-          type: string
-          deprecated: false
-        currency:
-          type: string
-          deprecated: false
-        underwritingStatus:
-          type: string
-          deprecated: false
-        expirationTime:
-          type: string
-          format: date-time
-          deprecated: false
-        element:
-          $ref: '#/components/schemas/ElementResponse'
-          deprecated: false
-        preferences:
-          $ref: '#/components/schemas/PreferencesResponse'
-          deprecated: false
-        policyLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        delinquencyPlanName:
-          type: string
-          deprecated: false
-        durationBasis:
-          type: string
-          enum:
-          - years
-          - months
-          - weeks
-          - days
-          - hours
-          deprecated: false
-        groupLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        autoRenewalPlanName:
-          type: string
-          deprecated: false
-        billingLevel:
-          type: string
-          enum:
-          - account
-          - inherit
-          - policy
-          deprecated: false
-        region:
-          type: string
-          deprecated: false
-        quoteNumber:
-          type: string
-          deprecated: false
-        duration:
-          type: number
-          deprecated: false
-        acceptedTime:
-          type: string
-          format: date-time
-          deprecated: false
-        issuedTime:
-          type: string
-          format: date-time
-          deprecated: false
-        validationResult:
-          $ref: '#/components/schemas/ValidationResult'
-          deprecated: false
-        quickQuoteLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        contacts:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ContactRoles'
-            deprecated: false
-        anonymizedAt:
-          type: string
-          format: date-time
-          deprecated: false
-        invoiceFeeAmount:
-          type: number
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        jurisdiction:
-          type: string
-          deprecated: false
-        producerCode:
-          type: string
-          deprecated: false
-        reservedPolicyNumber:
-          type: string
-          deprecated: false
-      deprecated: false
-    ElementResponse:
-      type: object
-      required:
-      - locator
-      - staticLocator
-      - parentLocator
-      - originalEffectiveTime
-      - type
-      properties:
-        type:
-          type: string
-          deprecated: false
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        parentLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        elements:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ElementResponse'
-            deprecated: false
-        coverageTerms:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        staticLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        originalEffectiveTime:
-          type: string
-          format: date-time
-          description: Indicates when the element was first added to the policy
-          deprecated: false
-        category:
-          type: string
-          enum:
-          - product
-          - coverage
-          - exposure
-          - exposureGroup
-          - policyLine
-          deprecated: false
-      deprecated: false
-    CreateEntityHoldRequest:
-      type: object
-      required:
-      - referenceLocator
-      - referenceType
-      properties:
-        referenceType:
-          type: string
-          enum:
-          - quote
-          - policy
-          deprecated: false
-        referenceLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        description:
-          type: string
-          deprecated: false
-        quoteHoldScope:
-          $ref: '#/components/schemas/QuoteHoldScope'
-          deprecated: false
-        policyHoldScope:
-          $ref: '#/components/schemas/PolicyHoldScope'
-          deprecated: false
-        holdStaticData:
-          type: boolean
-          deprecated: false
-      deprecated: false
-    PolicyServiceEventTypeDefinitions:
-      type: object
-      required:
-      - accountEvents
-      - configMigrationEvents
-      - numberingEvents
-      - policyEvents
-      - policyStaticDataEvents
-      - policyStatusEvents
-      - quoteEvents
-      - transactionEvents
-      properties:
-        accountEvents:
-          $ref: '#/components/schemas/AccountEvents'
-          deprecated: false
-        quoteEvents:
-          $ref: '#/components/schemas/QuoteEvents'
-          deprecated: false
-        policyStatusEvents:
-          $ref: '#/components/schemas/PolicyStatusEvents'
-          deprecated: false
-        transactionEvents:
-          $ref: '#/components/schemas/TransactionEvents'
-          deprecated: false
-        policyStaticDataEvents:
-          $ref: '#/components/schemas/PolicyStaticDataEvents'
-          deprecated: false
-        policyEvents:
-          $ref: '#/components/schemas/PolicyEvents'
-          deprecated: false
-        numberingEvents:
-          $ref: '#/components/schemas/NumberingEvents'
-          deprecated: false
-        configMigrationEvents:
-          $ref: '#/components/schemas/ConfigMigrationEvents'
-          deprecated: false
-      deprecated: false
-    ElementCreateRequest:
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          type: string
-          deprecated: false
-        parentLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        elements:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ElementCreateRequest'
-            deprecated: false
-        coverageTerms:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        staticLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    AccountCreateRequest:
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          type: string
-          description: One of the configured Account Types
-          deprecated: false
-        autoValidate:
-          type: boolean
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        delinquencyPlanName:
-          type: string
-          deprecated: false
-        shortfallTolerancePlanName:
-          type: string
-          deprecated: false
-        autoRenewalPlanName:
-          type: string
-          deprecated: false
-        excessCreditPlanName:
-          type: string
-          deprecated: false
-        preferences:
-          $ref: '#/components/schemas/PreferencesResponse'
-          deprecated: false
-        billingLevel:
-          type: string
-          enum:
-          - account
-          - inherit
-          - policy
-          deprecated: false
-        region:
-          type: string
-          deprecated: false
-        invoiceDocument:
-          type: string
-          deprecated: false
-        timezone:
-          type: string
-          deprecated: false
-        contacts:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ContactRoles'
-            deprecated: false
-        invoicingPlanName:
-          type: string
-          deprecated: false
-        paymentExecutionRetryPlanName:
-          type: string
-          deprecated: false
-      deprecated: false
-    ParamsChangeInstructionCreateRequest:
-      type: object
-      required:
-      - effectiveTime
-      - action
-      allOf:
-      - $ref: '#/components/schemas/ChangeInstructionCreateRequest'
-        deprecated: false
-      - type: object
-        properties:
-          action:
-            type: string
-            enum:
-            - params
-            deprecated: false
-          effectiveTime:
-            type: string
-            format: date-time
-            deprecated: false
-          newPolicyEndTime:
-            type: string
-            format: date-time
-            deprecated: false
-          preferences:
-            $ref: '#/components/schemas/PreferencesResponse'
-            deprecated: false
-          billingModeChange:
-            type: boolean
-            description: Use triggerBillingChange instead.
-            deprecated: true
-          triggerBillingChange:
-            type: boolean
-            deprecated: false
-          inheritSettings:
-            type: boolean
-            deprecated: true
-          expirationTime:
-            type: string
-            format: date-time
-            deprecated: false
-        deprecated: false
-      deprecated: false
-    ProducersChangeInstructionCreateRequest:
-      type: object
-      required:
-      - action
-      allOf:
-      - $ref: '#/components/schemas/ChangeInstructionCreateRequest'
-        deprecated: false
-      - type: object
-        properties:
-          action:
-            type: string
-            enum:
-            - producers
-            deprecated: false
-          setProducerCode:
-            type: string
-            deprecated: false
-            maxLength: 128
-          clearProducerCode:
-            type: boolean
-            deprecated: false
-          setProducerCodeOfRecord:
-            type: string
-            deprecated: false
-            maxLength: 128
-          revertProducerCodeOfRecord:
-            type: boolean
-            deprecated: false
-        deprecated: false
-      deprecated: false
-    ListPageResponseStaticDataHistoryResponse:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/StaticDataHistoryResponse'
-            deprecated: false
-      deprecated: false
-    MigrateChangeInstructionCreateRequest:
-      type: object
-      required:
-      - action
-      allOf:
-      - $ref: '#/components/schemas/ChangeInstructionCreateRequest'
-        deprecated: false
-      - type: object
-        properties:
-          action:
-            type: string
-            enum:
-            - migrate
-            deprecated: false
-          configVersionLocator:
-            type: string
-            format: ulid
-            deprecated: false
-        deprecated: false
-      deprecated: false
-    QuoteGroupUpdateRequest:
-      type: object
-      required:
-      - preferredQuoteLocator
-      - name
-      - quoteGroupNumber
-      - resetPreferredQuote
-      - quotesToAdd
-      - quotesToRemove
-      properties:
-        name:
-          type: string
-          deprecated: false
-        quoteGroupNumber:
-          type: string
-          deprecated: false
-        quotesToRemove:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        quotesToAdd:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        preferredQuoteLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        resetPreferredQuote:
-          type: boolean
-          deprecated: false
-      deprecated: false
-    ConfigMigrationEventPayload:
-      type: object
-      required:
-      - locator
-      - configVersion
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        configVersion:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    AutoRenewalPutRequest:
-      type: object
-      required:
-      - renewalTransactionCreateTime
-      properties:
-        renewalTransactionType:
-          type: string
-          deprecated: false
-        newTermDuration:
-          type: integer
-          format: int32
-          deprecated: false
-        renewalTransactionCreateTime:
-          type: string
-          format: date-time
-          deprecated: false
-        renewalTransactionAcceptTime:
-          type: string
-          format: date-time
-          deprecated: false
-        renewalTransactionIssueTime:
-          type: string
-          format: date-time
-          deprecated: false
-        renewalTransactionLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    QuoteUnderwritingFlagsResponse:
-      type: object
-      required:
-      - quoteLocator
-      - flags
-      properties:
-        quoteLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        flags:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/UnderwritingFlagResponse'
-            deprecated: false
-        clearedFlags:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/UnderwritingFlagResponse'
-            deprecated: false
-      deprecated: false
-    DeserializationJob:
-      type: object
-      required:
-      - locator
-      - jobState
-      - jobType
-      - metadata
-      - retryCount
-      - updatedAt
-      - createdAt
-      - createdBy
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        jobType:
-          type: string
-          enum:
-          - scheduleItems
-          deprecated: false
-        jobState:
-          type: string
-          enum:
-          - initialized
-          - running
-          - interrupted
-          - failed
-          - completed
-          - terminated
-          deprecated: false
-        metadata:
-          $ref: '#/components/schemas/DeserializationRequestMetadata'
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        updatedAt:
-          type: string
-          format: date-time
-          deprecated: false
-        retryCount:
-          type: integer
-          format: int32
-          deprecated: false
-        processingErrors:
-          type: string
-          deprecated: false
-      deprecated: false
-    PreferencesResponse:
-      type: object
-      properties:
-        installmentPreferences:
-          $ref: '#/components/schemas/InstallmentPreferences'
-          deprecated: false
-      deprecated: false
-    UnderwritingTaskCreateRequest:
-      type: object
-      required:
-      - type
-      - references
-      - underwritingFlagLocators
-      properties:
-        type:
-          type: string
-          deprecated: false
-        references:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/TaskReference'
-            deprecated: false
-        underwritingFlagLocators:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        deadlineTime:
-          type: string
-          format: date-time
-          deprecated: false
-        assignedTo:
-          type: string
-          format: uuid
-          deprecated: false
-        description:
-          type: string
-          deprecated: false
-        workgroupToBeAssignedLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        source:
-          type: string
-          deprecated: false
-        tag:
-          type: string
-          deprecated: false
-      deprecated: false
-    NumberingData:
-      type: object
-      required:
-      - entityLocator
-      properties:
-        entityLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    TransactionUnderwritingFlagsResponse:
-      type: object
-      required:
-      - transactionLocator
-      - clearedFlags
-      - flags
-      properties:
-        transactionLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        flags:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/UnderwritingFlagResponse'
-            deprecated: false
-        clearedFlags:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/UnderwritingFlagResponse'
-            deprecated: false
-      deprecated: false
-    AutoRenewalResponse:
-      type: object
-      required:
-      - locator
-      - policyLocator
-      - termLocator
-      - autoRenewalState
-      - renewalTransactionType
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        autoRenewalState:
-          type: string
-          enum:
-          - active
-          - discarded
-          - doNotRenew
-          - issued
-          - error
-          - terminated
-          - invalidated
-          deprecated: false
-        policyLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        termLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        renewalTransactionType:
-          type: string
-          deprecated: false
-        renewalTransactionLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        renewalTransactionCreateTime:
-          type: string
-          format: date-time
-          deprecated: false
-        renewalTransactionCreatedTime:
-          type: string
-          format: date-time
-          deprecated: false
-        renewalTransactionAcceptTime:
-          type: string
-          format: date-time
-          deprecated: false
-        renewalTransactionAcceptedTime:
-          type: string
-          format: date-time
-          deprecated: false
-        renewalTransactionIssueTime:
-          type: string
-          format: date-time
-          deprecated: false
-        renewalTransactionIssuedTime:
-          type: string
-          format: date-time
-          deprecated: false
-        newTermDuration:
-          type: integer
-          format: int32
-          deprecated: false
-        validationResult:
-          $ref: '#/components/schemas/ValidationResult'
-          deprecated: false
-      deprecated: false
     PolicyMoratoriumElectionHistoryResponse:
       type: object
       required:
@@ -10428,496 +9876,65 @@ components:
           format: date-time
           deprecated: false
       deprecated: false
-    PolicyConfigMigrationEventPayload:
+    ConfigMigrationEvents:
+      type: object
+      properties:
+        quote.config.migration.failed:
+          $ref: '#/components/schemas/ConfigMigrationEventPayload'
+          deprecated: false
+        account.config.migration.failed:
+          $ref: '#/components/schemas/ConfigMigrationEventPayload'
+          deprecated: false
+        policy.config.migration.failed:
+          $ref: '#/components/schemas/PolicyConfigMigrationEventPayload'
+          deprecated: false
+      deprecated: false
+    AutoRenewalCreateRequest:
       type: object
       required:
       - policyLocator
-      - transactionLocator
-      - configVersion
+      - termLocator
+      - renewalTransactionCreateTime
       properties:
+        termLocator:
+          type: string
+          format: ulid
+          deprecated: false
         policyLocator:
           type: string
           format: ulid
           deprecated: false
-        transactionLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        configVersion:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    UnderwritingFlagsUpdateRequest:
-      type: object
-      required:
-      - addFlags
-      - clearFlags
-      properties:
-        addFlags:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/UnderwritingFlagCreateRequest'
-            deprecated: false
-        clearFlags:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-      deprecated: false
-    ListPageResponseQuoteGroup:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/QuoteGroupResponse'
-            deprecated: false
-      deprecated: false
-    MoratoriumElectionRequest:
-      type: object
-      required:
-      - moratoriumName
-      - election
-      properties:
-        moratoriumName:
-          type: string
-          deprecated: false
-        election:
+        autoRenewalState:
           type: string
           enum:
-          - optIn
-          - optOut
-          deprecated: false
-      deprecated: false
-    TaskReference:
-      type: object
-      required:
-      - referenceLocator
-      - referenceType
-      properties:
-        referenceType:
-          type: string
-          enum:
-          - account
-          - quickQuote
-          - quote
-          - policy
-          - transaction
-          - invoice
-          - underwritingFlag
-          - payment
-          - quoteGroup
-          - inquiry
-          deprecated: false
-        referenceLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    ListPageResponseDeserializationJob:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/DeserializationJob'
-            deprecated: false
-      deprecated: false
-    ValidationItemResponse:
-      type: object
-      required:
-      - locator
-      - elementType
-      - errors
-      properties:
-        elementType:
-          type: string
-          deprecated: false
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        errors:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-      deprecated: false
-    QuickQuoteResponse:
-      type: object
-      required:
-      - locator
-      - productName
-      - quickQuoteState
-      - element
-      - contacts
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        quickQuoteState:
-          type: string
-          enum:
-          - draft
-          - validated
-          - priced
-          - quoted
+          - active
           - discarded
+          - doNotRenew
+          - issued
+          - error
+          - terminated
+          - invalidated
           deprecated: false
-        productName:
+        renewalTransactionType:
           type: string
           deprecated: false
-        accountLocator:
-          type: string
-          format: ulid
+        newTermDuration:
+          type: integer
+          format: int32
           deprecated: false
-        startTime:
-          type: string
-          format: date-time
-          deprecated: false
-        endTime:
-          type: string
-          format: date-time
-          deprecated: false
-        duration:
-          type: number
-          deprecated: false
-        expirationTime:
+        renewalTransactionCreateTime:
           type: string
           format: date-time
           deprecated: false
-        timezone:
-          type: string
-          deprecated: false
-        currency:
-          type: string
-          deprecated: false
-        durationBasis:
-          type: string
-          enum:
-          - years
-          - months
-          - weeks
-          - days
-          - hours
-          deprecated: false
-        groupLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        element:
-          $ref: '#/components/schemas/ElementResponse'
-          deprecated: false
-        validationResult:
-          $ref: '#/components/schemas/ValidationResult'
-          deprecated: false
-        contacts:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ContactRoles'
-            deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        createdAt:
+        renewalTransactionAcceptTime:
           type: string
           format: date-time
           deprecated: false
-        anonymizedAt:
+        renewalTransactionIssueTime:
           type: string
           format: date-time
           deprecated: false
-        jurisdiction:
-          type: string
-          deprecated: false
-      deprecated: false
-    UnderwritingFlagResponse:
-      type: object
-      required:
-      - locator
-      - referenceLocator
-      - clearedBy
-      - clearedTime
-      - createdTime
-      - level
-      - note
-      - referenceType
-      - tag
-      - taskCreationResponse
-      - createdBy
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        level:
-          type: string
-          enum:
-          - info
-          - block
-          - decline
-          - reject
-          - approve
-          deprecated: false
-        referenceType:
-          type: string
-          enum:
-          - quote
-          - transaction
-          deprecated: false
-        referenceLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        note:
-          type: string
-          deprecated: false
-        tag:
-          type: string
-          deprecated: false
-        elementLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        createdTime:
-          type: string
-          format: date-time
-          deprecated: false
-        clearedBy:
-          type: string
-          format: uuid
-          deprecated: false
-        clearedTime:
-          type: string
-          format: date-time
-          deprecated: false
-        taskCreationResponse:
-          $ref: '#/components/schemas/TaskCreationResponse'
-          deprecated: false
-      deprecated: false
-    NumberingEvents:
-      type: object
-      properties:
-        policy.numberAssignmentFailed:
-          $ref: '#/components/schemas/NumberingData'
-          deprecated: false
-        quote.numberAssignmentFailed:
-          $ref: '#/components/schemas/NumberingData'
-          deprecated: false
-        account.numberAssignmentFailed:
-          $ref: '#/components/schemas/NumberingData'
-          deprecated: false
-        term.numberAssignmentFailed:
-          $ref: '#/components/schemas/NumberingData'
-          deprecated: false
-        policy.quote.policyNumberRequested:
-          $ref: '#/components/schemas/QuotePolicyNumberData'
-          deprecated: false
-        policy.quote.policyNumberAssigned:
-          $ref: '#/components/schemas/NumberingData'
-          deprecated: false
-      deprecated: false
-    ValidationResult:
-      type: object
-      required:
-      - success
-      properties:
-        validationItems:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ValidationItemResponse'
-            deprecated: false
-        success:
-          type: boolean
-          deprecated: false
-      deprecated: false
-    QuoteGroupFieldEnforcementDeclaration:
-      type: object
-      required:
-      - name
-      - paths
-      properties:
-        name:
-          type: string
-          deprecated: false
-        paths:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: string
-            deprecated: false
-      deprecated: false
-    TransactionSnapshotResponse:
-      type: object
-      required:
-      - locator
-      - effectiveTime
-      - issuedTime
-      - preferences
-      - segment
-      - transactionCategory
-      - transactionType
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        transactionCategory:
-          type: string
-          enum:
-          - issuance
-          - change
-          - renewal
-          - cancellation
-          - reinstatement
-          - reversal
-          - aggregate
-          deprecated: false
-        transactionType:
-          type: string
-          deprecated: false
-        effectiveTime:
-          type: string
-          format: date-time
-          deprecated: false
-        issuedTime:
-          type: string
-          format: date-time
-          deprecated: false
-        preferences:
-          $ref: '#/components/schemas/PreferencesResponse'
-          deprecated: false
-        segment:
-          $ref: '#/components/schemas/SegmentResponse'
-          deprecated: false
-      deprecated: false
-    PolicyStatusEvents:
-      type: object
-      properties:
-        policy.status.update:
-          $ref: '#/components/schemas/PolicyStatusEventData'
-          deprecated: false
-      deprecated: false
-    QuickQuoteUpdateRequest:
-      type: object
-      required:
-      - startTime
-      - endTime
-      - currency
-      - expirationTime
-      - elements
-      - removeContacts
-      - removeCoverageTerms
-      - removeData
-      - setContacts
-      - setCoverageTerms
-      - setData
-      properties:
-        setData:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        removeData:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        setCoverageTerms:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        removeCoverageTerms:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        currency:
-          type: string
-          deprecated: false
-        startTime:
-          type: string
-          format: date-time
-          deprecated: false
-        endTime:
-          type: string
-          format: date-time
-          deprecated: false
-        expirationTime:
-          type: string
-          format: date-time
-          deprecated: false
-        elements:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ElementUpdateRequest'
-            deprecated: false
-        setContacts:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ContactRoles'
-            deprecated: false
-        removeContacts:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        jurisdiction:
-          type: string
-          deprecated: false
-      deprecated: false
-    QuoteEventData:
-      type: object
-      required:
-      - quoteLocator
-      properties:
-        quoteLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    PolicyLocatorData:
-      type: object
-      required:
-      - policyLocator
-      properties:
-        policyLocator:
+        renewalTransactionLocator:
           type: string
           format: ulid
           deprecated: false
@@ -10994,108 +10011,213 @@ components:
           type: boolean
           deprecated: false
       deprecated: false
-    AddScheduleItemRequest:
+    QuoteGroupSettings:
       type: object
       required:
-      - data
+      - enforceProductUniformity
+      - stateUniqueness
+      - fieldEnforcementDeclarations
       properties:
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-      deprecated: false
-    ProducerInfo:
-      type: object
-      properties:
-        producerCode:
-          type: string
-          deprecated: false
-        producerCodeOfRecord:
-          type: string
-          deprecated: false
-      deprecated: false
-    QuoteListResponse:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/QuoteResponse'
-            deprecated: false
-      deprecated: false
-    QuickQuoteCreateRequest:
-      type: object
-      required:
-      - productName
-      - data
-      - contacts
-      - elements
-      properties:
-        productName:
-          type: string
-          deprecated: false
-        startTime:
-          type: string
-          format: date-time
-          deprecated: false
-        endTime:
-          type: string
-          format: date-time
-          deprecated: false
-        expirationTime:
-          type: string
-          format: date-time
-          deprecated: false
-        currency:
-          type: string
-          deprecated: false
-        timezone:
-          type: string
-          deprecated: false
-        jurisdiction:
-          type: string
-          deprecated: false
-        coverageTerms:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        elements:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ElementResponse'
-            deprecated: false
-        durationBasis:
+        stateUniqueness:
           type: string
           enum:
-          - years
-          - months
-          - weeks
-          - days
-          - hours
+          - draft
+          - validated
+          - earlyUnderwritten
+          - priced
+          - underwritten
+          - accepted
+          - issued
+          - underwrittenBlocked
+          - declined
+          - rejected
+          - refused
+          - discarded
           deprecated: false
-        contacts:
+        enforceProductUniformity:
+          type: boolean
+          description: 'default: false'
+          deprecated: false
+        fieldEnforcementDeclarations:
           type: array
           deprecated: false
           items:
-            $ref: '#/components/schemas/ContactRoles'
+            $ref: '#/components/schemas/QuoteGroupFieldEnforcementDeclaration'
+            deprecated: false
+      deprecated: false
+    UnderwritingFlagResponse:
+      type: object
+      required:
+      - locator
+      - referenceLocator
+      - clearedBy
+      - clearedTime
+      - createdTime
+      - level
+      - note
+      - referenceType
+      - tag
+      - taskCreationResponse
+      - createdBy
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        level:
+          type: string
+          enum:
+          - info
+          - block
+          - decline
+          - reject
+          - approve
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - quote
+          - transaction
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        note:
+          type: string
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+        elementLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdTime:
+          type: string
+          format: date-time
+          deprecated: false
+        clearedBy:
+          type: string
+          format: uuid
+          deprecated: false
+        clearedTime:
+          type: string
+          format: date-time
+          deprecated: false
+        taskCreationResponse:
+          $ref: '#/components/schemas/TaskCreationResponse'
+          deprecated: false
+      deprecated: false
+    NumberingData:
+      type: object
+      required:
+      - entityLocator
+      properties:
+        entityLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    TransactionPriceResponse:
+      type: object
+      required:
+      - locator
+      - policyLocator
+      - effectiveTime
+      - transactionState
+      - transactionCategory
+      - charges
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        transactionCategory:
+          type: string
+          enum:
+          - issuance
+          - change
+          - renewal
+          - cancellation
+          - reinstatement
+          - reversal
+          - aggregate
+          deprecated: false
+        transactionState:
+          type: string
+          enum:
+          - draft
+          - initialized
+          - validated
+          - earlyUnderwritten
+          - priced
+          - underwritten
+          - accepted
+          - issued
+          - underwrittenBlocked
+          - declined
+          - rejected
+          - refused
+          - discarded
+          - invalidated
+          - reversed
+          deprecated: false
+        effectiveTime:
+          type: string
+          format: date-time
+          deprecated: false
+        charges:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PolicyChargeResponse'
+            deprecated: false
+        aggregatedTransactions:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/TransactionPriceResponse'
+            deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+      deprecated: false
+    QuoteManuallyUnderwrittenEventData:
+      type: object
+      required:
+      - quoteLocator
+      properties:
+        quoteLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    PatchTransactionDataRequest:
+      type: object
+      required:
+      - removeData
+      - setData
+      properties:
+        setData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
             deprecated: false
       deprecated: false
     QuotePriceResponse:
@@ -11176,76 +10298,113 @@ components:
           $ref: '#/components/schemas/ValidationResult'
           deprecated: false
       deprecated: false
-    StaticDataHistoryResponse:
-      type: object
-      required:
-      - historyLocator
-      - updatedAt
-      - updatedBy
-      - staticData
-      properties:
-        historyLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        staticData:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        updatedBy:
-          type: string
-          format: uuid
-          deprecated: false
-        updatedAt:
-          type: string
-          format: date-time
-          deprecated: false
-      deprecated: false
-    TransactionUnderwritingEventData:
-      type: object
-      required:
-      - policyLocator
-      - transactionLocator
-      - underwritingStatus
-      properties:
-        policyLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        transactionLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        underwritingStatus:
-          type: string
-          deprecated: false
-      deprecated: false
-    SegmentResponse:
+    ElementSummary:
       type: object
       required:
       - locator
-      - transactionLocator
-      - startTime
-      - endTime
-      - duration
-      - element
-      - segmentType
+      - staticLocator
+      - type
+      - data
+      - chargeSummaries
       properties:
         locator:
           type: string
           format: ulid
           deprecated: false
-        transactionLocator:
+        staticLocator:
           type: string
           format: ulid
           deprecated: false
-        segmentType:
+        type:
           type: string
-          enum:
-          - coverage
-          - gap
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        chargeSummaries:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: number
+            deprecated: false
+      deprecated: false
+    ScheduleItemsResponse:
+      type: object
+      required:
+      - lastSeenLocator
+      - items
+      properties:
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ScheduleItem'
+            deprecated: false
+        lastSeenLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    TermListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/TermResponse'
+            deprecated: false
+      deprecated: false
+    QuickQuoteUpdateRequest:
+      type: object
+      required:
+      - startTime
+      - endTime
+      - currency
+      - expirationTime
+      - elements
+      - removeContacts
+      - removeCoverageTerms
+      - removeData
+      - setContacts
+      - setCoverageTerms
+      - setData
+      properties:
+        setData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        setCoverageTerms:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeCoverageTerms:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        currency:
+          type: string
           deprecated: false
         startTime:
           type: string
@@ -11255,43 +10414,940 @@ components:
           type: string
           format: date-time
           deprecated: false
-        element:
-          description: The root element in the hierarchy
-          $ref: '#/components/schemas/ElementResponse'
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        elements:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ElementUpdateRequest'
+            deprecated: false
+        setContacts:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ContactRoles'
+            deprecated: false
+        removeContacts:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        jurisdiction:
+          type: string
+          deprecated: false
+      deprecated: false
+    StaticDataUpdateRequest:
+      type: object
+      required:
+      - removeData
+      - setData
+      properties:
+        setData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ParamsChangeInstructionCreateRequest:
+      type: object
+      required:
+      - effectiveTime
+      - action
+      allOf:
+      - $ref: '#/components/schemas/ChangeInstructionCreateRequest'
+        deprecated: false
+      - type: object
+        properties:
+          action:
+            type: string
+            enum:
+            - params
+            deprecated: false
+          effectiveTime:
+            type: string
+            format: date-time
+            deprecated: false
+          newPolicyEndTime:
+            type: string
+            format: date-time
+            deprecated: false
+          preferences:
+            $ref: '#/components/schemas/PreferencesResponse'
+            deprecated: false
+          billingModeChange:
+            type: boolean
+            description: Use triggerBillingChange instead.
+            deprecated: true
+          triggerBillingChange:
+            type: boolean
+            deprecated: false
+          inheritSettings:
+            type: boolean
+            deprecated: true
+          expirationTime:
+            type: string
+            format: date-time
+            deprecated: false
+        deprecated: false
+      deprecated: false
+    ScheduleItem:
+      type: object
+      required:
+      - locator
+      - staticElementLocator
+      - type
+      - data
+      - createdAt
+      - createdBy
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        staticElementLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+      deprecated: false
+    UpdateJurisdictionRequest:
+      type: object
+      properties:
+        jurisdiction:
+          type: string
+          deprecated: false
+      deprecated: false
+    QuoteGroupResponse:
+      type: object
+      required:
+      - locator
+      - name
+      - quoteGroupState
+      - settings
+      - createdAt
+      - createdBy
+      - quoteLocators
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        name:
+          type: string
+          deprecated: false
+        quoteGroupNumber:
+          type: string
+          deprecated: false
+        quoteGroupState:
+          type: string
+          enum:
+          - open
+          - locked
+          deprecated: false
+        settings:
+          $ref: '#/components/schemas/QuoteGroupSettings'
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        quoteLocators:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        preferredQuoteLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    QuickQuoteCreateRequest:
+      type: object
+      required:
+      - productName
+      - data
+      - contacts
+      - elements
+      properties:
+        productName:
+          type: string
+          deprecated: false
+        startTime:
+          type: string
+          format: date-time
+          deprecated: false
+        endTime:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        currency:
+          type: string
+          deprecated: false
+        timezone:
+          type: string
+          deprecated: false
+        jurisdiction:
+          type: string
+          deprecated: false
+        coverageTerms:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        elements:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ElementResponse'
+            deprecated: false
+        durationBasis:
+          type: string
+          enum:
+          - years
+          - months
+          - weeks
+          - days
+          - hours
+          deprecated: false
+        contacts:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ContactRoles'
+            deprecated: false
+      deprecated: false
+    QuotePolicyNumberData:
+      type: object
+      required:
+      - quoteLocator
+      - quoteState
+      properties:
+        quoteLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        quoteState:
+          type: string
+          enum:
+          - draft
+          - validated
+          - earlyUnderwritten
+          - priced
+          - underwritten
+          - accepted
+          - issued
+          - underwrittenBlocked
+          - declined
+          - rejected
+          - refused
+          - discarded
+          deprecated: false
+      deprecated: false
+    ConditionValue:
+      type: object
+      required:
+      - staticLocator
+      - fieldName
+      - values
+      properties:
+        staticLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        fieldName:
+          type: string
+          deprecated: false
+        values:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    DelinquencyPlanUpdateRequest:
+      type: object
+      required:
+      - delinquencyPlanName
+      properties:
+        delinquencyPlanName:
+          type: string
+          deprecated: false
+      deprecated: false
+    PolicySnapshotListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PolicySnapshotResponse'
+            deprecated: false
+      deprecated: false
+    TermSummary:
+      type: object
+      required:
+      - locator
+      - staticLocator
+      - policyLocator
+      - startTime
+      - endTime
+      - duration
+      - durationBasis
+      - termNumber
+      - subsegments
+      properties:
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        staticLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        termNumber:
+          type: integer
+          format: int32
+          deprecated: false
+        startTime:
+          type: string
+          format: date-time
+          deprecated: false
+        endTime:
+          type: string
+          format: date-time
           deprecated: false
         duration:
           type: number
           deprecated: false
-        basedOn:
+        durationBasis:
+          type: string
+          enum:
+          - years
+          - months
+          - weeks
+          - days
+          - hours
+          deprecated: false
+        subsegments:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/SubsegmentSummary'
+            deprecated: false
+      deprecated: false
+    AccountEventData:
+      type: object
+      required:
+      - accountLocator
+      properties:
+        accountLocator:
           type: string
           format: ulid
+          deprecated: false
+      deprecated: false
+    ChangeInstructionCreateRequest:
+      type: object
+      required:
+      - action
+      properties:
+        action:
+          type: string
+          deprecated: false
+      discriminator:
+        propertyName: action
+      deprecated: false
+    QuoteEventData:
+      type: object
+      required:
+      - quoteLocator
+      properties:
+        quoteLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    PolicyTransactionListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PolicyTransactionResponse'
+            deprecated: false
+      deprecated: false
+    PolicyTransactionResponse:
+      type: object
+      required:
+      - locator
+      - staticLocator
+      - policyLocator
+      - termLocator
+      - effectiveTime
+      - transactionState
+      - transactionCategory
+      - transactionType
+      - data
+      - createdAt
+      - createdBy
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        transactionCategory:
+          type: string
+          enum:
+          - issuance
+          - change
+          - renewal
+          - cancellation
+          - reinstatement
+          - reversal
+          - aggregate
+          deprecated: false
+        transactionState:
+          type: string
+          enum:
+          - draft
+          - initialized
+          - validated
+          - earlyUnderwritten
+          - priced
+          - underwritten
+          - accepted
+          - issued
+          - underwrittenBlocked
+          - declined
+          - rejected
+          - refused
+          - discarded
+          - invalidated
+          - reversed
+          deprecated: false
+        underwritingStatus:
+          type: string
+          deprecated: false
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        baseTransactionLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        aggregateTransactionLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+        changeInstructions:
+          type: array
+          deprecated: false
+          items:
+            type: object
+            deprecated: false
+        effectiveTime:
+          type: string
+          format: date-time
+          deprecated: false
+        aggregatedTransactions:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PolicyTransactionResponse'
+            deprecated: false
+        termLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        preferences:
+          $ref: '#/components/schemas/PreferencesResponse'
+          deprecated: false
+        transactionType:
+          type: string
+          deprecated: false
+        issuedTime:
+          type: string
+          format: date-time
+          deprecated: false
+        acceptedTime:
+          type: string
+          format: date-time
+          deprecated: false
+        reapplicationOfLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        maskingLevel:
+          type: string
+          enum:
+          - none
+          - level1
+          - level2
           deprecated: false
         anonymizedAt:
           type: string
           format: date-time
           deprecated: false
-        producerInfo:
-          $ref: '#/components/schemas/ProducerInfo'
+        staticLocator:
+          type: string
+          format: ulid
+          description: Equals the locator of the first transaction this is based on.
           deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
       deprecated: false
-    ContactAssociationUpdateRequest:
+    ElementResponse:
       type: object
       required:
-      - addRoles
-      - removeRoles
+      - locator
+      - staticLocator
+      - parentLocator
+      - originalEffectiveTime
+      - type
       properties:
-        addRoles:
+        type:
+          type: string
+          deprecated: false
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        parentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        elements:
           type: array
           deprecated: false
           items:
-            type: string
+            $ref: '#/components/schemas/ElementResponse'
             deprecated: false
-        removeRoles:
+        coverageTerms:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        staticLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        originalEffectiveTime:
+          type: string
+          format: date-time
+          description: Indicates when the element was first added to the policy
+          deprecated: false
+        category:
+          type: string
+          enum:
+          - product
+          - coverage
+          - exposure
+          - exposureGroup
+          - policyLine
+          deprecated: false
+      deprecated: false
+    ConstraintDependency:
+      type: object
+      required:
+      - column
+      - table
+      - where
+      properties:
+        table:
+          type: string
+          deprecated: false
+        column:
+          type: string
+          deprecated: false
+        where:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/ConditionValue'
+            deprecated: false
+      deprecated: false
+    PolicyChargeResponse:
+      type: object
+      required:
+      - locator
+      - elementLocator
+      - elementStaticLocator
+      - amount
+      - chargeCategory
+      - chargeType
+      - handling
+      - invoicing
+      - rate
+      - referenceRate
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        elementLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        chargeType:
+          type: string
+          deprecated: false
+        chargeCategory:
+          type: string
+          enum:
+          - none
+          - premium
+          - tax
+          - fee
+          - credit
+          - invoiceFee
+          - cededPremium
+          - nonFinancial
+          - surcharge
+          deprecated: false
+        amount:
+          type: number
+          deprecated: false
+        rate:
+          type: number
+          deprecated: false
+        referenceRate:
+          type: number
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+        rateDifference:
+          type: number
+          deprecated: false
+        elementStaticLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        reversalOfLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        handling:
+          type: string
+          enum:
+          - flat
+          - normal
+          - retention
+          deprecated: false
+        invoicing:
+          type: string
+          enum:
+          - scheduled
+          - next
+          - immediate
+          deprecated: false
+      deprecated: false
+    ProducerInfo:
+      type: object
+      properties:
+        producerCode:
+          type: string
+          deprecated: false
+        producerCodeOfRecord:
+          type: string
+          deprecated: false
+      deprecated: false
+    AffectedTransaction:
+      type: object
+      required:
+      - locator
+      - action
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        action:
+          type: string
+          enum:
+          - reversed
+          - invalidated
+          deprecated: false
+      deprecated: false
+    MoratoriumElectionRequest:
+      type: object
+      required:
+      - moratoriumName
+      - election
+      properties:
+        moratoriumName:
+          type: string
+          deprecated: false
+        election:
+          type: string
+          enum:
+          - optIn
+          - optOut
+          deprecated: false
+      deprecated: false
+    QuoteUnderwritingResponse:
+      type: object
+      required:
+      - accountLocator
+      - quoteLocator
+      - tenantLocator
+      - productName
+      - startTime
+      - endTime
+      - duration
+      - durationBasis
+      - quoteState
+      - underwritingStatus
+      - underwritingFlags
+      properties:
+        tenantLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        quoteLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        accountLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        quoteState:
+          type: string
+          enum:
+          - draft
+          - validated
+          - earlyUnderwritten
+          - priced
+          - underwritten
+          - accepted
+          - issued
+          - underwrittenBlocked
+          - declined
+          - rejected
+          - refused
+          - discarded
+          deprecated: false
+        productName:
+          type: string
+          deprecated: false
+        startTime:
+          type: string
+          format: date-time
+          deprecated: false
+        endTime:
+          type: string
+          format: date-time
+          deprecated: false
+        duration:
+          type: number
+          deprecated: false
+        durationBasis:
+          type: string
+          enum:
+          - years
+          - months
+          - weeks
+          - days
+          - hours
+          deprecated: false
+        underwritingStatus:
+          type: string
+          deprecated: false
+        underwritingFlags:
           type: array
           deprecated: false
           items:
-            type: string
+            $ref: '#/components/schemas/UnderwritingFlagResponse'
             deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+      deprecated: false
+    QuoteListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/QuoteResponse'
+            deprecated: false
+      deprecated: false
+    TransactionEventData:
+      type: object
+      required:
+      - policyLocator
+      - transactionLocator
+      properties:
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        transactionLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    UpdateEntityHoldRequest:
+      type: object
+      required:
+      - referenceLocator
+      - description
+      - holdStaticData
+      - policyHoldScope
+      - quoteHoldScope
+      - referenceType
+      - referenceUpdate
+      properties:
+        referenceType:
+          type: string
+          enum:
+          - quote
+          - policy
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        description:
+          type: string
+          deprecated: false
+        holdStaticData:
+          type: boolean
+          deprecated: false
+        quoteHoldScope:
+          $ref: '#/components/schemas/QuoteHoldScope'
+          deprecated: false
+        policyHoldScope:
+          $ref: '#/components/schemas/PolicyHoldScope'
+          deprecated: false
+        referenceUpdate:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    AutoRenewalPutRequest:
+      type: object
+      required:
+      - renewalTransactionCreateTime
+      properties:
+        renewalTransactionType:
+          type: string
+          deprecated: false
+        newTermDuration:
+          type: integer
+          format: int32
+          deprecated: false
+        renewalTransactionCreateTime:
+          type: string
+          format: date-time
+          deprecated: false
+        renewalTransactionAcceptTime:
+          type: string
+          format: date-time
+          deprecated: false
+        renewalTransactionIssueTime:
+          type: string
+          format: date-time
+          deprecated: false
+        renewalTransactionLocator:
+          type: string
+          format: ulid
+          deprecated: false
       deprecated: false
     QuoteEvents:
       type: object
@@ -11345,705 +11401,45 @@ components:
           $ref: '#/components/schemas/QuoteEventData'
           deprecated: false
       deprecated: false
-    TaskCreationResponse:
+    CreateEntityHoldRequest:
       type: object
       required:
-      - taskLocator
-      - status
+      - referenceLocator
+      - referenceType
       properties:
-        taskLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        status:
+        referenceType:
           type: string
           enum:
-          - succeeded
-          - failed
-          deprecated: false
-      deprecated: false
-    TransactionDataChangeInstructionCreateRequest:
-      type: object
-      required:
-      - action
-      - data
-      allOf:
-      - $ref: '#/components/schemas/ChangeInstructionCreateRequest'
-        deprecated: false
-      - type: object
-        properties:
-          action:
-            type: string
-            enum:
-            - transactionData
-            deprecated: false
-          data:
-            type: object
-            deprecated: false
-            additionalProperties:
-              type: object
-              deprecated: false
-        deprecated: false
-      deprecated: false
-    TransactionManualUnderwritingEventData:
-      type: object
-      required:
-      - policyLocator
-      - transactionLocator
-      properties:
-        policyLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        transactionLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    TermListResponse:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/TermResponse'
-            deprecated: false
-      deprecated: false
-    TermPayableResponse:
-      type: object
-      required:
-      - locator
-      - staticLocator
-      - policyLocator
-      - startTime
-      - endTime
-      - amount
-      - number
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        staticLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        policyLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        number:
-          type: integer
-          format: int32
-          deprecated: false
-        startTime:
-          type: string
-          format: date-time
-          deprecated: false
-        endTime:
-          type: string
-          format: date-time
-          deprecated: false
-        amount:
-          type: number
-          deprecated: false
-      deprecated: false
-    MoratoriumStatusesResponse:
-      type: object
-      required:
-      - locator
-      - moratoriums
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        moratoriums:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/MoratoriumStatus'
-            deprecated: false
-      deprecated: false
-    ConstraintDependency:
-      type: object
-      required:
-      - column
-      - table
-      - where
-      properties:
-        table:
-          type: string
-          deprecated: false
-        column:
-          type: string
-          deprecated: false
-        where:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/ConditionValue'
-            deprecated: false
-      deprecated: false
-    AccountListResponse:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/AccountResponse'
-            deprecated: false
-      deprecated: false
-    QuoteGroupAssignmentRequest:
-      type: object
-      required:
-      - groupLocator
-      properties:
-        groupLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    DelinquencyPlanUpdateRequest:
-      type: object
-      required:
-      - delinquencyPlanName
-      properties:
-        delinquencyPlanName:
-          type: string
-          deprecated: false
-      deprecated: false
-    ResetOptions:
-      type: object
-      required:
-      - deleteAllAutomaticDocuments
-      - discardSchedules
-      - resetAllUnderwritingFlags
-      - resetFlagsAction
-      - deleteDocuments
-      - resetFlags
-      properties:
-        resetAllUnderwritingFlags:
-          type: boolean
-          deprecated: false
-        resetFlags:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        resetFlagsAction:
-          type: string
-          enum:
-          - clear
-          - delete
-          deprecated: false
-        deleteAllAutomaticDocuments:
-          type: boolean
-          deprecated: false
-        discardSchedules:
-          type: boolean
-          deprecated: false
-        deleteDocuments:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-      deprecated: false
-    ListPageResponsePolicyStatus:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            enum:
-            - pending
-            - expired
-            - cancelled
-            - cancelPending
-            - onRisk
-            - delinquent
-            - doNotRenew
-            deprecated: false
-      deprecated: false
-    AffectedTransaction:
-      type: object
-      required:
-      - locator
-      - action
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        action:
-          type: string
-          enum:
-          - reversed
-          - invalidated
-          deprecated: false
-      deprecated: false
-    DeleteChangeInstructionCreateRequest:
-      type: object
-      required:
-      - action
-      - staticElementLocators
-      allOf:
-      - $ref: '#/components/schemas/ChangeInstructionCreateRequest'
-        deprecated: false
-      - type: object
-        properties:
-          action:
-            type: string
-            enum:
-            - delete
-            deprecated: false
-          staticElementLocators:
-            type: array
-            deprecated: false
-            items:
-              type: string
-              format: ulid
-              deprecated: false
-        deprecated: false
-      deprecated: false
-    QuoteUpdateRequest:
-      type: object
-      required:
-      - accountLocator
-      - autoRenewalPlanName
-      - delinquencyPlanName
-      - startTime
-      - endTime
-      - currency
-      - timezone
-      - billingLevel
-      - expirationTime
-      - invoiceFeeAmount
-      - preferences
-      - resetEndTime
-      - elements
-      - removeContacts
-      - removeCoverageTerms
-      - removeData
-      - setContacts
-      - setCoverageTerms
-      - setData
-      properties:
-        setData:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        removeData:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        setCoverageTerms:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        removeCoverageTerms:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        currency:
-          type: string
-          deprecated: false
-        timezone:
-          type: string
-          deprecated: false
-        startTime:
-          type: string
-          format: date-time
-          deprecated: false
-        endTime:
-          type: string
-          format: date-time
-          deprecated: false
-        resetEndTime:
-          type: boolean
-          deprecated: false
-        expirationTime:
-          type: string
-          format: date-time
-          deprecated: false
-        elements:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ElementUpdateRequest'
-            deprecated: false
-        preferences:
-          $ref: '#/components/schemas/PreferencesResponse'
-          deprecated: false
-        delinquencyPlanName:
-          type: string
-          deprecated: false
-        autoRenewalPlanName:
-          type: string
-          deprecated: false
-        billingLevel:
-          type: string
-          enum:
-          - account
-          - inherit
+          - quote
           - policy
           deprecated: false
-        setContacts:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ContactRoles'
-            deprecated: false
-        removeContacts:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        invoiceFeeAmount:
-          type: number
-          deprecated: false
-        jurisdiction:
-          type: string
-          deprecated: false
-        producerCode:
-          type: string
-          deprecated: false
-          maxLength: 128
-        accountLocator:
+        referenceLocator:
           type: string
           format: ulid
+          deprecated: false
+        description:
+          type: string
+          deprecated: false
+        quoteHoldScope:
+          $ref: '#/components/schemas/QuoteHoldScope'
+          deprecated: false
+        policyHoldScope:
+          $ref: '#/components/schemas/PolicyHoldScope'
+          deprecated: false
+        holdStaticData:
+          type: boolean
           deprecated: false
       deprecated: false
-    TransactionEventData:
+    UnderwritingFlagCreateRequest:
       type: object
       required:
-      - policyLocator
-      - transactionLocator
+      - elementLocator
+      - level
+      - note
+      - tag
+      - taskCreation
       properties:
-        policyLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        transactionLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    QuoteResponse:
-      type: object
-      required:
-      - locator
-      - accountLocator
-      - productName
-      - quoteState
-      - billingLevel
-      - element
-      - contacts
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        quoteState:
-          type: string
-          enum:
-          - draft
-          - validated
-          - earlyUnderwritten
-          - priced
-          - underwritten
-          - accepted
-          - issued
-          - underwrittenBlocked
-          - declined
-          - rejected
-          - refused
-          - discarded
-          deprecated: false
-        productName:
-          type: string
-          deprecated: false
-        accountLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        startTime:
-          type: string
-          format: date-time
-          deprecated: false
-        endTime:
-          type: string
-          format: date-time
-          deprecated: false
-        timezone:
-          type: string
-          deprecated: false
-        currency:
-          type: string
-          deprecated: false
-        underwritingStatus:
-          type: string
-          deprecated: false
-        expirationTime:
-          type: string
-          format: date-time
-          deprecated: false
-        element:
-          description: The root element in the hierarchy
-          $ref: '#/components/schemas/ElementResponse'
-          deprecated: false
-        preferences:
-          description: Plan selections and setting overrides
-          $ref: '#/components/schemas/PreferencesResponse'
-          deprecated: false
-        policyLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        delinquencyPlanName:
-          type: string
-          deprecated: false
-        durationBasis:
-          type: string
-          enum:
-          - years
-          - months
-          - weeks
-          - days
-          - hours
-          deprecated: false
-        groupLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        autoRenewalPlanName:
-          type: string
-          deprecated: false
-        billingLevel:
-          type: string
-          enum:
-          - account
-          - inherit
-          - policy
-          deprecated: false
-        region:
-          type: string
-          deprecated: false
-        quoteNumber:
-          type: string
-          deprecated: false
-        duration:
-          type: number
-          description: The duration of the prospective policy in units of durationBasis
-          deprecated: false
-        acceptedTime:
-          type: string
-          format: date-time
-          deprecated: false
-        issuedTime:
-          type: string
-          format: date-time
-          deprecated: false
-        validationResult:
-          $ref: '#/components/schemas/ValidationResult'
-          deprecated: false
-        quickQuoteLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        contacts:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ContactRoles'
-            deprecated: false
-        anonymizedAt:
-          type: string
-          format: date-time
-          deprecated: false
-        invoiceFeeAmount:
-          type: number
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        jurisdiction:
-          type: string
-          deprecated: false
-        producerCode:
-          type: string
-          deprecated: false
-        reservedPolicyNumber:
-          type: string
-          deprecated: false
-        static:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        policyNumber:
-          type: string
-          deprecated: false
-      deprecated: false
-    PatchScheduleItemRequest:
-      type: object
-      required:
-      - locator
-      - removeData
-      - setData
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        setData:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        removeData:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-      deprecated: false
-    PatchTransactionDataRequest:
-      type: object
-      required:
-      - removeData
-      - setData
-      properties:
-        setData:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        removeData:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-      deprecated: false
-    QuickQuoteQuoteResponse:
-      type: object
-      required:
-      - quickQuoteLocator
-      - tenantLocator
-      - productName
-      - startTime
-      - endTime
-      - duration
-      - durationBasis
-      - quickQuoteState
-      properties:
-        tenantLocator:
-          type: string
-          format: uuid
-          deprecated: false
-        quickQuoteLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        accountLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        quickQuoteState:
-          type: string
-          enum:
-          - draft
-          - validated
-          - priced
-          - quoted
-          - discarded
-          deprecated: false
-        productName:
-          type: string
-          deprecated: false
-        startTime:
-          type: string
-          format: date-time
-          deprecated: false
-        endTime:
-          type: string
-          format: date-time
-          deprecated: false
-        duration:
-          type: number
-          deprecated: false
-        durationBasis:
-          type: string
-          enum:
-          - years
-          - months
-          - weeks
-          - days
-          - hours
-          deprecated: false
-        quote:
-          $ref: '#/components/schemas/QuickQuoteQuoteDetails'
-          deprecated: false
-        validationResult:
-          $ref: '#/components/schemas/ValidationResult'
-          deprecated: false
-      deprecated: false
-    QuoteUnderwrittenEventData:
-      type: object
-      required:
-      - quoteLocator
-      - underwritingStatus
-      properties:
-        quoteLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        underwritingStatus:
+        level:
           type: string
           enum:
           - info
@@ -12052,273 +11448,21 @@ components:
           - reject
           - approve
           deprecated: false
-      deprecated: false
-    QuoteGroupSettings:
-      type: object
-      required:
-      - enforceProductUniformity
-      - stateUniqueness
-      - fieldEnforcementDeclarations
-      properties:
-        stateUniqueness:
-          type: string
-          enum:
-          - draft
-          - validated
-          - earlyUnderwritten
-          - priced
-          - underwritten
-          - accepted
-          - issued
-          - underwrittenBlocked
-          - declined
-          - rejected
-          - refused
-          - discarded
-          deprecated: false
-        enforceProductUniformity:
-          type: boolean
-          description: 'default: false'
-          deprecated: false
-        fieldEnforcementDeclarations:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/QuoteGroupFieldEnforcementDeclaration'
-            deprecated: false
-      deprecated: false
-    ChangeInstructionCreateRequest:
-      type: object
-      required:
-      - action
-      properties:
-        action:
+        note:
           type: string
           deprecated: false
-      discriminator:
-        propertyName: action
-      deprecated: false
-    PolicyEvents:
-      type: object
-      properties:
-        policy.migrateOnRenewal.enable:
-          $ref: '#/components/schemas/PolicyLocatorData'
+        tag:
+          type: string
           deprecated: false
-        policy.migrateOnRenewal.disable:
-          $ref: '#/components/schemas/PolicyLocatorData'
-          deprecated: false
-        policy.anonymize:
-          $ref: '#/components/schemas/PolicyLocatorData'
-          deprecated: false
-      deprecated: false
-    ScheduleItem:
-      type: object
-      required:
-      - locator
-      - staticElementLocator
-      - type
-      - data
-      - createdAt
-      - createdBy
-      properties:
-        locator:
+        elementLocator:
           type: string
           format: ulid
           deprecated: false
-        staticElementLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        type:
-          type: string
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
+        taskCreation:
+          $ref: '#/components/schemas/UnderwritingTaskCreateRequest'
           deprecated: false
       deprecated: false
-    AutoRenewalUpdateRequest:
-      type: object
-      properties:
-        renewalTransactionType:
-          type: string
-          deprecated: false
-        newTermDuration:
-          type: integer
-          format: int32
-          deprecated: false
-        renewalTransactionCreateTime:
-          type: string
-          format: date-time
-          deprecated: false
-        renewalTransactionAcceptTime:
-          type: string
-          format: date-time
-          deprecated: false
-        renewalTransactionIssueTime:
-          type: string
-          format: date-time
-          deprecated: false
-        renewalTransactionLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    ModifyChangeInstructionCreateRequest:
-      type: object
-      required:
-      - staticLocator
-      - action
-      - removeCoverageTerms
-      - removeData
-      - setCoverageTerms
-      - setData
-      allOf:
-      - $ref: '#/components/schemas/ChangeInstructionCreateRequest'
-        deprecated: false
-      - type: object
-        properties:
-          action:
-            type: string
-            enum:
-            - modify
-            deprecated: false
-          staticLocator:
-            type: string
-            format: ulid
-            deprecated: false
-          setData:
-            type: object
-            deprecated: false
-            additionalProperties:
-              type: object
-              deprecated: false
-          removeData:
-            type: object
-            deprecated: false
-            additionalProperties:
-              type: object
-              deprecated: false
-          setCoverageTerms:
-            type: object
-            deprecated: false
-            additionalProperties:
-              type: object
-              deprecated: false
-          removeCoverageTerms:
-            type: object
-            deprecated: false
-            additionalProperties:
-              type: object
-              deprecated: false
-        deprecated: false
-      deprecated: false
-    TransactionPriceResponse:
-      type: object
-      required:
-      - locator
-      - policyLocator
-      - effectiveTime
-      - transactionState
-      - transactionCategory
-      - charges
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        policyLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        transactionCategory:
-          type: string
-          enum:
-          - issuance
-          - change
-          - renewal
-          - cancellation
-          - reinstatement
-          - reversal
-          - aggregate
-          deprecated: false
-        transactionState:
-          type: string
-          enum:
-          - draft
-          - initialized
-          - validated
-          - earlyUnderwritten
-          - priced
-          - underwritten
-          - accepted
-          - issued
-          - underwrittenBlocked
-          - declined
-          - rejected
-          - refused
-          - discarded
-          - invalidated
-          - reversed
-          deprecated: false
-        effectiveTime:
-          type: string
-          format: date-time
-          deprecated: false
-        charges:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/PolicyChargeResponse'
-            deprecated: false
-        aggregatedTransactions:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/TransactionPriceResponse'
-            deprecated: false
-        validationResult:
-          $ref: '#/components/schemas/ValidationResult'
-          deprecated: false
-      deprecated: false
-    DeserializationResponse:
-      type: object
-      required:
-      - jobLocator
-      properties:
-        jobLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    ContactRoles:
-      type: object
-      required:
-      - contactLocator
-      - roles
-      properties:
-        contactLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        roles:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-      deprecated: false
-    AccountUpdateReplaceDataRequest:
+    AccountCreateRequest:
       type: object
       required:
       - type
@@ -12380,108 +11524,7 @@ components:
           type: string
           deprecated: false
       deprecated: false
-    QuotePolicyNumberData:
-      type: object
-      required:
-      - quoteLocator
-      - quoteState
-      properties:
-        quoteLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        quoteState:
-          type: string
-          enum:
-          - draft
-          - validated
-          - earlyUnderwritten
-          - priced
-          - underwritten
-          - accepted
-          - issued
-          - underwrittenBlocked
-          - declined
-          - rejected
-          - refused
-          - discarded
-          deprecated: false
-      deprecated: false
-    UnderwritingFlagCreateRequest:
-      type: object
-      required:
-      - elementLocator
-      - level
-      - note
-      - tag
-      - taskCreation
-      properties:
-        level:
-          type: string
-          enum:
-          - info
-          - block
-          - decline
-          - reject
-          - approve
-          deprecated: false
-        note:
-          type: string
-          deprecated: false
-        tag:
-          type: string
-          deprecated: false
-        elementLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        taskCreation:
-          $ref: '#/components/schemas/UnderwritingTaskCreateRequest'
-          deprecated: false
-      deprecated: false
-    DeserializationRequestMetadata:
-      type: object
-      required:
-      - referenceLocator
-      - staticElementLocator
-      - fileName
-      - fileSize
-      - referenceType
-      - params
-      properties:
-        fileName:
-          type: string
-          deprecated: false
-        fileSize:
-          type: integer
-          format: int64
-          deprecated: false
-        referenceType:
-          type: string
-          deprecated: false
-        referenceLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        staticElementLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        params:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: string
-            deprecated: false
-      deprecated: false
-    UpdateJurisdictionRequest:
-      type: object
-      properties:
-        jurisdiction:
-          type: string
-          deprecated: false
-      deprecated: false
-    PolicyListResponse:
+    ListPageResponseDeserializationJob:
       type: object
       required:
       - listCompleted
@@ -12494,137 +11537,45 @@ components:
           type: array
           deprecated: false
           items:
-            $ref: '#/components/schemas/PolicyResponse'
+            $ref: '#/components/schemas/DeserializationJob'
             deprecated: false
       deprecated: false
-    PolicyTransactionReversalRequest:
+    DeserializationResponse:
       type: object
       required:
-      - baseLocator
-      - toTransaction
-      - reverseTransactions
+      - jobLocator
       properties:
-        toTransaction:
-          type: string
-          format: ulid
-          deprecated: false
-        reverseTransactions:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        baseLocator:
+        jobLocator:
           type: string
           format: ulid
           deprecated: false
       deprecated: false
-    QuoteGroupValidationResponse:
+    ElementScheduleResponse:
       type: object
       required:
-      - valid
-      - errors
+      - staticElementLocator
+      - complexData
+      - elementType
+      - maxValidationErrors
+      - scheduleItemType
       properties:
-        errors:
-          type: array
+        staticElementLocator:
+          type: string
+          format: ulid
           deprecated: false
-          items:
-            type: string
-            deprecated: false
-        valid:
+        elementType:
+          type: string
+          deprecated: false
+        scheduleItemType:
+          type: string
+          deprecated: false
+        complexData:
           type: boolean
           deprecated: false
-      deprecated: false
-    TransactionUnderwritingResponse:
-      type: object
-      required:
-      - locator
-      - policyLocator
-      - effectiveTime
-      - transactionState
-      - transactionCategory
-      - underwritingStatus
-      properties:
-        locator:
-          type: string
-          format: ulid
+        maxValidationErrors:
+          type: integer
+          format: int32
           deprecated: false
-        policyLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        transactionCategory:
-          type: string
-          enum:
-          - issuance
-          - change
-          - renewal
-          - cancellation
-          - reinstatement
-          - reversal
-          - aggregate
-          deprecated: false
-        transactionState:
-          type: string
-          enum:
-          - draft
-          - initialized
-          - validated
-          - earlyUnderwritten
-          - priced
-          - underwritten
-          - accepted
-          - issued
-          - underwrittenBlocked
-          - declined
-          - rejected
-          - refused
-          - discarded
-          - invalidated
-          - reversed
-          deprecated: false
-        effectiveTime:
-          type: string
-          format: date-time
-          deprecated: false
-        underwritingStatus:
-          type: string
-          deprecated: false
-        underwritingFlags:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/UnderwritingFlagResponse'
-            deprecated: false
-        aggregatedTransactions:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/TransactionUnderwritingResponse'
-            deprecated: false
-        validationResult:
-          $ref: '#/components/schemas/ValidationResult'
-          deprecated: false
-      deprecated: false
-    StaticDataUpdateRequest:
-      type: object
-      required:
-      - removeData
-      - setData
-      properties:
-        setData:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        removeData:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
       deprecated: false
     PolicyResponse:
       type: object
@@ -12789,178 +11740,58 @@ components:
           $ref: '#/components/schemas/ValidationResult'
           deprecated: false
       deprecated: false
-    AutoRenewalCreateRequest:
+    QuoteUpdateRequest:
       type: object
       required:
-      - policyLocator
-      - termLocator
-      - renewalTransactionCreateTime
-      properties:
-        termLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        policyLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        autoRenewalState:
-          type: string
-          enum:
-          - active
-          - discarded
-          - doNotRenew
-          - issued
-          - error
-          - terminated
-          - invalidated
-          deprecated: false
-        renewalTransactionType:
-          type: string
-          deprecated: false
-        newTermDuration:
-          type: integer
-          format: int32
-          deprecated: false
-        renewalTransactionCreateTime:
-          type: string
-          format: date-time
-          deprecated: false
-        renewalTransactionAcceptTime:
-          type: string
-          format: date-time
-          deprecated: false
-        renewalTransactionIssueTime:
-          type: string
-          format: date-time
-          deprecated: false
-        renewalTransactionLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    ConditionValue:
-      type: object
-      required:
-      - staticLocator
-      - fieldName
-      - values
-      properties:
-        staticLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        fieldName:
-          type: string
-          deprecated: false
-        values:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-      deprecated: false
-    PolicyChargeResponse:
-      type: object
-      required:
-      - locator
-      - elementLocator
-      - elementStaticLocator
-      - amount
-      - chargeCategory
-      - chargeType
-      - handling
-      - invoicing
-      - rate
-      - referenceRate
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        elementLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        chargeType:
-          type: string
-          deprecated: false
-        chargeCategory:
-          type: string
-          enum:
-          - none
-          - premium
-          - tax
-          - fee
-          - credit
-          - invoiceFee
-          - cededPremium
-          - nonFinancial
-          - surcharge
-          deprecated: false
-        amount:
-          type: number
-          deprecated: false
-        rate:
-          type: number
-          deprecated: false
-        referenceRate:
-          type: number
-          deprecated: false
-        tag:
-          type: string
-          deprecated: false
-        rateDifference:
-          type: number
-          deprecated: false
-        elementStaticLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        reversalOfLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        handling:
-          type: string
-          enum:
-          - flat
-          - normal
-          - retention
-          deprecated: false
-        invoicing:
-          type: string
-          enum:
-          - scheduled
-          - next
-          - immediate
-          deprecated: false
-      deprecated: false
-    SubsegmentSummary:
-      type: object
-      required:
-      - locator
+      - accountLocator
+      - autoRenewalPlanName
+      - delinquencyPlanName
       - startTime
       - endTime
-      - duration
-      - basedOn
-      - type
-      - documentSummary
+      - currency
+      - timezone
+      - billingLevel
+      - expirationTime
+      - invoiceFeeAmount
+      - preferences
+      - resetEndTime
       - elements
+      - removeContacts
+      - removeCoverageTerms
+      - removeData
+      - setContacts
+      - setCoverageTerms
+      - setData
       properties:
-        locator:
-          type: string
-          format: ulid
+        setData:
+          type: object
           deprecated: false
-        type:
-          type: string
-          enum:
-          - coverage
-          - gap
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeData:
+          type: object
           deprecated: false
-        basedOn:
+          additionalProperties:
+            type: object
+            deprecated: false
+        setCoverageTerms:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removeCoverageTerms:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        currency:
           type: string
-          format: ulid
+          deprecated: false
+        timezone:
+          type: string
           deprecated: false
         startTime:
           type: string
@@ -12970,87 +11801,121 @@ components:
           type: string
           format: date-time
           deprecated: false
-        duration:
-          type: number
+        resetEndTime:
+          type: boolean
           deprecated: false
-        producerInfo:
-          $ref: '#/components/schemas/ProducerInfo'
+        expirationTime:
+          type: string
+          format: date-time
           deprecated: false
         elements:
           type: array
           deprecated: false
           items:
-            $ref: '#/components/schemas/ElementSummary'
+            $ref: '#/components/schemas/ElementUpdateRequest'
             deprecated: false
-        documentSummary:
+        preferences:
+          $ref: '#/components/schemas/PreferencesResponse'
+          deprecated: false
+        delinquencyPlanName:
+          type: string
+          deprecated: false
+        autoRenewalPlanName:
+          type: string
+          deprecated: false
+        billingLevel:
+          type: string
+          enum:
+          - account
+          - inherit
+          - policy
+          deprecated: false
+        setContacts:
           type: array
           deprecated: false
           items:
-            $ref: '#/components/schemas/DocumentSummary'
+            $ref: '#/components/schemas/ContactRoles'
+            deprecated: false
+        removeContacts:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        invoiceFeeAmount:
+          type: number
+          deprecated: false
+        jurisdiction:
+          type: string
+          deprecated: false
+        producerCode:
+          type: string
+          deprecated: false
+          maxLength: 128
+        accountLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    ListPageResponsePolicyStatus:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            enum:
+            - pending
+            - expired
+            - cancelled
+            - cancelPending
+            - onRisk
+            - delinquent
+            - doNotRenew
             deprecated: false
       deprecated: false
-    QuoteManuallyUnderwrittenEventData:
+    AddScheduleItemRequest:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    QuoteUnderwritingFlagsResponse:
       type: object
       required:
       - quoteLocator
+      - flags
       properties:
         quoteLocator:
           type: string
           format: ulid
           deprecated: false
-      deprecated: false
-    QuoteHoldScope:
-      type: object
-      required:
-      - quoteState
-      properties:
-        quoteState:
-          type: string
-          enum:
-          - validated
-          - underwritten
-          - accepted
-          - priced
+        flags:
+          type: array
           deprecated: false
-      deprecated: false
-    PolicyStaticDataEvents:
-      type: object
-      properties:
-        policy.staticdata.add:
-          $ref: '#/components/schemas/PolicyLocatorData'
-          deprecated: false
-        policy.staticdata.update:
-          $ref: '#/components/schemas/PolicyLocatorData'
-          deprecated: false
-        policy.staticdata.anonymize:
-          $ref: '#/components/schemas/PolicyLocatorData'
-          deprecated: false
-        policy.staticdata.replace:
-          $ref: '#/components/schemas/PolicyLocatorData'
-          deprecated: false
-      deprecated: false
-    AddChangeInstructionCreateRequest:
-      type: object
-      required:
-      - action
-      - elements
-      allOf:
-      - $ref: '#/components/schemas/ChangeInstructionCreateRequest'
-        deprecated: false
-      - type: object
-        properties:
-          action:
-            type: string
-            enum:
-            - add
+          items:
+            $ref: '#/components/schemas/UnderwritingFlagResponse'
             deprecated: false
-          elements:
-            type: array
+        clearedFlags:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/UnderwritingFlagResponse'
             deprecated: false
-            items:
-              $ref: '#/components/schemas/ElementCreateRequest'
-              deprecated: false
-        deprecated: false
       deprecated: false
     ElementUpdateRequest:
       type: object
@@ -13090,138 +11955,297 @@ components:
             type: object
             deprecated: false
       deprecated: false
-    PolicyTransactionListResponse:
+    ModifyChangeInstructionCreateRequest:
       type: object
       required:
-      - listCompleted
-      - items
+      - staticLocator
+      - action
+      - removeCoverageTerms
+      - removeData
+      - setCoverageTerms
+      - setData
+      allOf:
+      - $ref: '#/components/schemas/ChangeInstructionCreateRequest'
+        deprecated: false
+      - type: object
+        properties:
+          action:
+            type: string
+            enum:
+            - modify
+            deprecated: false
+          staticLocator:
+            type: string
+            format: ulid
+            deprecated: false
+          setData:
+            type: object
+            deprecated: false
+            additionalProperties:
+              type: object
+              deprecated: false
+          removeData:
+            type: object
+            deprecated: false
+            additionalProperties:
+              type: object
+              deprecated: false
+          setCoverageTerms:
+            type: object
+            deprecated: false
+            additionalProperties:
+              type: object
+              deprecated: false
+          removeCoverageTerms:
+            type: object
+            deprecated: false
+            additionalProperties:
+              type: object
+              deprecated: false
+        deprecated: false
+      deprecated: false
+    QuoteUnderwrittenEventData:
+      type: object
+      required:
+      - quoteLocator
+      - underwritingStatus
       properties:
-        listCompleted:
-          type: boolean
+        quoteLocator:
+          type: string
+          format: ulid
           deprecated: false
-        items:
+        underwritingStatus:
+          type: string
+          enum:
+          - info
+          - block
+          - decline
+          - reject
+          - approve
+          deprecated: false
+      deprecated: false
+    ElementCreateRequest:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+          deprecated: false
+        parentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        elements:
           type: array
           deprecated: false
           items:
-            $ref: '#/components/schemas/PolicyTransactionResponse'
+            $ref: '#/components/schemas/ElementCreateRequest'
             deprecated: false
+        coverageTerms:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        staticLocator:
+          type: string
+          format: ulid
+          deprecated: false
       deprecated: false
-    EntityHold:
+    PreferencesResponse:
+      type: object
+      properties:
+        installmentPreferences:
+          $ref: '#/components/schemas/InstallmentPreferences'
+          deprecated: false
+      deprecated: false
+    TransactionUnderwritingEventData:
+      type: object
+      required:
+      - policyLocator
+      - transactionLocator
+      - underwritingStatus
+      properties:
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        transactionLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        underwritingStatus:
+          type: string
+          deprecated: false
+      deprecated: false
+    PolicyTransactionReversalRequest:
+      type: object
+      required:
+      - baseLocator
+      - toTransaction
+      - reverseTransactions
+      properties:
+        toTransaction:
+          type: string
+          format: ulid
+          deprecated: false
+        reverseTransactions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        baseLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    TransactionSnapshotResponse:
       type: object
       required:
       - locator
-      - referenceLocator
-      - state
-      - description
-      - holdStaticData
-      - policyHoldScope
-      - quoteHoldScope
-      - referenceType
-      - createdAt
-      - createdBy
+      - effectiveTime
+      - issuedTime
+      - preferences
+      - segment
+      - transactionCategory
+      - transactionType
       properties:
         locator:
           type: string
           format: ulid
           deprecated: false
-        referenceLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        referenceType:
+        transactionCategory:
           type: string
           enum:
-          - quote
-          - policy
+          - issuance
+          - change
+          - renewal
+          - cancellation
+          - reinstatement
+          - reversal
+          - aggregate
           deprecated: false
-        state:
-          type: string
-          enum:
-          - draft
-          - validated
-          - active
-          - discarded
-          - released
-          deprecated: false
-        holdStaticData:
-          type: boolean
-          deprecated: false
-        description:
+        transactionType:
           type: string
           deprecated: false
-        quoteHoldScope:
-          $ref: '#/components/schemas/QuoteHoldScope'
-          deprecated: false
-        policyHoldScope:
-          $ref: '#/components/schemas/PolicyHoldScope'
-          deprecated: false
-        validationResult:
-          $ref: '#/components/schemas/ValidationResult'
-          deprecated: false
-        createdAt:
+        effectiveTime:
           type: string
           format: date-time
           deprecated: false
-        createdBy:
+        issuedTime:
           type: string
-          format: uuid
+          format: date-time
+          deprecated: false
+        preferences:
+          $ref: '#/components/schemas/PreferencesResponse'
+          deprecated: false
+        segment:
+          $ref: '#/components/schemas/SegmentResponse'
           deprecated: false
       deprecated: false
-    PolicyHoldScope:
+    UpdateBillingLevelRequest:
       type: object
       required:
-      - allowStaticData
-      - transactionCategory
-      - transactionType
+      - billingLevel
       properties:
-        transactionCategory:
+        billingLevel:
+          type: string
+          enum:
+          - account
+          - inherit
+          - policy
+          deprecated: false
+      deprecated: false
+    PolicySnapshotResponse:
+      type: object
+      required:
+      - locator
+      - accountLocator
+      - region
+      - productName
+      - currency
+      - timezone
+      - transaction
+      - static
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        accountLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        productName:
+          type: string
+          deprecated: false
+        timezone:
+          type: string
+          deprecated: false
+        currency:
+          type: string
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        transaction:
+          $ref: '#/components/schemas/TransactionSnapshotResponse'
+          deprecated: false
+        delinquencyPlanName:
+          type: string
+          deprecated: false
+        static:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ValidationItemResponse:
+      type: object
+      required:
+      - locator
+      - elementType
+      - errors
+      properties:
+        elementType:
+          type: string
+          deprecated: false
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        errors:
           type: array
           deprecated: false
           items:
             type: string
-            enum:
-            - issuance
-            - change
-            - renewal
-            - cancellation
-            - reinstatement
-            - reversal
-            - aggregate
             deprecated: false
-        transactionType:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        allowStaticData:
-          type: boolean
-          deprecated: false
       deprecated: false
-    AutoRenewalPlanUpdateRequest:
+    PolicyStaticDataEvents:
       type: object
-      required:
-      - autoRenewalPlanName
       properties:
-        autoRenewalPlanName:
-          type: string
+        policy.staticdata.add:
+          $ref: '#/components/schemas/PolicyLocatorData'
           deprecated: false
-      deprecated: false
-    QuickQuoteListResponse:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
+        policy.staticdata.update:
+          $ref: '#/components/schemas/PolicyLocatorData'
           deprecated: false
-        items:
-          type: array
+        policy.staticdata.anonymize:
+          $ref: '#/components/schemas/PolicyLocatorData'
           deprecated: false
-          items:
-            $ref: '#/components/schemas/QuickQuoteResponse'
-            deprecated: false
+        policy.staticdata.replace:
+          $ref: '#/components/schemas/PolicyLocatorData'
+          deprecated: false
       deprecated: false
     AccountResponse:
       type: object
@@ -13327,40 +12351,51 @@ components:
           - discarded
           deprecated: true
       deprecated: false
-    PolicyStatusEventData:
+    QuoteGroupCreateRequest:
       type: object
       required:
-      - policyLocator
-      - newStatuses
-      - removedStatuses
+      - preferredQuoteLocator
+      - name
+      - quoteGroupNumber
+      - settings
+      - quoteLocators
       properties:
-        policyLocator:
+        name:
+          type: string
+          deprecated: false
+        quoteGroupNumber:
+          type: string
+          deprecated: false
+        settings:
+          $ref: '#/components/schemas/QuoteGroupSettings'
+          deprecated: false
+        quoteLocators:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        preferredQuoteLocator:
           type: string
           format: ulid
           deprecated: false
-        newStatuses:
-          $ref: '#/components/schemas/ListPageResponsePolicyStatus'
-          deprecated: false
-        removedStatuses:
-          $ref: '#/components/schemas/ListPageResponsePolicyStatus'
-          deprecated: false
       deprecated: false
-    PolicyTransactionResponse:
+    TransactionUnderwritingResponse:
       type: object
       required:
       - locator
-      - staticLocator
       - policyLocator
-      - termLocator
       - effectiveTime
       - transactionState
       - transactionCategory
-      - transactionType
-      - data
-      - createdAt
-      - createdBy
+      - underwritingStatus
       properties:
         locator:
+          type: string
+          format: ulid
+          deprecated: false
+        policyLocator:
           type: string
           format: ulid
           deprecated: false
@@ -13394,175 +12429,132 @@ components:
           - invalidated
           - reversed
           deprecated: false
-        underwritingStatus:
-          type: string
-          deprecated: false
-        policyLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        baseTransactionLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        aggregateTransactionLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        validationResult:
-          $ref: '#/components/schemas/ValidationResult'
-          deprecated: false
-        changeInstructions:
-          type: array
-          deprecated: false
-          items:
-            type: object
-            deprecated: false
         effectiveTime:
           type: string
           format: date-time
           deprecated: false
+        underwritingStatus:
+          type: string
+          deprecated: false
+        underwritingFlags:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/UnderwritingFlagResponse'
+            deprecated: false
         aggregatedTransactions:
           type: array
           deprecated: false
           items:
-            $ref: '#/components/schemas/PolicyTransactionResponse'
+            $ref: '#/components/schemas/TransactionUnderwritingResponse'
             deprecated: false
-        termLocator:
-          type: string
-          format: ulid
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
           deprecated: false
-        preferences:
-          $ref: '#/components/schemas/PreferencesResponse'
-          deprecated: false
-        transactionType:
-          type: string
-          deprecated: false
-        issuedTime:
-          type: string
-          format: date-time
-          deprecated: false
-        acceptedTime:
-          type: string
-          format: date-time
-          deprecated: false
-        reapplicationOfLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        maskingLevel:
-          type: string
-          enum:
-          - none
-          - level1
-          - level2
-          deprecated: false
-        anonymizedAt:
-          type: string
-          format: date-time
-          deprecated: false
-        staticLocator:
-          type: string
-          format: ulid
-          description: Equals the locator of the first transaction this is based on.
-          deprecated: false
-        expirationTime:
-          type: string
-          format: date-time
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
       deprecated: false
-    ListPageResponseQuote:
+    PolicyHoldScope:
       type: object
       required:
-      - listCompleted
-      - items
+      - allowStaticData
+      - transactionCategory
+      - transactionType
       properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
+        transactionCategory:
           type: array
           deprecated: false
           items:
-            $ref: '#/components/schemas/QuickQuoteQuoteDetails'
+            type: string
+            enum:
+            - issuance
+            - change
+            - renewal
+            - cancellation
+            - reinstatement
+            - reversal
+            - aggregate
             deprecated: false
-      deprecated: false
-    ConfigMigrationEvents:
-      type: object
-      properties:
-        quote.config.migration.failed:
-          $ref: '#/components/schemas/ConfigMigrationEventPayload'
+        transactionType:
+          type: array
           deprecated: false
-        account.config.migration.failed:
-          $ref: '#/components/schemas/ConfigMigrationEventPayload'
-          deprecated: false
-        policy.config.migration.failed:
-          $ref: '#/components/schemas/PolicyConfigMigrationEventPayload'
+          items:
+            type: string
+            deprecated: false
+        allowStaticData:
+          type: boolean
           deprecated: false
       deprecated: false
-    TermResponse:
+    QuoteGroupFieldEnforcementDeclaration:
       type: object
       required:
-      - locator
-      - staticLocator
-      - policyLocator
-      - startTime
-      - endTime
-      - number
+      - name
+      - paths
       properties:
-        locator:
+        name:
           type: string
-          format: ulid
           deprecated: false
-        staticLocator:
-          type: string
-          format: ulid
+        paths:
+          type: object
           deprecated: false
+          additionalProperties:
+            type: string
+            deprecated: false
+      deprecated: false
+    AddChangeInstructionCreateRequest:
+      type: object
+      required:
+      - action
+      - elements
+      allOf:
+      - $ref: '#/components/schemas/ChangeInstructionCreateRequest'
+        deprecated: false
+      - type: object
+        properties:
+          action:
+            type: string
+            enum:
+            - add
+            deprecated: false
+          elements:
+            type: array
+            deprecated: false
+            items:
+              $ref: '#/components/schemas/ElementCreateRequest'
+              deprecated: false
+        deprecated: false
+      deprecated: false
+    TransactionManualUnderwritingEventData:
+      type: object
+      required:
+      - policyLocator
+      - transactionLocator
+      properties:
         policyLocator:
           type: string
           format: ulid
           deprecated: false
-        number:
-          type: integer
-          format: int32
-          deprecated: false
-        previousTermLocator:
+        transactionLocator:
           type: string
           format: ulid
           deprecated: false
-        supersedesTermLocator:
-          type: string
-          format: ulid
+      deprecated: false
+    ContactAssociationUpdateRequest:
+      type: object
+      required:
+      - addRoles
+      - removeRoles
+      properties:
+        addRoles:
+          type: array
           deprecated: false
-        startTime:
-          type: string
-          format: date-time
+          items:
+            type: string
+            deprecated: false
+        removeRoles:
+          type: array
           deprecated: false
-        endTime:
-          type: string
-          format: date-time
-          deprecated: false
-        autoRenewalLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        termNumber:
-          type: string
-          deprecated: false
+          items:
+            type: string
+            deprecated: false
       deprecated: false
     TransactionEvents:
       type: object
@@ -13730,14 +12722,40 @@ components:
           $ref: '#/components/schemas/TransactionEventData'
           deprecated: false
       deprecated: false
-    UpdateInvoiceFeeAmountRequest:
+    DeserializationRequestMetadata:
       type: object
       required:
-      - invoiceFeeAmount
+      - referenceLocator
+      - staticElementLocator
+      - fileName
+      - fileSize
+      - referenceType
+      - params
       properties:
-        invoiceFeeAmount:
-          type: number
+        fileName:
+          type: string
           deprecated: false
+        fileSize:
+          type: integer
+          format: int64
+          deprecated: false
+        referenceType:
+          type: string
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        staticElementLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        params:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: string
+            deprecated: false
       deprecated: false
     QuickQuotePriceResponse:
       type: object
@@ -13816,32 +12834,116 @@ components:
           - discarded
           deprecated: true
       deprecated: false
-    UpdateEntityHoldRequest:
+    SegmentResponse:
       type: object
       required:
+      - locator
+      - transactionLocator
+      - startTime
+      - endTime
+      - duration
+      - element
+      - segmentType
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        transactionLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        segmentType:
+          type: string
+          enum:
+          - coverage
+          - gap
+          deprecated: false
+        startTime:
+          type: string
+          format: date-time
+          deprecated: false
+        endTime:
+          type: string
+          format: date-time
+          deprecated: false
+        element:
+          description: The root element in the hierarchy
+          $ref: '#/components/schemas/ElementResponse'
+          deprecated: false
+        duration:
+          type: number
+          deprecated: false
+        basedOn:
+          type: string
+          format: ulid
+          deprecated: false
+        anonymizedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        producerInfo:
+          $ref: '#/components/schemas/ProducerInfo'
+          deprecated: false
+      deprecated: false
+    AccountListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/AccountResponse'
+            deprecated: false
+      deprecated: false
+    EntityHold:
+      type: object
+      required:
+      - locator
       - referenceLocator
+      - state
       - description
       - holdStaticData
       - policyHoldScope
       - quoteHoldScope
       - referenceType
-      - referenceUpdate
+      - createdAt
+      - createdBy
       properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
         referenceType:
           type: string
           enum:
           - quote
           - policy
           deprecated: false
-        referenceLocator:
+        state:
           type: string
-          format: ulid
-          deprecated: false
-        description:
-          type: string
+          enum:
+          - draft
+          - validated
+          - active
+          - discarded
+          - released
           deprecated: false
         holdStaticData:
           type: boolean
+          deprecated: false
+        description:
+          type: string
           deprecated: false
         quoteHoldScope:
           $ref: '#/components/schemas/QuoteHoldScope'
@@ -13849,38 +12951,466 @@ components:
         policyHoldScope:
           $ref: '#/components/schemas/PolicyHoldScope'
           deprecated: false
-        referenceUpdate:
-          type: boolean
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
           deprecated: false
       deprecated: false
-    TermSummary:
+    AutoRenewalPlanUpdateRequest:
       type: object
       required:
-      - locator
-      - staticLocator
-      - policyLocator
-      - startTime
-      - endTime
-      - duration
-      - durationBasis
-      - termNumber
-      - subsegments
+      - autoRenewalPlanName
       properties:
-        policyLocator:
+        autoRenewalPlanName:
+          type: string
+          deprecated: false
+      deprecated: false
+    NumberingEvents:
+      type: object
+      properties:
+        policy.numberAssignmentFailed:
+          $ref: '#/components/schemas/NumberingData'
+          deprecated: false
+        quote.numberAssignmentFailed:
+          $ref: '#/components/schemas/NumberingData'
+          deprecated: false
+        account.numberAssignmentFailed:
+          $ref: '#/components/schemas/NumberingData'
+          deprecated: false
+        term.numberAssignmentFailed:
+          $ref: '#/components/schemas/NumberingData'
+          deprecated: false
+        policy.quote.policyNumberRequested:
+          $ref: '#/components/schemas/QuotePolicyNumberData'
+          deprecated: false
+        policy.quote.policyNumberAssigned:
+          $ref: '#/components/schemas/NumberingData'
+          deprecated: false
+      deprecated: false
+    PolicyServiceEventTypeDefinitions:
+      type: object
+      required:
+      - accountEvents
+      - configMigrationEvents
+      - numberingEvents
+      - policyEvents
+      - policyStaticDataEvents
+      - policyStatusEvents
+      - quoteEvents
+      - transactionEvents
+      properties:
+        accountEvents:
+          $ref: '#/components/schemas/AccountEvents'
+          deprecated: false
+        quoteEvents:
+          $ref: '#/components/schemas/QuoteEvents'
+          deprecated: false
+        policyStatusEvents:
+          $ref: '#/components/schemas/PolicyStatusEvents'
+          deprecated: false
+        transactionEvents:
+          $ref: '#/components/schemas/TransactionEvents'
+          deprecated: false
+        policyStaticDataEvents:
+          $ref: '#/components/schemas/PolicyStaticDataEvents'
+          deprecated: false
+        policyEvents:
+          $ref: '#/components/schemas/PolicyEvents'
+          deprecated: false
+        numberingEvents:
+          $ref: '#/components/schemas/NumberingEvents'
+          deprecated: false
+        configMigrationEvents:
+          $ref: '#/components/schemas/ConfigMigrationEvents'
+          deprecated: false
+      deprecated: false
+    QuoteCreateRequest:
+      type: object
+      required:
+      - accountLocator
+      - productName
+      - startTime
+      - invoiceFeeAmount
+      - data
+      - contacts
+      properties:
+        productName:
+          type: string
+          deprecated: false
+        accountLocator:
           type: string
           format: ulid
           deprecated: false
+        startTime:
+          type: string
+          format: date-time
+          deprecated: false
+        endTime:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        currency:
+          type: string
+          deprecated: false
+        timezone:
+          type: string
+          deprecated: false
+        jurisdiction:
+          type: string
+          deprecated: false
+        coverageTerms:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        elements:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ElementCreateRequest'
+            deprecated: false
+        durationBasis:
+          type: string
+          enum:
+          - years
+          - months
+          - weeks
+          - days
+          - hours
+          deprecated: false
+        preferences:
+          $ref: '#/components/schemas/PreferencesResponse'
+          deprecated: false
+        delinquencyPlanName:
+          type: string
+          deprecated: false
+        autoRenewalPlanName:
+          type: string
+          deprecated: false
+        billingLevel:
+          type: string
+          enum:
+          - account
+          - inherit
+          - policy
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        quoteGroupLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        static:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        contacts:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ContactRoles'
+            deprecated: false
+        invoiceFeeAmount:
+          type: number
+          deprecated: false
+        termDuration:
+          type: integer
+          format: int32
+          deprecated: false
+        producerCode:
+          type: string
+          deprecated: false
+          maxLength: 128
+      deprecated: false
+    UnderwritingTaskCreateRequest:
+      type: object
+      required:
+      - type
+      - references
+      - underwritingFlagLocators
+      properties:
+        type:
+          type: string
+          deprecated: false
+        references:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/TaskReference'
+            deprecated: false
+        underwritingFlagLocators:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        deadlineTime:
+          type: string
+          format: date-time
+          deprecated: false
+        assignedTo:
+          type: string
+          format: uuid
+          deprecated: false
+        description:
+          type: string
+          deprecated: false
+        workgroupToBeAssignedLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        source:
+          type: string
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+      deprecated: false
+    ListPageResponseQuoteGroup:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/QuoteGroupResponse'
+            deprecated: false
+      deprecated: false
+    QuoteResponse:
+      type: object
+      required:
+      - locator
+      - accountLocator
+      - productName
+      - quoteState
+      - billingLevel
+      - element
+      - contacts
+      properties:
         locator:
           type: string
           format: ulid
           deprecated: false
-        staticLocator:
+        quoteState:
+          type: string
+          enum:
+          - draft
+          - validated
+          - earlyUnderwritten
+          - priced
+          - underwritten
+          - accepted
+          - issued
+          - underwrittenBlocked
+          - declined
+          - rejected
+          - refused
+          - discarded
+          deprecated: false
+        productName:
+          type: string
+          deprecated: false
+        accountLocator:
           type: string
           format: ulid
           deprecated: false
-        termNumber:
-          type: integer
-          format: int32
+        startTime:
+          type: string
+          format: date-time
+          deprecated: false
+        endTime:
+          type: string
+          format: date-time
+          deprecated: false
+        timezone:
+          type: string
+          deprecated: false
+        currency:
+          type: string
+          deprecated: false
+        underwritingStatus:
+          type: string
+          deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        element:
+          description: The root element in the hierarchy
+          $ref: '#/components/schemas/ElementResponse'
+          deprecated: false
+        preferences:
+          description: Plan selections and setting overrides
+          $ref: '#/components/schemas/PreferencesResponse'
+          deprecated: false
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        delinquencyPlanName:
+          type: string
+          deprecated: false
+        durationBasis:
+          type: string
+          enum:
+          - years
+          - months
+          - weeks
+          - days
+          - hours
+          deprecated: false
+        groupLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        autoRenewalPlanName:
+          type: string
+          deprecated: false
+        billingLevel:
+          type: string
+          enum:
+          - account
+          - inherit
+          - policy
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        quoteNumber:
+          type: string
+          deprecated: false
+        duration:
+          type: number
+          description: The duration of the prospective policy in units of durationBasis
+          deprecated: false
+        acceptedTime:
+          type: string
+          format: date-time
+          deprecated: false
+        issuedTime:
+          type: string
+          format: date-time
+          deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+        quickQuoteLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        contacts:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ContactRoles'
+            deprecated: false
+        anonymizedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        invoiceFeeAmount:
+          type: number
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        jurisdiction:
+          type: string
+          deprecated: false
+        producerCode:
+          type: string
+          deprecated: false
+        reservedPolicyNumber:
+          type: string
+          deprecated: false
+        static:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        policyNumber:
+          type: string
+          deprecated: false
+      deprecated: false
+    QuoteGroupAssignmentRequest:
+      type: object
+      required:
+      - groupLocator
+      properties:
+        groupLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    QuickQuoteQuoteResponse:
+      type: object
+      required:
+      - quickQuoteLocator
+      - tenantLocator
+      - productName
+      - startTime
+      - endTime
+      - duration
+      - durationBasis
+      - quickQuoteState
+      properties:
+        tenantLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        quickQuoteLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        accountLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        quickQuoteState:
+          type: string
+          enum:
+          - draft
+          - validated
+          - priced
+          - quoted
+          - discarded
+          deprecated: false
+        productName:
+          type: string
           deprecated: false
         startTime:
           type: string
@@ -13902,75 +13432,200 @@ components:
           - days
           - hours
           deprecated: false
-        subsegments:
-          type: array
+        quote:
+          $ref: '#/components/schemas/QuickQuoteQuoteDetails'
           deprecated: false
-          items:
-            $ref: '#/components/schemas/SubsegmentSummary'
-            deprecated: false
-      deprecated: false
-    AccountEventData:
-      type: object
-      required:
-      - accountLocator
-      properties:
-        accountLocator:
-          type: string
-          format: ulid
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
           deprecated: false
       deprecated: false
-    QuoteGroupCreateRequest:
+    QuoteGroupValidationResponse:
       type: object
       required:
-      - preferredQuoteLocator
-      - name
-      - quoteGroupNumber
-      - settings
-      - quoteLocators
+      - valid
+      - errors
       properties:
-        name:
-          type: string
-          deprecated: false
-        quoteGroupNumber:
-          type: string
-          deprecated: false
-        settings:
-          $ref: '#/components/schemas/QuoteGroupSettings'
-          deprecated: false
-        quoteLocators:
+        errors:
           type: array
           deprecated: false
           items:
             type: string
-            format: ulid
             deprecated: false
-        preferredQuoteLocator:
-          type: string
-          format: ulid
+        valid:
+          type: boolean
           deprecated: false
       deprecated: false
-    PolicySnapshotResponse:
+    DeserializationJob:
       type: object
       required:
       - locator
-      - accountLocator
-      - region
-      - productName
-      - currency
-      - timezone
-      - transaction
-      - static
+      - jobState
+      - jobType
+      - metadata
+      - retryCount
+      - updatedAt
+      - createdAt
+      - createdBy
       properties:
         locator:
           type: string
           format: ulid
           deprecated: false
+        jobType:
+          type: string
+          enum:
+          - scheduleItems
+          deprecated: false
+        jobState:
+          type: string
+          enum:
+          - initialized
+          - running
+          - interrupted
+          - failed
+          - completed
+          - terminated
+          deprecated: false
+        metadata:
+          $ref: '#/components/schemas/DeserializationRequestMetadata'
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        retryCount:
+          type: integer
+          format: int32
+          deprecated: false
+        processingErrors:
+          type: string
+          deprecated: false
+      deprecated: false
+    AutoRenewalResponse:
+      type: object
+      required:
+      - locator
+      - policyLocator
+      - termLocator
+      - autoRenewalState
+      - renewalTransactionType
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        autoRenewalState:
+          type: string
+          enum:
+          - active
+          - discarded
+          - doNotRenew
+          - issued
+          - error
+          - terminated
+          - invalidated
+          deprecated: false
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        termLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        renewalTransactionType:
+          type: string
+          deprecated: false
+        renewalTransactionLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        renewalTransactionCreateTime:
+          type: string
+          format: date-time
+          deprecated: false
+        renewalTransactionCreatedTime:
+          type: string
+          format: date-time
+          deprecated: false
+        renewalTransactionAcceptTime:
+          type: string
+          format: date-time
+          deprecated: false
+        renewalTransactionAcceptedTime:
+          type: string
+          format: date-time
+          deprecated: false
+        renewalTransactionIssueTime:
+          type: string
+          format: date-time
+          deprecated: false
+        renewalTransactionIssuedTime:
+          type: string
+          format: date-time
+          deprecated: false
+        newTermDuration:
+          type: integer
+          format: int32
+          deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+      deprecated: false
+    QuickQuoteQuoteDetails:
+      type: object
+      required:
+      - locator
+      - accountLocator
+      - groupLocator
+      - productName
+      - quoteState
+      - billingLevel
+      - element
+      - contacts
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        quoteState:
+          type: string
+          enum:
+          - draft
+          - validated
+          - earlyUnderwritten
+          - priced
+          - underwritten
+          - accepted
+          - issued
+          - underwrittenBlocked
+          - declined
+          - rejected
+          - refused
+          - discarded
+          deprecated: false
+        productName:
+          type: string
+          deprecated: false
         accountLocator:
           type: string
           format: ulid
           deprecated: false
-        productName:
+        startTime:
           type: string
+          format: date-time
+          deprecated: false
+        endTime:
+          type: string
+          format: date-time
           deprecated: false
         timezone:
           type: string
@@ -13978,21 +13633,206 @@ components:
         currency:
           type: string
           deprecated: false
-        region:
+        underwritingStatus:
           type: string
           deprecated: false
-        transaction:
-          $ref: '#/components/schemas/TransactionSnapshotResponse'
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        element:
+          $ref: '#/components/schemas/ElementResponse'
+          deprecated: false
+        preferences:
+          $ref: '#/components/schemas/PreferencesResponse'
+          deprecated: false
+        policyLocator:
+          type: string
+          format: ulid
           deprecated: false
         delinquencyPlanName:
           type: string
           deprecated: false
-        static:
+        durationBasis:
+          type: string
+          enum:
+          - years
+          - months
+          - weeks
+          - days
+          - hours
+          deprecated: false
+        groupLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        autoRenewalPlanName:
+          type: string
+          deprecated: false
+        billingLevel:
+          type: string
+          enum:
+          - account
+          - inherit
+          - policy
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        quoteNumber:
+          type: string
+          deprecated: false
+        duration:
+          type: number
+          deprecated: false
+        acceptedTime:
+          type: string
+          format: date-time
+          deprecated: false
+        issuedTime:
+          type: string
+          format: date-time
+          deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+        quickQuoteLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        contacts:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ContactRoles'
+            deprecated: false
+        anonymizedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        invoiceFeeAmount:
+          type: number
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        jurisdiction:
+          type: string
+          deprecated: false
+        producerCode:
+          type: string
+          deprecated: false
+        reservedPolicyNumber:
+          type: string
+          deprecated: false
+      deprecated: false
+    ListPageResponseQuote:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/QuickQuoteQuoteDetails'
+            deprecated: false
+      deprecated: false
+    ResetOptions:
+      type: object
+      required:
+      - deleteAllAutomaticDocuments
+      - discardSchedules
+      - resetAllUnderwritingFlags
+      - resetFlagsAction
+      - deleteDocuments
+      - resetFlags
+      properties:
+        resetAllUnderwritingFlags:
+          type: boolean
+          deprecated: false
+        resetFlags:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        resetFlagsAction:
+          type: string
+          enum:
+          - clear
+          - delete
+          deprecated: false
+        deleteAllAutomaticDocuments:
+          type: boolean
+          deprecated: false
+        discardSchedules:
+          type: boolean
+          deprecated: false
+        deleteDocuments:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+      deprecated: false
+    PolicyConfigMigrationEventPayload:
+      type: object
+      required:
+      - policyLocator
+      - transactionLocator
+      - configVersion
+      properties:
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        transactionLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        configVersion:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    StaticDataHistoryResponse:
+      type: object
+      required:
+      - historyLocator
+      - updatedAt
+      - updatedBy
+      - staticData
+      properties:
+        historyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        staticData:
           type: object
           deprecated: false
           additionalProperties:
             type: object
             deprecated: false
+        updatedBy:
+          type: string
+          format: uuid
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
       deprecated: false
     DocumentSummary:
       type: object
@@ -14045,45 +13885,30 @@ components:
           - rendered
           deprecated: true
       deprecated: false
-    QuoteGroupResponse:
+    QuoteGroupUpdateRequest:
       type: object
       required:
-      - locator
+      - preferredQuoteLocator
       - name
-      - quoteGroupState
-      - settings
-      - createdAt
-      - createdBy
-      - quoteLocators
+      - quoteGroupNumber
+      - resetPreferredQuote
+      - quotesToAdd
+      - quotesToRemove
       properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
         name:
           type: string
           deprecated: false
         quoteGroupNumber:
           type: string
           deprecated: false
-        quoteGroupState:
-          type: string
-          enum:
-          - open
-          - locked
+        quotesToRemove:
+          type: array
           deprecated: false
-        settings:
-          $ref: '#/components/schemas/QuoteGroupSettings'
-          deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        quoteLocators:
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        quotesToAdd:
           type: array
           deprecated: false
           items:
@@ -14094,52 +13919,110 @@ components:
           type: string
           format: ulid
           deprecated: false
+        resetPreferredQuote:
+          type: boolean
+          deprecated: false
       deprecated: false
-    QuoteUnderwritingResponse:
+    DeleteChangeInstructionCreateRequest:
       type: object
       required:
-      - accountLocator
-      - quoteLocator
-      - tenantLocator
-      - productName
+      - action
+      - staticElementLocators
+      allOf:
+      - $ref: '#/components/schemas/ChangeInstructionCreateRequest'
+        deprecated: false
+      - type: object
+        properties:
+          action:
+            type: string
+            enum:
+            - delete
+            deprecated: false
+          staticElementLocators:
+            type: array
+            deprecated: false
+            items:
+              type: string
+              format: ulid
+              deprecated: false
+        deprecated: false
+      deprecated: false
+    TransactionUnderwritingFlagsResponse:
+      type: object
+      required:
+      - transactionLocator
+      - clearedFlags
+      - flags
+      properties:
+        transactionLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        flags:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/UnderwritingFlagResponse'
+            deprecated: false
+        clearedFlags:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/UnderwritingFlagResponse'
+            deprecated: false
+      deprecated: false
+    PolicyStatusEventData:
+      type: object
+      required:
+      - policyLocator
+      - newStatuses
+      - removedStatuses
+      properties:
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        newStatuses:
+          $ref: '#/components/schemas/ListPageResponsePolicyStatus'
+          deprecated: false
+        removedStatuses:
+          $ref: '#/components/schemas/ListPageResponsePolicyStatus'
+          deprecated: false
+      deprecated: false
+    UpdateInvoiceFeeAmountRequest:
+      type: object
+      required:
+      - invoiceFeeAmount
+      properties:
+        invoiceFeeAmount:
+          type: number
+          deprecated: false
+      deprecated: false
+    SubsegmentSummary:
+      type: object
+      required:
+      - locator
       - startTime
       - endTime
       - duration
-      - durationBasis
-      - quoteState
-      - underwritingStatus
-      - underwritingFlags
+      - basedOn
+      - type
+      - documentSummary
+      - elements
       properties:
-        tenantLocator:
-          type: string
-          format: uuid
-          deprecated: false
-        quoteLocator:
+        locator:
           type: string
           format: ulid
           deprecated: false
-        accountLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        quoteState:
+        type:
           type: string
           enum:
-          - draft
-          - validated
-          - earlyUnderwritten
-          - priced
-          - underwritten
-          - accepted
-          - issued
-          - underwrittenBlocked
-          - declined
-          - rejected
-          - refused
-          - discarded
+          - coverage
+          - gap
           deprecated: false
-        productName:
+        basedOn:
           type: string
+          format: ulid
           deprecated: false
         startTime:
           type: string
@@ -14152,6 +14035,85 @@ components:
         duration:
           type: number
           deprecated: false
+        producerInfo:
+          $ref: '#/components/schemas/ProducerInfo'
+          deprecated: false
+        elements:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ElementSummary'
+            deprecated: false
+        documentSummary:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DocumentSummary'
+            deprecated: false
+      deprecated: false
+    PolicyEvents:
+      type: object
+      properties:
+        policy.migrateOnRenewal.enable:
+          $ref: '#/components/schemas/PolicyLocatorData'
+          deprecated: false
+        policy.migrateOnRenewal.disable:
+          $ref: '#/components/schemas/PolicyLocatorData'
+          deprecated: false
+        policy.anonymize:
+          $ref: '#/components/schemas/PolicyLocatorData'
+          deprecated: false
+      deprecated: false
+    QuickQuoteResponse:
+      type: object
+      required:
+      - locator
+      - productName
+      - quickQuoteState
+      - element
+      - contacts
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        quickQuoteState:
+          type: string
+          enum:
+          - draft
+          - validated
+          - priced
+          - quoted
+          - discarded
+          deprecated: false
+        productName:
+          type: string
+          deprecated: false
+        accountLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        startTime:
+          type: string
+          format: date-time
+          deprecated: false
+        endTime:
+          type: string
+          format: date-time
+          deprecated: false
+        duration:
+          type: number
+          deprecated: false
+        expirationTime:
+          type: string
+          format: date-time
+          deprecated: false
+        timezone:
+          type: string
+          deprecated: false
+        currency:
+          type: string
+          deprecated: false
         durationBasis:
           type: string
           enum:
@@ -14161,27 +14123,79 @@ components:
           - days
           - hours
           deprecated: false
-        underwritingStatus:
+        groupLocator:
           type: string
+          format: ulid
           deprecated: false
-        underwritingFlags:
-          type: array
+        element:
+          $ref: '#/components/schemas/ElementResponse'
           deprecated: false
-          items:
-            $ref: '#/components/schemas/UnderwritingFlagResponse'
-            deprecated: false
         validationResult:
           $ref: '#/components/schemas/ValidationResult'
           deprecated: false
+        contacts:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ContactRoles'
+            deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        anonymizedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        jurisdiction:
+          type: string
+          deprecated: false
       deprecated: false
-    ElementSummary:
+    ConfigMigrationEventPayload:
+      type: object
+      required:
+      - locator
+      - configVersion
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        configVersion:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    ContactRoles:
+      type: object
+      required:
+      - contactLocator
+      - roles
+      properties:
+        contactLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        roles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    TermResponse:
       type: object
       required:
       - locator
       - staticLocator
-      - type
-      - data
-      - chargeSummaries
+      - policyLocator
+      - startTime
+      - endTime
+      - number
       properties:
         locator:
           type: string
@@ -14191,49 +14205,35 @@ components:
           type: string
           format: ulid
           deprecated: false
-        type:
-          type: string
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        chargeSummaries:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: number
-            deprecated: false
-      deprecated: false
-    UpdateBillingLevelRequest:
-      type: object
-      required:
-      - billingLevel
-      properties:
-        billingLevel:
-          type: string
-          enum:
-          - account
-          - inherit
-          - policy
-          deprecated: false
-      deprecated: false
-    ScheduleItemsResponse:
-      type: object
-      required:
-      - lastSeenLocator
-      - items
-      properties:
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ScheduleItem'
-            deprecated: false
-        lastSeenLocator:
+        policyLocator:
           type: string
           format: ulid
+          deprecated: false
+        number:
+          type: integer
+          format: int32
+          deprecated: false
+        previousTermLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        supersedesTermLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        startTime:
+          type: string
+          format: date-time
+          deprecated: false
+        endTime:
+          type: string
+          format: date-time
+          deprecated: false
+        autoRenewalLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        termNumber:
+          type: string
           deprecated: false
       deprecated: false

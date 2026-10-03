@@ -365,23 +365,21 @@ components:
           - inactive
           deprecated: false
       deprecated: false
-    FinancialInstrumentConfigurationResponse:
+    ListPageResponsePaymentProvider:
       type: object
       required:
-      - paymentInstrumentLocator
-      - paymentProviderLocator
+      - listCompleted
+      - items
       properties:
-        paymentInstrumentLocator:
-          type: string
-          format: ulid
+        listCompleted:
+          type: boolean
           deprecated: false
-        paymentProviderLocator:
-          type: string
-          format: ulid
+        items:
+          type: array
           deprecated: false
-        externalAccountNumber:
-          type: string
-          deprecated: false
+          items:
+            $ref: '#/components/schemas/PaymentProvider'
+            deprecated: false
       deprecated: false
     BraintreeConfigurationRequest:
       type: object
@@ -472,19 +470,21 @@ components:
             writeOnly: true
         deprecated: false
       deprecated: false
-    ListPageResponsePaymentProvider:
+    FinancialInstrumentConfigurationResponse:
       type: object
       required:
-      - listCompleted
-      - items
+      - paymentInstrumentLocator
+      - paymentProviderLocator
       properties:
-        listCompleted:
-          type: boolean
+        paymentInstrumentLocator:
+          type: string
+          format: ulid
           deprecated: false
-        items:
-          type: array
+        paymentProviderLocator:
+          type: string
+          format: ulid
           deprecated: false
-          items:
-            $ref: '#/components/schemas/PaymentProvider'
-            deprecated: false
+        externalAccountNumber:
+          type: string
+          deprecated: false
       deprecated: false

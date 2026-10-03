@@ -1771,25 +1771,36 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    PasswordPolicyResponse:
+    RoleListResponse:
       type: object
       required:
-      - passwordPolicies
+      - listCompleted
+      - items
       properties:
-        passwordPolicies:
-          $ref: '#/components/schemas/PasswordPolicies'
+        listCompleted:
+          type: boolean
           deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/RoleResponse'
+            deprecated: false
       deprecated: false
-    TenantUpdateRequest:
+    SAMLIdentityProviderCreateRequest:
       type: object
       required:
-      - name
-      - description
+      - displayName
+      - id
+      - singleSignOnServiceUrl
       properties:
-        name:
+        id:
           type: string
           deprecated: false
-        description:
+        displayName:
+          type: string
+          deprecated: false
+        singleSignOnServiceUrl:
           type: string
           deprecated: false
       deprecated: false
@@ -1818,284 +1829,6 @@ components:
               items:
                 type: string
                 deprecated: false
-      deprecated: false
-    RoleResponse:
-      type: object
-      required:
-      - locator
-      - name
-      - description
-      - version
-      - createdAt
-      - createdBy
-      - permissions
-      properties:
-        name:
-          type: string
-          deprecated: false
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        permissions:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        version:
-          type: integer
-          format: int32
-          deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        description:
-          type: string
-          deprecated: false
-      deprecated: false
-    UserUpdateRequest:
-      type: object
-      required:
-      - firstName
-      - lastName
-      - tenants
-      properties:
-        firstName:
-          type: string
-          deprecated: false
-        lastName:
-          type: string
-          deprecated: false
-        email:
-          type: string
-          deprecated: false
-        roles:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        tenants:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        permissions:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-      deprecated: false
-    IdentityProviderResponse:
-      type: object
-      required:
-      - displayName
-      - acsUrl
-      - callbackUrl
-      - entityId
-      - id
-      - singleSignOnServiceUrl
-      - type
-      properties:
-        id:
-          type: string
-          deprecated: false
-        displayName:
-          type: string
-          deprecated: false
-        type:
-          type: string
-          deprecated: false
-        acsUrl:
-          type: string
-          deprecated: false
-        callbackUrl:
-          type: string
-          deprecated: false
-        entityId:
-          type: string
-          deprecated: false
-        singleSignOnServiceUrl:
-          type: string
-          deprecated: false
-      deprecated: false
-    TenantResponse:
-      type: object
-      required:
-      - locator
-      - name
-      - businessAccount
-      - type
-      - updatedAt
-      - createdAt
-      - createdBy
-      properties:
-        locator:
-          type: string
-          format: uuid
-          deprecated: false
-        name:
-          type: string
-          deprecated: false
-        type:
-          type: string
-          enum:
-          - test
-          - production
-          - retired
-          - deleted
-          deprecated: false
-        description:
-          type: string
-          deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        updatedAt:
-          type: string
-          format: date-time
-          deprecated: false
-        businessAccount:
-          type: string
-          deprecated: false
-      deprecated: false
-    PatchTenantRoleReq:
-      type: object
-      required:
-      - version
-      - addPermissions
-      - removePermissions
-      properties:
-        version:
-          type: integer
-          format: int32
-          deprecated: false
-        addPermissions:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        removePermissions:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        description:
-          type: string
-          deprecated: false
-      deprecated: false
-    CredentialResponse:
-      type: object
-      required:
-      - lastSessionLastAccessAt
-      - lastSessionStartAt
-      - passwordEnabled
-      - temporaryPassword
-      - createdAt
-      properties:
-        passwordEnabled:
-          type: boolean
-          deprecated: false
-        temporaryPassword:
-          type: boolean
-          deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        lastSessionStartAt:
-          type: string
-          format: date-time
-          deprecated: false
-        lastSessionLastAccessAt:
-          type: string
-          format: date-time
-          deprecated: false
-      deprecated: false
-    AuthTokenCreateRequest:
-      type: object
-      required:
-      - name
-      - expiresAt
-      - permissions
-      - tenants
-      properties:
-        name:
-          type: string
-          deprecated: false
-        tenants:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        permissions:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        expiresAt:
-          type: string
-          format: date-time
-          deprecated: false
-      deprecated: false
-    UserCreateRequest:
-      type: object
-      required:
-      - firstName
-      - lastName
-      - userName
-      properties:
-        userName:
-          type: string
-          description: A user name in email format
-          deprecated: false
-        firstName:
-          type: string
-          deprecated: false
-        lastName:
-          type: string
-          deprecated: false
-        password:
-          type: string
-          deprecated: false
-        temporaryPassword:
-          type: boolean
-          deprecated: false
-        serviceAccount:
-          type: boolean
-          deprecated: false
-        email:
-          type: string
-          deprecated: false
-        tenants:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        roles:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
       deprecated: false
     RoleUpdateRequest:
       type: object
@@ -2129,118 +1862,6 @@ components:
           type: string
           deprecated: false
       deprecated: false
-    ListPageResponseRoleDetails:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/RoleResponse'
-            deprecated: false
-      deprecated: false
-    SAMLIdentityProviderCreateRequest:
-      type: object
-      required:
-      - displayName
-      - id
-      - singleSignOnServiceUrl
-      properties:
-        id:
-          type: string
-          deprecated: false
-        displayName:
-          type: string
-          deprecated: false
-        singleSignOnServiceUrl:
-          type: string
-          deprecated: false
-      deprecated: false
-    UserResponse:
-      type: object
-      required:
-      - locator
-      - firstName
-      - lastName
-      - userName
-      - serviceAccount
-      - tenants
-      properties:
-        locator:
-          type: string
-          format: uuid
-          deprecated: false
-        userName:
-          type: string
-          deprecated: false
-        firstName:
-          type: string
-          deprecated: false
-        lastName:
-          type: string
-          deprecated: false
-        email:
-          type: string
-          deprecated: false
-        serviceAccount:
-          type: boolean
-          deprecated: false
-        roles:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        tenants:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        permissions:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-      deprecated: false
-    AuthTokenResponse:
-      type: object
-      required:
-      - name
-      - expiresAt
-      - createdAt
-      properties:
-        name:
-          type: string
-          deprecated: false
-        tenants:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        permissions:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        expiresAt:
-          type: string
-          format: date-time
-          deprecated: false
-      deprecated: false
     TenantListResponse:
       type: object
       required:
@@ -2256,35 +1877,6 @@ components:
           items:
             $ref: '#/components/schemas/TenantResponse'
             deprecated: false
-      deprecated: false
-    PasswordPolicyUpdateRequest:
-      type: object
-      required:
-      - passwordPolicies
-      properties:
-        passwordPolicies:
-          $ref: '#/components/schemas/PasswordPoliciesUpdateRequest'
-          deprecated: false
-      deprecated: false
-    BasicUserResponse:
-      type: object
-      required:
-      - locator
-      - userName
-      properties:
-        firstName:
-          type: string
-          deprecated: false
-        lastName:
-          type: string
-          deprecated: false
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        userName:
-          type: string
-          deprecated: false
       deprecated: false
     RoleCreateRequest:
       type: object
@@ -2306,48 +1898,39 @@ components:
           type: string
           deprecated: false
       deprecated: false
-    UserListResponse:
+    CreateTenantRoleReq:
       type: object
       required:
-      - listCompleted
-      - items
+      - permissions
       properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
+        permissions:
           type: array
           deprecated: false
           items:
-            $ref: '#/components/schemas/UserResponse'
+            type: string
             deprecated: false
+        description:
+          type: string
+          deprecated: false
       deprecated: false
-    UserDataSecurityMaskRequest:
+    UserTenantsAssignmentsUpdateRequest:
       type: object
       required:
-      - tenantLocator
-      - type
-      - fields
+      - addTenants
+      - removeTenants
       properties:
-        tenantLocator:
-          type: string
-          format: uuid
+        addTenants:
+          type: array
           deprecated: false
-        type:
-          type: string
-          enum:
-          - account
-          - policy
-          deprecated: false
-        fields:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: array
+          items:
+            type: string
             deprecated: false
-            items:
-              type: string
-              deprecated: false
+        removeTenants:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
       deprecated: false
     OIDCIdentityProviderCreateRequest:
       type: object
@@ -2374,24 +1957,86 @@ components:
           type: string
           deprecated: false
       deprecated: false
-    UserRolesUpdateRequest:
+    CredentialResponse:
       type: object
       required:
-      - addRoles
-      - removeRoles
+      - lastSessionLastAccessAt
+      - lastSessionStartAt
+      - passwordEnabled
+      - temporaryPassword
+      - createdAt
       properties:
-        addRoles:
-          type: array
+        passwordEnabled:
+          type: boolean
           deprecated: false
-          items:
-            type: string
-            deprecated: false
-        removeRoles:
-          type: array
+        temporaryPassword:
+          type: boolean
           deprecated: false
-          items:
-            type: string
-            deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        lastSessionStartAt:
+          type: string
+          format: date-time
+          deprecated: false
+        lastSessionLastAccessAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    BasicUserResponse:
+      type: object
+      required:
+      - locator
+      - userName
+      properties:
+        firstName:
+          type: string
+          deprecated: false
+        lastName:
+          type: string
+          deprecated: false
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        userName:
+          type: string
+          deprecated: false
+      deprecated: false
+    IdentityProviderResponse:
+      type: object
+      required:
+      - displayName
+      - acsUrl
+      - callbackUrl
+      - entityId
+      - id
+      - singleSignOnServiceUrl
+      - type
+      properties:
+        id:
+          type: string
+          deprecated: false
+        displayName:
+          type: string
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        acsUrl:
+          type: string
+          deprecated: false
+        callbackUrl:
+          type: string
+          deprecated: false
+        entityId:
+          type: string
+          deprecated: false
+        singleSignOnServiceUrl:
+          type: string
+          deprecated: false
       deprecated: false
     UserDataAccessControlMaskResponse:
       type: object
@@ -2461,6 +2106,117 @@ components:
                 type: string
                 deprecated: false
       deprecated: false
+    ListPageResponseRoleDetails:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/RoleResponse'
+            deprecated: false
+      deprecated: false
+    TenantUpdateRequest:
+      type: object
+      required:
+      - name
+      - description
+      properties:
+        name:
+          type: string
+          deprecated: false
+        description:
+          type: string
+          deprecated: false
+      deprecated: false
+    AuthTokenCreateRequest:
+      type: object
+      required:
+      - name
+      - expiresAt
+      - permissions
+      - tenants
+      properties:
+        name:
+          type: string
+          deprecated: false
+        tenants:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        permissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        expiresAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    UserRolesUpdateRequest:
+      type: object
+      required:
+      - addRoles
+      - removeRoles
+      properties:
+        addRoles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        removeRoles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    UserUpdateRequest:
+      type: object
+      required:
+      - firstName
+      - lastName
+      - tenants
+      properties:
+        firstName:
+          type: string
+          deprecated: false
+        lastName:
+          type: string
+          deprecated: false
+        email:
+          type: string
+          deprecated: false
+        roles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        tenants:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        permissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
     PasswordPolicies:
       type: object
       required:
@@ -2522,21 +2278,6 @@ components:
           default: 1
           deprecated: false
       deprecated: false
-    CreateTenantRoleReq:
-      type: object
-      required:
-      - permissions
-      properties:
-        permissions:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        description:
-          type: string
-          deprecated: false
-      deprecated: false
     PasswordPoliciesUpdateRequest:
       type: object
       properties:
@@ -2589,26 +2330,131 @@ components:
           default: 1
           deprecated: false
       deprecated: false
-    UserTenantsAssignmentsUpdateRequest:
+    PasswordPolicyUpdateRequest:
       type: object
       required:
-      - addTenants
-      - removeTenants
+      - passwordPolicies
       properties:
-        addTenants:
+        passwordPolicies:
+          $ref: '#/components/schemas/PasswordPoliciesUpdateRequest'
+          deprecated: false
+      deprecated: false
+    RoleResponse:
+      type: object
+      required:
+      - locator
+      - name
+      - description
+      - version
+      - createdAt
+      - createdBy
+      - permissions
+      properties:
+        name:
+          type: string
+          deprecated: false
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        permissions:
           type: array
           deprecated: false
           items:
             type: string
             deprecated: false
-        removeTenants:
+        version:
+          type: integer
+          format: int32
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        description:
+          type: string
+          deprecated: false
+      deprecated: false
+    PatchTenantRoleReq:
+      type: object
+      required:
+      - version
+      - addPermissions
+      - removePermissions
+      properties:
+        version:
+          type: integer
+          format: int32
+          deprecated: false
+        addPermissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        removePermissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        description:
+          type: string
+          deprecated: false
+      deprecated: false
+    UserResponse:
+      type: object
+      required:
+      - locator
+      - firstName
+      - lastName
+      - userName
+      - serviceAccount
+      - tenants
+      properties:
+        locator:
+          type: string
+          format: uuid
+          deprecated: false
+        userName:
+          type: string
+          deprecated: false
+        firstName:
+          type: string
+          deprecated: false
+        lastName:
+          type: string
+          deprecated: false
+        email:
+          type: string
+          deprecated: false
+        serviceAccount:
+          type: boolean
+          deprecated: false
+        roles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        tenants:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        permissions:
           type: array
           deprecated: false
           items:
             type: string
             deprecated: false
       deprecated: false
-    RoleListResponse:
+    UserListResponse:
       type: object
       required:
       - listCompleted
@@ -2621,6 +2467,160 @@ components:
           type: array
           deprecated: false
           items:
-            $ref: '#/components/schemas/RoleResponse'
+            $ref: '#/components/schemas/UserResponse'
             deprecated: false
+      deprecated: false
+    AuthTokenResponse:
+      type: object
+      required:
+      - name
+      - expiresAt
+      - createdAt
+      properties:
+        name:
+          type: string
+          deprecated: false
+        tenants:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        permissions:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        expiresAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    UserCreateRequest:
+      type: object
+      required:
+      - firstName
+      - lastName
+      - userName
+      properties:
+        userName:
+          type: string
+          description: A user name in email format
+          deprecated: false
+        firstName:
+          type: string
+          deprecated: false
+        lastName:
+          type: string
+          deprecated: false
+        password:
+          type: string
+          deprecated: false
+        temporaryPassword:
+          type: boolean
+          deprecated: false
+        serviceAccount:
+          type: boolean
+          deprecated: false
+        email:
+          type: string
+          deprecated: false
+        tenants:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        roles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    UserDataSecurityMaskRequest:
+      type: object
+      required:
+      - tenantLocator
+      - type
+      - fields
+      properties:
+        tenantLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        type:
+          type: string
+          enum:
+          - account
+          - policy
+          deprecated: false
+        fields:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: array
+            deprecated: false
+            items:
+              type: string
+              deprecated: false
+      deprecated: false
+    PasswordPolicyResponse:
+      type: object
+      required:
+      - passwordPolicies
+      properties:
+        passwordPolicies:
+          $ref: '#/components/schemas/PasswordPolicies'
+          deprecated: false
+      deprecated: false
+    TenantResponse:
+      type: object
+      required:
+      - locator
+      - name
+      - businessAccount
+      - type
+      - updatedAt
+      - createdAt
+      - createdBy
+      properties:
+        locator:
+          type: string
+          format: uuid
+          deprecated: false
+        name:
+          type: string
+          deprecated: false
+        type:
+          type: string
+          enum:
+          - test
+          - production
+          - retired
+          - deleted
+          deprecated: false
+        description:
+          type: string
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        businessAccount:
+          type: string
+          deprecated: false
       deprecated: false

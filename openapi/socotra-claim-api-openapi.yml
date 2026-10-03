@@ -1022,146 +1022,42 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ListPageResponseFnolResponse:
+    FnolClaimData:
       type: object
       required:
-      - listCompleted
-      - items
+      - claimLocator
+      - fnolLocator
       properties:
-        listCompleted:
+        fnolLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        claimLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    ValidationResult:
+      type: object
+      required:
+      - success
+      properties:
+        validationItems:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ValidationItemResponse'
+            deprecated: false
+        success:
           type: boolean
           deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/FnolResponse'
-            deprecated: false
       deprecated: false
-    ValidationItemResponse:
-      type: object
-      required:
-      - locator
-      - elementType
-      - errors
-      properties:
-        elementType:
-          type: string
-          deprecated: false
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        errors:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-      deprecated: false
-    FnolEvents:
-      type: object
-      properties:
-        claim.fnol.update:
-          $ref: '#/components/schemas/FnolEventData'
-          deprecated: false
-        claim.fnol.complete:
-          $ref: '#/components/schemas/FnolEventData'
-          deprecated: false
-        claim.fnol.validate:
-          $ref: '#/components/schemas/FnolEventData'
-          deprecated: false
-        claim.fnol.create:
-          $ref: '#/components/schemas/FnolEventData'
-          deprecated: false
-        claim.fnol.anonymize:
-          $ref: '#/components/schemas/FnolEventData'
-          deprecated: false
-        fnol.numberAssignmentFailed:
-          $ref: '#/components/schemas/FnolEventData'
-          deprecated: false
-        claim.fnol.reject:
-          $ref: '#/components/schemas/FnolEventData'
-          deprecated: false
-        claim.fnol.discard:
-          $ref: '#/components/schemas/FnolEventData'
-          deprecated: false
-        claim.fnol.onclaim:
-          $ref: '#/components/schemas/FnolClaimData'
-          deprecated: false
-      deprecated: false
-    FnolLoss:
-      type: object
-      required:
-      - locator
-      - fnolLossState
-      - category
-      - type
-      - data
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        type:
-          type: string
-          deprecated: false
-        category:
-          type: string
-          deprecated: false
-        fnolLossState:
-          type: string
-          enum:
-          - pending
-          - valid
-          - excluded
-          deprecated: false
-        exposureElementLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        coverageElementLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        validationResult:
-          $ref: '#/components/schemas/ValidationResult'
-          deprecated: false
-        anonymizedAt:
-          type: string
-          format: date-time
-          deprecated: false
-      deprecated: false
-    FnolLossPatchRequest:
+    FnolPatchRequest:
       type: object
       required:
       - removeData
       - setData
       properties:
-        type:
-          type: string
-          deprecated: false
-        fnolLossState:
-          type: string
-          enum:
-          - pending
-          - valid
-          - excluded
-          deprecated: false
-        exposureElementLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        coverageElementLocator:
-          type: string
-          format: ulid
-          deprecated: false
         setData:
           type: object
           deprecated: false
@@ -1174,14 +1070,26 @@ components:
           additionalProperties:
             type: object
             deprecated: false
-      deprecated: false
-    ClaimServiceEventTypeDefinitions:
-      type: object
-      required:
-      - fnolEvents
-      properties:
-        fnolEvents:
-          $ref: '#/components/schemas/FnolEvents'
+        incidentTime:
+          type: string
+          format: date-time
+          deprecated: false
+        incidentTimezone:
+          type: string
+          deprecated: false
+        incidentSummary:
+          type: string
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        accountLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        policyLocator:
+          type: string
+          format: ulid
           deprecated: false
       deprecated: false
     ContactAssociationUpdateRequest:
@@ -1197,6 +1105,23 @@ components:
             type: string
             deprecated: false
         removeRoles:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    ContactRoles:
+      type: object
+      required:
+      - contactLocator
+      - roles
+      properties:
+        contactLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        roles:
           type: array
           deprecated: false
           items:
@@ -1310,6 +1235,56 @@ components:
           format: date-time
           deprecated: false
       deprecated: false
+    ClaimServiceEventTypeDefinitions:
+      type: object
+      required:
+      - fnolEvents
+      properties:
+        fnolEvents:
+          $ref: '#/components/schemas/FnolEvents'
+          deprecated: false
+      deprecated: false
+    FnolEvents:
+      type: object
+      properties:
+        claim.fnol.update:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        claim.fnol.complete:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        claim.fnol.validate:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        claim.fnol.create:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        claim.fnol.anonymize:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        fnol.numberAssignmentFailed:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        claim.fnol.reject:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        claim.fnol.discard:
+          $ref: '#/components/schemas/FnolEventData'
+          deprecated: false
+        claim.fnol.onclaim:
+          $ref: '#/components/schemas/FnolClaimData'
+          deprecated: false
+      deprecated: false
+    FnolEventData:
+      type: object
+      required:
+      - locator
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
     FnolCreateRequest:
       type: object
       required:
@@ -1365,12 +1340,46 @@ components:
           type: boolean
           deprecated: false
       deprecated: false
-    FnolPatchRequest:
+    ListPageResponseFnolResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/FnolResponse'
+            deprecated: false
+      deprecated: false
+    FnolLossPatchRequest:
       type: object
       required:
       - removeData
       - setData
       properties:
+        type:
+          type: string
+          deprecated: false
+        fnolLossState:
+          type: string
+          enum:
+          - pending
+          - valid
+          - excluded
+          deprecated: false
+        exposureElementLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        coverageElementLocator:
+          type: string
+          format: ulid
+          deprecated: false
         setData:
           type: object
           deprecated: false
@@ -1383,82 +1392,73 @@ components:
           additionalProperties:
             type: object
             deprecated: false
-        incidentTime:
-          type: string
-          format: date-time
-          deprecated: false
-        incidentTimezone:
-          type: string
-          deprecated: false
-        incidentSummary:
-          type: string
-          deprecated: false
-        region:
-          type: string
-          deprecated: false
-        accountLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        policyLocator:
-          type: string
-          format: ulid
-          deprecated: false
       deprecated: false
-    ContactRoles:
+    ValidationItemResponse:
       type: object
       required:
-      - contactLocator
-      - roles
+      - locator
+      - elementType
+      - errors
       properties:
-        contactLocator:
+        elementType:
+          type: string
+          deprecated: false
+        locator:
           type: string
           format: ulid
           deprecated: false
-        roles:
+        errors:
           type: array
           deprecated: false
           items:
             type: string
             deprecated: false
       deprecated: false
-    ValidationResult:
-      type: object
-      required:
-      - success
-      properties:
-        validationItems:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ValidationItemResponse'
-            deprecated: false
-        success:
-          type: boolean
-          deprecated: false
-      deprecated: false
-    FnolEventData:
+    FnolLoss:
       type: object
       required:
       - locator
+      - fnolLossState
+      - category
+      - type
+      - data
       properties:
         locator:
           type: string
           format: ulid
           deprecated: false
-      deprecated: false
-    FnolClaimData:
-      type: object
-      required:
-      - claimLocator
-      - fnolLocator
-      properties:
-        fnolLocator:
+        type:
+          type: string
+          deprecated: false
+        category:
+          type: string
+          deprecated: false
+        fnolLossState:
+          type: string
+          enum:
+          - pending
+          - valid
+          - excluded
+          deprecated: false
+        exposureElementLocator:
           type: string
           format: ulid
           deprecated: false
-        claimLocator:
+        coverageElementLocator:
           type: string
           format: ulid
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        validationResult:
+          $ref: '#/components/schemas/ValidationResult'
+          deprecated: false
+        anonymizedAt:
+          type: string
+          format: date-time
           deprecated: false
       deprecated: false

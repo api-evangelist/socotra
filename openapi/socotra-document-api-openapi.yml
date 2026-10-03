@@ -1461,22 +1461,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ListPageResponseDocumentInstance:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/DocumentInstanceResponse'
-            deprecated: false
-      deprecated: false
     DocumentJobInfo:
       type: object
       required:
@@ -1506,6 +1490,108 @@ components:
         state:
           type: string
           deprecated: true
+      deprecated: false
+    DocumentEventData:
+      type: object
+      required:
+      - documentLocator
+      - referenceLocator
+      - referenceType
+      properties:
+        documentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - quote
+          - policy
+          - invoice
+          - transaction
+          - segment
+          - term
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    DocumentListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DocumentInstanceResponse'
+            deprecated: false
+      deprecated: false
+    DocumentEvents:
+      type: object
+      properties:
+        document.ready:
+          $ref: '#/components/schemas/DocumentEventData'
+          deprecated: false
+        document.failed:
+          $ref: '#/components/schemas/DocumentEventData'
+          deprecated: false
+      deprecated: false
+    DocumentJobListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DocumentsJobSummary'
+            deprecated: false
+      deprecated: false
+    DocumentsJobSummary:
+      type: object
+      required:
+      - locator
+      - referenceType
+      - status
+      - createdAt
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - quote
+          - policy
+          - invoice
+          - transaction
+          - segment
+          - term
+          deprecated: false
+        status:
+          type: string
+          enum:
+          - running
+          - finished
+          - failed
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
       deprecated: false
     DocumentInstanceResponse:
       type: object
@@ -1644,48 +1730,6 @@ components:
           type: boolean
           deprecated: false
       deprecated: false
-    DocumentListResponse:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/DocumentInstanceResponse'
-            deprecated: false
-      deprecated: false
-    DocumentEventData:
-      type: object
-      required:
-      - documentLocator
-      - referenceLocator
-      - referenceType
-      properties:
-        documentLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        referenceType:
-          type: string
-          enum:
-          - quote
-          - policy
-          - invoice
-          - transaction
-          - segment
-          - term
-          deprecated: false
-        referenceLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
     DocumentsJob:
       type: object
       required:
@@ -1782,6 +1826,22 @@ components:
           type: boolean
           deprecated: false
       deprecated: false
+    ListPageResponseDocumentInstance:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DocumentInstanceResponse'
+            deprecated: false
+      deprecated: false
     TemplateResponse:
       type: object
       properties:
@@ -1806,66 +1866,6 @@ components:
           $ref: '#/components/schemas/DocumentEvents'
           deprecated: false
       deprecated: false
-    DocumentJobListResponse:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/DocumentsJobSummary'
-            deprecated: false
-      deprecated: false
     StreamingResponseBody:
       type: object
-      deprecated: false
-    DocumentEvents:
-      type: object
-      properties:
-        document.ready:
-          $ref: '#/components/schemas/DocumentEventData'
-          deprecated: false
-        document.failed:
-          $ref: '#/components/schemas/DocumentEventData'
-          deprecated: false
-      deprecated: false
-    DocumentsJobSummary:
-      type: object
-      required:
-      - locator
-      - referenceType
-      - status
-      - createdAt
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        referenceType:
-          type: string
-          enum:
-          - quote
-          - policy
-          - invoice
-          - transaction
-          - segment
-          - term
-          deprecated: false
-        status:
-          type: string
-          enum:
-          - running
-          - finished
-          - failed
-          deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
       deprecated: false

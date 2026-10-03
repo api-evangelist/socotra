@@ -213,9 +213,10 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    FieldsRequest:
+    SearchStatsResult:
       type: object
       required:
+      - recordCount
       - searchEntityType
       properties:
         searchEntityType:
@@ -231,6 +232,10 @@ components:
           - payment
           - task
           - userAssociation
+          deprecated: false
+        recordCount:
+          type: integer
+          format: int64
           deprecated: false
       deprecated: false
     Field:
@@ -248,6 +253,37 @@ components:
           - TEXT
           - DATE
           - OTHER
+          deprecated: false
+      deprecated: false
+    SearchTermRequest:
+      type: object
+      required:
+      - fieldName
+      - absolute
+      - match
+      - searchTerm
+      properties:
+        searchTerm:
+          type: string
+          deprecated: false
+        fieldName:
+          type: string
+          deprecated: false
+        match:
+          type: string
+          enum:
+          - fuzzy
+          - exact
+          - startsWith
+          - lessThan
+          - greaterThan
+          deprecated: false
+        absolute:
+          type: string
+          enum:
+          - none
+          - required
+          - excluded
           deprecated: false
       deprecated: false
     SearchRequest:
@@ -306,6 +342,22 @@ components:
             type: string
             deprecated: false
       deprecated: false
+    SearchStatsResponse:
+      type: object
+      required:
+      - searchToken
+      - results
+      properties:
+        searchToken:
+          type: string
+          deprecated: false
+        results:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/SearchStatsResult'
+            deprecated: false
+      deprecated: false
     SearchServiceResponse:
       type: object
       required:
@@ -331,47 +383,6 @@ components:
           items:
             $ref: '#/components/schemas/SearchResultResponse'
             deprecated: false
-      deprecated: false
-    SearchStatsResponse:
-      type: object
-      required:
-      - searchToken
-      - results
-      properties:
-        searchToken:
-          type: string
-          deprecated: false
-        results:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/SearchStatsResult'
-            deprecated: false
-      deprecated: false
-    SearchStatsResult:
-      type: object
-      required:
-      - recordCount
-      - searchEntityType
-      properties:
-        searchEntityType:
-          type: string
-          enum:
-          - unspecified
-          - account
-          - quote
-          - policy
-          - fnol
-          - contact
-          - diary
-          - payment
-          - task
-          - userAssociation
-          deprecated: false
-        recordCount:
-          type: integer
-          format: int64
-          deprecated: false
       deprecated: false
     SearchResultResponse:
       type: object
@@ -429,37 +440,6 @@ components:
             type: string
             deprecated: false
       deprecated: false
-    SearchTermRequest:
-      type: object
-      required:
-      - fieldName
-      - absolute
-      - match
-      - searchTerm
-      properties:
-        searchTerm:
-          type: string
-          deprecated: false
-        fieldName:
-          type: string
-          deprecated: false
-        match:
-          type: string
-          enum:
-          - fuzzy
-          - exact
-          - startsWith
-          - lessThan
-          - greaterThan
-          deprecated: false
-        absolute:
-          type: string
-          enum:
-          - none
-          - required
-          - excluded
-          deprecated: false
-      deprecated: false
     FieldsMappingResponse:
       type: object
       required:
@@ -475,4 +455,24 @@ components:
           items:
             $ref: '#/components/schemas/Field'
             deprecated: false
+      deprecated: false
+    FieldsRequest:
+      type: object
+      required:
+      - searchEntityType
+      properties:
+        searchEntityType:
+          type: string
+          enum:
+          - unspecified
+          - account
+          - quote
+          - policy
+          - fnol
+          - contact
+          - diary
+          - payment
+          - task
+          - userAssociation
+          deprecated: false
       deprecated: false
