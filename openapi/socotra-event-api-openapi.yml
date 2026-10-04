@@ -881,128 +881,20 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ScheduledTenantEvent:
+    CreateWebhookRequest:
       type: object
       required:
-      - triggerState
-      - customEventId
-      - scheduledEventId
-      properties:
-        scheduledEventId:
-          type: string
-          deprecated: false
-        customEventId:
-          type: string
-          deprecated: false
-        nextEventTime:
-          type: string
-          format: date-time
-          deprecated: false
-        triggerState:
-          type: string
-          enum:
-          - NONE
-          - NORMAL
-          - PAUSED
-          - COMPLETE
-          - ERROR
-          - BLOCKED
-          deprecated: false
-      deprecated: false
-    EventStreamResponse:
-      type: object
-      required:
-      - pagingToken
-      - events
-      properties:
-        pagingToken:
-          type: string
-          deprecated: false
-        events:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/EventResponse'
-            deprecated: false
-      deprecated: false
-    RetryStrategyUpdateRequest:
-      type: object
-      required:
-      - attempts
-      - interval
-      - type
-      properties:
-        type:
-          type: string
-          enum:
-          - linear
-          - exponential
-          deprecated: false
-        interval:
-          type: integer
-          format: int64
-          deprecated: false
-        attempts:
-          type: integer
-          format: int32
-          deprecated: false
-      deprecated: false
-    FailureHandlingCreateRequest:
-      type: object
-      required:
-      - alertEndpoint
-      - divert
-      - retryStrategy
-      - suspend
-      - triggers
-      properties:
-        alertEndpoint:
-          $ref: '#/components/schemas/CreateEndpointRequest'
-          deprecated: false
-        triggers:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        retryStrategy:
-          $ref: '#/components/schemas/RetryStrategyCreateRequest'
-          deprecated: false
-        divert:
-          type: boolean
-          deprecated: false
-        suspend:
-          type: boolean
-          deprecated: false
-      deprecated: false
-    WebhookResponse:
-      type: object
-      required:
-      - locator
       - name
       - enabled
       - endpoint
       - failureHandling
-      - suspended
-      - suspendedAt
       - eventTypes
       properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
         name:
           type: string
           deprecated: false
         enabled:
           type: boolean
-          deprecated: false
-        suspended:
-          type: boolean
-          deprecated: false
-        suspendedAt:
-          type: string
-          format: date-time
           deprecated: false
         eventTypes:
           type: array
@@ -1011,44 +903,51 @@ components:
             type: string
             deprecated: false
         endpoint:
-          $ref: '#/components/schemas/EndpointResponse'
+          $ref: '#/components/schemas/CreateEndpointRequest'
           deprecated: false
         failureHandling:
-          $ref: '#/components/schemas/FailureHandlingResponse'
+          $ref: '#/components/schemas/FailureHandlingCreateRequest'
+          deprecated: false
+        useAutomationPlugin:
+          type: boolean
           deprecated: false
       deprecated: false
-    ScheduledPolicyEvent:
+    UpdateEndpointRequest:
       type: object
       required:
-      - policyLocator
-      - transactionLocator
-      - triggerState
-      - customEventId
+      - url
+      - addHeaders
+      - removeHeaders
       properties:
-        policyLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        transactionLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        customEventId:
+        url:
           type: string
           deprecated: false
-        nextEventTime:
-          type: string
-          format: date-time
+        removeHeaders:
+          type: array
           deprecated: false
-        triggerState:
+          items:
+            type: string
+            deprecated: false
+        addHeaders:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: array
+            deprecated: false
+            items:
+              type: string
+              deprecated: false
+        secureSsl:
+          type: boolean
+          deprecated: false
+        hmacEnabled:
+          type: boolean
+          deprecated: false
+        secret:
           type: string
-          enum:
-          - NONE
-          - NORMAL
-          - PAUSED
-          - COMPLETE
-          - ERROR
-          - BLOCKED
+          deprecated: false
+        tag:
+          type: string
           deprecated: false
       deprecated: false
     EndpointResponse:
@@ -1086,87 +985,77 @@ components:
           type: string
           deprecated: false
       deprecated: false
-    WebhookListResponse:
+    FailureHandlingResponse:
       type: object
       required:
-      - listCompleted
-      - items
+      - alertEndpoint
+      - divert
+      - retryStrategy
+      - suspend
+      - triggers
       properties:
-        listCompleted:
-          type: boolean
+        alertEndpoint:
+          $ref: '#/components/schemas/EndpointResponse'
           deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/WebhookResponse'
-            deprecated: false
-      deprecated: false
-    FailedJobDetails:
-      type: object
-      required:
-      - triggerName
-      - failedJobState
-      - failureCount
-      - triggerGroup
-      - updatedAt
-      - createdAt
-      properties:
-        failedJobState:
-          type: string
-          enum:
-          - queued
-          - quit
-          deprecated: false
-        triggerGroup:
-          type: string
-          deprecated: false
-        triggerName:
-          type: string
-          deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        updatedAt:
-          type: string
-          format: date-time
-          deprecated: false
-        failureCount:
-          type: integer
-          format: int32
-          deprecated: false
-      deprecated: false
-    FailedJobRequest:
-      type: object
-      required:
-      - triggerName
-      - triggerGroup
-      properties:
-        triggerGroup:
-          type: string
-          deprecated: false
-        triggerName:
-          type: string
-          deprecated: false
-      deprecated: false
-    UpdateEndpointRequest:
-      type: object
-      required:
-      - url
-      - addHeaders
-      - removeHeaders
-      properties:
-        url:
-          type: string
-          deprecated: false
-        removeHeaders:
+        triggers:
           type: array
           deprecated: false
           items:
             type: string
             deprecated: false
-        addHeaders:
+        retryStrategy:
+          $ref: '#/components/schemas/RetryStrategyResponse'
+          deprecated: false
+        divert:
+          type: boolean
+          deprecated: false
+        suspend:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    ScheduledPolicyEvent:
+      type: object
+      required:
+      - policyLocator
+      - transactionLocator
+      - triggerState
+      - customEventId
+      properties:
+        policyLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        transactionLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        customEventId:
+          type: string
+          deprecated: false
+        nextEventTime:
+          type: string
+          format: date-time
+          deprecated: false
+        triggerState:
+          type: string
+          enum:
+          - NONE
+          - NORMAL
+          - PAUSED
+          - COMPLETE
+          - ERROR
+          - BLOCKED
+          deprecated: false
+      deprecated: false
+    CreateEndpointRequest:
+      type: object
+      required:
+      - url
+      properties:
+        url:
+          type: string
+          deprecated: false
+        headers:
           type: object
           deprecated: false
           additionalProperties:
@@ -1227,6 +1116,293 @@ components:
           $ref: '#/components/schemas/FailureHandlingUpdateRequest'
           deprecated: false
       deprecated: false
+    FailedJobRequest:
+      type: object
+      required:
+      - triggerName
+      - triggerGroup
+      properties:
+        triggerGroup:
+          type: string
+          deprecated: false
+        triggerName:
+          type: string
+          deprecated: false
+      deprecated: false
+    WebhookResponse:
+      type: object
+      required:
+      - locator
+      - name
+      - enabled
+      - endpoint
+      - failureHandling
+      - suspended
+      - suspendedAt
+      - eventTypes
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        name:
+          type: string
+          deprecated: false
+        enabled:
+          type: boolean
+          deprecated: false
+        suspended:
+          type: boolean
+          deprecated: false
+        suspendedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        eventTypes:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        endpoint:
+          $ref: '#/components/schemas/EndpointResponse'
+          deprecated: false
+        failureHandling:
+          $ref: '#/components/schemas/FailureHandlingResponse'
+          deprecated: false
+      deprecated: false
+    RetryStrategyCreateRequest:
+      type: object
+      required:
+      - attempts
+      - interval
+      - type
+      properties:
+        type:
+          type: string
+          enum:
+          - linear
+          - exponential
+          deprecated: false
+        interval:
+          type: integer
+          format: int64
+          deprecated: false
+        attempts:
+          type: integer
+          format: int32
+          deprecated: false
+      deprecated: false
+    DivertedEventResponse:
+      type: object
+      required:
+      - eventLocator
+      - requestLocator
+      - failureMessage
+      - failureTimestamp
+      - failureTrigger
+      properties:
+        requestLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        eventLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        failureTrigger:
+          type: string
+          deprecated: false
+        failureMessage:
+          type: string
+          deprecated: false
+        failureTimestamp:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    FailureHandlingCreateRequest:
+      type: object
+      required:
+      - alertEndpoint
+      - divert
+      - retryStrategy
+      - suspend
+      - triggers
+      properties:
+        alertEndpoint:
+          $ref: '#/components/schemas/CreateEndpointRequest'
+          deprecated: false
+        triggers:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        retryStrategy:
+          $ref: '#/components/schemas/RetryStrategyCreateRequest'
+          deprecated: false
+        divert:
+          type: boolean
+          deprecated: false
+        suspend:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    EventResponse:
+      type: object
+      required:
+      - locator
+      - userLocator
+      - requestId
+      - timestamp
+      - type
+      - data
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        requestId:
+          type: string
+          format: ulid
+          description: Identifier of the transaction request that triggered the event
+          deprecated: false
+        userLocator:
+          type: string
+          format: uuid
+          deprecated: false
+        timestamp:
+          type: string
+          format: date-time
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    FailedJobDetails:
+      type: object
+      required:
+      - triggerName
+      - failedJobState
+      - failureCount
+      - triggerGroup
+      - updatedAt
+      - createdAt
+      properties:
+        failedJobState:
+          type: string
+          enum:
+          - queued
+          - quit
+          deprecated: false
+        triggerGroup:
+          type: string
+          deprecated: false
+        triggerName:
+          type: string
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        failureCount:
+          type: integer
+          format: int32
+          deprecated: false
+      deprecated: false
+    EventStreamResponse:
+      type: object
+      required:
+      - pagingToken
+      - events
+      properties:
+        pagingToken:
+          type: string
+          deprecated: false
+        events:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/EventResponse'
+            deprecated: false
+      deprecated: false
+    WebhookListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/WebhookResponse'
+            deprecated: false
+      deprecated: false
+    ScheduledTenantEvent:
+      type: object
+      required:
+      - triggerState
+      - customEventId
+      - scheduledEventId
+      properties:
+        scheduledEventId:
+          type: string
+          deprecated: false
+        customEventId:
+          type: string
+          deprecated: false
+        nextEventTime:
+          type: string
+          format: date-time
+          deprecated: false
+        triggerState:
+          type: string
+          enum:
+          - NONE
+          - NORMAL
+          - PAUSED
+          - COMPLETE
+          - ERROR
+          - BLOCKED
+          deprecated: false
+      deprecated: false
+    RetryStrategyUpdateRequest:
+      type: object
+      required:
+      - attempts
+      - interval
+      - type
+      properties:
+        type:
+          type: string
+          enum:
+          - linear
+          - exponential
+          deprecated: false
+        interval:
+          type: integer
+          format: int64
+          deprecated: false
+        attempts:
+          type: integer
+          format: int32
+          deprecated: false
+      deprecated: false
     FailureHandlingUpdateRequest:
       type: object
       required:
@@ -1270,183 +1446,7 @@ components:
           type: boolean
           deprecated: false
       deprecated: false
-    FailureHandlingResponse:
-      type: object
-      required:
-      - alertEndpoint
-      - divert
-      - retryStrategy
-      - suspend
-      - triggers
-      properties:
-        alertEndpoint:
-          $ref: '#/components/schemas/EndpointResponse'
-          deprecated: false
-        triggers:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        retryStrategy:
-          $ref: '#/components/schemas/RetryStrategyResponse'
-          deprecated: false
-        divert:
-          type: boolean
-          deprecated: false
-        suspend:
-          type: boolean
-          deprecated: false
-      deprecated: false
     RetryStrategyResponse:
-      type: object
-      required:
-      - attempts
-      - interval
-      - type
-      properties:
-        type:
-          type: string
-          enum:
-          - linear
-          - exponential
-          deprecated: false
-        interval:
-          type: integer
-          format: int64
-          deprecated: false
-        attempts:
-          type: integer
-          format: int32
-          deprecated: false
-      deprecated: false
-    CreateWebhookRequest:
-      type: object
-      required:
-      - name
-      - enabled
-      - endpoint
-      - failureHandling
-      - eventTypes
-      properties:
-        name:
-          type: string
-          deprecated: false
-        enabled:
-          type: boolean
-          deprecated: false
-        eventTypes:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        endpoint:
-          $ref: '#/components/schemas/CreateEndpointRequest'
-          deprecated: false
-        failureHandling:
-          $ref: '#/components/schemas/FailureHandlingCreateRequest'
-          deprecated: false
-        useAutomationPlugin:
-          type: boolean
-          deprecated: false
-      deprecated: false
-    EventResponse:
-      type: object
-      required:
-      - locator
-      - userLocator
-      - requestId
-      - timestamp
-      - type
-      - data
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        requestId:
-          type: string
-          format: ulid
-          description: Identifier of the transaction request that triggered the event
-          deprecated: false
-        userLocator:
-          type: string
-          format: uuid
-          deprecated: false
-        timestamp:
-          type: string
-          format: date-time
-          deprecated: false
-        type:
-          type: string
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-      deprecated: false
-    CreateEndpointRequest:
-      type: object
-      required:
-      - url
-      properties:
-        url:
-          type: string
-          deprecated: false
-        headers:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: array
-            deprecated: false
-            items:
-              type: string
-              deprecated: false
-        secureSsl:
-          type: boolean
-          deprecated: false
-        hmacEnabled:
-          type: boolean
-          deprecated: false
-        secret:
-          type: string
-          deprecated: false
-        tag:
-          type: string
-          deprecated: false
-      deprecated: false
-    DivertedEventResponse:
-      type: object
-      required:
-      - eventLocator
-      - requestLocator
-      - failureMessage
-      - failureTimestamp
-      - failureTrigger
-      properties:
-        requestLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        eventLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        failureTrigger:
-          type: string
-          deprecated: false
-        failureMessage:
-          type: string
-          deprecated: false
-        failureTimestamp:
-          type: string
-          format: date-time
-          deprecated: false
-      deprecated: false
-    RetryStrategyCreateRequest:
       type: object
       required:
       - attempts

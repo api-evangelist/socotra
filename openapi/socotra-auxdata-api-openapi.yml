@@ -1024,6 +1024,226 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    DiaryEntryUpdateRequest:
+      type: object
+      required:
+      - contents
+      properties:
+        category:
+          type: string
+          deprecated: false
+        contents:
+          type: string
+          deprecated: false
+      deprecated: false
+    AuxDataKey:
+      type: object
+      required:
+      - key
+      - uiType
+      properties:
+        key:
+          type: string
+          deprecated: false
+        uiType:
+          type: string
+          enum:
+          - normal
+          - hidden
+          - readonly
+          deprecated: false
+        auxDataSettingsName:
+          type: string
+          deprecated: false
+      deprecated: false
+    AuxDataKeySetResponse:
+      type: object
+      required:
+      - count
+      - offset
+      - keys
+      properties:
+        offset:
+          type: integer
+          format: int32
+          deprecated: false
+        count:
+          type: integer
+          format: int32
+          deprecated: false
+        keys:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/AuxDataKey'
+            deprecated: false
+      deprecated: false
+    MediaDataEntry:
+      type: object
+      required:
+      - locator
+      - filename
+      - updatedAt
+      - updatedBy
+      - createdAt
+      - createdBy
+      - references
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        versionLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        filename:
+          type: string
+          deprecated: false
+        title:
+          type: string
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+        references:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/MediaDataEntryReference'
+            deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+        createdBy:
+          type: string
+          format: uuid
+          deprecated: false
+        updatedAt:
+          type: string
+          format: date-time
+          deprecated: false
+        updatedBy:
+          type: string
+          format: uuid
+          deprecated: false
+      deprecated: false
+    DiaryEntryCreateRequest:
+      type: object
+      required:
+      - contents
+      properties:
+        category:
+          type: string
+          deprecated: false
+        contents:
+          type: string
+          deprecated: false
+      deprecated: false
+    AuxDataSetCreateRequest:
+      type: object
+      required:
+      - auxData
+      properties:
+        auxDataSettingsName:
+          type: string
+          deprecated: false
+        auxData:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/AuxDataSet'
+            deprecated: false
+      deprecated: false
+    MediaDataEntryReference:
+      type: object
+      required:
+      - locator
+      - type
+      properties:
+        type:
+          type: string
+          enum:
+          - diary
+          - fnol
+          - inquiry
+          - policy
+          - producer
+          - producerAppointment
+          - producerCode
+          - producerLicense
+          - quote
+          - task
+          - transaction
+          - userAssociation
+          deprecated: false
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    StreamingResponseBody:
+      type: object
+      deprecated: false
+    AuxDataResponse:
+      type: object
+      required:
+      - locator
+      - key
+      - modificationTimestamp
+      - uiType
+      - value
+      properties:
+        locator:
+          type: string
+          deprecated: false
+        key:
+          type: string
+          deprecated: false
+        uiType:
+          type: string
+          enum:
+          - normal
+          - hidden
+          - readonly
+          deprecated: false
+        value:
+          type: string
+          deprecated: false
+        modificationTimestamp:
+          type: string
+          format: date-time
+          deprecated: false
+        expirationTimestamp:
+          type: string
+          format: date-time
+          deprecated: false
+        auxDataSettingsName:
+          type: string
+          deprecated: false
+      deprecated: false
+    AuxDataSet:
+      type: object
+      required:
+      - key
+      - uiType
+      - value
+      properties:
+        uiType:
+          type: string
+          enum:
+          - normal
+          - hidden
+          - readonly
+          deprecated: false
+        key:
+          type: string
+          deprecated: false
+        value:
+          type: string
+          deprecated: false
+      deprecated: false
     DiaryEntryResponse:
       type: object
       required:
@@ -1099,224 +1319,4 @@ components:
           type: integer
           format: int32
           deprecated: false
-      deprecated: false
-    AuxDataResponse:
-      type: object
-      required:
-      - locator
-      - key
-      - modificationTimestamp
-      - uiType
-      - value
-      properties:
-        locator:
-          type: string
-          deprecated: false
-        key:
-          type: string
-          deprecated: false
-        uiType:
-          type: string
-          enum:
-          - normal
-          - hidden
-          - readonly
-          deprecated: false
-        value:
-          type: string
-          deprecated: false
-        modificationTimestamp:
-          type: string
-          format: date-time
-          deprecated: false
-        expirationTimestamp:
-          type: string
-          format: date-time
-          deprecated: false
-        auxDataSettingsName:
-          type: string
-          deprecated: false
-      deprecated: false
-    AuxDataKey:
-      type: object
-      required:
-      - key
-      - uiType
-      properties:
-        key:
-          type: string
-          deprecated: false
-        uiType:
-          type: string
-          enum:
-          - normal
-          - hidden
-          - readonly
-          deprecated: false
-        auxDataSettingsName:
-          type: string
-          deprecated: false
-      deprecated: false
-    MediaDataEntryReference:
-      type: object
-      required:
-      - locator
-      - type
-      properties:
-        type:
-          type: string
-          enum:
-          - diary
-          - fnol
-          - inquiry
-          - policy
-          - producer
-          - producerAppointment
-          - producerCode
-          - producerLicense
-          - quote
-          - task
-          - transaction
-          - userAssociation
-          deprecated: false
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    DiaryEntryCreateRequest:
-      type: object
-      required:
-      - contents
-      properties:
-        category:
-          type: string
-          deprecated: false
-        contents:
-          type: string
-          deprecated: false
-      deprecated: false
-    AuxDataSetCreateRequest:
-      type: object
-      required:
-      - auxData
-      properties:
-        auxDataSettingsName:
-          type: string
-          deprecated: false
-        auxData:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/AuxDataSet'
-            deprecated: false
-      deprecated: false
-    AuxDataSet:
-      type: object
-      required:
-      - key
-      - uiType
-      - value
-      properties:
-        uiType:
-          type: string
-          enum:
-          - normal
-          - hidden
-          - readonly
-          deprecated: false
-        key:
-          type: string
-          deprecated: false
-        value:
-          type: string
-          deprecated: false
-      deprecated: false
-    MediaDataEntry:
-      type: object
-      required:
-      - locator
-      - filename
-      - updatedAt
-      - updatedBy
-      - createdAt
-      - createdBy
-      - references
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        versionLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        filename:
-          type: string
-          deprecated: false
-        title:
-          type: string
-          deprecated: false
-        tag:
-          type: string
-          deprecated: false
-        references:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/MediaDataEntryReference'
-            deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
-        createdBy:
-          type: string
-          format: uuid
-          deprecated: false
-        updatedAt:
-          type: string
-          format: date-time
-          deprecated: false
-        updatedBy:
-          type: string
-          format: uuid
-          deprecated: false
-      deprecated: false
-    StreamingResponseBody:
-      type: object
-      deprecated: false
-    DiaryEntryUpdateRequest:
-      type: object
-      required:
-      - contents
-      properties:
-        category:
-          type: string
-          deprecated: false
-        contents:
-          type: string
-          deprecated: false
-      deprecated: false
-    AuxDataKeySetResponse:
-      type: object
-      required:
-      - count
-      - offset
-      - keys
-      properties:
-        offset:
-          type: integer
-          format: int32
-          deprecated: false
-        count:
-          type: integer
-          format: int32
-          deprecated: false
-        keys:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/AuxDataKey'
-            deprecated: false
       deprecated: false

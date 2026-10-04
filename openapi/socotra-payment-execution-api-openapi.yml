@@ -328,6 +328,23 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    FinancialInstrumentConfigurationRequest:
+      type: object
+      required:
+      - paymentProviderLocator
+      - offlinePaymentToken
+      properties:
+        paymentProviderLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        offlinePaymentToken:
+          type: string
+          deprecated: false
+        externalAccountNumber:
+          type: string
+          deprecated: false
+      deprecated: false
     PaymentProviderConfigurationRequestPaymentProviderConfiguration:
       type: object
       required:
@@ -339,30 +356,22 @@ components:
       discriminator:
         propertyName: paymentServiceProvider
       deprecated: false
-    PaymentProvider:
+    FinancialInstrumentConfigurationResponse:
       type: object
       required:
-      - locator
-      - paymentProviderState
-      - paymentServiceProvider
+      - paymentInstrumentLocator
+      - paymentProviderLocator
       properties:
-        locator:
+        paymentInstrumentLocator:
           type: string
           format: ulid
           deprecated: false
-        paymentServiceProvider:
+        paymentProviderLocator:
           type: string
-          enum:
-          - braintree
-          - braintreeSandbox
-          - stripe
-          - stripeTest
+          format: ulid
           deprecated: false
-        paymentProviderState:
+        externalAccountNumber:
           type: string
-          enum:
-          - active
-          - inactive
           deprecated: false
       deprecated: false
     ListPageResponsePaymentProvider:
@@ -422,21 +431,30 @@ components:
             writeOnly: true
         deprecated: false
       deprecated: false
-    FinancialInstrumentConfigurationRequest:
+    PaymentProvider:
       type: object
       required:
-      - paymentProviderLocator
-      - offlinePaymentToken
+      - locator
+      - paymentProviderState
+      - paymentServiceProvider
       properties:
-        paymentProviderLocator:
+        locator:
           type: string
           format: ulid
           deprecated: false
-        offlinePaymentToken:
+        paymentServiceProvider:
           type: string
+          enum:
+          - braintree
+          - braintreeSandbox
+          - stripe
+          - stripeTest
           deprecated: false
-        externalAccountNumber:
+        paymentProviderState:
           type: string
+          enum:
+          - active
+          - inactive
           deprecated: false
       deprecated: false
     StripeConfigurationRequest:
@@ -469,22 +487,4 @@ components:
             deprecated: false
             writeOnly: true
         deprecated: false
-      deprecated: false
-    FinancialInstrumentConfigurationResponse:
-      type: object
-      required:
-      - paymentInstrumentLocator
-      - paymentProviderLocator
-      properties:
-        paymentInstrumentLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        paymentProviderLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        externalAccountNumber:
-          type: string
-          deprecated: false
       deprecated: false

@@ -762,70 +762,113 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DeltaFile:
+    MetricRequest:
       type: object
       required:
-      - fileName
-      - deltaFileType
-      - generationTime
-      - jobEndTime
-      - jobStartTime
+      - startTime
+      - endTime
+      - localEndDateAdjusted
+      - localStartDateAdjusted
       properties:
-        deltaFileType:
+        groupByProduct:
+          type: boolean
+          deprecated: false
+        groupByTenant:
+          type: boolean
+          deprecated: false
+        tenantLocators:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: uuid
+            deprecated: false
+        products:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        tenantType:
           type: string
-          description: The format of the delta file
           enum:
-          - sql
-          - csv
+          - test
+          - production
+          - retired
+          - deleted
           deprecated: false
-        fileName:
+        startTime:
           type: string
-          description: The name of the delta file
+          format: date-time
           deprecated: false
-        jobStartTime:
-          type: integer
-          format: int64
-          description: The that the job to generate the file began. Format is UNIX timestamp in UTC seconds (e.g. 1451606100)
-          deprecated: false
-        jobEndTime:
-          type: integer
-          format: int64
-          description: The that the job to generate the file ended. Format is UNIX timestamp in UTC seconds (e.g. 1451606100)
-          deprecated: false
-        generationTime:
-          type: integer
-          format: int64
-          description: The time that the file was generated. Format is UNIX timestamp in UTC milliseconds (e.g. 1741713134934)
-          deprecated: false
-        recordCount:
-          type: integer
-          format: int32
-          description: For files with `deltaFileType` = `csv`, the number of rows in the file, excluding headers
-          deprecated: false
-        md5HashSum:
+        endTime:
           type: string
-          description: For files with `deltaFileType` = `csv`, the MD5 format hashsum for the file contents, including headers
+          format: date-time
+          deprecated: false
+        periodic:
+          type: string
+          enum:
+          - none
+          - day
+          - week
+          - month
+          - quarter
+          - year
+          deprecated: false
+        currencies:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        localStartDateAdjusted:
+          type: string
+          format: date
+          deprecated: false
+        localEndDateAdjusted:
+          type: string
+          format: date
           deprecated: false
       deprecated: false
-    DeltaFileDownloadRequest:
+    DeltaFilesGetResponse:
       type: object
       required:
-      - tenantLocator
-      - fileName
+      - createTableFile
+      - dataProcessedThroughTime
+      - dropTableFile
+      - s3Bucket
+      - version
+      - deltaFiles
       properties:
-        tenantLocator:
+        version:
+          type: integer
+          format: int32
+          description: Target a specific schema version; defaults to latest if omitted
+          deprecated: false
+        createTableFile:
           type: string
-          format: uuid
-          description: Locator of the tenant corresponding to the data
+          description: Path & name of file with necessary sql statement to create the table in the destination schema
+          deprecated: false
+        dropTableFile:
+          type: string
+          description: Path & name of file with necessary sql statement to drop the existing version of the table in the destination schema
           deprecated: false
         s3Bucket:
           type: string
-          description: The name of the S3 bucket as returned by the <ApiLink name='DeltaFilesGetResponse' />. Only required if requesting `createTableFile` or `dropTableFile`, and `deltaFileType` is `csv`
+          description: The source S3 bucket required for the <ApiLink name='DeltaFileDownloadRequest' />
           deprecated: false
-        fileName:
-          type: string
-          description: The name of the file to be requested. Value may be `fileName`, `createTableFile`, or `dropTableFile`
+        dataProcessedThroughTime:
+          type: integer
+          format: int64
+          description: The time of the latest operational change that will be reflected in the data. Format is UNIX timestamp in UTC seconds (e.g. 1451606100)
           deprecated: false
+        deltaFiles:
+          type: array
+          description: The index of individual delta files
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DeltaFile'
+            deprecated: false
       deprecated: false
     DeltaFilesGetRequest:
       type: object
@@ -931,45 +974,73 @@ components:
           description: Only files with a `dataProcessedThroughTime` prior to or equal to this time will be returned. Format is UNIX timestamp in UTC seconds (e.g. 1451606100)
           deprecated: false
       deprecated: false
-    DeltaFilesGetResponse:
+    DeltaFile:
       type: object
       required:
-      - createTableFile
-      - dataProcessedThroughTime
-      - dropTableFile
-      - s3Bucket
-      - version
-      - deltaFiles
+      - fileName
+      - deltaFileType
+      - generationTime
+      - jobEndTime
+      - jobStartTime
       properties:
-        version:
+        deltaFileType:
+          type: string
+          description: The format of the delta file
+          enum:
+          - sql
+          - csv
+          deprecated: false
+        fileName:
+          type: string
+          description: The name of the delta file
+          deprecated: false
+        jobStartTime:
+          type: integer
+          format: int64
+          description: The that the job to generate the file began. Format is UNIX timestamp in UTC seconds (e.g. 1451606100)
+          deprecated: false
+        jobEndTime:
+          type: integer
+          format: int64
+          description: The that the job to generate the file ended. Format is UNIX timestamp in UTC seconds (e.g. 1451606100)
+          deprecated: false
+        generationTime:
+          type: integer
+          format: int64
+          description: The time that the file was generated. Format is UNIX timestamp in UTC milliseconds (e.g. 1741713134934)
+          deprecated: false
+        recordCount:
           type: integer
           format: int32
-          description: Target a specific schema version; defaults to latest if omitted
+          description: For files with `deltaFileType` = `csv`, the number of rows in the file, excluding headers
           deprecated: false
-        createTableFile:
+        md5HashSum:
           type: string
-          description: Path & name of file with necessary sql statement to create the table in the destination schema
+          description: For files with `deltaFileType` = `csv`, the MD5 format hashsum for the file contents, including headers
           deprecated: false
-        dropTableFile:
+      deprecated: false
+    StreamingResponseBody:
+      type: object
+      deprecated: false
+    DeltaFileDownloadRequest:
+      type: object
+      required:
+      - tenantLocator
+      - fileName
+      properties:
+        tenantLocator:
           type: string
-          description: Path & name of file with necessary sql statement to drop the existing version of the table in the destination schema
+          format: uuid
+          description: Locator of the tenant corresponding to the data
           deprecated: false
         s3Bucket:
           type: string
-          description: The source S3 bucket required for the <ApiLink name='DeltaFileDownloadRequest' />
+          description: The name of the S3 bucket as returned by the <ApiLink name='DeltaFilesGetResponse' />. Only required if requesting `createTableFile` or `dropTableFile`, and `deltaFileType` is `csv`
           deprecated: false
-        dataProcessedThroughTime:
-          type: integer
-          format: int64
-          description: The time of the latest operational change that will be reflected in the data. Format is UNIX timestamp in UTC seconds (e.g. 1451606100)
+        fileName:
+          type: string
+          description: The name of the file to be requested. Value may be `fileName`, `createTableFile`, or `dropTableFile`
           deprecated: false
-        deltaFiles:
-          type: array
-          description: The index of individual delta files
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/DeltaFile'
-            deprecated: false
       deprecated: false
     MetricResponse:
       type: object
@@ -1013,77 +1084,6 @@ components:
           items:
             $ref: '#/components/schemas/DataPoint'
             deprecated: false
-      deprecated: false
-    MetricRequest:
-      type: object
-      required:
-      - startTime
-      - endTime
-      - localEndDateAdjusted
-      - localStartDateAdjusted
-      properties:
-        groupByProduct:
-          type: boolean
-          deprecated: false
-        groupByTenant:
-          type: boolean
-          deprecated: false
-        tenantLocators:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: uuid
-            deprecated: false
-        products:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        tenantType:
-          type: string
-          enum:
-          - test
-          - production
-          - retired
-          - deleted
-          deprecated: false
-        startTime:
-          type: string
-          format: date-time
-          deprecated: false
-        endTime:
-          type: string
-          format: date-time
-          deprecated: false
-        periodic:
-          type: string
-          enum:
-          - none
-          - day
-          - week
-          - month
-          - quarter
-          - year
-          deprecated: false
-        currencies:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        localStartDateAdjusted:
-          type: string
-          format: date
-          deprecated: false
-        localEndDateAdjusted:
-          type: string
-          format: date
-          deprecated: false
-      deprecated: false
-    StreamingResponseBody:
-      type: object
       deprecated: false
     DataPoint:
       type: object

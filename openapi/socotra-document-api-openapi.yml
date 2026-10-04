@@ -1491,31 +1491,21 @@ components:
           type: string
           deprecated: true
       deprecated: false
-    DocumentEventData:
+    ListPageResponseDocumentInstance:
       type: object
       required:
-      - documentLocator
-      - referenceLocator
-      - referenceType
+      - listCompleted
+      - items
       properties:
-        documentLocator:
-          type: string
-          format: ulid
+        listCompleted:
+          type: boolean
           deprecated: false
-        referenceType:
-          type: string
-          enum:
-          - quote
-          - policy
-          - invoice
-          - transaction
-          - segment
-          - term
+        items:
+          type: array
           deprecated: false
-        referenceLocator:
-          type: string
-          format: ulid
-          deprecated: false
+          items:
+            $ref: '#/components/schemas/DocumentInstanceResponse'
+            deprecated: false
       deprecated: false
     DocumentListResponse:
       type: object
@@ -1543,55 +1533,23 @@ components:
           $ref: '#/components/schemas/DocumentEventData'
           deprecated: false
       deprecated: false
-    DocumentJobListResponse:
+    TemplateResponse:
       type: object
-      required:
-      - listCompleted
-      - items
       properties:
-        listCompleted:
-          type: boolean
+        file:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+              deprecated: false
           deprecated: false
-        items:
-          type: array
+        template:
+          type: string
           deprecated: false
-          items:
-            $ref: '#/components/schemas/DocumentsJobSummary'
-            deprecated: false
       deprecated: false
-    DocumentsJobSummary:
+    StreamingResponseBody:
       type: object
-      required:
-      - locator
-      - referenceType
-      - status
-      - createdAt
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        referenceType:
-          type: string
-          enum:
-          - quote
-          - policy
-          - invoice
-          - transaction
-          - segment
-          - term
-          deprecated: false
-        status:
-          type: string
-          enum:
-          - running
-          - finished
-          - failed
-          deprecated: false
-        createdAt:
-          type: string
-          format: date-time
-          deprecated: false
       deprecated: false
     DocumentInstanceResponse:
       type: object
@@ -1730,6 +1688,91 @@ components:
           type: boolean
           deprecated: false
       deprecated: false
+    DocumentsJobSummary:
+      type: object
+      required:
+      - locator
+      - referenceType
+      - status
+      - createdAt
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - quote
+          - policy
+          - invoice
+          - transaction
+          - segment
+          - term
+          deprecated: false
+        status:
+          type: string
+          enum:
+          - running
+          - finished
+          - failed
+          deprecated: false
+        createdAt:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    DocumentServiceEventTypeDefinitions:
+      type: object
+      required:
+      - documentEvents
+      properties:
+        documentEvents:
+          $ref: '#/components/schemas/DocumentEvents'
+          deprecated: false
+      deprecated: false
+    DocumentEventData:
+      type: object
+      required:
+      - documentLocator
+      - referenceLocator
+      - referenceType
+      properties:
+        documentLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        referenceType:
+          type: string
+          enum:
+          - quote
+          - policy
+          - invoice
+          - transaction
+          - segment
+          - term
+          deprecated: false
+        referenceLocator:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    DocumentJobListResponse:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/DocumentsJobSummary'
+            deprecated: false
+      deprecated: false
     DocumentsJob:
       type: object
       required:
@@ -1825,47 +1868,4 @@ components:
         isConsolidation:
           type: boolean
           deprecated: false
-      deprecated: false
-    ListPageResponseDocumentInstance:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/DocumentInstanceResponse'
-            deprecated: false
-      deprecated: false
-    TemplateResponse:
-      type: object
-      properties:
-        file:
-          type: object
-          properties:
-            file:
-              type: string
-              format: binary
-              deprecated: false
-          deprecated: false
-        template:
-          type: string
-          deprecated: false
-      deprecated: false
-    DocumentServiceEventTypeDefinitions:
-      type: object
-      required:
-      - documentEvents
-      properties:
-        documentEvents:
-          $ref: '#/components/schemas/DocumentEvents'
-          deprecated: false
-      deprecated: false
-    StreamingResponseBody:
-      type: object
       deprecated: false

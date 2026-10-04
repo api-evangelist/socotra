@@ -290,17 +290,17 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ContactEventData:
+    ContactMergeEventData:
       type: object
       required:
-      - locator
-      - staticLocator
+      - newStaticLocator
+      - oldStaticLocator
       properties:
-        locator:
+        oldStaticLocator:
           type: string
           format: ulid
           deprecated: false
-        staticLocator:
+        newStaticLocator:
           type: string
           format: ulid
           deprecated: false
@@ -330,6 +330,67 @@ components:
             type: object
             deprecated: false
       deprecated: false
+    ListPageResponseContact:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/Contact'
+            deprecated: false
+      deprecated: false
+    ValidationResult:
+      type: object
+      required:
+      - success
+      properties:
+        validationItems:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ValidationItemResponse'
+            deprecated: false
+        success:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    ValidationItemResponse:
+      type: object
+      required:
+      - locator
+      - elementType
+      - errors
+      properties:
+        elementType:
+          type: string
+          deprecated: false
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        errors:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    ContactServiceEventTypeDefinitions:
+      type: object
+      required:
+      - contactEvents
+      properties:
+        contactEvents:
+          $ref: '#/components/schemas/ContactEvents'
+          deprecated: false
+      deprecated: false
     ContactsMergeRequest:
       type: object
       required:
@@ -346,29 +407,6 @@ components:
         mergeToContact:
           type: string
           format: ulid
-          deprecated: false
-      deprecated: false
-    ContactCreateRequest:
-      type: object
-      required:
-      - autoValidate
-      - type
-      - data
-      properties:
-        type:
-          type: string
-          deprecated: false
-        region:
-          type: string
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        autoValidate:
-          type: boolean
           deprecated: false
       deprecated: false
     Contact:
@@ -433,52 +471,6 @@ components:
           format: date-time
           deprecated: false
       deprecated: false
-    ValidationResult:
-      type: object
-      required:
-      - success
-      properties:
-        validationItems:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ValidationItemResponse'
-            deprecated: false
-        success:
-          type: boolean
-          deprecated: false
-      deprecated: false
-    ListPageResponseContact:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/Contact'
-            deprecated: false
-      deprecated: false
-    ContactMergeEventData:
-      type: object
-      required:
-      - newStaticLocator
-      - oldStaticLocator
-      properties:
-        oldStaticLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        newStaticLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
     ContactEvents:
       type: object
       properties:
@@ -495,33 +487,41 @@ components:
           $ref: '#/components/schemas/ContactEventData'
           deprecated: false
       deprecated: false
-    ContactServiceEventTypeDefinitions:
-      type: object
-      required:
-      - contactEvents
-      properties:
-        contactEvents:
-          $ref: '#/components/schemas/ContactEvents'
-          deprecated: false
-      deprecated: false
-    ValidationItemResponse:
+    ContactEventData:
       type: object
       required:
       - locator
-      - elementType
-      - errors
+      - staticLocator
       properties:
-        elementType:
-          type: string
-          deprecated: false
         locator:
           type: string
           format: ulid
           deprecated: false
-        errors:
-          type: array
+        staticLocator:
+          type: string
+          format: ulid
           deprecated: false
-          items:
-            type: string
+      deprecated: false
+    ContactCreateRequest:
+      type: object
+      required:
+      - autoValidate
+      - type
+      - data
+      properties:
+        type:
+          type: string
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
             deprecated: false
+        autoValidate:
+          type: boolean
+          deprecated: false
       deprecated: false

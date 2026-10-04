@@ -360,20 +360,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ObjectReference:
-      type: object
-      required:
-      - locator
-      - type
-      properties:
-        locator:
-          type: string
-          format: ulid
-          deprecated: false
-        type:
-          type: string
-          deprecated: false
-      deprecated: false
     PluginLogsListResponse:
       type: object
       required:
@@ -389,6 +375,23 @@ components:
           items:
             $ref: '#/components/schemas/PluginLogsMetadata'
             deprecated: false
+      deprecated: false
+    ObjectReference:
+      type: object
+      required:
+      - locator
+      - type
+      properties:
+        locator:
+          type: string
+          format: ulid
+          deprecated: false
+        type:
+          type: string
+          deprecated: false
+      deprecated: false
+    StreamingResponseBody:
+      type: object
       deprecated: false
     PluginLogsMetadata:
       type: object
@@ -429,7 +432,4 @@ components:
           items:
             $ref: '#/components/schemas/ObjectReference'
             deprecated: false
-      deprecated: false
-    StreamingResponseBody:
-      type: object
       deprecated: false
