@@ -62,6 +62,7 @@ tags:
 - Claims
 - Underwriting
 - MCP
+- Invoicing
 tags_raw:
 - Company
 - Insurtech
@@ -73,6 +74,7 @@ tags_raw:
 - Underwriting
 - API
 - MCP
+- Invoicing
 image: https://www.socotra.com/favicon.ico
 apis:
 - aid: socotra:socotra-auth-api
