@@ -1,17 +1,22 @@
-generated: '2026-07-21'
+generated: '2026-09-23'
 method: generated
-source: openapi/socotra-openapi-original.json
+source: openapi/socotra-auth-api-openapi.yml, openapi/socotra-auxdata-api-openapi.yml, openapi/socotra-billing-api-openapi.yml,
+  openapi/socotra-business-stats-api-openapi.yml, openapi/socotra-claim-api-openapi.yml, openapi/socotra-compliance-api-openapi.yml,
+  openapi/socotra-config-api-openapi.yml, openapi/socotra-contact-api-openapi.yml, openapi/socotra-document-api-openapi.yml,
+  openapi/socotra-event-api-openapi.yml, openapi/socotra-migration-api-openapi.yml, openapi/socotra-payment-execution-api-openapi.yml,
+  openapi/socotra-plugin-api-openapi.yml, openapi/socotra-policy-api-openapi.yml, openapi/socotra-producers-api-openapi.yml,
+  openapi/socotra-resource-api-openapi.yml, openapi/socotra-search-api-openapi.yml, openapi/socotra-work-management-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 722
   by_action_class:
-    connected: 303
-    acting: 419
+    connected: 314
+    acting: 408
   by_consequence:
-    read: 303
-    write: 368
+    read: 314
+    write: 357
     safety-critical: 12
     physical: 39
   human_in_the_loop_required: 12
@@ -2824,18 +2829,12 @@ operations:
   method: post
   operationId: getRenewedPolicies
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /business-stats/metrics/renewedPolicies/download
   method: post
   operationId: downloadRenewedPolicies
@@ -2856,18 +2855,12 @@ operations:
   method: post
   operationId: getRenewalRate
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /business-stats/metrics/renewalRate/download
   method: post
   operationId: downloadRenewalRate
@@ -2888,18 +2881,12 @@ operations:
   method: post
   operationId: getPricedQuotes
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /business-stats/metrics/quotes/download
   method: post
   operationId: downloadPricedQuotes
@@ -2920,18 +2907,12 @@ operations:
   method: post
   operationId: getIssuedPolicies
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /business-stats/metrics/issued/download
   method: post
   operationId: downloadIssuedPolicies
@@ -2952,18 +2933,12 @@ operations:
   method: post
   operationId: getGWP
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /business-stats/metrics/gwp/download
   method: post
   operationId: downloadGWP
@@ -2984,18 +2959,12 @@ operations:
   method: post
   operationId: getExpiredPolicies
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /business-stats/metrics/expiredPolicies/download
   method: post
   operationId: downloadExpiredPolicies
@@ -3016,18 +2985,12 @@ operations:
   method: post
   operationId: getConversionRate
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /business-stats/metrics/conversionRate/download
   method: post
   operationId: downloadConversionRate
@@ -3048,34 +3011,22 @@ operations:
   method: post
   operationId: fetchDeltaFiles
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /business-stats/delta-files/download
   method: post
   operationId: fetchDeltaFile
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /claim/{tenantLocator}/fnols/{locator}/losses
   method: put
   operationId: addLosses
@@ -8014,6 +7965,564 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}
+  method: get
+  operationId: fetchProducer
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /producers/{tenantLocator}/producers/{producerLocator}
+  method: put
+  operationId: replaceProducer
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}
+  method: patch
+  operationId: updateProducer
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/licenses/{producerLicenseLocator}
+  method: get
+  operationId: fetchProducerLicense
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /producers/{tenantLocator}/producers/{producerLocator}/licenses/{producerLicenseLocator}
+  method: put
+  operationId: replaceProducerLicense
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/licenses/{producerLicenseLocator}
+  method: patch
+  operationId: updateProducerLicense
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}
+  method: get
+  operationId: fetchProducerCode
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}
+  method: put
+  operationId: replaceProducerCode
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}
+  method: patch
+  operationId: updateProducerCode
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/appointments/{producerAppointmentLocator}
+  method: get
+  operationId: fetchProducerAppointment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /producers/{tenantLocator}/producers/{producerLocator}/appointments/{producerAppointmentLocator}
+  method: put
+  operationId: replaceProducerAppointment
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/appointments/{producerAppointmentLocator}
+  method: patch
+  operationId: updateProducerAppointment
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers
+  method: post
+  operationId: createProducer
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/licenses
+  method: post
+  operationId: createProducerLicense
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/codes
+  method: post
+  operationId: createProducerCode
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/number/set
+  method: post
+  operationId: setCodeByNumber
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/number/generate
+  method: post
+  operationId: generateCodeByNumber
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/appointments
+  method: post
+  operationId: createProducerAppointment
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/validate
+  method: patch
+  operationId: validateProducer
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/unsuspend
+  method: patch
+  operationId: unsuspendProducer
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/suspend
+  method: patch
+  operationId: suspendProducer
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/retire
+  method: patch
+  operationId: retireProducer
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/licenses/{producerLicenseLocator}/validate
+  method: patch
+  operationId: validateProducerLicense
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/licenses/{producerLicenseLocator}/discard
+  method: patch
+  operationId: discardProducerLicense
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/discard
+  method: patch
+  operationId: discardProducer
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/validate
+  method: patch
+  operationId: validateProducerCode
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/unsuspend
+  method: patch
+  operationId: unsuspendProducerCode
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/suspend
+  method: patch
+  operationId: suspendProducerCode
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/retire
+  method: patch
+  operationId: retireProducerCode
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/discard
+  method: patch
+  operationId: discardProducerCode
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/appointments/{producerAppointmentLocator}/validate
+  method: patch
+  operationId: validateProducerAppointment
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/appointments/{producerAppointmentLocator}/discard
+  method: patch
+  operationId: discardProducerAppointment
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /producers/{tenantLocator}/producers/{producerLocator}/producerHierarchy
+  method: get
+  operationId: fetchProducerHierarchy
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /producers/{tenantLocator}/producers/{producerLocator}/licenses/list
+  method: get
+  operationId: fetchProducerLicenses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/list
+  method: get
+  operationId: fetchProducerCodes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /producers/{tenantLocator}/producers/{producerLocator}/appointments/list
+  method: get
+  operationId: fetchProducerAppointments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /producers/{tenantLocator}/producers/list
+  method: get
+  operationId: fetchProducers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /producers/{tenantLocator}/producers/codes/{code}
+  method: get
+  operationId: fetchProducerCodeByCode
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /producers/events
+  method: get
+  operationId: fetchProducersEventDefinitions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /resource/{tenantLocator}/uiConfigs
   method: post
   operationId: createUiConfig
@@ -8666,34 +9175,22 @@ operations:
   method: post
   operationId: fetchSearchResults
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /search/{tenantLocator}/search/searchStats
   method: post
   operationId: fetchSearchStats
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /search/{tenantLocator}/search/ignoredFields
   method: get
   operationId: fetchIgnoredFields
@@ -9263,564 +9760,6 @@ operations:
 - path: /work-management/events
   method: get
   operationId: fetchWorkManagementEventDefinitions
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /producers/{tenantLocator}/producers/{producerLocator}
-  method: get
-  operationId: fetchProducer
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /producers/{tenantLocator}/producers/{producerLocator}
-  method: put
-  operationId: replaceProducer
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}
-  method: patch
-  operationId: updateProducer
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/licenses/{producerLicenseLocator}
-  method: get
-  operationId: fetchProducerLicense
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /producers/{tenantLocator}/producers/{producerLocator}/licenses/{producerLicenseLocator}
-  method: put
-  operationId: replaceProducerLicense
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/licenses/{producerLicenseLocator}
-  method: patch
-  operationId: updateProducerLicense
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}
-  method: get
-  operationId: fetchProducerCode
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}
-  method: put
-  operationId: replaceProducerCode
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}
-  method: patch
-  operationId: updateProducerCode
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/appointments/{producerAppointmentLocator}
-  method: get
-  operationId: fetchProducerAppointment
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /producers/{tenantLocator}/producers/{producerLocator}/appointments/{producerAppointmentLocator}
-  method: put
-  operationId: replaceProducerAppointment
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/appointments/{producerAppointmentLocator}
-  method: patch
-  operationId: updateProducerAppointment
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers
-  method: post
-  operationId: createProducer
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/licenses
-  method: post
-  operationId: createProducerLicense
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/codes
-  method: post
-  operationId: createProducerCode
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/number/set
-  method: post
-  operationId: setCodeByNumber
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/number/generate
-  method: post
-  operationId: generateCodeByNumber
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/appointments
-  method: post
-  operationId: createProducerAppointment
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/validate
-  method: patch
-  operationId: validateProducer
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/unsuspend
-  method: patch
-  operationId: unsuspendProducer
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/suspend
-  method: patch
-  operationId: suspendProducer
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/retire
-  method: patch
-  operationId: retireProducer
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/licenses/{producerLicenseLocator}/validate
-  method: patch
-  operationId: validateProducerLicense
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/licenses/{producerLicenseLocator}/discard
-  method: patch
-  operationId: discardProducerLicense
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/discard
-  method: patch
-  operationId: discardProducer
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/validate
-  method: patch
-  operationId: validateProducerCode
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/unsuspend
-  method: patch
-  operationId: unsuspendProducerCode
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/suspend
-  method: patch
-  operationId: suspendProducerCode
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/retire
-  method: patch
-  operationId: retireProducerCode
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/{producerCodeLocator}/discard
-  method: patch
-  operationId: discardProducerCode
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/appointments/{producerAppointmentLocator}/validate
-  method: patch
-  operationId: validateProducerAppointment
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/appointments/{producerAppointmentLocator}/discard
-  method: patch
-  operationId: discardProducerAppointment
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /producers/{tenantLocator}/producers/{producerLocator}/producerHierarchy
-  method: get
-  operationId: fetchProducerHierarchy
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /producers/{tenantLocator}/producers/{producerLocator}/licenses/list
-  method: get
-  operationId: fetchProducerLicenses
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /producers/{tenantLocator}/producers/{producerLocator}/codes/list
-  method: get
-  operationId: fetchProducerCodes
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /producers/{tenantLocator}/producers/{producerLocator}/appointments/list
-  method: get
-  operationId: fetchProducerAppointments
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /producers/{tenantLocator}/producers/list
-  method: get
-  operationId: fetchProducers
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /producers/{tenantLocator}/producers/codes/{code}
-  method: get
-  operationId: fetchProducerCodeByCode
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /producers/events
-  method: get
-  operationId: fetchProducersEventDefinitions
   x-agentic-access:
     action-class: connected
     consequence: read
