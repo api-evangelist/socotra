@@ -1,0 +1,329 @@
+generated: '2026-10-13'
+method: searched
+checked:
+- https://marketplace.socotra.com/
+marketplace_apps:
+- marketplace: own
+  channel: partner-built
+  app: socotra
+  url: https://marketplace.socotra.com/
+  app_count: null
+  adapter: sweep-insurance.py:nuxt-home
+  listed: 21
+  note: apps on the home page only (21); no public listing API for the full catalogue
+edges:
+- partner_name: 'Stripe Payment - EC '
+  app: 'Stripe Payment - EC '
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://marketplace.socotra.com/apps/socotra/stripe-payment-ec
+  category: stripe
+  partner_domain: null
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: Verisk 360 Value
+  app: Verisk 360 Value
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://marketplace.socotra.com/apps/socotra/verisk-360-value
+  category: verisk
+  partner_domain: null
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: Verisk Lightspeed Auto Reports
+  app: Verisk Lightspeed Auto Reports
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://marketplace.socotra.com/apps/socotra/verisk-lightspeed-auto-reports
+  category: verisk, reporting, motor
+  partner_domain: null
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: splice
+  app: SPLICE Software
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.socotra.com/apps/splice/splice-software
+  category: automation, text, chat, voice, call, email, communication, cx, surveys
+  partner_domain: splicesoftware.com
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: Vehicle Lookup (DVLA)
+  app: Vehicle Lookup (DVLA)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://marketplace.socotra.com/apps/socotra/vehicle-lookup-dvla
+  category: uk, registration-number, vin, vehicle, motor-insurance
+  partner_domain: null
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: 'Stripe Payment: /charge_payment'
+  app: 'Stripe Payment: /charge_payment'
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://marketplace.socotra.com/apps/socotra/stripe-payment
+  category: payment, stripe
+  partner_domain: null
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: coherent
+  app: Coherent Spark for Excel Rating
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.socotra.com/apps/coherent/coherent-spark-rating
+  category: rating
+  partner_domain: coherent.global
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: nuon
+  app: Nuon AI for Motor
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.socotra.com/apps/nuon/nuon-ai-for-motor
+  category: AI, ML, Pricing, Auto, Motor, Analytics, Data, Underwriting
+  partner_domain: nuon.ai
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: Agency Management Connector
+  app: Agency Management Connector
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://marketplace.socotra.com/apps/socotra/agency-management-connector
+  category: agency, commissions
+  partner_domain: null
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: GhostDraft
+  app: GhostDraft Document Generation
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.socotra.com/apps/GhostDraft/ghost-draft-document-generation
+  category: Policy Documents
+  partner_domain: ghostdraft.com
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: dataart
+  app: Cape Analytics Integration
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.socotra.com/apps/dataart/cape-analytics-integration
+  category: cape, homeowners, dwelling, roof
+  partner_domain: dataart.com
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: fenris
+  app: Fenris Auto Prefill
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.socotra.com/apps/fenris/auto-prefill
+  category: VIN, Prefill, Auto
+  partner_domain: fenrisd.com
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: Floatbot
+  app: Floatbot.AI
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.socotra.com/apps/Floatbot/floatbot
+  category: AI Bot, Chatbot, voicebot, Conversational Bot, conversational AI, generative AI
+  partner_domain: floatbot.ai
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: Aggne
+  app: Verisk 360Value Integration
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.socotra.com/apps/Aggne/aggne-verisk-360
+  category: Aggne, Verisk, Autofill
+  partner_domain: aggne.com
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: Tranzpay
+  app: Tranzpay Payment Integration
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.socotra.com/apps/Tranzpay/tranzpay-payment
+  category: Socotra, Tranzpay, Payment, Credit Card, ACH, Payment Processor
+  partner_domain: tranzpay.io
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: radity
+  app: Stripe Payments
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.socotra.com/apps/radity/stripe-payment
+  category: Stripe, Payment, Sendgrid, Invoice
+  partner_domain: radity.com
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: Tranzpay
+  app: DisburseCloud - Claims Payment
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.socotra.com/apps/Tranzpay/socotra-disbursecloud
+  category: DisburseCloud, Socotra, Claim, Claims, SubClaim, SubClaims, Payable, Payables
+  partner_domain: disbursecloud.com
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: Relativity6 Industry Classification API
+  app: Relativity6 Industry Classification API
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://marketplace.socotra.com/apps/socotra/smp-relativity6
+  category: BOP, AI, data
+  partner_domain: null
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: fivesigma
+  app: Five Sigma SaaS Claims Management
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.socotra.com/apps/fivesigma/fivesigma-claims
+  category: claims, claims management, digital claims, SaaS
+  partner_domain: fivesigmalabs.com
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: Vehicle Lookup (NHTSA)
+  app: Vehicle Lookup (NHTSA)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://marketplace.socotra.com/apps/socotra/vin-decoder
+  category: NHTSA, VIN, Personal Auto, Vehicle, Data'
+  partner_domain: null
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: Geosite
+  app: Geosite Risk Evaluation
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.socotra.com/apps/Geosite/geosite-app
+  category: risk, underwriting, property
+  partner_domain: geosite.io
+  detected_by: sweep-insurance.py
+  detected: '2026-10-13'
