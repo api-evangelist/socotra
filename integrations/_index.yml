@@ -243,3 +243,15 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: socotra-aws-marketplace
+  label: AWS Marketplace
+  partner: amazon-web-services
+  partner_name: AWS Marketplace
+  type: marketplace
+  marketplace: aws-marketplace
+  channel: distribution
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=5afe352e-af3c-42f0-9a1d-fcca433710a7
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
