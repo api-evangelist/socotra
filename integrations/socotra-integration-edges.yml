@@ -13,22 +13,6 @@ marketplace_apps:
   listed: 21
   note: apps on the home page only (21); no public listing API for the full catalogue
 edges:
-- partner_name: AWS Marketplace
-  partner: amazon-web-services
-  partner_match: aggregator
-  type: marketplace
-  marketplace: aws-marketplace
-  channel: distribution
-  relationship: platform-app
-  direction: provider-built
-  evidence: https://aws.amazon.com/marketplace/seller-profile?id=5afe352e-af3c-42f0-9a1d-fcca433710a7
-  listing_count: 2
-  apps:
-  - Socotra Enterprise Core
-  - Socotra
-  seller_name: Socotra Inc
-  detected_by: sweep-cloud-marketplaces.py
-  detected: '2026-10-13'
 - partner_name: 'Stripe Payment - EC '
   app: 'Stripe Payment - EC '
   partner: null
@@ -343,4 +327,20 @@ edges:
   category: risk, underwriting, property
   partner_domain: geosite.io
   detected_by: sweep-insurance.py
+  detected: '2026-10-13'
+- partner_name: AWS Marketplace
+  partner: amazon-web-services
+  partner_match: aggregator
+  type: marketplace
+  marketplace: aws-marketplace
+  channel: distribution
+  relationship: distribution-channel
+  direction: third-party
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=5afe352e-af3c-42f0-9a1d-fcca433710a7
+  listing_count: 2
+  apps:
+  - Socotra Enterprise Core
+  - Socotra
+  seller_name: Socotra Inc
+  detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
