@@ -290,19 +290,42 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ContactMergeEventData:
+    ContactEventData:
       type: object
       required:
-      - newStaticLocator
-      - oldStaticLocator
+      - locator
+      - staticLocator
       properties:
-        oldStaticLocator:
+        locator:
           type: string
           format: ulid
           deprecated: false
-        newStaticLocator:
+        staticLocator:
           type: string
           format: ulid
+          deprecated: false
+      deprecated: false
+    ContactCreateRequest:
+      type: object
+      required:
+      - autoValidate
+      - type
+      - data
+      properties:
+        type:
+          type: string
+          deprecated: false
+        region:
+          type: string
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        autoValidate:
+          type: boolean
           deprecated: false
       deprecated: false
     ContactUpdateRequest:
@@ -330,35 +353,20 @@ components:
             type: object
             deprecated: false
       deprecated: false
-    ListPageResponseContact:
+    ContactEvents:
       type: object
-      required:
-      - listCompleted
-      - items
       properties:
-        listCompleted:
-          type: boolean
+        contact.anonymized:
+          $ref: '#/components/schemas/ContactEventData'
           deprecated: false
-        items:
-          type: array
+        contact.merged:
+          $ref: '#/components/schemas/ContactMergeEventData'
           deprecated: false
-          items:
-            $ref: '#/components/schemas/Contact'
-            deprecated: false
-      deprecated: false
-    ValidationResult:
-      type: object
-      required:
-      - success
-      properties:
-        validationItems:
-          type: array
+        contact.validated:
+          $ref: '#/components/schemas/ContactEventData'
           deprecated: false
-          items:
-            $ref: '#/components/schemas/ValidationItemResponse'
-            deprecated: false
-        success:
-          type: boolean
+        contact.created:
+          $ref: '#/components/schemas/ContactEventData'
           deprecated: false
       deprecated: false
     ValidationItemResponse:
@@ -382,29 +390,17 @@ components:
             type: string
             deprecated: false
       deprecated: false
-    ContactServiceEventTypeDefinitions:
+    ContactMergeEventData:
       type: object
       required:
-      - contactEvents
+      - newStaticLocator
+      - oldStaticLocator
       properties:
-        contactEvents:
-          $ref: '#/components/schemas/ContactEvents'
+        oldStaticLocator:
+          type: string
+          format: ulid
           deprecated: false
-      deprecated: false
-    ContactsMergeRequest:
-      type: object
-      required:
-      - mergeToContact
-      - contactLocators
-      properties:
-        contactLocators:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            format: ulid
-            deprecated: false
-        mergeToContact:
+        newStaticLocator:
           type: string
           format: ulid
           deprecated: false
@@ -471,57 +467,61 @@ components:
           format: date-time
           deprecated: false
       deprecated: false
-    ContactEvents:
-      type: object
-      properties:
-        contact.anonymized:
-          $ref: '#/components/schemas/ContactEventData'
-          deprecated: false
-        contact.merged:
-          $ref: '#/components/schemas/ContactMergeEventData'
-          deprecated: false
-        contact.validated:
-          $ref: '#/components/schemas/ContactEventData'
-          deprecated: false
-        contact.created:
-          $ref: '#/components/schemas/ContactEventData'
-          deprecated: false
-      deprecated: false
-    ContactEventData:
+    ValidationResult:
       type: object
       required:
-      - locator
-      - staticLocator
+      - success
       properties:
-        locator:
-          type: string
-          format: ulid
+        validationItems:
+          type: array
           deprecated: false
-        staticLocator:
-          type: string
-          format: ulid
-          deprecated: false
-      deprecated: false
-    ContactCreateRequest:
-      type: object
-      required:
-      - autoValidate
-      - type
-      - data
-      properties:
-        type:
-          type: string
-          deprecated: false
-        region:
-          type: string
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
+          items:
+            $ref: '#/components/schemas/ValidationItemResponse'
             deprecated: false
-        autoValidate:
+        success:
           type: boolean
+          deprecated: false
+      deprecated: false
+    ListPageResponseContact:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/Contact'
+            deprecated: false
+      deprecated: false
+    ContactsMergeRequest:
+      type: object
+      required:
+      - mergeToContact
+      - contactLocators
+      properties:
+        contactLocators:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            format: ulid
+            deprecated: false
+        mergeToContact:
+          type: string
+          format: ulid
+          deprecated: false
+      deprecated: false
+    ContactServiceEventTypeDefinitions:
+      type: object
+      required:
+      - contactEvents
+      properties:
+        contactEvents:
+          $ref: '#/components/schemas/ContactEvents'
           deprecated: false
       deprecated: false

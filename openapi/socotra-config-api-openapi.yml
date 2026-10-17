@@ -722,21 +722,78 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ProducerAppointmentRef:
+    ScheduleTenantEventRequest:
       type: object
       required:
-      - abstract
-      - defaultSearchable
-      - extend
+      - eventTime
+      - eventTypeId
+      - scheduleId
+      - data
       properties:
-        abstract:
-          type: boolean
-          deprecated: false
-        extend:
+        scheduleId:
           type: string
           deprecated: false
-        defaultSearchable:
+        eventTypeId:
+          type: string
+          deprecated: false
+        eventTime:
+          type: string
+          format: date-time
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+      deprecated: false
+    ExternalNumberingPlanRef:
+      type: object
+      required:
+      - triggerQuoteState
+      properties:
+        displayName:
+          type: string
+          deprecated: false
+        triggerQuoteState:
+          type: string
+          enum:
+          - draft
+          - validated
+          - earlyUnderwritten
+          - priced
+          - underwritten
+          - accepted
+          - issued
+          - underwrittenBlocked
+          - declined
+          - rejected
+          - refused
+          - discarded
+          deprecated: false
+      deprecated: false
+    TransactionTypeRef:
+      type: object
+      required:
+      - category
+      - costBearing
+      properties:
+        category:
+          type: string
+          enum:
+          - issuance
+          - change
+          - renewal
+          - cancellation
+          - reinstatement
+          - reversal
+          - aggregate
+          deprecated: false
+        costBearing:
           type: boolean
+          deprecated: false
+        displayHints:
+          $ref: '#/components/schemas/DisplayHintsRef'
           deprecated: false
         data:
           type: object
@@ -744,6 +801,139 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/PropertyRef'
             deprecated: false
+      deprecated: false
+    MoratoriumRuleRef:
+      type: object
+      required:
+      - criteriaKey
+      - notIn
+      - path
+      properties:
+        path:
+          type: string
+          deprecated: false
+        criteriaKey:
+          type: string
+          deprecated: false
+        notIn:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    Values:
+      type: object
+      required:
+      - date
+      - datetime
+      - decimal
+      - guid
+      - int
+      - long
+      - string
+      properties:
+        string:
+          type: string
+          deprecated: false
+        int:
+          type: integer
+          format: int32
+          deprecated: false
+        long:
+          type: integer
+          format: int64
+          deprecated: false
+        guid:
+          type: string
+          deprecated: false
+        date:
+          type: string
+          format: date
+          deprecated: false
+        datetime:
+          type: string
+          format: date-time
+          deprecated: false
+        decimal:
+          type: number
+          deprecated: false
+      deprecated: false
+    ScheduleRef:
+      type: object
+      required:
+      - resetOnRenewal
+      - data
+      properties:
+        extend:
+          type: string
+          deprecated: false
+        abstract:
+          type: boolean
+          deprecated: false
+        displayName:
+          type: string
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyRef'
+            deprecated: false
+        resetOnRenewal:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    PropertyConstraint:
+      type: object
+      required:
+      - column
+      - table
+      - where
+      properties:
+        table:
+          type: string
+          deprecated: false
+        column:
+          type: string
+          deprecated: false
+        where:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/ConditionValueRef'
+            deprecated: false
+      deprecated: false
+    PolicyHoldScopeRef:
+      type: object
+      required:
+      - allowStaticData
+      - transactionCategory
+      - transactionType
+      properties:
+        transactionCategory:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            enum:
+            - issuance
+            - change
+            - renewal
+            - cancellation
+            - reinstatement
+            - reversal
+            - aggregate
+            deprecated: false
+        transactionType:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        allowStaticData:
+          type: boolean
+          deprecated: false
+        displayName:
+          type: string
+          deprecated: false
       deprecated: false
     DisbursementRef:
       type: object
@@ -775,29 +965,66 @@ components:
           - validation
           deprecated: false
       deprecated: false
-    DataAccessControlFieldRef:
+    MapDifference:
       type: object
       required:
-      - fields
+      - added
+      - modified
+      - removed
       properties:
-        fields:
-          type: array
+        added:
+          type: object
           deprecated: false
-          items:
-            type: string
+          additionalProperties:
+            type: object
+            deprecated: false
+        modified:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+        removed:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
             deprecated: false
       deprecated: false
-    ConstraintColumnRef:
+    InvoicingPlanRef:
       type: object
       required:
-      - dataType
-      - makeDistinct
+      - consolidateInvoicesOnCancellation
+      - installmentGrouping
+      - invoiceFeeHandling
+      - invoiceFeeAmounts
       properties:
-        dataType:
+        displayName:
           type: string
           deprecated: false
-        makeDistinct:
-          type: boolean
+        invoiceFeeHandling:
+          type: string
+          enum:
+          - max
+          - min
+          - sum
+          - waive
+          deprecated: false
+        invoiceFeeAmounts:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: number
+            deprecated: false
+        consolidateInvoicesOnCancellation:
+          type: string
+          enum:
+          - none
+          - future
+          - all
+          deprecated: false
+        installmentGrouping:
+          $ref: '#/components/schemas/InstallmentGroupingDetails'
           deprecated: false
       deprecated: false
     ResourceGroupRef:
@@ -817,16 +1044,106 @@ components:
             type: string
             deprecated: false
       deprecated: false
-    SecretRef:
+    ClaimRef:
       type: object
       required:
-      - items
+      - claimCategory
       properties:
-        items:
+        extend:
+          type: string
+          deprecated: false
+        abstract:
+          type: boolean
+          deprecated: false
+        claimCategory:
+          type: string
+          deprecated: false
+      deprecated: false
+    ScheduleTenantEventsRequest:
+      type: object
+      required:
+      - requests
+      properties:
+        requests:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/ScheduleTenantEventRequest'
+            deprecated: false
+      deprecated: false
+    MoratoriumProductRuleRef:
+      type: object
+      required:
+      - operator
+      - product
+      - rules
+      properties:
+        product:
+          type: string
+          deprecated: false
+        operator:
+          type: string
+          enum:
+          - AND
+          - OR
+          deprecated: false
+        rules:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/MoratoriumRuleRef'
+            deprecated: false
+        displayName:
+          type: string
+          deprecated: false
+      deprecated: false
+    ConsolidatedPageNumberingRef:
+      type: object
+      required:
+      - enableNumbering
+      - leadingDocumentPages
+      - xPosition
+      - yPosition
+      properties:
+        enableNumbering:
+          type: boolean
+          deprecated: false
+        leadingDocumentPages:
+          type: boolean
+          deprecated: false
+        xPosition:
+          type: integer
+          format: int32
+          deprecated: false
+        yPosition:
+          type: integer
+          format: int32
+          deprecated: false
+      deprecated: false
+    ProducerRef:
+      type: object
+      required:
+      - abstract
+      - defaultSearchable
+      - extend
+      properties:
+        displayName:
+          type: string
+          deprecated: false
+        abstract:
+          type: boolean
+          deprecated: false
+        extend:
+          type: string
+          deprecated: false
+        defaultSearchable:
+          type: boolean
+          deprecated: false
+        data:
           type: object
           deprecated: false
           additionalProperties:
-            $ref: '#/components/schemas/PrimitivePropertyRef'
+            $ref: '#/components/schemas/PropertyRef'
             deprecated: false
       deprecated: false
     DeploymentMetadata:
@@ -867,598 +1184,80 @@ components:
           format: ulid
           deprecated: false
       deprecated: false
-    TableRef:
+    BootstrapRef:
       type: object
       required:
-      - selectionTimeBasis
-      - columns
+      - resources
       properties:
-        columns:
+        resources:
+          $ref: '#/components/schemas/ResourcesRef'
+          deprecated: false
+      deprecated: false
+    AutomationPluginActionRef:
+      type: object
+      properties:
+        timeout:
+          type: integer
+          format: int32
+          deprecated: false
+        request:
           type: object
           deprecated: false
           additionalProperties:
-            $ref: '#/components/schemas/ColumnRef'
+            $ref: '#/components/schemas/PropertyRef'
             deprecated: false
-        selectionTimeBasis:
-          type: string
-          enum:
-          - policyStartTime
-          - termStartTime
-          - transactionEffectiveTime
-          - currentTime
+        response:
+          type: object
           deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyRef'
+            deprecated: false
       deprecated: false
-    PropertyRef:
-      type: object
-      properties:
-        displayName:
-          type: string
-          deprecated: false
-        type:
-          type: string
-          deprecated: false
-        scope:
-          type: string
-          deprecated: false
-        defaultValue:
-          type: string
-          deprecated: false
-        min:
-          type: string
-          deprecated: false
-        max:
-          type: string
-          deprecated: false
-        minLength:
-          type: integer
-          format: int32
-          deprecated: false
-        maxLength:
-          type: integer
-          format: int32
-          deprecated: false
-        precision:
-          type: integer
-          format: int32
-          deprecated: false
-        options:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        regex:
-          type: string
-          deprecated: false
-        roundingMode:
-          type: string
-          enum:
-          - ceiling
-          - down
-          - floor
-          - halfDown
-          - halfEven
-          - halfUp
-          - up
-          deprecated: false
-        tag:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        constraint:
-          $ref: '#/components/schemas/PropertyConstraint'
-          deprecated: false
-        searchable:
-          type: boolean
-          deprecated: false
-        availability:
-          $ref: '#/components/schemas/AvailabilityRef'
-          deprecated: false
-        restrictedData:
-          $ref: '#/components/schemas/RestrictedDataRef'
-          deprecated: false
-      deprecated: false
-    BillingHoldScopeRef:
+    BillingPlanRef:
       type: object
       required:
-      - autopayHold
-      - deferredInvoiceDueOffsetDays
-      - policyDelinquencyHold
-      - policyInvoicingHold
-      properties:
-        policyInvoicingHold:
-          type: boolean
-          deprecated: false
-        policyDelinquencyHold:
-          type: boolean
-          deprecated: false
-        autopayHold:
-          type: boolean
-          deprecated: false
-        deferredInvoiceDueOffsetDays:
-          type: number
-          deprecated: false
-        displayName:
-          type: string
-          deprecated: false
-      deprecated: false
-    MoratoriumRef:
-      type: object
-      required:
-      - effectiveTime
-      - applicationMode
-      - billingHoldScope
-      - policyHoldScope
-      - policyMatchCriteria
-      - type
-      properties:
-        type:
-          type: string
-          deprecated: false
-        description:
-          type: string
-          deprecated: false
-        applicationMode:
-          type: string
-          description: Indicates whether the moratorium applies to all eligible policies or whether there is an option to opt in or out.
-          enum:
-          - optIn
-          - optOut
-          - mandatory
-          deprecated: false
-        effectiveTime:
-          type: string
-          format: date-time
-          deprecated: false
-        endTime:
-          type: string
-          format: date-time
-          description: The time the moratorium ends. This can be set after creation and updated to earlier or later.
-          deprecated: false
-        policyMatchCriteria:
-          description: The criteria used to identify which policies are eligible for the moratorium.
-          $ref: '#/components/schemas/MoratoriumPolicyMatchCriteriaRef'
-          deprecated: false
-        effectiveTimeWaived:
-          type: boolean
-          description: Indicates whether eligible policies issued after the moratorium effectiveTime are affected.
-          deprecated: false
-        policyHoldScope:
-          description: Must be at least one of either policyHoldScope or billingHoldScope.
-          $ref: '#/components/schemas/PolicyHoldScopeRef'
-          deprecated: false
-        billingHoldScope:
-          $ref: '#/components/schemas/BillingHoldScopeRef'
-          deprecated: false
-        displayName:
-          type: string
-          deprecated: false
-      deprecated: false
-    DocumentConfigRef:
-      type: object
-      required:
-      - format
-      - rendering
-      - scope
-      - selectionTimeBasis
-      - trigger
-      - customFonts
-      - templateSnippets
+      - billingLevel
       properties:
         displayName:
           type: string
           deprecated: false
-        scope:
+        billingLevel:
           type: string
           enum:
-          - transaction
+          - account
+          - inherit
           - policy
-          - term
-          - segment
-          - invoice
           deprecated: false
-        format:
-          type: string
-          enum:
-          - text
-          - html
-          - pdf
-          - jpg
-          - jpeg
-          - doc
-          - docx
-          - xls
-          - xlsx
-          - csv
-          - txt
-          - zip
-          deprecated: false
-        rendering:
-          type: string
-          enum:
-          - dynamic
-          - prerendered
-          deprecated: false
-        selectionTimeBasis:
-          type: string
-          enum:
-          - policyStartTime
-          - termStartTime
-          - transactionEffectiveTime
-          - currentTime
-          deprecated: false
-        trigger:
-          type: string
-          enum:
-          - validated
-          - priced
-          - accepted
-          - underwritten
-          - issued
-          - generated
-          - declined
-          - rejected
-          - refused
-          deprecated: false
-        portrait:
+      deprecated: false
+    RestrictedDataRef:
+      type: object
+      required:
+      - anonymizable
+      - maskingLevel
+      - value
+      properties:
+        anonymizable:
           type: boolean
           deprecated: false
-        pageSize:
-          type: string
-          enum:
-          - letter
-          - legal
-          - A3
-          - A4
-          - A5
-          - B4
-          - B5
-          deprecated: false
-        margin:
-          $ref: '#/components/schemas/DocumentMarginRef'
-          deprecated: false
-        templateSnippets:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        customFonts:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-      deprecated: false
-    SecretKeyRef:
-      type: object
-      required:
-      - name
-      - key
-      properties:
-        name:
-          type: string
-          deprecated: false
-        key:
-          type: string
-          deprecated: false
-      deprecated: false
-    MoratoriumRuleRef:
-      type: object
-      required:
-      - criteriaKey
-      - notIn
-      - path
-      properties:
-        path:
-          type: string
-          deprecated: false
-        criteriaKey:
-          type: string
-          deprecated: false
-        notIn:
-          type: boolean
-          deprecated: false
-      deprecated: false
-    MoratoriumEventData:
-      type: object
-      required:
-      - name
-      - effectiveTime
-      - endTime
-      properties:
-        name:
-          type: string
-          deprecated: false
-        effectiveTime:
-          type: string
-          format: date-time
-          deprecated: false
-        endTime:
-          type: string
-          format: date-time
-          deprecated: false
-      deprecated: false
-    ChargeRef:
-      type: object
-      required:
-      - category
-      - handling
-      - invoicing
-      - transactionBundlingEnabled
-      properties:
-        displayName:
-          type: string
-          deprecated: true
-        category:
+        maskingLevel:
           type: string
           enum:
           - none
-          - premium
-          - tax
-          - fee
-          - credit
-          - invoiceFee
-          - cededPremium
-          - nonFinancial
-          - surcharge
+          - level1
+          - level2
           deprecated: false
-        handling:
-          type: string
-          enum:
-          - flat
-          - normal
-          - retention
-          deprecated: false
-        invoicing:
-          type: string
-          enum:
-          - scheduled
-          - next
-          - immediate
-          deprecated: false
-        transactionBundlingEnabled:
-          type: boolean
+        value:
+          $ref: '#/components/schemas/Values'
           deprecated: false
       deprecated: false
-    DeploymentCloneResponse:
-      type: object
-      required:
-      - locator
-      - deploymentResult
-      - resourceCloneStatus
-      properties:
-        locator:
-          type: string
-          format: uuid
-          deprecated: false
-        deploymentResult:
-          $ref: '#/components/schemas/ConfigBuilderResult'
-          deprecated: false
-        resourceCloneStatus:
-          type: string
-          enum:
-          - queued
-          - failed
-          deprecated: false
-      deprecated: false
-    UserAssociationRoleRef:
-      type: object
-      properties:
-        appliesTo:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            enum:
-            - account
-            - quickQuote
-            - quote
-            - policy
-            - transaction
-            - invoice
-            - underwritingFlag
-            - payment
-            - quoteGroup
-            - inquiry
-            deprecated: false
-        exclusive:
-          type: boolean
-          deprecated: false
-        qualification:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: string
-            deprecated: false
-      deprecated: false
-    ShortfallTolerancePlanRef:
-      type: object
-      required:
-      - currencyTolerances
-      properties:
-        currencyTolerances:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: number
-            deprecated: false
-      deprecated: false
-    AssistantRef:
-      type: object
-      properties:
-        patTokenSecretRef:
-          $ref: '#/components/schemas/SecretKeyRef'
-          deprecated: false
-        inquiryIntents:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/IntentPlan'
-            deprecated: false
-      deprecated: false
-    ConsolidatedPageNumberingRef:
-      type: object
-      required:
-      - enableNumbering
-      - leadingDocumentPages
-      - xPosition
-      - yPosition
-      properties:
-        enableNumbering:
-          type: boolean
-          deprecated: false
-        leadingDocumentPages:
-          type: boolean
-          deprecated: false
-        xPosition:
-          type: integer
-          format: int32
-          deprecated: false
-        yPosition:
-          type: integer
-          format: int32
-          deprecated: false
-      deprecated: false
-    PolicyHoldScopeRef:
-      type: object
-      required:
-      - allowStaticData
-      - transactionCategory
-      - transactionType
-      properties:
-        transactionCategory:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            enum:
-            - issuance
-            - change
-            - renewal
-            - cancellation
-            - reinstatement
-            - reversal
-            - aggregate
-            deprecated: false
-        transactionType:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        allowStaticData:
-          type: boolean
-          deprecated: false
-        displayName:
-          type: string
-          deprecated: false
-      deprecated: false
-    IntentPlan:
-      type: object
-      required:
-      - intentType
-      - taskType
-      properties:
-        intentType:
-          type: string
-          deprecated: false
-        taskType:
-          type: string
-          deprecated: false
-        workgroup:
-          type: string
-          deprecated: false
-      deprecated: false
-    MoratoriumEvents:
-      type: object
-      properties:
-        moratorium.create:
-          $ref: '#/components/schemas/MoratoriumEventData'
-          deprecated: false
-        moratorium.effective:
-          $ref: '#/components/schemas/MoratoriumEventData'
-          deprecated: false
-        moratorium.update:
-          $ref: '#/components/schemas/MoratoriumEventData'
-          deprecated: false
-        moratorium.end:
-          $ref: '#/components/schemas/MoratoriumEventData'
-          deprecated: false
-      deprecated: false
-    ExternalNumberingPlanRef:
-      type: object
-      required:
-      - triggerQuoteState
-      properties:
-        displayName:
-          type: string
-          deprecated: false
-        triggerQuoteState:
-          type: string
-          enum:
-          - draft
-          - validated
-          - earlyUnderwritten
-          - priced
-          - underwritten
-          - accepted
-          - issued
-          - underwrittenBlocked
-          - declined
-          - rejected
-          - refused
-          - discarded
-          deprecated: false
-      deprecated: false
-    TaskTypeRef:
-      type: object
-      required:
-      - blocksUnderwriting
-      - defaultDeadlineDays
-      properties:
-        defaultDeadlineDays:
-          type: number
-          deprecated: false
-        blocksUnderwriting:
-          type: boolean
-          deprecated: false
-        numberingPlan:
-          type: string
-          deprecated: false
-        numberingString:
-          type: string
-          deprecated: false
-      deprecated: false
-    DataAccessControlRef:
-      type: object
-      required:
-      - account
-      - dataMasking
-      - enabled
-      - policy
-      properties:
-        enabled:
-          type: boolean
-          deprecated: false
-        dataMasking:
-          type: boolean
-          deprecated: false
-        account:
-          $ref: '#/components/schemas/DataAccessControlFieldRef'
-          deprecated: false
-        policy:
-          $ref: '#/components/schemas/DataAccessControlFieldRef'
-          deprecated: false
-      deprecated: false
-    ProducerRef:
+    ProducerCodeRef:
       type: object
       required:
       - abstract
       - defaultSearchable
       - extend
+      - numberingPlan
+      - numberingString
       properties:
         displayName:
           type: string
@@ -1472,12 +1271,242 @@ components:
         defaultSearchable:
           type: boolean
           deprecated: false
+        numberingPlan:
+          type: string
+          deprecated: false
+        numberingString:
+          type: string
+          deprecated: false
         data:
           type: object
           deprecated: false
           additionalProperties:
             $ref: '#/components/schemas/PropertyRef'
             deprecated: false
+      deprecated: false
+    WorkManagementRef:
+      type: object
+      properties:
+        tasks:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: object
+            deprecated: false
+            additionalProperties:
+              $ref: '#/components/schemas/TaskTypeRef'
+              deprecated: false
+        userAssociationRoles:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/UserAssociationRoleRef'
+            deprecated: false
+        qualifications:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: array
+            deprecated: false
+            items:
+              type: string
+              deprecated: false
+      deprecated: false
+    PrimitivePropertyRef:
+      type: object
+      required:
+      - dataType
+      properties:
+        dataType:
+          type: string
+          deprecated: false
+      deprecated: false
+    ReversalTypeRef:
+      type: object
+      required:
+      - creditType
+      properties:
+        creditType:
+          type: string
+          enum:
+          - any
+          - creditDistribution
+          - payment
+          deprecated: false
+      deprecated: false
+    NumberingPlanRef:
+      type: object
+      required:
+      - copyFromQuote
+      - format
+      - initialCoreNumber
+      - initialQuoteCoreNumber
+      - quoteNumberFormat
+      - termNumberFormat
+      properties:
+        displayName:
+          type: string
+          deprecated: false
+        initialCoreNumber:
+          type: string
+          deprecated: false
+        format:
+          type: string
+          deprecated: false
+        copyFromQuote:
+          type: boolean
+          deprecated: false
+        termNumberFormat:
+          type: string
+          deprecated: false
+        quoteNumberFormat:
+          type: string
+          deprecated: false
+        initialQuoteCoreNumber:
+          type: string
+          deprecated: false
+        productScope:
+          type: string
+          deprecated: false
+      deprecated: false
+    DeployedConfigMetadata:
+      type: object
+      required:
+      - metadata
+      - pluginStatus
+      - pluginVersionStatus
+      properties:
+        metadata:
+          $ref: '#/components/schemas/DeploymentMetadata'
+          deprecated: false
+        pluginVersionStatus:
+          type: object
+          deprecated: true
+          additionalProperties:
+            type: object
+            deprecated: true
+            additionalProperties:
+              type: string
+              deprecated: true
+        pluginStatus:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: string
+            deprecated: false
+        expectedRetirementTime:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    AutomationPluginRef:
+      type: object
+      properties:
+        enableWebhooks:
+          type: boolean
+          deprecated: false
+        actions:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/AutomationPluginActionRef'
+            deprecated: false
+        secret:
+          type: string
+          deprecated: false
+        webhookHandlerTimeout:
+          type: integer
+          format: int32
+          deprecated: false
+      deprecated: false
+    ConstraintTableRef:
+      type: object
+      required:
+      - selectionTimeBasis
+      - columns
+      properties:
+        columns:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/ConstraintColumnRef'
+            deprecated: false
+        selectionTimeBasis:
+          type: string
+          enum:
+          - policyStartTime
+          - termStartTime
+          - transactionEffectiveTime
+          - currentTime
+          deprecated: false
+      deprecated: false
+    EventScheduleRef:
+      type: object
+      required:
+      - anchor
+      properties:
+        anchor:
+          type: string
+          enum:
+          - policyStart
+          - policyEnd
+          - termStart
+          - segmentStart
+          deprecated: false
+        alignment:
+          type: string
+          enum:
+          - weekStart
+          - monthStart
+          - yearStart
+          deprecated: false
+        offset:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: integer
+            format: int32
+            deprecated: false
+        cadence:
+          $ref: '#/components/schemas/EventCadenceRef'
+          deprecated: false
+        suppressOnStatuses:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            enum:
+            - pending
+            - expired
+            - cancelled
+            - cancelPending
+            - onRisk
+            - delinquent
+            - doNotRenew
+            deprecated: false
+      deprecated: false
+    InstallmentGroupingDetails:
+      type: object
+      required:
+      - matching
+      - window
+      properties:
+        matching:
+          type: string
+          description: Default is generateTime
+          enum:
+          - generateTime
+          - startTime
+          - all
+          deprecated: false
+        window:
+          type: string
+          description: Default is startAndEnd
+          enum:
+          - start
+          - startAndEnd
+          - catchUp
+          deprecated: false
       deprecated: false
     ConfigurationRef:
       type: object
@@ -1874,562 +1903,41 @@ components:
             $ref: '#/components/schemas/ExternalNumberingPlanRef'
             deprecated: false
       deprecated: false
-    StreamingResponseBody:
-      type: object
-      deprecated: false
-    RestrictedDataRef:
+    TenantCustomEventRef:
       type: object
       required:
-      - anonymizable
-      - maskingLevel
-      - value
+      - isPersisted
+      - type
       properties:
-        anonymizable:
+        type:
+          type: string
+          deprecated: false
+        schedule:
+          $ref: '#/components/schemas/TenantEventScheduleRef'
+          deprecated: false
+        isPersisted:
           type: boolean
           deprecated: false
-        maskingLevel:
+      deprecated: false
+    TenantEventScheduleRef:
+      type: object
+      properties:
+        alignment:
           type: string
           enum:
-          - none
-          - level1
-          - level2
+          - weekStart
+          - monthStart
+          - yearStart
           deprecated: false
-        value:
-          $ref: '#/components/schemas/Values'
-          deprecated: false
-      deprecated: false
-    ProducerManagementRef:
-      type: object
-      required:
-      - underwritingFlag
-      - producerAppointments
-      - producerCodes
-      - producerLicenses
-      - producers
-      properties:
-        producers:
+        offset:
           type: object
           deprecated: false
           additionalProperties:
-            $ref: '#/components/schemas/ProducerRef'
+            type: integer
+            format: int32
             deprecated: false
-        producerCodes:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/ProducerCodeRef'
-            deprecated: false
-        producerLicenses:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/ProducerLicenseRef'
-            deprecated: false
-        producerAppointments:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/ProducerAppointmentRef'
-            deprecated: false
-        underwritingFlag:
-          $ref: '#/components/schemas/UnderwritingFlagRef'
-          deprecated: false
-      deprecated: false
-    TemplateSnippetConfigRef:
-      type: object
-      required:
-      - selectionTimeBasis
-      properties:
-        displayName:
-          type: string
-          deprecated: false
-        selectionTimeBasis:
-          type: string
-          enum:
-          - policyStartTime
-          - termStartTime
-          - transactionEffectiveTime
-          - currentTime
-          deprecated: false
-      deprecated: false
-    DataTypeRef:
-      type: object
-      required:
-      - data
-      properties:
-        displayName:
-          type: string
-          deprecated: false
-        abstract:
-          type: boolean
-          deprecated: false
-        extend:
-          type: string
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/PropertyRef'
-            deprecated: false
-        defaultSearchable:
-          type: boolean
-          deprecated: false
-      deprecated: false
-    ClaimRef:
-      type: object
-      required:
-      - claimCategory
-      properties:
-        extend:
-          type: string
-          deprecated: false
-        abstract:
-          type: boolean
-          deprecated: false
-        claimCategory:
-          type: string
-          deprecated: false
-      deprecated: false
-    ProducerCodeRef:
-      type: object
-      required:
-      - abstract
-      - defaultSearchable
-      - extend
-      - numberingPlan
-      - numberingString
-      properties:
-        displayName:
-          type: string
-          deprecated: false
-        abstract:
-          type: boolean
-          deprecated: false
-        extend:
-          type: string
-          deprecated: false
-        defaultSearchable:
-          type: boolean
-          deprecated: false
-        numberingPlan:
-          type: string
-          deprecated: false
-        numberingString:
-          type: string
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/PropertyRef'
-            deprecated: false
-      deprecated: false
-    ConfigBuilderResult:
-      type: object
-      required:
-      - isSuccess
-      - metadata
-      - errors
-      properties:
-        isSuccess:
-          type: boolean
-          deprecated: false
-        errors:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        metadata:
-          $ref: '#/components/schemas/DeploymentMetadata'
-          deprecated: false
-      deprecated: false
-    AuxDataSettingsRef:
-      type: object
-      required:
-      - expirationPeriod
-      properties:
-        displayName:
-          type: string
-          deprecated: false
-        expirationPeriod:
-          type: integer
-          format: int32
-          deprecated: false
-      deprecated: false
-    DisplayHintsRef:
-      type: object
-      properties:
-        displayName:
-          type: string
-          deprecated: false
-        displayOrder:
-          type: integer
-          format: int32
-          deprecated: false
-      deprecated: false
-    FnolRef:
-      type: object
-      required:
-      - data
-      properties:
-        extend:
-          type: string
-          deprecated: false
-        abstract:
-          type: boolean
-          deprecated: false
-        lossTypes:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        defaultSearchable:
-          type: boolean
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/PropertyRef'
-            deprecated: false
-        numberingPlan:
-          type: string
-          deprecated: false
-        contacts:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: array
-            deprecated: false
-            items:
-              type: string
-              deprecated: false
-      deprecated: false
-    CoverageTermOptionRef:
-      type: object
-      required:
-      - value
-      properties:
-        displayName:
-          type: string
-          deprecated: false
-        value:
-          type: number
-          deprecated: false
-        tag:
-          type: string
-          deprecated: false
-        displayHints:
-          $ref: '#/components/schemas/DisplayHintsRef'
-          deprecated: false
-      deprecated: false
-    MapDifference:
-      type: object
-      required:
-      - added
-      - modified
-      - removed
-      properties:
-        added:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        modified:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-        removed:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-      deprecated: false
-    BillingPlanRef:
-      type: object
-      required:
-      - billingLevel
-      properties:
-        displayName:
-          type: string
-          deprecated: false
-        billingLevel:
-          type: string
-          enum:
-          - account
-          - inherit
-          - policy
-          deprecated: false
-      deprecated: false
-    NegativeInvoiceHandlingRef:
-      type: object
-      required:
-      - automaticallySettleNegativeInvoices
-      - prioritizeOverlappingCoveragePeriods
-      - processingMode
-      - targetInvoicePriority
-      - targetInvoices
-      - yieldExcessToCreditBalance
-      properties:
-        automaticallySettleNegativeInvoices:
-          type: string
-          enum:
-          - toOpenInvoices
-          - toCreditBalance
-          - never
-          deprecated: false
-        prioritizeOverlappingCoveragePeriods:
-          type: boolean
-          deprecated: false
-        targetInvoices:
-          type: string
-          enum:
-          - overlappingCoveragePeriodsOnly
-          - overlappingCoverageAndEarlier
-          - allOpenInvoices
-          deprecated: false
-        targetInvoicePriority:
-          type: string
-          enum:
-          - byAmount
-          - smallestFirst
-          - earliestFirst
-          deprecated: false
-        processingMode:
-          type: string
-          enum:
-          - accountLevel
-          - policyLevel
-          deprecated: false
-        yieldExcessToCreditBalance:
-          type: boolean
-          deprecated: false
-      deprecated: false
-    ConstraintTableRef:
-      type: object
-      required:
-      - selectionTimeBasis
-      - columns
-      properties:
-        columns:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/ConstraintColumnRef'
-            deprecated: false
-        selectionTimeBasis:
-          type: string
-          enum:
-          - policyStartTime
-          - termStartTime
-          - transactionEffectiveTime
-          - currentTime
-          deprecated: false
-      deprecated: false
-    InstallmentPlanRef:
-      type: object
-      required:
-      - anchorMode
-      - cadence
-      - dueLeadDays
-      - generateLeadDays
-      - maxInstallmentsPerTerm
-      - installmentWeights
-      properties:
-        displayName:
-          type: string
-          deprecated: false
         cadence:
-          type: string
-          enum:
-          - none
-          - fullPay
-          - weekly
-          - everyOtherWeek
-          - monthly
-          - quarterly
-          - semiannually
-          - annually
-          - thirtyDays
-          - everyNDays
-          deprecated: false
-        anchorMode:
-          type: string
-          enum:
-          - generateDay
-          - termStartDay
-          - dueDay
-          deprecated: false
-        generateLeadDays:
-          type: integer
-          format: int32
-          deprecated: false
-        dueLeadDays:
-          type: integer
-          format: int32
-          deprecated: false
-        installmentWeights:
-          type: array
-          deprecated: false
-          items:
-            type: number
-            deprecated: false
-        maxInstallmentsPerTerm:
-          type: integer
-          format: int32
-          deprecated: false
-        autopayLeadDays:
-          type: number
-          deprecated: false
-      deprecated: false
-    DocumentMarginRef:
-      type: object
-      properties:
-        top:
-          type: number
-          deprecated: false
-        bottom:
-          type: number
-          deprecated: false
-        left:
-          type: number
-          deprecated: false
-        right:
-          type: number
-          deprecated: false
-      deprecated: false
-    Values:
-      type: object
-      required:
-      - date
-      - datetime
-      - decimal
-      - guid
-      - int
-      - long
-      - string
-      properties:
-        string:
-          type: string
-          deprecated: false
-        int:
-          type: integer
-          format: int32
-          deprecated: false
-        long:
-          type: integer
-          format: int64
-          deprecated: false
-        guid:
-          type: string
-          deprecated: false
-        date:
-          type: string
-          format: date
-          deprecated: false
-        datetime:
-          type: string
-          format: date-time
-          deprecated: false
-        decimal:
-          type: number
-          deprecated: false
-      deprecated: false
-    BootstrapResult:
-      type: object
-      required:
-      - error
-      - status
-      properties:
-        status:
-          type: string
-          enum:
-          - queued
-          - failed
-          deprecated: false
-        error:
-          type: string
-          deprecated: false
-      deprecated: false
-    JurisdictionRef:
-      type: object
-      properties:
-        displayHints:
-          $ref: '#/components/schemas/DisplayHintsRef'
-          deprecated: false
-      deprecated: false
-    ResourcesRef:
-      type: object
-      required:
-      - resourceGroups
-      - resourceInstances
-      properties:
-        resourceInstances:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/ResourceInstanceRef'
-            deprecated: false
-        resourceGroups:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/ResourceGroupRef'
-            deprecated: false
-      deprecated: false
-    AutomationPluginActionRef:
-      type: object
-      properties:
-        timeout:
-          type: integer
-          format: int32
-          deprecated: false
-        request:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/PropertyRef'
-            deprecated: false
-        response:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/PropertyRef'
-            deprecated: false
-      deprecated: false
-    AutoRenewalPlanRef:
-      type: object
-      required:
-      - generateAutoRenewals
-      properties:
-        generateAutoRenewals:
-          type: boolean
-          deprecated: false
-        renewalTransactionType:
-          type: string
-          deprecated: false
-        renewalCreateLeadDays:
-          type: integer
-          format: int32
-          deprecated: false
-        renewalAcceptLeadDays:
-          type: integer
-          format: int32
-          deprecated: false
-        renewalIssueLeadDays:
-          type: integer
-          format: int32
-          deprecated: false
-        newTermDuration:
-          type: integer
-          format: int32
+          $ref: '#/components/schemas/EventCadenceRef'
           deprecated: false
       deprecated: false
     ExcessCreditPlanRef:
@@ -2484,214 +1992,246 @@ components:
           $ref: '#/components/schemas/NegativeInvoiceHandlingRef'
           deprecated: false
       deprecated: false
-    NumberingPlanRef:
+    JurisdictionRef:
+      type: object
+      properties:
+        displayHints:
+          $ref: '#/components/schemas/DisplayHintsRef'
+          deprecated: false
+      deprecated: false
+    DataTypeRef:
       type: object
       required:
-      - copyFromQuote
-      - format
-      - initialCoreNumber
-      - initialQuoteCoreNumber
-      - quoteNumberFormat
-      - termNumberFormat
+      - data
       properties:
         displayName:
           type: string
           deprecated: false
-        initialCoreNumber:
-          type: string
-          deprecated: false
-        format:
-          type: string
-          deprecated: false
-        copyFromQuote:
+        abstract:
           type: boolean
           deprecated: false
-        termNumberFormat:
+        extend:
           type: string
           deprecated: false
-        quoteNumberFormat:
-          type: string
+        data:
+          type: object
           deprecated: false
-        initialQuoteCoreNumber:
-          type: string
-          deprecated: false
-        productScope:
-          type: string
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyRef'
+            deprecated: false
+        defaultSearchable:
+          type: boolean
           deprecated: false
       deprecated: false
-    MoratoriumProductRuleRef:
+    EventCadenceRef:
       type: object
       required:
-      - operator
-      - product
-      - rules
+      - durationBasis
+      - intervalDuration
       properties:
-        product:
-          type: string
-          deprecated: false
-        operator:
-          type: string
-          enum:
-          - AND
-          - OR
-          deprecated: false
-        rules:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/MoratoriumRuleRef'
-            deprecated: false
-        displayName:
-          type: string
-          deprecated: false
-      deprecated: false
-    WorkManagementRef:
-      type: object
-      properties:
-        tasks:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-            additionalProperties:
-              $ref: '#/components/schemas/TaskTypeRef'
-              deprecated: false
-        userAssociationRoles:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/UserAssociationRoleRef'
-            deprecated: false
-        qualifications:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: array
-            deprecated: false
-            items:
-              type: string
-              deprecated: false
-      deprecated: false
-    DeployedConfigMetadata:
-      type: object
-      required:
-      - metadata
-      - pluginStatus
-      - pluginVersionStatus
-      properties:
-        metadata:
-          $ref: '#/components/schemas/DeploymentMetadata'
-          deprecated: false
-        pluginVersionStatus:
-          type: object
-          deprecated: true
-          additionalProperties:
-            type: object
-            deprecated: true
-            additionalProperties:
-              type: string
-              deprecated: true
-        pluginStatus:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: string
-            deprecated: false
-        expectedRetirementTime:
-          type: string
-          format: date-time
-          deprecated: false
-      deprecated: false
-    RetryPlanRef:
-      type: object
-      required:
-      - attempts
-      - hoursBetweenAttempts
-      properties:
-        attempts:
+        intervalDuration:
           type: integer
           format: int32
           deprecated: false
-        hoursBetweenAttempts:
-          type: array
+        durationBasis:
+          type: string
+          enum:
+          - years
+          - months
+          - weeks
+          - days
+          - hours
           deprecated: false
-          items:
+        limit:
+          type: integer
+          format: int32
+          deprecated: false
+      deprecated: false
+    ProducerManagementRef:
+      type: object
+      required:
+      - underwritingFlag
+      - producerAppointments
+      - producerCodes
+      - producerLicenses
+      - producers
+      properties:
+        producers:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/ProducerRef'
+            deprecated: false
+        producerCodes:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/ProducerCodeRef'
+            deprecated: false
+        producerLicenses:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/ProducerLicenseRef'
+            deprecated: false
+        producerAppointments:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/ProducerAppointmentRef'
+            deprecated: false
+        underwritingFlag:
+          $ref: '#/components/schemas/UnderwritingFlagRef'
+          deprecated: false
+      deprecated: false
+    ShortfallTolerancePlanRef:
+      type: object
+      required:
+      - currencyTolerances
+      properties:
+        currencyTolerances:
+          type: object
+          deprecated: false
+          additionalProperties:
             type: number
             deprecated: false
       deprecated: false
-    PrimitivePropertyRef:
+    DataAccessControlFieldRef:
       type: object
       required:
-      - dataType
+      - fields
       properties:
-        dataType:
-          type: string
-          deprecated: false
-      deprecated: false
-    AutomationPluginRef:
-      type: object
-      properties:
-        enableWebhooks:
-          type: boolean
-          deprecated: false
-        actions:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/AutomationPluginActionRef'
-            deprecated: false
-        secret:
-          type: string
-          deprecated: false
-        webhookHandlerTimeout:
-          type: integer
-          format: int32
-          deprecated: false
-      deprecated: false
-    EventScheduleRef:
-      type: object
-      required:
-      - anchor
-      properties:
-        anchor:
-          type: string
-          enum:
-          - policyStart
-          - policyEnd
-          - termStart
-          - segmentStart
-          deprecated: false
-        alignment:
-          type: string
-          enum:
-          - weekStart
-          - monthStart
-          - yearStart
-          deprecated: false
-        offset:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: integer
-            format: int32
-            deprecated: false
-        cadence:
-          $ref: '#/components/schemas/EventCadenceRef'
-          deprecated: false
-        suppressOnStatuses:
+        fields:
           type: array
           deprecated: false
           items:
             type: string
-            enum:
-            - pending
-            - expired
-            - cancelled
-            - cancelPending
-            - onRisk
-            - delinquent
-            - doNotRenew
+            deprecated: false
+      deprecated: false
+    TableRef:
+      type: object
+      required:
+      - selectionTimeBasis
+      - columns
+      properties:
+        columns:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/ColumnRef'
+            deprecated: false
+        selectionTimeBasis:
+          type: string
+          enum:
+          - policyStartTime
+          - termStartTime
+          - transactionEffectiveTime
+          - currentTime
+          deprecated: false
+      deprecated: false
+    BillingHoldScopeRef:
+      type: object
+      required:
+      - autopayHold
+      - deferredInvoiceDueOffsetDays
+      - policyDelinquencyHold
+      - policyInvoicingHold
+      properties:
+        policyInvoicingHold:
+          type: boolean
+          deprecated: false
+        policyDelinquencyHold:
+          type: boolean
+          deprecated: false
+        autopayHold:
+          type: boolean
+          deprecated: false
+        deferredInvoiceDueOffsetDays:
+          type: number
+          deprecated: false
+        displayName:
+          type: string
+          deprecated: false
+      deprecated: false
+    SecretRef:
+      type: object
+      required:
+      - items
+      properties:
+        items:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/PrimitivePropertyRef'
+            deprecated: false
+      deprecated: false
+    PaymentRef:
+      type: object
+      required:
+      - abstract
+      - defaultSearchable
+      - extend
+      - numberingPlan
+      - numberingTrigger
+      properties:
+        displayName:
+          type: string
+          deprecated: false
+        abstract:
+          type: boolean
+          deprecated: false
+        extend:
+          type: string
+          deprecated: false
+        defaultSearchable:
+          type: boolean
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyRef'
+            deprecated: false
+        numberingPlan:
+          type: string
+          deprecated: false
+        numberingTrigger:
+          type: string
+          enum:
+          - creation
+          - validation
+          deprecated: false
+      deprecated: false
+    ConditionValueRef:
+      type: object
+      required:
+      - key
+      - values
+      properties:
+        key:
+          type: string
+          deprecated: false
+        values:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    ResourceInstanceRef:
+      type: object
+      required:
+      - staticName
+      - jurisdictions
+      properties:
+        staticName:
+          type: string
+          deprecated: false
+        jurisdictions:
+          type: array
+          deprecated: false
+          items:
+            type: string
             deprecated: false
       deprecated: false
     ProducerLicenseRef:
@@ -2717,243 +2257,321 @@ components:
             $ref: '#/components/schemas/PropertyRef'
             deprecated: false
       deprecated: false
-    InstallmentGroupingDetails:
+    CustomEventRef:
       type: object
       required:
-      - matching
-      - window
+      - type
       properties:
-        matching:
+        type:
           type: string
-          description: Default is generateTime
-          enum:
-          - generateTime
-          - startTime
-          - all
           deprecated: false
-        window:
-          type: string
-          description: Default is startAndEnd
-          enum:
-          - start
-          - startAndEnd
-          - catchUp
+        schedule:
+          $ref: '#/components/schemas/EventScheduleRef'
           deprecated: false
       deprecated: false
-    DeploymentServiceEventTypeDefinitions:
+    MoratoriumRef:
       type: object
       required:
-      - moratoriumEvents
+      - effectiveTime
+      - applicationMode
+      - billingHoldScope
+      - policyHoldScope
+      - policyMatchCriteria
+      - type
       properties:
-        moratoriumEvents:
-          $ref: '#/components/schemas/MoratoriumEvents'
+        type:
+          type: string
           deprecated: false
-      deprecated: false
-    AvailabilityRef:
-      type: object
-      description: Specifies availability. At least one of availableAfter, retireAfter, retire, removeOnRenewalAfter, or removeOnRenewal must be set.
-      required:
-      - availabilityTimeBasis
-      - retirementTimeBasis
-      properties:
-        availableAfter:
+        description:
+          type: string
+          deprecated: false
+        applicationMode:
+          type: string
+          description: Indicates whether the moratorium applies to all eligible policies or whether there is an option to opt in or out.
+          enum:
+          - optIn
+          - optOut
+          - mandatory
+          deprecated: false
+        effectiveTime:
           type: string
           format: date-time
           deprecated: false
-        availabilityTimeBasis:
-          type: string
-          description: 'default: TermStartTime'
-          enum:
-          - policyStartTime
-          - termStartTime
-          deprecated: false
-        retireAfter:
+        endTime:
           type: string
           format: date-time
+          description: The time the moratorium ends. This can be set after creation and updated to earlier or later.
           deprecated: false
-        retire:
+        policyMatchCriteria:
+          description: The criteria used to identify which policies are eligible for the moratorium.
+          $ref: '#/components/schemas/MoratoriumPolicyMatchCriteriaRef'
+          deprecated: false
+        effectiveTimeWaived:
           type: boolean
-          description: 'default: false'
+          description: Indicates whether eligible policies issued after the moratorium effectiveTime are affected.
           deprecated: false
-        retirementTimeBasis:
+        policyHoldScope:
+          description: Must be at least one of either policyHoldScope or billingHoldScope.
+          $ref: '#/components/schemas/PolicyHoldScopeRef'
+          deprecated: false
+        billingHoldScope:
+          $ref: '#/components/schemas/BillingHoldScopeRef'
+          deprecated: false
+        displayName:
           type: string
-          description: 'default: TermStartTime'
-          enum:
-          - policyStartTime
-          - termStartTime
-          deprecated: false
-        removeOnRenewalAfter:
-          type: string
-          format: date-time
-          deprecated: false
-        removeOnRenewal:
-          type: boolean
-          description: 'default: false'
           deprecated: false
       deprecated: false
-    BootstrapRef:
+    PropertyRef:
       type: object
-      required:
-      - resources
       properties:
-        resources:
-          $ref: '#/components/schemas/ResourcesRef'
-          deprecated: false
-      deprecated: false
-    ColumnRef:
-      type: object
-      required:
-      - dataType
-      - isKey
-      properties:
-        dataType:
+        displayName:
           type: string
           deprecated: false
-        isKey:
-          type: boolean
-          deprecated: false
-      deprecated: false
-    LossRef:
-      type: object
-      required:
-      - category
-      - data
-      properties:
-        extend:
+        type:
           type: string
           deprecated: false
-        abstract:
-          type: boolean
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/PropertyRef'
-            deprecated: false
-        category:
+        scope:
           type: string
           deprecated: false
-        coverageTypes:
+        defaultValue:
+          type: string
+          deprecated: false
+        min:
+          type: string
+          deprecated: false
+        max:
+          type: string
+          deprecated: false
+        minLength:
+          type: integer
+          format: int32
+          deprecated: false
+        maxLength:
+          type: integer
+          format: int32
+          deprecated: false
+        precision:
+          type: integer
+          format: int32
+          deprecated: false
+        options:
           type: array
           deprecated: false
           items:
             type: string
             deprecated: false
-      deprecated: false
-    DelinquencyEventConfiguration:
-      type: object
-      required:
-      - offsetBasis
-      - offsetDays
-      properties:
-        offsetDays:
-          type: number
+        regex:
+          type: string
           deprecated: false
-        offsetBasis:
+        roundingMode:
           type: string
           enum:
-          - gracePeriodStart
-          - gracePeriodEnd
+          - ceiling
+          - down
+          - floor
+          - halfDown
+          - halfEven
+          - halfUp
+          - up
           deprecated: false
-      deprecated: false
-    TransactionTypeRef:
-      type: object
-      required:
-      - category
-      - costBearing
-      properties:
-        category:
-          type: string
-          enum:
-          - issuance
-          - change
-          - renewal
-          - cancellation
-          - reinstatement
-          - reversal
-          - aggregate
+        tag:
+          type: array
           deprecated: false
-        costBearing:
+          items:
+            type: string
+            deprecated: false
+        constraint:
+          $ref: '#/components/schemas/PropertyConstraint'
+          deprecated: false
+        searchable:
           type: boolean
           deprecated: false
-        displayHints:
-          $ref: '#/components/schemas/DisplayHintsRef'
+        availability:
+          $ref: '#/components/schemas/AvailabilityRef'
           deprecated: false
-        data:
-          type: object
+        restrictedData:
+          $ref: '#/components/schemas/RestrictedDataRef'
           deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/PropertyRef'
-            deprecated: false
       deprecated: false
-    InvoicingPlanRef:
+    DisplayHintsRef:
       type: object
-      required:
-      - consolidateInvoicesOnCancellation
-      - installmentGrouping
-      - invoiceFeeHandling
-      - invoiceFeeAmounts
       properties:
         displayName:
           type: string
           deprecated: false
-        invoiceFeeHandling:
+        displayOrder:
+          type: integer
+          format: int32
+          deprecated: false
+      deprecated: false
+    DelinquencyPlanRef:
+      type: object
+      required:
+      - gracePeriodDays
+      properties:
+        displayName:
+          type: string
+          deprecated: false
+        gracePeriodDays:
+          type: integer
+          format: int32
+          deprecated: false
+        delinquencyLevel:
           type: string
           enum:
-          - max
-          - min
-          - sum
-          - waive
+          - policy
+          - invoice
           deprecated: false
-        invoiceFeeAmounts:
+        lapseTransactionType:
+          type: string
+          deprecated: false
+        advanceLapseTo:
+          type: string
+          enum:
+          - draft
+          - validated
+          - priced
+          - underwritten
+          - accepted
+          - issued
+          deprecated: false
+        events:
           type: object
           deprecated: false
           additionalProperties:
-            type: number
+            $ref: '#/components/schemas/DelinquencyEventConfiguration'
             deprecated: false
-        consolidateInvoicesOnCancellation:
+      deprecated: false
+    ChargeRef:
+      type: object
+      required:
+      - category
+      - handling
+      - invoicing
+      - transactionBundlingEnabled
+      properties:
+        displayName:
+          type: string
+          deprecated: true
+        category:
           type: string
           enum:
           - none
-          - future
-          - all
+          - premium
+          - tax
+          - fee
+          - credit
+          - invoiceFee
+          - cededPremium
+          - nonFinancial
+          - surcharge
           deprecated: false
-        installmentGrouping:
-          $ref: '#/components/schemas/InstallmentGroupingDetails'
+        handling:
+          type: string
+          enum:
+          - flat
+          - normal
+          - retention
+          deprecated: false
+        invoicing:
+          type: string
+          enum:
+          - scheduled
+          - next
+          - immediate
+          deprecated: false
+        transactionBundlingEnabled:
+          type: boolean
           deprecated: false
       deprecated: false
-    PropertyConstraint:
+    TenantDeploymentResult:
       type: object
       required:
-      - column
-      - table
-      - where
+      - locator
+      - name
+      - bootstrapResult
+      - deploymentResult
       properties:
-        table:
+        locator:
+          type: string
+          format: uuid
+          deprecated: false
+        name:
           type: string
           deprecated: false
-        column:
-          type: string
+        deploymentResult:
+          $ref: '#/components/schemas/ConfigBuilderResult'
           deprecated: false
-        where:
+        bootstrapResult:
+          $ref: '#/components/schemas/BootstrapResult'
+          deprecated: false
+      deprecated: false
+    AssistantRef:
+      type: object
+      properties:
+        patTokenSecretRef:
+          $ref: '#/components/schemas/SecretKeyRef'
+          deprecated: false
+        inquiryIntents:
           type: object
           deprecated: false
           additionalProperties:
-            $ref: '#/components/schemas/ConditionValueRef'
+            $ref: '#/components/schemas/IntentPlan'
             deprecated: false
       deprecated: false
-    ContactRef:
+    ConfigBuilderResult:
+      type: object
+      required:
+      - isSuccess
+      - metadata
+      - errors
+      properties:
+        isSuccess:
+          type: boolean
+          deprecated: false
+        errors:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        metadata:
+          $ref: '#/components/schemas/DeploymentMetadata'
+          deprecated: false
+      deprecated: false
+    MoratoriumEvents:
+      type: object
+      properties:
+        moratorium.create:
+          $ref: '#/components/schemas/MoratoriumEventData'
+          deprecated: false
+        moratorium.effective:
+          $ref: '#/components/schemas/MoratoriumEventData'
+          deprecated: false
+        moratorium.update:
+          $ref: '#/components/schemas/MoratoriumEventData'
+          deprecated: false
+        moratorium.end:
+          $ref: '#/components/schemas/MoratoriumEventData'
+          deprecated: false
+      deprecated: false
+    FnolRef:
       type: object
       required:
       - data
       properties:
-        abstract:
-          type: boolean
-          deprecated: false
         extend:
           type: string
           deprecated: false
+        abstract:
+          type: boolean
+          deprecated: false
+        lossTypes:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
         defaultSearchable:
           type: boolean
           deprecated: false
@@ -2963,14 +2581,10 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/PropertyRef'
             deprecated: false
-      deprecated: false
-    MoratoriumPolicyMatchCriteriaRef:
-      type: object
-      required:
-      - criteriaValues
-      - productsRules
-      properties:
-        criteriaValues:
+        numberingPlan:
+          type: string
+          deprecated: false
+        contacts:
           type: object
           deprecated: false
           additionalProperties:
@@ -2979,60 +2593,6 @@ components:
             items:
               type: string
               deprecated: false
-        productsRules:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/MoratoriumProductRuleRef'
-            deprecated: false
-      deprecated: false
-    ResourceInstanceRef:
-      type: object
-      required:
-      - staticName
-      - jurisdictions
-      properties:
-        staticName:
-          type: string
-          deprecated: false
-        jurisdictions:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-      deprecated: false
-    UnderwritingFlagRef:
-      type: object
-      properties:
-        level:
-          type: string
-          enum:
-          - info
-          - block
-          - decline
-          - reject
-          - approve
-          deprecated: false
-        tag:
-          type: string
-          deprecated: false
-        note:
-          type: string
-          deprecated: false
-      deprecated: false
-    ReversalTypeRef:
-      type: object
-      required:
-      - creditType
-      properties:
-        creditType:
-          type: string
-          enum:
-          - any
-          - creditDistribution
-          - payment
-          deprecated: false
       deprecated: false
     ProductRef:
       type: object
@@ -3189,367 +2749,46 @@ components:
           type: boolean
           deprecated: false
       deprecated: false
-    DelinquencyPlanRef:
+    AvailabilityRef:
       type: object
+      description: Specifies availability. At least one of availableAfter, retireAfter, retire, removeOnRenewalAfter, or removeOnRenewal must be set.
       required:
-      - gracePeriodDays
+      - availabilityTimeBasis
+      - retirementTimeBasis
       properties:
-        displayName:
-          type: string
-          deprecated: false
-        gracePeriodDays:
-          type: integer
-          format: int32
-          deprecated: false
-        delinquencyLevel:
-          type: string
-          enum:
-          - policy
-          - invoice
-          deprecated: false
-        lapseTransactionType:
-          type: string
-          deprecated: false
-        advanceLapseTo:
-          type: string
-          enum:
-          - draft
-          - validated
-          - priced
-          - underwritten
-          - accepted
-          - issued
-          deprecated: false
-        events:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/DelinquencyEventConfiguration'
-            deprecated: false
-      deprecated: false
-    ScheduleTenantEventRequest:
-      type: object
-      required:
-      - eventTime
-      - eventTypeId
-      - scheduleId
-      - data
-      properties:
-        scheduleId:
-          type: string
-          deprecated: false
-        eventTypeId:
-          type: string
-          deprecated: false
-        eventTime:
+        availableAfter:
           type: string
           format: date-time
           deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: object
-            deprecated: false
-      deprecated: false
-    ConditionValueRef:
-      type: object
-      required:
-      - key
-      - values
-      properties:
-        key:
+        availabilityTimeBasis:
           type: string
-          deprecated: false
-        values:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-      deprecated: false
-    TenantDeploymentResult:
-      type: object
-      required:
-      - locator
-      - name
-      - bootstrapResult
-      - deploymentResult
-      properties:
-        locator:
-          type: string
-          format: uuid
-          deprecated: false
-        name:
-          type: string
-          deprecated: false
-        deploymentResult:
-          $ref: '#/components/schemas/ConfigBuilderResult'
-          deprecated: false
-        bootstrapResult:
-          $ref: '#/components/schemas/BootstrapResult'
-          deprecated: false
-      deprecated: false
-    RegionRef:
-      type: object
-      properties:
-        displayName:
-          type: string
-          deprecated: false
-        numberingString:
-          type: string
-          deprecated: false
-      deprecated: false
-    TenantEventScheduleRef:
-      type: object
-      properties:
-        alignment:
-          type: string
-          enum:
-          - weekStart
-          - monthStart
-          - yearStart
-          deprecated: false
-        offset:
-          type: object
-          deprecated: false
-          additionalProperties:
-            type: integer
-            format: int32
-            deprecated: false
-        cadence:
-          $ref: '#/components/schemas/EventCadenceRef'
-          deprecated: false
-      deprecated: false
-    ScheduleRef:
-      type: object
-      required:
-      - resetOnRenewal
-      - data
-      properties:
-        extend:
-          type: string
-          deprecated: false
-        abstract:
-          type: boolean
-          deprecated: false
-        displayName:
-          type: string
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/PropertyRef'
-            deprecated: false
-        resetOnRenewal:
-          type: boolean
-          deprecated: false
-      deprecated: false
-    ElementRef:
-      type: object
-      properties:
-        extend:
-          type: string
-          deprecated: false
-        abstract:
-          type: boolean
-          deprecated: false
-        pluralType:
-          type: string
-          deprecated: true
-        displayName:
-          type: string
-          deprecated: false
-        coverageTerms:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        contents:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        charges:
-          type: array
-          deprecated: false
-          items:
-            type: string
-            deprecated: false
-        defaultSearchable:
-          type: boolean
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/PropertyRef'
-            deprecated: false
-        availability:
-          $ref: '#/components/schemas/AvailabilityRef'
-          deprecated: false
-        schedule:
-          type: string
-          deprecated: false
-      deprecated: false
-    TenantCustomEventRef:
-      type: object
-      required:
-      - isPersisted
-      - type
-      properties:
-        type:
-          type: string
-          deprecated: false
-        schedule:
-          $ref: '#/components/schemas/TenantEventScheduleRef'
-          deprecated: false
-        isPersisted:
-          type: boolean
-          deprecated: false
-      deprecated: false
-    PaymentRef:
-      type: object
-      required:
-      - abstract
-      - defaultSearchable
-      - extend
-      - numberingPlan
-      - numberingTrigger
-      properties:
-        displayName:
-          type: string
-          deprecated: false
-        abstract:
-          type: boolean
-          deprecated: false
-        extend:
-          type: string
-          deprecated: false
-        defaultSearchable:
-          type: boolean
-          deprecated: false
-        data:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/PropertyRef'
-            deprecated: false
-        numberingPlan:
-          type: string
-          deprecated: false
-        numberingTrigger:
-          type: string
-          enum:
-          - creation
-          - validation
-          deprecated: false
-      deprecated: false
-    ScheduleTenantEventsRequest:
-      type: object
-      required:
-      - requests
-      properties:
-        requests:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/ScheduleTenantEventRequest'
-            deprecated: false
-      deprecated: false
-    CustomEventRef:
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          type: string
-          deprecated: false
-        schedule:
-          $ref: '#/components/schemas/EventScheduleRef'
-          deprecated: false
-      deprecated: false
-    RangeTableRef:
-      type: object
-      required:
-      - rangeStart
-      - selectionTimeBasis
-      - columns
-      properties:
-        columns:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/ColumnRef'
-            deprecated: false
-        selectionTimeBasis:
-          type: string
+          description: 'default: TermStartTime'
           enum:
           - policyStartTime
           - termStartTime
-          - transactionEffectiveTime
-          - currentTime
           deprecated: false
-        rangeStart:
+        retireAfter:
           type: string
+          format: date-time
           deprecated: false
-        rangeEnd:
-          type: string
+        retire:
+          type: boolean
+          description: 'default: false'
           deprecated: false
-      deprecated: false
-    CoverageTermRef:
-      type: object
-      required:
-      - type
-      properties:
-        type:
+        retirementTimeBasis:
           type: string
+          description: 'default: TermStartTime'
           enum:
-          - splitLimit
-          - deductible
-          - limit
+          - policyStartTime
+          - termStartTime
           deprecated: false
-        displayName:
+        removeOnRenewalAfter:
           type: string
+          format: date-time
           deprecated: false
-        options:
-          type: object
-          deprecated: false
-          additionalProperties:
-            $ref: '#/components/schemas/CoverageTermOptionRef'
-            deprecated: false
-        value:
-          $ref: '#/components/schemas/PropertyRef'
-          deprecated: false
-        availability:
-          $ref: '#/components/schemas/AvailabilityRef'
-          deprecated: false
-      deprecated: false
-    EventCadenceRef:
-      type: object
-      required:
-      - durationBasis
-      - intervalDuration
-      properties:
-        intervalDuration:
-          type: integer
-          format: int32
-          deprecated: false
-        durationBasis:
-          type: string
-          enum:
-          - years
-          - months
-          - weeks
-          - days
-          - hours
-          deprecated: false
-        limit:
-          type: integer
-          format: int32
+        removeOnRenewal:
+          type: boolean
+          description: 'default: false'
           deprecated: false
       deprecated: false
     AccountRef:
@@ -3603,6 +2842,460 @@ components:
           - validation
           deprecated: false
       deprecated: false
+    RetryPlanRef:
+      type: object
+      required:
+      - attempts
+      - hoursBetweenAttempts
+      properties:
+        attempts:
+          type: integer
+          format: int32
+          deprecated: false
+        hoursBetweenAttempts:
+          type: array
+          deprecated: false
+          items:
+            type: number
+            deprecated: false
+      deprecated: false
+    ContactRef:
+      type: object
+      required:
+      - data
+      properties:
+        abstract:
+          type: boolean
+          deprecated: false
+        extend:
+          type: string
+          deprecated: false
+        defaultSearchable:
+          type: boolean
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyRef'
+            deprecated: false
+      deprecated: false
+    MoratoriumPolicyMatchCriteriaRef:
+      type: object
+      required:
+      - criteriaValues
+      - productsRules
+      properties:
+        criteriaValues:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: array
+            deprecated: false
+            items:
+              type: string
+              deprecated: false
+        productsRules:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/MoratoriumProductRuleRef'
+            deprecated: false
+      deprecated: false
+    DocumentConfigRef:
+      type: object
+      required:
+      - format
+      - rendering
+      - scope
+      - selectionTimeBasis
+      - trigger
+      - customFonts
+      - templateSnippets
+      properties:
+        displayName:
+          type: string
+          deprecated: false
+        scope:
+          type: string
+          enum:
+          - transaction
+          - policy
+          - term
+          - segment
+          - invoice
+          deprecated: false
+        format:
+          type: string
+          enum:
+          - text
+          - html
+          - pdf
+          - jpg
+          - jpeg
+          - doc
+          - docx
+          - xls
+          - xlsx
+          - csv
+          - txt
+          - zip
+          deprecated: false
+        rendering:
+          type: string
+          enum:
+          - dynamic
+          - prerendered
+          deprecated: false
+        selectionTimeBasis:
+          type: string
+          enum:
+          - policyStartTime
+          - termStartTime
+          - transactionEffectiveTime
+          - currentTime
+          deprecated: false
+        trigger:
+          type: string
+          enum:
+          - validated
+          - priced
+          - accepted
+          - underwritten
+          - issued
+          - generated
+          - declined
+          - rejected
+          - refused
+          deprecated: false
+        portrait:
+          type: boolean
+          deprecated: false
+        pageSize:
+          type: string
+          enum:
+          - letter
+          - legal
+          - A3
+          - A4
+          - A5
+          - B4
+          - B5
+          deprecated: false
+        margin:
+          $ref: '#/components/schemas/DocumentMarginRef'
+          deprecated: false
+        templateSnippets:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        customFonts:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    DocumentMarginRef:
+      type: object
+      properties:
+        top:
+          type: number
+          deprecated: false
+        bottom:
+          type: number
+          deprecated: false
+        left:
+          type: number
+          deprecated: false
+        right:
+          type: number
+          deprecated: false
+      deprecated: false
+    CoverageTermOptionRef:
+      type: object
+      required:
+      - value
+      properties:
+        displayName:
+          type: string
+          deprecated: false
+        value:
+          type: number
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+        displayHints:
+          $ref: '#/components/schemas/DisplayHintsRef'
+          deprecated: false
+      deprecated: false
+    RangeTableRef:
+      type: object
+      required:
+      - rangeStart
+      - selectionTimeBasis
+      - columns
+      properties:
+        columns:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/ColumnRef'
+            deprecated: false
+        selectionTimeBasis:
+          type: string
+          enum:
+          - policyStartTime
+          - termStartTime
+          - transactionEffectiveTime
+          - currentTime
+          deprecated: false
+        rangeStart:
+          type: string
+          deprecated: false
+        rangeEnd:
+          type: string
+          deprecated: false
+      deprecated: false
+    InstallmentPlanRef:
+      type: object
+      required:
+      - anchorMode
+      - cadence
+      - dueLeadDays
+      - generateLeadDays
+      - maxInstallmentsPerTerm
+      - installmentWeights
+      properties:
+        displayName:
+          type: string
+          deprecated: false
+        cadence:
+          type: string
+          enum:
+          - none
+          - fullPay
+          - weekly
+          - everyOtherWeek
+          - monthly
+          - quarterly
+          - semiannually
+          - annually
+          - thirtyDays
+          - everyNDays
+          deprecated: false
+        anchorMode:
+          type: string
+          enum:
+          - generateDay
+          - termStartDay
+          - dueDay
+          deprecated: false
+        generateLeadDays:
+          type: integer
+          format: int32
+          deprecated: false
+        dueLeadDays:
+          type: integer
+          format: int32
+          deprecated: false
+        installmentWeights:
+          type: array
+          deprecated: false
+          items:
+            type: number
+            deprecated: false
+        maxInstallmentsPerTerm:
+          type: integer
+          format: int32
+          deprecated: false
+        autopayLeadDays:
+          type: number
+          deprecated: false
+      deprecated: false
+    DeploymentServiceEventTypeDefinitions:
+      type: object
+      required:
+      - moratoriumEvents
+      properties:
+        moratoriumEvents:
+          $ref: '#/components/schemas/MoratoriumEvents'
+          deprecated: false
+      deprecated: false
+    DataAccessControlRef:
+      type: object
+      required:
+      - account
+      - dataMasking
+      - enabled
+      - policy
+      properties:
+        enabled:
+          type: boolean
+          deprecated: false
+        dataMasking:
+          type: boolean
+          deprecated: false
+        account:
+          $ref: '#/components/schemas/DataAccessControlFieldRef'
+          deprecated: false
+        policy:
+          $ref: '#/components/schemas/DataAccessControlFieldRef'
+          deprecated: false
+      deprecated: false
+    TaskTypeRef:
+      type: object
+      required:
+      - blocksUnderwriting
+      - defaultDeadlineDays
+      properties:
+        defaultDeadlineDays:
+          type: number
+          deprecated: false
+        blocksUnderwriting:
+          type: boolean
+          deprecated: false
+        numberingPlan:
+          type: string
+          deprecated: false
+        numberingString:
+          type: string
+          deprecated: false
+      deprecated: false
+    ResourcesRef:
+      type: object
+      required:
+      - resourceGroups
+      - resourceInstances
+      properties:
+        resourceInstances:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/ResourceInstanceRef'
+            deprecated: false
+        resourceGroups:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/ResourceGroupRef'
+            deprecated: false
+      deprecated: false
+    ConstraintColumnRef:
+      type: object
+      required:
+      - dataType
+      - makeDistinct
+      properties:
+        dataType:
+          type: string
+          deprecated: false
+        makeDistinct:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    DelinquencyEventConfiguration:
+      type: object
+      required:
+      - offsetBasis
+      - offsetDays
+      properties:
+        offsetDays:
+          type: number
+          deprecated: false
+        offsetBasis:
+          type: string
+          enum:
+          - gracePeriodStart
+          - gracePeriodEnd
+          deprecated: false
+      deprecated: false
+    LossRef:
+      type: object
+      required:
+      - category
+      - data
+      properties:
+        extend:
+          type: string
+          deprecated: false
+        abstract:
+          type: boolean
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyRef'
+            deprecated: false
+        category:
+          type: string
+          deprecated: false
+        coverageTypes:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+      deprecated: false
+    MoratoriumEventData:
+      type: object
+      required:
+      - name
+      - effectiveTime
+      - endTime
+      properties:
+        name:
+          type: string
+          deprecated: false
+        effectiveTime:
+          type: string
+          format: date-time
+          deprecated: false
+        endTime:
+          type: string
+          format: date-time
+          deprecated: false
+      deprecated: false
+    ProducerAppointmentRef:
+      type: object
+      required:
+      - abstract
+      - defaultSearchable
+      - extend
+      properties:
+        abstract:
+          type: boolean
+          deprecated: false
+        extend:
+          type: string
+          deprecated: false
+        defaultSearchable:
+          type: boolean
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyRef'
+            deprecated: false
+      deprecated: false
+    AuxDataSettingsRef:
+      type: object
+      required:
+      - expirationPeriod
+      properties:
+        displayName:
+          type: string
+          deprecated: false
+        expirationPeriod:
+          type: integer
+          format: int32
+          deprecated: false
+      deprecated: false
     ConsolidatedDocumentConfigRef:
       type: object
       required:
@@ -3622,5 +3315,312 @@ components:
           deprecated: false
         pageNumbering:
           $ref: '#/components/schemas/ConsolidatedPageNumberingRef'
+          deprecated: false
+      deprecated: false
+    UserAssociationRoleRef:
+      type: object
+      properties:
+        appliesTo:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            enum:
+            - account
+            - quickQuote
+            - quote
+            - policy
+            - transaction
+            - invoice
+            - underwritingFlag
+            - payment
+            - quoteGroup
+            - inquiry
+            deprecated: false
+        exclusive:
+          type: boolean
+          deprecated: false
+        qualification:
+          type: object
+          deprecated: false
+          additionalProperties:
+            type: string
+            deprecated: false
+      deprecated: false
+    BootstrapResult:
+      type: object
+      required:
+      - error
+      - status
+      properties:
+        status:
+          type: string
+          enum:
+          - queued
+          - failed
+          deprecated: false
+        error:
+          type: string
+          deprecated: false
+      deprecated: false
+    StreamingResponseBody:
+      type: object
+      deprecated: false
+    UnderwritingFlagRef:
+      type: object
+      properties:
+        level:
+          type: string
+          enum:
+          - info
+          - block
+          - decline
+          - reject
+          - approve
+          deprecated: false
+        tag:
+          type: string
+          deprecated: false
+        note:
+          type: string
+          deprecated: false
+      deprecated: false
+    ColumnRef:
+      type: object
+      required:
+      - dataType
+      - isKey
+      properties:
+        dataType:
+          type: string
+          deprecated: false
+        isKey:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    ElementRef:
+      type: object
+      properties:
+        extend:
+          type: string
+          deprecated: false
+        abstract:
+          type: boolean
+          deprecated: false
+        pluralType:
+          type: string
+          deprecated: true
+        displayName:
+          type: string
+          deprecated: false
+        coverageTerms:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        contents:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        charges:
+          type: array
+          deprecated: false
+          items:
+            type: string
+            deprecated: false
+        defaultSearchable:
+          type: boolean
+          deprecated: false
+        data:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyRef'
+            deprecated: false
+        availability:
+          $ref: '#/components/schemas/AvailabilityRef'
+          deprecated: false
+        schedule:
+          type: string
+          deprecated: false
+      deprecated: false
+    AutoRenewalPlanRef:
+      type: object
+      required:
+      - generateAutoRenewals
+      properties:
+        generateAutoRenewals:
+          type: boolean
+          deprecated: false
+        renewalTransactionType:
+          type: string
+          deprecated: false
+        renewalCreateLeadDays:
+          type: integer
+          format: int32
+          deprecated: false
+        renewalAcceptLeadDays:
+          type: integer
+          format: int32
+          deprecated: false
+        renewalIssueLeadDays:
+          type: integer
+          format: int32
+          deprecated: false
+        newTermDuration:
+          type: integer
+          format: int32
+          deprecated: false
+      deprecated: false
+    TemplateSnippetConfigRef:
+      type: object
+      required:
+      - selectionTimeBasis
+      properties:
+        displayName:
+          type: string
+          deprecated: false
+        selectionTimeBasis:
+          type: string
+          enum:
+          - policyStartTime
+          - termStartTime
+          - transactionEffectiveTime
+          - currentTime
+          deprecated: false
+      deprecated: false
+    NegativeInvoiceHandlingRef:
+      type: object
+      required:
+      - automaticallySettleNegativeInvoices
+      - prioritizeOverlappingCoveragePeriods
+      - processingMode
+      - targetInvoicePriority
+      - targetInvoices
+      - yieldExcessToCreditBalance
+      properties:
+        automaticallySettleNegativeInvoices:
+          type: string
+          enum:
+          - toOpenInvoices
+          - toCreditBalance
+          - never
+          deprecated: false
+        prioritizeOverlappingCoveragePeriods:
+          type: boolean
+          deprecated: false
+        targetInvoices:
+          type: string
+          enum:
+          - overlappingCoveragePeriodsOnly
+          - overlappingCoverageAndEarlier
+          - allOpenInvoices
+          deprecated: false
+        targetInvoicePriority:
+          type: string
+          enum:
+          - byAmount
+          - smallestFirst
+          - earliestFirst
+          deprecated: false
+        processingMode:
+          type: string
+          enum:
+          - accountLevel
+          - policyLevel
+          deprecated: false
+        yieldExcessToCreditBalance:
+          type: boolean
+          deprecated: false
+      deprecated: false
+    IntentPlan:
+      type: object
+      required:
+      - intentType
+      - taskType
+      properties:
+        intentType:
+          type: string
+          deprecated: false
+        taskType:
+          type: string
+          deprecated: false
+        workgroup:
+          type: string
+          deprecated: false
+      deprecated: false
+    DeploymentCloneResponse:
+      type: object
+      required:
+      - locator
+      - deploymentResult
+      - resourceCloneStatus
+      properties:
+        locator:
+          type: string
+          format: uuid
+          deprecated: false
+        deploymentResult:
+          $ref: '#/components/schemas/ConfigBuilderResult'
+          deprecated: false
+        resourceCloneStatus:
+          type: string
+          enum:
+          - queued
+          - failed
+          deprecated: false
+      deprecated: false
+    CoverageTermRef:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+          enum:
+          - splitLimit
+          - deductible
+          - limit
+          deprecated: false
+        displayName:
+          type: string
+          deprecated: false
+        options:
+          type: object
+          deprecated: false
+          additionalProperties:
+            $ref: '#/components/schemas/CoverageTermOptionRef'
+            deprecated: false
+        value:
+          $ref: '#/components/schemas/PropertyRef'
+          deprecated: false
+        availability:
+          $ref: '#/components/schemas/AvailabilityRef'
+          deprecated: false
+      deprecated: false
+    RegionRef:
+      type: object
+      properties:
+        displayName:
+          type: string
+          deprecated: false
+        numberingString:
+          type: string
+          deprecated: false
+      deprecated: false
+    SecretKeyRef:
+      type: object
+      required:
+      - name
+      - key
+      properties:
+        name:
+          type: string
+          deprecated: false
+        key:
+          type: string
           deprecated: false
       deprecated: false

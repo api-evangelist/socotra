@@ -328,34 +328,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    FinancialInstrumentConfigurationRequest:
-      type: object
-      required:
-      - paymentProviderLocator
-      - offlinePaymentToken
-      properties:
-        paymentProviderLocator:
-          type: string
-          format: ulid
-          deprecated: false
-        offlinePaymentToken:
-          type: string
-          deprecated: false
-        externalAccountNumber:
-          type: string
-          deprecated: false
-      deprecated: false
-    PaymentProviderConfigurationRequestPaymentProviderConfiguration:
-      type: object
-      required:
-      - paymentServiceProvider
-      properties:
-        paymentServiceProvider:
-          type: string
-          deprecated: false
-      discriminator:
-        propertyName: paymentServiceProvider
-      deprecated: false
     FinancialInstrumentConfigurationResponse:
       type: object
       required:
@@ -373,22 +345,6 @@ components:
         externalAccountNumber:
           type: string
           deprecated: false
-      deprecated: false
-    ListPageResponsePaymentProvider:
-      type: object
-      required:
-      - listCompleted
-      - items
-      properties:
-        listCompleted:
-          type: boolean
-          deprecated: false
-        items:
-          type: array
-          deprecated: false
-          items:
-            $ref: '#/components/schemas/PaymentProvider'
-            deprecated: false
       deprecated: false
     BraintreeConfigurationRequest:
       type: object
@@ -430,6 +386,23 @@ components:
             deprecated: false
             writeOnly: true
         deprecated: false
+      deprecated: false
+    FinancialInstrumentConfigurationRequest:
+      type: object
+      required:
+      - paymentProviderLocator
+      - offlinePaymentToken
+      properties:
+        paymentProviderLocator:
+          type: string
+          format: ulid
+          deprecated: false
+        offlinePaymentToken:
+          type: string
+          deprecated: false
+        externalAccountNumber:
+          type: string
+          deprecated: false
       deprecated: false
     PaymentProvider:
       type: object
@@ -487,4 +460,31 @@ components:
             deprecated: false
             writeOnly: true
         deprecated: false
+      deprecated: false
+    ListPageResponsePaymentProvider:
+      type: object
+      required:
+      - listCompleted
+      - items
+      properties:
+        listCompleted:
+          type: boolean
+          deprecated: false
+        items:
+          type: array
+          deprecated: false
+          items:
+            $ref: '#/components/schemas/PaymentProvider'
+            deprecated: false
+      deprecated: false
+    PaymentProviderConfigurationRequestPaymentProviderConfiguration:
+      type: object
+      required:
+      - paymentServiceProvider
+      properties:
+        paymentServiceProvider:
+          type: string
+          deprecated: false
+      discriminator:
+        propertyName: paymentServiceProvider
       deprecated: false
