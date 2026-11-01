@@ -64,6 +64,160 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Socotra is a company surfaced as a portfolio company of 8vc, insight-partners and added to the API Evangelist network as a stub for enrichment. Sector: insurtech. This profile is a lead awaiting the enrichment pipeline.
+Socotra is a cloud-native insurance core platform that lets carriers, MGAs, and program administrators configure, launch, and operate insurance products across any line, geography, or distribution channel. Its Connected Core / Insurance Suite exposes a broad REST API covering business accounts, accounts and contacts, quotes and quick quotes, policy management and transactions, billing, invoicing and payments, claims (FNOL), producer management, work management, documents, accounting, reporting, search, moratoriums, configuration, and an event/webhook system. The platform ships first-party npm SDKs and CLIs, a schema-driven React UI SDK, a hosted Model Context Protocol (MCP) server for AI agents, and per-tenant configuration deployment. Backed by 8VC and Insight Partners. This profile was enriched by the API Evangelist pipeline from Socotra's public developer surface.
 
-Backed by: 8vc, insight-partners — https://socotra.com
+**Areas:** Company · Insurtech · Insurance · Core Platform · Policy Administration · Billing · Claims · Underwriting · MCP · Invoicing
+
+## Socotra on APIs.io
+
+Everything profiled for Socotra is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/socotra/](https://apis.io/providers/socotra/)** — or go straight to one of the APIs or properties below.
+
+### APIs (18)
+
+- [Socotra Auth API](https://apis.io/apis/socotra/socotra-auth-api/) — The Auth API from Socotra — 41 operation(s) for auth.
+- [Socotra Auxdata API](https://apis.io/apis/socotra/socotra-auxdata-api/) — The Auxdata API from Socotra — 16 operation(s) for auxdata.
+- [Socotra Billing API](https://apis.io/apis/socotra/socotra-billing-api/) — The Billing API from Socotra — 124 operation(s) for billing.
+- [Socotra Business Stats API](https://apis.io/apis/socotra/socotra-business-stats-api/) — The Business Stats API from Socotra — 16 operation(s) for business stats.
+- [Socotra Claim API](https://apis.io/apis/socotra/socotra-claim-api/) — The Claim API from Socotra — 23 operation(s) for claim.
+- [Socotra Compliance API](https://apis.io/apis/socotra/socotra-compliance-api/) — The Compliance API from Socotra — 4 operation(s) for compliance.
+- [Socotra Config API](https://apis.io/apis/socotra/socotra-config-api/) — The Config API from Socotra — 19 operation(s) for config.
+- [Socotra Contact API](https://apis.io/apis/socotra/socotra-contact-api/) — The Contact API from Socotra — 7 operation(s) for contact.
+- [Socotra Document API](https://apis.io/apis/socotra/socotra-document-api/) — The Document API from Socotra — 28 operation(s) for document.
+- [Socotra Event API](https://apis.io/apis/socotra/socotra-event-api/) — The Event API from Socotra — 18 operation(s) for event.
+- [Socotra Migration API](https://apis.io/apis/socotra/socotra-migration-api/) — The Migration API from Socotra — 12 operation(s) for migration.
+- [Socotra Payment Execution API](https://apis.io/apis/socotra/socotra-payment-execution-api/) — The Payment Execution API from Socotra — 5 operation(s) for payment execution.
+- [Socotra Plugin API](https://apis.io/apis/socotra/socotra-plugin-api/) — The Plugin API from Socotra — 5 operation(s) for plugin.
+- [Socotra Policy API](https://apis.io/apis/socotra/socotra-policy-api/) — The Policy API from Socotra — 180 operation(s) for policy.
+- [Socotra Producers API](https://apis.io/apis/socotra/socotra-producers-api/) — The Producers API from Socotra — 31 operation(s) for producers.
+- [Socotra Resource API](https://apis.io/apis/socotra/socotra-resource-api/) — The Resource API from Socotra — 33 operation(s) for resource.
+- [Socotra Search API](https://apis.io/apis/socotra/socotra-search-api/) — The Search API from Socotra — 4 operation(s) for search.
+- [Socotra Work Management API](https://apis.io/apis/socotra/socotra-work-management-api/) — The Work Management API from Socotra — 39 operation(s) for work management.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Socotra Webhooks](https://apis.io/asyncapis/socotra/socotra-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Socotra](https://apis.io/servers/socotra/socotra/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Socotra Agentic Access](https://apis.io/agentic-access/socotra/socotra-agentic-access/)
+
+#### Collections (18)
+
+Postman and Open Collection request collections.
+
+- [Socotra Insurance Suite OpenAPI Definition Auth API](https://apis.io/collections/socotra/open-socotra-auth-api/)
+- [Socotra Insurance Suite OpenAPI Definition Auxdata API](https://apis.io/collections/socotra/open-socotra-auxdata-api/)
+- [Socotra Insurance Suite OpenAPI Definition Billing API](https://apis.io/collections/socotra/open-socotra-billing-api/)
+- [Socotra Insurance Suite OpenAPI Definition Business Stats API](https://apis.io/collections/socotra/open-socotra-business-stats-api/)
+- [Socotra Insurance Suite OpenAPI Definition Claim API](https://apis.io/collections/socotra/open-socotra-claim-api/)
+- [Socotra Insurance Suite OpenAPI Definition Compliance API](https://apis.io/collections/socotra/open-socotra-compliance-api/)
+- [Socotra Insurance Suite OpenAPI Definition Config API](https://apis.io/collections/socotra/open-socotra-config-api/)
+- [Socotra Insurance Suite OpenAPI Definition Contact API](https://apis.io/collections/socotra/open-socotra-contact-api/)
+- [Socotra Insurance Suite OpenAPI Definition Document API](https://apis.io/collections/socotra/open-socotra-document-api/)
+- [Socotra Insurance Suite OpenAPI Definition Event API](https://apis.io/collections/socotra/open-socotra-event-api/)
+- [Socotra Insurance Suite OpenAPI Definition Migration API](https://apis.io/collections/socotra/open-socotra-migration-api/)
+- [Socotra Insurance Suite OpenAPI Definition Payment Execution API](https://apis.io/collections/socotra/open-socotra-payment-execution-api/)
+- [Socotra Insurance Suite OpenAPI Definition Plugin API](https://apis.io/collections/socotra/open-socotra-plugin-api/)
+- [Socotra Insurance Suite OpenAPI Definition Policy API](https://apis.io/collections/socotra/open-socotra-policy-api/)
+- [Socotra Insurance Suite OpenAPI Definition Producers API](https://apis.io/collections/socotra/open-socotra-producers-api/)
+- [Socotra Insurance Suite OpenAPI Definition Resource API](https://apis.io/collections/socotra/open-socotra-resource-api/)
+- [Socotra Insurance Suite OpenAPI Definition Search API](https://apis.io/collections/socotra/open-socotra-search-api/)
+- [Socotra Insurance Suite OpenAPI Definition Work Management API](https://apis.io/collections/socotra/open-socotra-work-management-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Socotra Openapi Overlay](https://apis.io/overlays/socotra/socotra-openapi-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Socotra Authentication](https://apis.io/security/socotra/socotra-authentication/)
+- [Socotra Domain Security](https://apis.io/security/socotra/socotra-domain-security/)
+- [Socotra Trust Center](https://apis.io/security/socotra/socotra-trust-center/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://socotra.com)
+- [Documentation](https://docs.socotra.com/)
+- [Getting started](https://docs.socotra.com/getting-started/introduction-to-socotra)
+- [API reference](https://docs.socotra.com/docs/api)
+- [Support](https://www.socotra.com/contact-us/)
+- [Changelog](https://docs.socotra.com/other-resources/release-notes)
+- [Blog](https://www.socotra.com/blog/)
+- [Compliance](https://trust.socotra.com/)
+- [Terms of service](https://www.socotra.com/terms-of-use/)
+- [Privacy policy](https://www.socotra.com/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 50.9** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 44.8 |
+| Contract governance | 4.5 |
+| Operational transparency | 31.6 |
+| Developer ergonomics | 80.4 |
+| Access clarity | 36.8 |
+
+**Agent readiness 53.2** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | verified |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 26.3** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/socotra/](https://apis.io/providers/socotra/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Socotra: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/socotra/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
